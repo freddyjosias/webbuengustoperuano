@@ -1,0 +1,502 @@
+/* INDEX */
+
+body{
+	font-family: "Arial";
+	font-size: 1.6rem;
+	line-height: 2;
+}
+
+.site-header{
+	background: #212F3D;/*color de fondo*/
+	padding: 1rem 0 3rem 0;
+}
+
+.contenedor{
+	width: 95%;/*Ancho*/
+	max-width: 120rem;
+	margin:0 auto;
+}
+.contenido-header{
+	height: 100%;/*Alto*/
+	display: flex;/*Bloque flexible*/
+	flex-direction: column;
+	justify-content: space-between;
+	text-align: center;/*aliniar texto*/
+}
+.barra{
+	padding-top: 3rem;
+}
+.contenido-header h1{
+	color:#ffffff;
+	padding-bottom: 2rem;
+	max-width: 60rem;
+	line-height: 2;
+}
+.navegacion a{
+	color:#ffffff;
+	text-decoration: none;
+	font-size: 2.2rem;
+	display: block;
+}
+.navegacion a:hover{
+	color:#71b100;
+}
+@media (min-width: 768px){
+	.contenido-header{
+		text-align: left;
+	}
+}
+@media (min-width: 768px){
+	.barra{
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+}
+@media (min-width: 768px){
+	.navegacion a{
+		display: inline-block;
+		font-size: 1.8rem;
+		margin-right: 2rem;
+	}
+	.navegacion a:last-of-type{
+		margin: 0;
+	}
+}
+img{
+	height: 500px;
+	width: 500px;
+}
+.slider{
+	width: 95%;
+	margin: auto;
+	overflow: hidden;
+}
+
+.slider ul{
+	padding: 0;
+	display: flex;
+	width: 400%;
+	animation: cambio 15s infinite;
+}
+
+.slider li{
+	list-style: none;
+	width: 50%;
+}
+
+.slider img{
+	width: 100%;
+}
+
+@keyframes cambio{
+	0%{margin-left: 0;}
+	20%{margin-left: 0;}
+	25%{margin-left: -100%;}
+	45%{margin-left: -100%;}
+	50%{margin-left: -200%;}
+	70%{margin-left: -200%;}
+	75%{margin-left: -300%;}
+	100%{margin-left: -300%;}
+
+}
+
+.icono{
+	text-align: center;
+}
+
+.seccion{
+	margin-top: 2rem;
+	margin-bottom: 2rem;
+}
+
+.iconos-nosotros {
+	display: flex;
+	justify-content: space-between;
+	width: 100%;
+	margin-top: 2rem;
+	margin-bottom: 2rem;
+}
+
+.conten{
+	width: 90%;/*Ancho*/
+	max-width: 120rem;
+	margin:0 auto;
+}
+
+/* LOGIN */
+
+{
+	margin: 0;
+	padding: 0;
+	font-family: sans-serif;
+	box-sizing: border-box;
+}
+body {
+	background: #DEDEDE;
+	display: flex;
+	min-height: 100vh;
+}
+form {
+	margin: auto;
+	width: 50%;
+	max-width: 400px;
+	background: #F3F3F3;
+	padding: 20px;	
+	border: 2px solid rgba(0,0,0,0.2);
+	
+}
+input {
+	padding: 20px;
+	margin: 20px 0;
+	font-size: 15px;
+	display: block;
+	width: 90%;
+}
+h1{
+	text-align: center;
+	margin-bottom: 10px;
+	color: rgba(0,0,0,0.5);
+}
+input[type="submit"]{
+	border: 0;
+	color: brown;
+    margin: auto;
+	background: linear-gradient(#FFDA63, #FFB940);
+	cursor: pointer;
+	border-radius: 50rem;
+	margin-bottom: 3;
+}
+input[type="submit"]:hover{
+	opacity: 1;
+
+}
+input[type="submit"]:active{
+	transform: scale(0.95);
+}
+
+/* MENU */
+
+html {
+    box-sizing: border-box;
+    font-size: 62.5%; 
+}
+body {
+    font-family: 'Lato', sans-serif;
+    font-size: 1.6rem;
+    line-height: 2;
+}
+img{
+	max-width: 40%;
+}
+.contenedor {
+    width: 95%;
+    max-width: 120rem; 
+    margin: 0 auto;
+}
+.site-header {
+    background-color: #333333;
+    padding: 1rem 0 3rem 0;
+}
+.site-header.inicio {
+    background-image: url(../img2/norteño.jpg);
+    background-position: center center;
+    background-size: cover;
+    height: 60vh;
+    min-height: 60rem;
+}
+.barra{
+    width: 100%;
+    height: 80px;
+    background-color: #B89257;
+    display: flex;
+}
+.contenido-header {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: center;
+}
+.contenido-header h1 {
+    color: #ffffff;
+    padding-bottom: 2rem;
+    max-width: 60rem;
+    line-height: 2;
+}
+.contenedor{
+	width: 100%;
+	margin: 0 auto;
+}
+.seccion{
+	margin-top: 90rem;
+	margin-bottom: 2rem;
+}
+.fw-300{
+	font-weight: 1000;
+	color: #fff;
+}
+.site-footer {
+	background-color: #684B1E;
+    display: flex;
+    width: 100%;
+    height: 80px;
+    text-align: center;
+}
+.site-footer p{
+    color: white;
+    margin:auto;
+}
+.redes img:hover{
+	box-shadow: 0 0 100rem 0; 
+	background-color: white;
+}
+.redes img{
+	width: 8rem;
+	background-color: #B89257;
+}
+.redes{
+    width: 500px;
+    display: flex;
+    list-style: none;
+}
+.nav{
+    width: 80%;
+    display: flex;
+    list-style: none;
+}
+.nav a{
+    background-color: #B89257;
+    color: #fff;
+    text-decoration: none;
+    width: 100%;
+    margin: auto;
+}
+.centro{
+    background-color: #FFFFFF;
+    display: flex;
+    width: 100%;
+    height: 1000px;
+}
+
+/*MENU.HTML*/
+
+.menu-carta{
+    display: block;
+    width: 100%;
+    margin: 0;
+}
+
+.titulo-diseno{
+
+}
+.direccion-texto{
+    display: block;
+    font-size: 2em;
+    margin: 0;
+    font-weight: bold;
+}
+.direccion-carrito{
+    float: right;
+}
+.carta{
+    margin: 0;
+}
+.comidas{
+    display: block;
+    font-size: 0.8em;
+    font-weight: bold;
+    padding: 5px;
+    margin: 0;
+}
+.h{
+    margin: 0;
+}
+.bloque1{
+    display: block;
+    column-count: 2;
+}
+.bloque1 li{
+    column-count: 2;
+}
+.bloque1 li p{
+    text-align: right;
+}
+.bloque1 img{
+    height: auto;
+    max-width: 50%;
+    float: right;
+}
+.bloque2{
+    display: block;
+    column-count: 2;
+}
+.bloque2 li{
+    column-count: 2;
+}
+.bloque2 li p{
+    text-align: right;
+}
+.bloque2 img{
+    height: auto;
+    max-width: 60%;
+}
+.bloque3{
+    display: block;
+    column-count: 2;
+}
+.bloque3 li{
+    column-count: 2;
+}
+.bloque3 li p{
+    text-align: right;
+}
+.bloque3 img{
+    height: auto;
+    max-width: 50%;
+    float: right;
+}
+
+/* QUIENES SOMOS */
+
+html {
+    box-sizing: border-box;
+    font-size: 62.5%; 
+}
+body {
+    font-family: 'Lato', sans-serif;
+    font-size: 1.8rem;
+    line-height: 2;
+}
+img{
+	max-width: 40%;
+}
+.contenedor {
+    width: 95%;
+    max-width: 120rem; 
+    margin: 0 auto;
+}
+.site-header {
+    background-color: #333333;
+    padding: 1rem 0 3rem 0;
+}
+.site-header.inicio {
+    background-image: url(../img2/norteño.jpg);
+    background-position: center center;
+    background-size: cover;
+    height: 60vh;
+    min-height: 60rem;
+}
+.barra{
+    width: 100%;
+    height: 80px;
+    background-color: #B89257;
+    display: flex;
+}
+.contenido-header {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: center;
+}
+.contenido-header h1 {
+    color: #ffffff;
+    padding-bottom: 2rem;
+    max-width: 60rem;
+    line-height: 2;
+}
+.contenedor{
+	width: 100%;
+	margin: 0 auto;
+}
+.seccion{
+	margin-top: 90rem;
+	margin-bottom: 2rem;
+}
+.fw-300{
+	font-weight: 1000;
+	color: #fff;
+}
+.site-footer {
+	background-color: #684B1E;
+    display: flex;
+    width: 100%;
+    height: 80px;
+    text-align: center;
+}
+.site-footer p{
+    color: white;
+    margin:auto;
+}
+.redes img:hover{
+	box-shadow: 0 0 100rem 0; 
+	background-color: white;
+}
+.redes img{
+	width: 8rem;
+	background-color: #B89257;
+}
+.redes{
+    width: 500px;
+    display: flex;
+    
+}
+.nav{
+    width: 80%;
+    display: flex;
+    list-style: none;
+}
+.nav a{
+    background-color: #B89257;
+    color: #fff;
+    text-decoration: none;
+    width: 100%;
+    margin: auto;
+}
+.texto{
+    font-size: 2rem;
+    text-align: center;
+}
+.centro{
+    background-color: #684B1E;
+    display: flex;
+    width: 100%;
+     
+}
+.centro div{
+    color: #FFFFFF; 
+    width: 100%;
+    text-align: center;    
+}
+
+.gastosdeenvio h1{
+    font-size: 3rem;
+    margin: 0rem;
+}
+.formadepago h4{
+    font-size: 3rem;
+    margin: 0rem;
+}
+.formadepago p{
+    display: inline-flex;
+    padding: 0 2rem;
+}
+.horariodeatencion h2{
+    font-size: 3rem;
+    margin: 0rem;
+}
+
+.telefono h3{
+    font-size: 3rem;
+    margin: 0rem;
+}
+
+.correoelectronico h5{
+    font-size: 3rem;
+    margin: 0rem;
+}
+.ubicacion h6{
+    font-size: 3rem;
+    margin: 0rem;
+}
