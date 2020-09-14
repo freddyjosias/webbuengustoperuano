@@ -94,7 +94,7 @@ img{
     margin: auto;
 }
 .centro{
-    background-color: #684B1E;
+    background-color: #FFFFFF;
     display: flex;
     width: 100%;
     height: 1000px;
@@ -105,14 +105,74 @@ img{
 .menu-carta{
     display: block;
     width: 100%;
-    height: 900px;
+    margin: 0;
 }
 .titulo-diseño{
 
 }
 .direccion-texto{
-    text-align: left;
+    display: block;
+    font-size: 2em;
+    margin: 0;
+    font-weight: bold;
 }
 .direccion-carrito{
-    display: flex;
+    float: right;
+}
+.carta{
+    margin: 0;
+}
+.comidas{
+    display: block;
+    font-size: 0.8em;
+    font-weight: bold;
+    padding: 5px;
+    margin: 0;
+}
+.h{
+    margin: 0;
+}
+.bloque1{
+    display: block;
+    column-count: 2;
+}
+.bloque1 li{
+    column-count: 2;
+}
+.bloque1 li p{
+    text-align: right;
+}
+.bloque1 img{
+    height: auto;
+    max-width: 50%;
+    float: right;
+}
+.bloque2{
+    display: block;
+    column-count: 2;
+}
+.bloque2 li{
+    column-count: 2;
+}
+.bloque2 li p{
+    text-align: right;
+}
+.bloque2 img{
+    height: auto;
+    max-width: 60%;
+}
+.bloque3{
+    display: block;
+    column-count: 2;
+}
+.bloque3 li{
+    column-count: 2;
+}
+.bloque3 li p{
+    text-align: right;
+}
+.bloque3 img{
+    height: auto;
+    max-width: 50%;
+    float: right;
 }
