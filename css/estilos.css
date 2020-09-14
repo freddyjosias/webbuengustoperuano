@@ -1,10 +1,9 @@
-/* INDEX */
+/* ESTILOS GENERALES */
 
-body{
-	font-family: "Arial";
-	font-size: 1.6rem;
-	line-height: 2;
-}
+
+
+
+/* INDEX */
 
 .site-header{
 	background: #212F3D;/*color de fondo*/
@@ -63,10 +62,7 @@ body{
 		margin: 0;
 	}
 }
-img{
-	height: 500px;
-	width: 500px;
-}
+
 .slider{
 	width: 95%;
 	margin: auto;
@@ -126,17 +122,6 @@ img{
 
 /* LOGIN */
 
-{
-	margin: 0;
-	padding: 0;
-	font-family: sans-serif;
-	box-sizing: border-box;
-}
-body {
-	background: #DEDEDE;
-	display: flex;
-	min-height: 100vh;
-}
 form {
 	margin: auto;
 	width: 50%;
@@ -146,6 +131,7 @@ form {
 	border: 2px solid rgba(0,0,0,0.2);
 	
 }
+
 input {
 	padding: 20px;
 	margin: 20px 0;
@@ -153,11 +139,7 @@ input {
 	display: block;
 	width: 90%;
 }
-h1{
-	text-align: center;
-	margin-bottom: 10px;
-	color: rgba(0,0,0,0.5);
-}
+
 input[type="submit"]{
 	border: 0;
 	color: brown;
@@ -177,18 +159,6 @@ input[type="submit"]:active{
 
 /* MENU */
 
-html {
-    box-sizing: border-box;
-    font-size: 62.5%; 
-}
-body {
-    font-family: 'Lato', sans-serif;
-    font-size: 1.6rem;
-    line-height: 2;
-}
-img{
-	max-width: 40%;
-}
 .contenedor {
     width: 95%;
     max-width: 120rem; 
@@ -359,18 +329,6 @@ img{
 
 /* QUIENES SOMOS */
 
-html {
-    box-sizing: border-box;
-    font-size: 62.5%; 
-}
-body {
-    font-family: 'Lato', sans-serif;
-    font-size: 1.8rem;
-    line-height: 2;
-}
-img{
-	max-width: 40%;
-}
 .contenedor {
     width: 95%;
     max-width: 120rem; 
