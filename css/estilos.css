@@ -69,43 +69,57 @@
 
 .section-inicio {
     background: rgb(226, 226, 226);
-    margin: 2rem 0;
+    margin: 2rem 0 0 0;
+    padding: 1rem 0 2rem 0;
 }
 
 .section-inicio h1{
-    padding-top: 1rem;
     text-align: center;
     text-decoration-line: underline;
     font-size: 38px;
     font-weight: bold;
 }
 
-.section-inicio > div {
+.presentacion-restaurantes {
     display: flex;
-    width: 100%;
+    justify-content: space-between;
 }
 
-.presentacion-restaurantes {
+.presentacion-restaurantes > a {
+    width: 47%;
+    text-decoration: none;
+}
+
+.presentacion-restaurantes > a > div {
     background-color: white;
     border: 2px solid black;
-    width: 45%;
+    padding: 1rem;
     margin-bottom: 1rem;
 }
 
-.presentacion-restaurantes a {
-    text-decoration: none;
+.presentacion-restaurantes h2 {
     color: rgb(73, 73, 73);
+    margin: 0;
+    padding-bottom: 1rem;
+}
+
+.presentacion-restaurantes img{
+    width: 100%;
+    height: 20rem;
 }
 
 .footer-inicio {
     background-color: rgb(71, 71, 71);
     color: white;
-    height: 3rem;
+}
+
+.footer-inicio > div {
+    display: flex;
 }
 
 .footer-inicio > div > div {
     font-size: 18px;
-    margin: 10px 0;
+    margin: 15px 0;
 }
 
 /* END INDEX */
