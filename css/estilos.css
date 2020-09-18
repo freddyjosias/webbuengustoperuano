@@ -173,25 +173,6 @@ input[type="submit"]:active{
 /* START MENU */
 /* START MENU */
 
-.contenedor {
-    width: 95%;
-    max-width: 120rem; 
-    margin: 0 auto;
-}
-
-.site-header {
-    background-color: #333333;
-    padding: 1rem 0 3rem 0;
-}
-
-.site-header.inicio {
-    background-image: url(../img2/norteño.jpg);
-    background-position: center center;
-    background-size: cover;
-    height: 60vh;
-    min-height: 60rem;
-}
-
 .barra{
     width: 100%;
     height: 80px;
@@ -240,36 +221,6 @@ input[type="submit"]:active{
 .site-footer p{
     color: white;
     margin:auto;
-}
-
-.redes img:hover{
-	box-shadow: 0 0 100rem 0; 
-	background-color: white;
-}
-
-.redes img{
-	width: 8rem;
-	background-color: #B89257;
-}
-
-.redes{
-    width: 500px;
-    display: flex;
-    list-style: none;
-}
-
-.nav{
-    width: 80%;
-    display: flex;
-    list-style: none;
-}
-
-.nav a{
-    background-color: #B89257;
-    color: #fff;
-    text-decoration: none;
-    width: 100%;
-    margin: auto;
 }
 
 .centro{
@@ -356,20 +307,11 @@ input[type="submit"]:active{
 
 /* QUIENES SOMOS */
 
-.buengusto {
-    width: 100%;
-    margin: 0 auto;
-}
 .buengustoperuano {
-    background-color: #333333;
-    padding: 1rem 0 3rem 0;
-}
-.buengustoperuano.inicio {
     background-image: url(../img/norteño.jpg);
     background-position: center center;
     background-size: cover;
-    height: 60vh;
-    min-height: 60rem;
+    height: 30vh;
 }
 .barrita{
     width: 100%;
@@ -401,7 +343,7 @@ input[type="submit"]:active{
 }
 .redes{
     width: 500px;
-    display: flex;   
+    display: flex;  
 }
 
 .nave{
