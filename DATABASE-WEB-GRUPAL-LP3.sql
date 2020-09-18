@@ -69,7 +69,8 @@ CREATE TABLE detalleventa(
 	CONSTRAINT fk_productos_detalleventa FOREIGN KEY (idproducto) REFERENCES productos(idproducto),
 	CONSTRAINT fk_sucursal_detalleventa FOREIGN KEY (idsucursal) REFERENCES sucursal(idsucursal)
 	);
-	
+
+-- Ingreso de sucursal
 INSERT INTO sucursal (nomsucursal,direcsucursal,telefono) 
 VALUES ('El Norteño','Santa María 246, Tarapoto','+51 42 522604');
 INSERT INTO sucursal (nomsucursal,direcsucursal,telefono) 
@@ -78,4 +79,7 @@ INSERT INTO sucursal (nomsucursal,direcsucursal,telefono)
 VALUES ('Doña Zully','Jr. San Pablo de la Cruz 244, Tarapoto','+51 42 530670');
 INSERT INTO sucursal (nomsucursal,direcsucursal,telefono) 
 VALUES ('Chalet Venzia','Jr. Alegría Arias de Morey 293-175, Tarapoto','+51 42 522104');
+
+
+-- Consultas
 SELECT*FROM sucursal;
