@@ -173,8 +173,13 @@ input[type="submit"]:active{
 /* START MENU */
 /* START MENU */
 
-.header-restaurante > div > img {
+.header-restaurante > div{
     height: 25vh;
+    width: 100%;
+}
+
+.header-restaurante > div > img {
+    height: 100%;
     width: 100%;
 }
 
@@ -196,6 +201,7 @@ input[type="submit"]:active{
     display: flex;
     padding: 1rem;
     font-size: 20px;
+    
 }
 
 .barra{
