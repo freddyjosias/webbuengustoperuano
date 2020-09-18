@@ -85,10 +85,19 @@ VALUES ('Chalet Venzia','Jr. Alegría Arias de Morey 293-175, Tarapoto','+51 42 
 SELECT*FROM sucursal;
 
 --Ingreso de formas de pago
-INSERT INTO formaspago (descripcionformaspago) 
+INSERT INTO formaspago (descripciontipospedido) 
 VALUES ('Efectivo');
-INSERT INTO formaspago (descripcionformaspago) 
+INSERT INTO formaspago (descripciontipospedido) 
 VALUES ('online');
-INSERT INTO formaspago (descripcionformaspago) 
+INSERT INTO formaspago (descripciontipospedido) 
 VALUES ('POS');
+
+--Ingreso de tipos de pedido
+INSERT INTO tipospedido (descripciontipospedido) 
+VALUES ('Delivery');
+INSERT INTO tipospedido (descripciontipospedido) 
+VALUES ('Recojo en local');
+INSERT INTO tipospedido (descripciontipospedido) 
+VALUES ('Reserva');
+
 
