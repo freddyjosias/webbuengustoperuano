@@ -173,6 +173,27 @@ input[type="submit"]:active{
 /* START MENU */
 /* START MENU */
 
+.header-restaurante > div > img {
+    height: 25vh;
+    width: 100%;
+}
+
+.header-restaurante > nav {
+    background-color: teal;
+}
+
+.header-restaurante ul {
+    list-style: none;
+    display: flex;
+}
+
+.header-restaurante nav a {
+    text-decoration: none;
+    color: white;
+    display: flex;
+    padding: 1rem;
+}
+
 .barra{
     width: 100%;
     height: 80px;
@@ -307,18 +328,13 @@ input[type="submit"]:active{
 
 /* QUIENES SOMOS */
 
-.buengustoperuano {
-    background-image: url(../img/norteño.jpg);
-    background-position: center center;
-    background-size: cover;
-    height: 30vh;
-}
 .barrita{
     width: 100%;
     height: 80px;
     background-color: #B89257;
     display: flex;
 }
+
 .peruano-header {
     height: 100%;
     display: flex;
@@ -326,6 +342,7 @@ input[type="submit"]:active{
     justify-content: space-between;
     text-align: center;
 }
+
 .peruano-header h1 {
     color: #ffffff;
     padding-bottom: 2rem;
@@ -337,10 +354,12 @@ input[type="submit"]:active{
 	box-shadow: 0 0 100rem 0; 
 	background-color: white;
 }
+
 .redes img{
 	width: 8rem;
 	background-color: #B89257;
 }
+
 .redes{
     width: 500px;
     display: flex;  
