@@ -80,12 +80,21 @@
     font-weight: bold;
 }
 
-.iconos-nosotros {
-	display: flex;
-	justify-content: space-between;
-	width: 100%;
-	margin-top: 2rem;
-	margin-bottom: 2rem;
+.section-inicio > div {
+    display: flex;
+    width: 100%;
+}
+
+.presentacion-restaurantes {
+    background-color: white;
+    border: 2px solid black;
+    width: 45%;
+    margin-bottom: 1rem;
+}
+
+.presentacion-restaurantes a {
+    text-decoration: none;
+    color: rgb(73, 73, 73);
 }
 
 .footer-inicio {
