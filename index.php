@@ -2,7 +2,7 @@
     $conexionDB = new mysqli('localhost', 'root', '', 'buengustoperuano');
     $conexionDB -> set_charset("utf8");
 
-    $consultaRestaurantes = 'SELECT nomsucursal FROM "sucursal"';
+    $consultaRestaurantes = 'SELECT idsucursal, nomsucursal FROM sucursal';
 
 ?>
 
@@ -45,34 +45,24 @@
     <section class="section-inicio">
         <div class="contenedor-general">
             <h1>RESTAURANTES</h1>
-            <div class="presentacion-restaurantes">
-                <a href="quienes-somos.html">
-                    <div>
-                        <h2>Restaurante 1:</h2>
-                        <img src="img/img5.jpg">
-                    </div>
-                </a>
-                <a href="">
-                    <div>
-                        <h2>Restaurante 2:</h2>
-                        <img src="img/img6.jpg">
-                    </div>
-                </a>
-            </div>
-            <div class="presentacion-restaurantes">
-                <a href="">
-                    <div>
-                        <h2>Restaurante 3:</h2>
-                        <img src="img/img7.jpg">
-                    </div>
-                </a>
-                <a href="">
-                    <div>
-                        <h2>Restaurante 4:</h2>
-                        <img src="img/img8.jpg">
-                    </div>
-                </a>
-            </div>
+            <?php $contadorRestaurantes = 0;
+            $resultados = mysqli_query($conexionDB, $consultaRestaurantes); 
+            while($row = mysqli_fetch_assoc($resultados)) { 
+                if ($contadorRestaurantes % 2 == 0) { ?>
+                    <div class="presentacion-restaurantes">
+                <?php } ?>
+                    <a href="quienes-somos.html">
+                        <div>
+                            <h2><?php echo $row['nomsucursal']; ?>:</h2>
+                            <img src="img/img<?php echo ($row['idsucursal'] + 4); ?>.jpg">
+                        </div>
+                    </a>
+                <?php $contadorRestaurantes++;
+                if ($contadorRestaurantes % 2 == 0) {?>
+                </div>
+            <?php }
+            } ?>
+
         </div>
     </section>
 
