@@ -1,36 +1,28 @@
 /* ESTILOS GENERALES */
 
-
-
+.contenedor-general {
+    width: 90%;
+    max-width: 75rem;
+    margin: auto;
+}
 
 /* INDEX */
 
-.site-header{
-	background: #212F3D;/*color de fondo*/
-	padding: 1rem 0 3rem 0;
+.header-inicio {
+    background-color: #212F3D;
+    width: 100%;
 }
 
-.contenedor{
-	width: 95%;/*Ancho*/
-	max-width: 120rem;
-	margin:0 auto;
+.contenido-header-inicio {
+    display: flex;
 }
-.contenido-header{
-	height: 100%;/*Alto*/
-	display: flex;/*Bloque flexible*/
-	flex-direction: column;
-	justify-content: space-between;
-	text-align: center;/*aliniar texto*/
+
+.contenido-header-inicio > div > h1 {
+    color: white;
+    margin: 1rem 0;
+    font-size: 2.5rem;
 }
-.barra{
-	padding-top: 3rem;
-}
-.contenido-header h1{
-	color:#ffffff;
-	padding-bottom: 2rem;
-	max-width: 60rem;
-	line-height: 2;
-}
+
 .navegacion a{
 	color:#ffffff;
 	text-decoration: none;
