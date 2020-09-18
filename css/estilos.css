@@ -1,4 +1,6 @@
-/* ESTILOS GENERALES */
+/* START ESTILOS GENERALES */
+/* START ESTILOS GENERALES */
+/* START ESTILOS GENERALES */
 
 .contenedor-general {
     width: 90%;
@@ -6,7 +8,13 @@
     margin: auto;
 }
 
-/* INDEX */
+/* END ESTILOS GENERALES */
+/* END ESTILOS GENERALES */
+/* END ESTILOS GENERALES */
+
+/* START INDEX */
+/* START INDEX */
+/* START INDEX */
 
 .header-inicio {
     background-color: #212F3D;
@@ -59,13 +67,17 @@
 
 }
 
-.icono{
-	text-align: center;
+.section-inicio {
+    background: rgb(226, 226, 226);
+    margin: 2rem 0;
 }
 
-.seccion{
-	margin-top: 2rem;
-	margin-bottom: 2rem;
+.section-inicio h1{
+    padding-top: 1rem;
+    text-align: center;
+    text-decoration-line: underline;
+    font-size: 38px;
+    font-weight: bold;
 }
 
 .iconos-nosotros {
@@ -76,13 +88,24 @@
 	margin-bottom: 2rem;
 }
 
-.conten{
-	width: 90%;/*Ancho*/
-	max-width: 120rem;
-	margin:0 auto;
+.footer-inicio {
+    background-color: rgb(71, 71, 71);
+    color: white;
+    height: 3rem;
 }
 
-/* LOGIN */
+.footer-inicio > div > div {
+    font-size: 18px;
+    margin: 10px 0;
+}
+
+/* END INDEX */
+/* END INDEX */
+/* END INDEX */
+
+/* START LOGIN */
+/* START LOGIN */
+/* START LOGIN */
 
 form {
 	margin: auto;
