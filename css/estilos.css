@@ -199,9 +199,8 @@ input[type="submit"]:active{
     text-decoration: none;
     color: white;
     display: flex;
-    padding: 1rem;
+    padding: 1rem 4rem;
     font-size: 20px;
-    
 }
 
 .barra{
