@@ -355,6 +355,7 @@ input[type="submit"]:active{
     width: 60%;
     height: 30rem;
     margin: 0 1rem 1rem 0;
+    background-color: rgb(220, 255, 217);
 }
 
 .mapa-quienes-somos p{
@@ -373,39 +374,51 @@ input[type="submit"]:active{
     background-color: white;
 }
 
-
 .horariodeatencion{
     float: right;
-    background-color: yellow;
-    
-}
-
-.gastosdeenvio {
-    background-color: yellow;
-    float: right;
-}
-    
-.formadepago {
-    float: right;
-    background-color: yellow;
-}
-
-.formadepago {
-    float: right;
-    background-color: yellow;
-    
+    width: 37%;
+    border: 3px solid #969696;
+    background-color: rgb(220, 255, 217);
+    margin-bottom: 1rem;
 }
 
 .telefono {
     float: right;
-    background-color: yellow;
+    width: 37%;
+    border: 3px solid #969696;
+    background-color: rgb(220, 255, 217);
+    margin-bottom: 1rem;
+}
+
+.ubicacion {
+    float: right;
+    width: 37%;
+    border: 3px solid #969696;
+    background-color: rgb(220, 255, 217);
+    margin-bottom: 1rem;
 }
 
 .correoelectronico {
     float: right;
-    background-color: yellow;
+    width: 37%;
+    border: 3px solid #969696;
+    background-color: rgb(220, 255, 217);
+    margin-bottom: 1rem;
 }
-.ubicacion {
+
+.formadepago {
     float: right;
-    background-color: yellow;
+    width: 37%;
+    border: 3px solid #969696;
+    background-color: rgb(220, 255, 217);
+    margin-bottom: 1rem;
+    
+}
+
+.gastosdeenvio {
+    float: right;
+    width: 37%;
+    border: 3px solid #969696;
+    background-color: rgb(220, 255, 217);
+    margin-bottom: 1rem;
 }
