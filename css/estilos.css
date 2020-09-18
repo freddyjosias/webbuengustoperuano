@@ -183,7 +183,10 @@ input[type="submit"]:active{
     height: 25vh;
     width: 100%;
 }
-
+.header-restaurante nav ul li a:hover{
+    background-color: #969696;
+    color: black;
+}
 .header-restaurante > div > img {
     height: 100%;
     width: 100%;
