@@ -28,10 +28,13 @@ body{
     display: flex;
 }
 
-.contenido-header-inicio > div > h1 {
-    color: white;
-    margin: 1rem 0;
-    font-size: 2.5rem;
+.contenedor-img{
+    background-size:cover;
+    background-position: center center;
+}
+
+.contenido-header-inicio-img {
+    width: 50%;
 }
 
 .slider{
