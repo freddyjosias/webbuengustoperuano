@@ -1,3 +1,11 @@
+<?php
+    $conexionDB = new mysqli('localhost', 'root', '', 'buengustoperuano');
+    $conexionDB -> set_charset("utf8");
+
+    $consultaRestaurantes = 'SELECT nomsucursal FROM "sucursal"';
+
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
