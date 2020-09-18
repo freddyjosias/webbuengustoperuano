@@ -184,7 +184,10 @@ input[type="submit"]:active{
 
 .header-restaurante ul {
     list-style: none;
+    justify-content: center;
     display: flex;
+    padding: 0;
+    margin: 0;
 }
 
 .header-restaurante nav a {
@@ -192,6 +195,7 @@ input[type="submit"]:active{
     color: white;
     display: flex;
     padding: 1rem;
+    font-size: 20px;
 }
 
 .barra{
