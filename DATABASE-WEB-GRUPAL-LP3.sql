@@ -81,5 +81,14 @@ INSERT INTO sucursal (nomsucursal,direcsucursal,telefono)
 VALUES ('Chalet Venzia','Jr. Alegría Arias de Morey 293-175, Tarapoto','+51 42 522104');
 
 
--- Consultas
+-- Consulta
 SELECT*FROM sucursal;
+
+--Ingreso de formas de pago
+INSERT INTO formaspago (descripcionformaspago) 
+VALUES ('Efectivo');
+INSERT INTO formaspago (descripcionformaspago) 
+VALUES ('online');
+INSERT INTO formaspago (descripcionformaspago) 
+VALUES ('POS');
+
