@@ -36,6 +36,10 @@ CREATE TABLE productos(
 CREATE TABLE usuario(
    idusuario INT NOT NULL AUTO_INCREMENT,
    idsucursal INT NOT NULL,
+   email VARCHAR(50) NOT NULL,
+   nombreencargado VARCHAR(50),
+   apellidoencargado VARCHAR(50),
+   contraseña VARCHAR(50) NOT NULL,
 	CONSTRAINT pk_usuario PRIMARY KEY (idusuario),
    CONSTRAINT fk_sucursal_usuario FOREIGN KEY (idsucursal) REFERENCES sucursal(idsucursal)
 );
@@ -85,11 +89,11 @@ VALUES ('Chalet Venzia','Jr. Alegría Arias de Morey 293-175, Tarapoto','+51 42 
 SELECT*FROM sucursal;
 
 --Ingreso de formas de pago
-INSERT INTO formaspago (descripciontipospedido) 
+INSERT INTO formaspago (descripcionformaspago) 
 VALUES ('Efectivo');
-INSERT INTO formaspago (descripciontipospedido) 
-VALUES ('online');
-INSERT INTO formaspago (descripciontipospedido) 
+INSERT INTO formaspago (descripcionformaspago) 
+VALUES ('Online');
+INSERT INTO formaspago (descripcionformaspago) 
 VALUES ('POS');
 
 --Ingreso de tipos de pedido
@@ -99,5 +103,17 @@ INSERT INTO tipospedido (descripciontipospedido)
 VALUES ('Recojo en local');
 INSERT INTO tipospedido (descripciontipospedido) 
 VALUES ('Reserva');
+
+--Ingreso de usuarios
+INSERT INTO usuario (idsucursal,email,nombreencargado,apellidoencargado,contraseña) 
+VALUES (1,'jerryinga12@gmail.com','Jerry Josias','Sobojeda Pinchi','aguantelgtb');
+INSERT INTO usuario (idsucursal,email,nombreencargado,apellidoencargado,contraseña) 
+VALUES (2,'freddyhidalgo@gmail.com','Freddy Roberto','Culqui Chupingawa','vivaelpubg');
+INSERT INTO usuario (idsucursal,email,nombreencargado,apellidoencargado,contraseña) 
+VALUES (3,'ariano@gmail.com','Arian','Chuquilin Sanches','vivaellol');
+INSERT INTO usuario (idsucursal,email,nombreencargado,apellidoencargado,contraseña) 
+VALUES (4,'jordidrox@gmail.com','Jordi','Panduro Valverde','vivaelclash');
+
+
 
 
