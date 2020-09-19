@@ -1,8 +1,26 @@
 <?php 
 
+    $conexionDB = new mysqli('localhost', 'root', '', 'buengustoperuano');
+    $conexionDB -> set_charset("utf8");
+
     if (!isset($_GET['view'])) {
         header('Location: index.php');
     } else {
+
+        $consultaVerificarRestaurante = 'SELECT idsucursal FROM sucursal';
+
+        $idRestaurante;
+        $resultados = mysqli_query($conexionDB, $consultaVerificarRestaurante); 
+        while($row = mysqli_fetch_assoc($resultados)) { 
+            if ($row['idsucursal'] ==  $_GET['view']) {
+                $idRestaurante = $row['idsucursal'];
+                break;
+            }
+        }
+
+        if (!isset($idRestaurante)) {
+            header('Location: index.php');
+        } else {
 
 ?>
 
@@ -26,7 +44,7 @@
         </div>
         <nav>
             <ul>
-                <li><a href="index.html">Inicio</a></li>
+                <li><a href="index.php">Inicio</a></li>
                 <li><a href="">Pedidos</a></li>
                 <li><a href="">Quienes Somos</a></li>
             </ul>
@@ -108,6 +126,7 @@
 </html>
 
 <?php
+        }
 
     }
 
