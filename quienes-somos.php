@@ -13,9 +13,14 @@
         $resultados = mysqli_query($conexionDB, $consultaVerificarRestaurante); 
         while($row = mysqli_fetch_assoc($resultados)) { 
             if ($row['idsucursal'] ==  $_GET['view']) {
-                
+                $idRestaurante = $row['idsucursal'];
+                break;
             }
         }
+
+        if (!isset($idRestaurante)) {
+            header('Location: index.php');
+        } else {
 
 ?>
 
@@ -121,6 +126,7 @@
 </html>
 
 <?php
+        }
 
     }
 
