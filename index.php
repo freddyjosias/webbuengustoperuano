@@ -51,7 +51,7 @@
                 if ($contadorRestaurantes % 2 == 0) { ?>
                     <div class="presentacion-restaurantes">
                 <?php } ?>
-                    <a href="quienes-somos.html">
+                    <a href="quienes-somos.php?view=<?php echo $row['idsucursal']; ?>">
                         <div>
                             <h2><?php echo $row['nomsucursal']; ?>:</h2>
                             <img src="img/img<?php echo ($row['idsucursal'] + 4); ?>.jpg">
