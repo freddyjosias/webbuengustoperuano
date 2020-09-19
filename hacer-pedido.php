@@ -61,9 +61,11 @@
 						</div>
     	
 			<div class="menu-central-cartas">	
-								
-						<div class="entradas">
-							<h2>Entradas</h2>
+					
+			     <div>
+					<div class="entradas">
+							
+							<h4>Entradas</h4>
 							<ul>
 								<li>Causa de pollo
 									<p>S/.9.00</p>
@@ -83,12 +85,12 @@
 								<li>Wantanes peruanos
 									<p>S/.13.00</p>
 								</li>
-							</ul>
-						</div>
+							</ul>						
+					</div>
     			
 						<div class="fondos">
 							<div>
-								<h3>Fondos</h3>
+								<h4>Fondos</h4>
 							</div>
 							<div>	
 								<ul>
@@ -128,7 +130,7 @@
 	    					</li>
 	    				</ul>
     				</div>
-				
+				</div>
 				
     				<div class="refrescos">
     					<h4>Refrescos</h4>
