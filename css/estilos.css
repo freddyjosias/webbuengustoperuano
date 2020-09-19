@@ -175,6 +175,46 @@ input[type="submit"]:active{
 /* END LOGIN */
 /* END LOGIN */
 
+/* START MENU */
+/* START MENU */
+/* START MENU */
+
+.header-restaurante > div{
+    height: 25vh;
+    width: 100%;
+}
+.header-restaurante nav ul li a:hover{
+    background-color: #969696;
+    color: black;
+}
+.header-restaurante > div > img {
+    height: 100%;
+    width: 100%;
+}
+
+.header-restaurante > nav {
+    background-color: teal;
+}
+
+.header-restaurante ul {
+    list-style: none;
+    justify-content: center;
+    display: flex;
+    padding: 0;
+    margin: 0;
+}
+
+.header-restaurante nav a {
+    text-decoration: none;
+    color: white;
+    display: flex;
+    padding: 1rem 4rem;
+    font-size: 20px;
+}
+
+/* END MENU */
+/* END MENU */
+/* END MENU */
 
 /* START QUIENES SOMOS */
 /* START QUIENES SOMOS */
