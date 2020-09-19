@@ -175,104 +175,10 @@ input[type="submit"]:active{
 /* END LOGIN */
 /* END LOGIN */
 
-/* START MENU */
-/* START MENU */
-/* START MENU */
 
-.header-restaurante > div{
-    height: 25vh;
-    width: 100%;
-}
-.header-restaurante nav ul li a:hover{
-    background-color: #969696;
-    color: black;
-}
-.header-restaurante > div > img {
-    height: 100%;
-    width: 100%;
-}
-
-.header-restaurante > nav {
-    background-color: teal;
-}
-
-.header-restaurante ul {
-    list-style: none;
-    justify-content: center;
-    display: flex;
-    padding: 0;
-    margin: 0;
-}
-
-.header-restaurante nav a {
-    text-decoration: none;
-    color: white;
-    display: flex;
-    padding: 1rem 4rem;
-    font-size: 20px;
-}
-
-.barra{
-    width: 100%;
-    height: 80px;
-    background-color: #B89257;
-    display: flex;
-}
-
-.contenido-header {
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    text-align: center;
-}
-
-.contenido-header h1 {
-    color: #ffffff;
-    padding-bottom: 2rem;
-    max-width: 60rem;
-    line-height: 2;
-}
-
-.contenedor{
-	width: 100%;
-	margin: 0 auto;
-}
-
-.seccion{
-	margin-top: 90rem;
-	margin-bottom: 2rem;
-}
-
-.fw-300{
-	font-weight: 1000;
-	color: #fff;
-}
-
-.site-footer {
-	background-color: #684B1E;
-    display: flex;
-    width: 100%;
-    height: 80px;
-    text-align: center;
-}
-
-.site-footer p{
-    color: white;
-    margin:auto;
-}
-
-.centro{
-    background-color: #FFFFFF;
-    display: flex;
-    width: 100%;
-    height: 1000px;
-}
-
-/*MENU.HTML*/
-
-
-/* QUIENES SOMOS */
+/* START QUIENES SOMOS */
+/* START QUIENES SOMOS */
+/* START QUIENES SOMOS */
 
 .introduccion-quienes-somos {
     font-size: 25px;
@@ -320,3 +226,7 @@ input[type="submit"]:active{
     width: 100%;
     height: 26.1rem;
 }
+
+/* END QUIENES SOMOS */
+/* END QUIENES SOMOS */
+/* END QUIENES SOMOS */
