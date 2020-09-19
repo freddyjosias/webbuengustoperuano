@@ -49,69 +49,72 @@
             </ul>
         </nav>
 	</header>
-    <main class= "menu-central">	
-    	<div>
-    		<div>
-    			<div>
-    				<h1>
-                        Menu - Carta
-                        <img src="img/icono.png">
-                    </h1>
-    			</div>
-    			<div>
-    				<div>
-    					<h2>Entradas</h2>
-	    				<ul>
-	    					<li>Causa de pollo
-	    						<p>S/.9.00</p>
-	    					</li>
-	    					<li>Ceviche achorado(pescado y chicharron mixto)
-	    						<p>S/.10.00</p>
-	    					</li>
-	    					<li>Langostinos pacifico(6 unidades)
-	    						<p>S/.15.00</p>
-	    					</li>
-	    					<li>Papa a la huancaina
-	    						<p>S/.10.00</p>
-	    					</li>
-	    					<li>Tequeños de lomo saltado
-	    						<p>S/.12.00</p>
-	    					</li>
-	    					<li>Wantanes peruanos
-	    						<p>S/.13.00</p>
-	    					</li>
-	    				</ul>
-    				</div>
-    			</div>
-    			<div>
-    				<div>
-	    				<h3>Fondos</h3>
-    				</div>
-  					<div>	
-    					<ul>
-    						<li>Aji de gallina
-	    						<p>S/.20.00</p>
-	    					</li>
-	    					<li>Arroz chaufa de Mamani con pollo y carne
-	    						<p>S/.25.00</p>
-	    					</li>
-	    					<li>Arroz con mariscos
-	    						<p>S/.20.00</p>
-	    					</li>
-	    					<li>Jalea mixta
-	    						<p>S/.30.00</p>
-	    					</li>
-	    					<li>Lomo saltado
-	    						<p>S/.25.00</p>
-	    					</li>
-	    					<li>Tacu tacu de mariscos
-	    						<p>S/.25.00</p>
-	    					</li>
-	    				</ul>
-    				</div>
-    			</div>
-    			<div>
-    				<div>
+	
+    <main class= "menu-central">
+		
+	                   <div class="menu-central-icono">
+							<h1>
+								<img src="img/icono.png">
+								Menu - Carta
+								
+							</h1>
+						</div>
+    	
+			<div class="menu-central-cartas">	
+								
+						<div class="entradas">
+							<h2>Entradas</h2>
+							<ul>
+								<li>Causa de pollo
+									<p>S/.9.00</p>
+								</li>
+								<li>Ceviche achorado(pescado y chicharron mixto)
+									<p>S/.10.00</p>
+								</li>
+								<li>Langostinos pacifico(6 unidades)
+									<p>S/.15.00</p>
+								</li>
+								<li>Papa a la huancaina
+									<p>S/.10.00</p>
+								</li>
+								<li>Tequeños de lomo saltado
+									<p>S/.12.00</p>
+								</li>
+								<li>Wantanes peruanos
+									<p>S/.13.00</p>
+								</li>
+							</ul>
+						</div>
+    			
+						<div class="fondos">
+							<div>
+								<h3>Fondos</h3>
+							</div>
+							<div>	
+								<ul>
+									<li>Aji de gallina
+										<p>S/.20.00</p>
+									</li>
+									<li>Arroz chaufa de Mamani con pollo y carne
+										<p>S/.25.00</p>
+									</li>
+									<li>Arroz con mariscos
+										<p>S/.20.00</p>
+									</li>
+									<li>Jalea mixta
+										<p>S/.30.00</p>
+									</li>
+									<li>Lomo saltado
+										<p>S/.25.00</p>
+									</li>
+									<li>Tacu tacu de mariscos
+										<p>S/.25.00</p>
+									</li>
+								</ul>
+							</div>
+						</div>
+    			
+    				<div class="postres">
     					<h4>Postres</h4>
 	    				<ul>
 	    					<li>Flan al pisco y fresas
@@ -125,9 +128,9 @@
 	    					</li>
 	    				</ul>
     				</div>
-				</div>
-				<div>
-    				<div>
+				
+				
+    				<div class="refrescos">
     					<h4>Refrescos</h4>
 	    				<ul>
 	    					<li>Chicha morada
@@ -159,9 +162,9 @@
 	    					</li>
 	    				</ul>
     				</div>
-				</div>
-				<div>
-    				<div>
+				
+				
+    				<div class="gaseosas">
     					<h4>Gaseosas</h4>
 	    				<ul>
 	    					<li>Inca Kola
@@ -172,9 +175,9 @@
 	    					</li>
 	    				</ul>
     				</div>
-    			</div>
+    			
     		</div>
-		</div>
+		
 	</main>
 		<footer class="footer-inicio">
             <div>

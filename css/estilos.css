@@ -270,3 +270,21 @@ input[type="submit"]:active{
 /* END QUIENES SOMOS */
 /* END QUIENES SOMOS */
 /* END QUIENES SOMOS */
+
+.menu-central-icono{
+    text-align: center;
+}
+
+.menu-central-cartas{
+    display: flex;
+    width: 80%;
+    border: 3px solid #969696;
+    background-color: rgb(220, 255, 217);
+    text-align: center;
+    margin: auto;
+}   
+.menu-central-cartas > div{
+    border: 1rem solid #ffffff;
+    margin-bottom: 1rem;
+
+
