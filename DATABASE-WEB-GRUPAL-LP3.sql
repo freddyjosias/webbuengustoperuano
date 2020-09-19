@@ -22,15 +22,21 @@ CREATE TABLE sucursal(
    horaatencion TIME,
   	CONSTRAINT pk_sucursal PRIMARY KEY (idsucursal)
 );
-
+CREATE TABLE categoriaproductos(
+	idcategoriaproducto INT NOT NULL AUTO_INCREMENT,
+	idsucursal INT NOT NULL,
+	descripcioncategoriaproducto VARCHAR(50),
+CONSTRAINT pk_tipoproducto PRIMARY KEY (idcategoriaproducto),
+CONSTRAINT fk_sucursal_categoriaproductos FOREIGN KEY (idsucursal) REFERENCES sucursal(idsucursal)
+);
 CREATE TABLE productos(
    idproducto INT NOT NULL AUTO_INCREMENT,
-	idsucursal INT NOT NULL,
+	idcategoriaproducto INT NOT NULL,
 	nomproducto VARCHAR(50),
 	precio DECIMAL(10.2),
 	stock INT,
-	CONSTRAINT pk_productos PRIMARY KEY (idproducto,idsucursal),
-	CONSTRAINT fk_sucursal_productos FOREIGN KEY (idsucursal) REFERENCES sucursal(idsucursal)
+	CONSTRAINT pk_productos PRIMARY KEY (idproducto),
+	CONSTRAINT fk_categoriaproductos_productos FOREIGN KEY (idcategoriaproducto) REFERENCES categoriaproductos(idcategoriaproducto)
 );
 	
 CREATE TABLE usuario(
@@ -72,7 +78,7 @@ CREATE TABLE detalleventa(
 	CONSTRAINT fk_pedidos_detalleventa FOREIGN KEY (idventa) REFERENCES pedidos(idventa),
 	CONSTRAINT fk_productos_detalleventa FOREIGN KEY (idproducto) REFERENCES productos(idproducto),
 	CONSTRAINT fk_sucursal_detalleventa FOREIGN KEY (idsucursal) REFERENCES sucursal(idsucursal)
-	);
+);
 
 -- Ingreso de sucursal
 INSERT INTO sucursal (nomsucursal,direcsucursal,telefono) 
@@ -113,6 +119,8 @@ INSERT INTO usuario (idsucursal,email,nombreencargado,apellidoencargado,contrase
 VALUES (3,'ariano@gmail.com','Arian','Chuquilin Sanches','vivaellol');
 INSERT INTO usuario (idsucursal,email,nombreencargado,apellidoencargado,contraseña) 
 VALUES (4,'jordidrox@gmail.com','Jordi','Panduro Valverde','vivaelclash');
+
+--Ingreso de productos
 
 
 

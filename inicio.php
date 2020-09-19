@@ -49,6 +49,16 @@
             </ul>
         </nav>
     </header>
+    <main class="contenedor-general">
+             <img src="img/menu.jpg">
+    			<h1 class="bienvenidos">
+    				Bienvenidos
+    			</h1> 
+                <p>Hace varios ayeres, en el Perú cambio el concepto del comer; Este gran cambio se ha convertido en toda una filosofía que permite que muchos restaurantes queden como favoritos de la gente.</p>
+                <p>Esta gran filosofía es; “EL BUEN COMER…” es decir que todos trabajamos con el Mandil bien puesto,  y esto no es sino, mas que el meditado cuidado de todos los detalles”…, porque la intención ha sido siempre tratar a nuestros invitados como tú lo harías en tu propia casa.</p>
+                <p>Nosotros como empresa gastronómica no podíamos estar ajenos a ello ya que todos los que conformamos Oh…mar, tratamos de personificar esa filosofía valiéndonos de nuestra rica gastronomía, típica y de tradición; admirada y envidiada por muchos, agregándole los ingredientes de calidad del producto, la atención personalizada y el costo proporcionado.</p>
+                <p>Contamos con un personal especializado en cada una de sus áreas de trabajo, para brindar al cliente fiel una respuesta excelente a la confianza que ha depositado en nosotros, y al nuevo usuario una posibilidad de establecer un lugar con el que se sienta identificado.</p>      
+    </main>
     <footer class="footer-inicio">
         <div>
             <div>© 2020 Restaurante 1 SAC. Todos los derechos reservados</div>
