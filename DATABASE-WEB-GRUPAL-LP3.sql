@@ -22,6 +22,23 @@ CREATE TABLE sucursal(
    horaatencion TIME,
   	CONSTRAINT pk_sucursal PRIMARY KEY (idsucursal)
 );
+CREATE TABLE detalleformaspago(
+	idformaspago INT NOT NULL,
+	idsucursal INT NOT NULL,
+	disponibilidadformaspago BOOLEAN,
+CONSTRAINT pk_detalleformaspago PRIMARY KEY (idformaspago,idsucursal),
+CONSTRAINT fk_formaspago_detalle FOREIGN KEY (idformaspago) REFERENCES formaspago(idformaspago),
+CONSTRAINT fk_sucursal_detalle FOREIGN KEY (idsucursal) REFERENCES sucursal(idsucursal)
+);
+
+CREATE TABLE detalletipospedido(
+	idtipospedido INT NOT NULL,
+	idsucursal INT NOT NULL,
+	disponibilidadtipospedido BOOLEAN,
+CONSTRAINT pk_detalletipospedido PRIMARY KEY (idtipospedido,idsucursal),
+CONSTRAINT fk_tipospedido_detalle FOREIGN KEY (idtipospedido) REFERENCES tipospedido(idtipospedido),
+CONSTRAINT fk_sucursal_detalle2 FOREIGN KEY (idsucursal) REFERENCES sucursal(idsucursal)
+);
 CREATE TABLE categoriaproductos(
 	idcategoriaproducto INT NOT NULL AUTO_INCREMENT,
 	idsucursal INT NOT NULL,
