@@ -67,7 +67,7 @@
     </section>
 
     <footer class="footer-inicio">
-        <div class="contenedor-general">
+        <div>
             <div>© 2020 El Buen Gusto Peruano SAC. Todos los derechos reservados</div>
         </div>
     </footer>
