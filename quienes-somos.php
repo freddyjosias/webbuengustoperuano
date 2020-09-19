@@ -44,8 +44,8 @@
         </div>
         <nav>
             <ul>
-                <li><a href="index.php">Inicio</a></li>
-                <li><a href="">Pedidos</a></li>
+                <li><a href="inicio.php?view=<?php echo $idRestaurante ?>">Inicio</a></li>
+                <li><a href="hacer-pedido.php?view=<?php echo $idRestaurante ?>">Pedidos</a></li>
                 <li><a href="">Quienes Somos</a></li>
             </ul>
         </nav>
