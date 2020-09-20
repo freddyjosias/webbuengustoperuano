@@ -34,7 +34,6 @@
     
         <link rel="stylesheet" href="css/normalize.css">
 	    <link rel="stylesheet" type="text/css" href="css/estilos.css">
-	    <link rel="stylesheet" type="text/css" href="fonts/style.css">
 </head>
 <body>
     <header class="header-restaurante">
@@ -43,22 +42,18 @@
         </div>
         <nav>
             <ul>
-                <li><a href="">Inicio</a></li>
+                <li><a href="inicio.php?view=<?php echo $idRestaurante ?>">Inicio</a></li>
                 <li><a href="">Pedidos</a></li>
-                <li><a href="">Quienes Somos</a></li>
+                <li><a href="quienes-somos.php?view=<?php echo $idRestaurante ?>">Quienes Somos</a></li>
             </ul>
         </nav>
 	</header>
 	
-    <main class= "menu-central">
-		
-	                   <div class="menu-central-icono">
-							<h1>
-								<img src="img/icono.png">
-								Menu - Carta
-								
-							</h1>
-						</div>
+    <main class= "carta contenedor-general">
+
+	    <div class="menu-central-icono">
+		    <h1>MENÚ - CARTA</h1>
+		</div>
     	
 			<div class="menu-central-cartas">	
 					

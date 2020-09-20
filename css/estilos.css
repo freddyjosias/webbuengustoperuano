@@ -271,6 +271,14 @@ input[type="submit"]:active{
 /* END QUIENES SOMOS */
 /* END QUIENES SOMOS */
 
+/* START HACER PEDIDOS */
+/* START HACER PEDIDOS */
+/* START HACER PEDIDOS */
+
+.carta {
+    background-color: white;
+}
+
 .menu-central-icono{
     text-align: center;
 }
@@ -303,13 +311,6 @@ input[type="submit"]:active{
     justify-content: space-between;
 }
 
-
-
-
-
-
-
-
-
-
-
+/* END HACER PEDIDOS */
+/* END HACER PEDIDOS */
+/* END HACER PEDIDOS */
