@@ -87,111 +87,108 @@
                     </div>						
 				</div>
                 
-                <h2>Fondos:</h2>
-
+				<h2>Fondos:</h2>
+				
 				<div>
-							<div>
-								<h4>Fondos</h4>
-							</div>
-							<div>	
-								<ul>
-									<li>Aji de gallina
-										<p>S/.20.00</p>
-									</li>
-									<li>Arroz chaufa de Mamani con pollo y carne
-										<p>S/.25.00</p>
-									</li>
-									<li>Arroz con mariscos
-										<p>S/.20.00</p>
-									</li>
-									<li>Jalea mixta
-										<p>S/.30.00</p>
-									</li>
-									<li>Lomo saltado
-										<p>S/.25.00</p>
-									</li>
-									<li>Tacu tacu de mariscos
-										<p>S/.25.00</p>
-									</li>
-								</ul>
-							</div>
-						</div>
-                </div>
-                
+					<div class="productos-carta">
+                        <div><h3> Aji de gallina</h3></div>
+                        <div>S/.20.00</div>
+                    </div>
+                    <div class="productos-carta">
+                        <div><h3>Arroz chaufa de Mamani con pollo y carne</h3></div>
+                        <div>S/.25.00</div>
+                    </div>
+                    <div class="productos-carta">
+                        <div><h3>Arroz con mariscos</h3></div>
+                        <div>S/.20.00</div>
+                    </div>
+                    <div class="productos-carta">
+                        <div><h3>Jalea mixta</h3></div>
+                        <div>S/.30.00</div>
+                    </div>
+                    <div class="productos-carta">
+                        <div><h3>Lomo saltado</h3></div>
+                        <div>S/.25.00</div>
+                    </div>
+                    <div class="productos-carta">
+                        <div><h3>Tacu tacu de mariscos</h3></div>
+                        <div>S/.25.00</div>
+                    </div>						
+				</div>
+              
                 <h2>Postres:</h2>
 
-    			<div>
-    				<div>
-    					<h4>Postres</h4>
-	    				<ul>
-	    					<li>Flan al pisco y fresas
-	    						<p>S/.9.00</p>
-	    					</li>
-	    					<li>Panqueque con manjar blanco y durazno
-	    						<p>S/.9.00</p>
-	    					</li>
-	    					<li>Picarones
-	    						<p>S/.9.00</p>
-	    					</li>
-	    				</ul>
-                </div>	
-                    
-                <h2>Refrescos:</h2>
-				 
-    			<div>
-    					<h4>Refrescos</h4>
-	    				<ul>
-	    					<li>Chicha morada
-	    						<p>S/.6.00</p>
-	    					</li>
-	    					<li>Limonada
-	    						<p>S/.6.00</p>
-	    					</li>
-	    					<li>Naranjada
-	    						<p>S/.6.00</p>
-							</li>
-							<li>Piña
-	    						<p>S/.6.00</p>
-							</li>
-							<li>Uva
-	    						<p>S/.6.00</p>
-							</li>
-							<li>Taperibá
-	    						<p>S/.6.00</p>
-							</li>
-							<li>Maracuyá
-	    						<p>S/.6.00</p>
-							</li>
-							<li>Guanábana
-	    						<p>S/.6.00</p>
-							</li>
-							<li>Camu Camu
-	    						<p>S/.6.00</p>
-	    					</li>
-	    				</ul>
-    				</div>				
-                </div>
-                
+				<div>
+					<div class="productos-carta">
+                        <div><h3> Flan al pisco y fresas</h3></div>
+                        <div>S/.9.00</div>
+                    </div>
+                    <div class="productos-carta">
+                        <div><h3>Panqueque con manjar blanco y durazno</h3></div>
+                        <div>S/.9.00</div>
+                    </div>
+                    <div class="productos-carta">
+                        <div><h3>Picarones</h3></div>
+                        <div>S/.9.00</div>
+                    </div>						
+				</div>
+    			                  
+				<h2>Refrescos:</h2>
+				
+				<div>
+					<div class="productos-carta">
+                        <div><h3> Chicha morada</h3></div>
+                        <div>S/.6.00</div>
+                    </div>
+                    <div class="productos-carta">
+                        <div><h3>Limonada</h3></div>
+                        <div>S/.6.00</div>
+                    </div>
+                    <div class="productos-carta">
+                        <div><h3>Naranjada</h3></div>
+                        <div>S/.6.00</div>
+                    </div>
+                    <div class="productos-carta">
+                        <div><h3>Piña</h3></div>
+                        <div>S/.6.00</div>
+                    </div>
+                    <div class="productos-carta">
+                        <div><h3>Uva</h3></div>
+                        <div>S/.6.00</div>
+                    </div>
+                    <div class="productos-carta">
+                        <div><h3>Taperibá</h3></div>
+                        <div>S/.6.00</div>
+					</div>
+					<div class="productos-carta">
+                        <div><h3>Maracuyá</h3></div>
+                        <div>S/.6.00</div>
+                    </div>
+                    <div class="productos-carta">
+                        <div><h3>Guanábana</h3></div>
+                        <div>S/.6.00</div>
+                    </div>
+                    <div class="productos-carta">
+                        <div><h3>Camu Camu</h3></div>
+                        <div>S/.6.00</div>
+                    </div>									
+				</div>
+		             
                 <h2>Gaseosas:</h2>
 
-               <div>
-    				<div>
-    					<h4>Gaseosas</h4>
-	    				<ul>
-	    					<li>Inca Kola
-	    						<p>S/.2.00</p>
-	    					</li>
-	    					<li>Coca Cola
-	    						<p>S/.2.00</p>
-	    					</li>
-	    				</ul>
-    				</div>
-               </div>
-               
-            </div>
-            
+                <div>
+			        <div class="productos-carta">
+                        <div><h3>Inca Kola</h3></div>
+                        <div>S/.2.00</div>
+                    </div>
+                    <div class="productos-carta">
+                        <div><h3>Coca Cola</h3></div>
+                        <div>S/.2.00</div>
+                    </div>	
+    				<div>  						    				
+               </div>             
+            </div>           
         </div>
-
     </main>
     
 	<footer class="footer-inicio">
