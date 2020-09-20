@@ -207,6 +207,8 @@ VALUES (4,'Bebidas');
 SELECT*FROM categoriaproductos
 
 --Ingreso de productos
+
+--chalet venzia
 INSERT INTO productos (idcategoriaproducto,nomproducto,precio,stock) 
 VALUES (25,'Desayuno Americano',16.0,5);
 INSERT INTO productos (idcategoriaproducto,nomproducto,precio,stock) 
@@ -229,6 +231,7 @@ VALUES (26,'Salpicón de pollo',22.0,6);
 INSERT INTO productos (idcategoriaproducto,nomproducto,precio,stock) 
 VALUES (26,'Ensalada de atún',22.0,12);
 
+---el norteño
 INSERT INTO productos (idcategoriaproducto,nomproducto,precio,stock) 
 VALUES (3,'Chupe de camarones',33.0,5);
 INSERT INTO productos (idcategoriaproducto,nomproducto,precio,stock) 
@@ -250,6 +253,32 @@ INSERT INTO productos (idcategoriaproducto,nomproducto,precio,stock)
 VALUES (8,'Agua San Luis',3.0,7);
 INSERT INTO productos (idcategoriaproducto,nomproducto,precio,stock) 
 VALUES (8,'1 Litro de Refresco Cocona',7.0,3);
+
+---la collpa
+
+INSERT INTO productos (idcategoriaproducto,nomproducto,precio,stock) 
+VALUES (12,'Tilapia Frita',30.0,7);
+INSERT INTO productos (idcategoriaproducto,nomproducto,precio,stock) 
+VALUES (12,'Tacacho con Cecina',25.0,10);
+INSERT INTO productos (idcategoriaproducto,nomproducto,precio,stock) 
+VALUES (12,'Tacacho con Chorizo',20.0,10);
+INSERT INTO productos (idcategoriaproducto,nomproducto,precio,stock) 
+VALUES (12,'Avispa Juane',33.0,15);
+INSERT INTO productos (idcategoriaproducto,nomproducto,precio,stock) 
+VALUES (12,'Inshicapi',25.0,10);
+
+INSERT INTO productos (idcategoriaproducto,nomproducto,precio,stock) 
+VALUES (13,'Volcán de Chocolate',10.0,10);
+INSERT INTO productos (idcategoriaproducto,nomproducto,precio,stock) 
+VALUES (13,'Picarones',5.0,15);
+INSERT INTO productos (idcategoriaproducto,nomproducto,precio,stock) 
+VALUES (13,'1 Litro de Refresco Maiz Morado',7.0,10);
+INSERT INTO productos (idcategoriaproducto,nomproducto,precio,stock) 
+VALUES (13,'Agua San Luis',3.0,7);
+INSERT INTO productos (idcategoriaproducto,nomproducto,precio,stock) 
+VALUES (13,'1 Litro de Refresco Cocona',7.0,3);
+
+
 
 
 
