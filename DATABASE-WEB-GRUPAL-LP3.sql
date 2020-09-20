@@ -255,7 +255,6 @@ INSERT INTO productos (idcategoriaproducto,nomproducto,precio,stock)
 VALUES (8,'1 Litro de Refresco Cocona',7.0,3);
 
 ---la collpa
-
 INSERT INTO productos (idcategoriaproducto,nomproducto,precio,stock) 
 VALUES (12,'Tilapia Frita',30.0,7);
 INSERT INTO productos (idcategoriaproducto,nomproducto,precio,stock) 
@@ -272,11 +271,34 @@ VALUES (13,'Volcán de Chocolate',10.0,10);
 INSERT INTO productos (idcategoriaproducto,nomproducto,precio,stock) 
 VALUES (13,'Picarones',5.0,15);
 INSERT INTO productos (idcategoriaproducto,nomproducto,precio,stock) 
-VALUES (13,'1 Litro de Refresco Maiz Morado',7.0,10);
+VALUES (13,'Tarta de Queso',7.0,10);
 INSERT INTO productos (idcategoriaproducto,nomproducto,precio,stock) 
-VALUES (13,'Agua San Luis',3.0,7);
+VALUES (13,'Brownie',5.0,7);
 INSERT INTO productos (idcategoriaproducto,nomproducto,precio,stock) 
-VALUES (13,'1 Litro de Refresco Cocona',7.0,3);
+VALUES (13,'Surtido de Postres',7.0,3);
+
+--doña zully
+INSERT INTO productos (idcategoriaproducto,nomproducto,precio,stock) 
+VALUES (20,'Tilapia Frita',27.0,7);
+INSERT INTO productos (idcategoriaproducto,nomproducto,precio,stock) 
+VALUES (20,'Tacacho con Cecina',20.0,10);
+INSERT INTO productos (idcategoriaproducto,nomproducto,precio,stock) 
+VALUES (20,'Tacacho con Chorizo',16.0,10);
+INSERT INTO productos (idcategoriaproducto,nomproducto,precio,stock) 
+VALUES (20,'Avispa Juane',28.0,15);
+INSERT INTO productos (idcategoriaproducto,nomproducto,precio,stock) 
+VALUES (20,'Inshicapi',20.0,10);
+
+INSERT INTO productos (idcategoriaproducto,nomproducto,precio,stock) 
+VALUES (21,'Maceta de Tiramisú',11.0,10);
+INSERT INTO productos (idcategoriaproducto,nomproducto,precio,stock) 
+VALUES (21,'Tarta fina de Manzana',8.0,15);
+INSERT INTO productos (idcategoriaproducto,nomproducto,precio,stock) 
+VALUES (21,'Crepe',10.0,10);
+INSERT INTO productos (idcategoriaproducto,nomproducto,precio,stock) 
+VALUES (21,'Pudín',7.0,7);
+INSERT INTO productos (idcategoriaproducto,nomproducto,precio,stock) 
+VALUES (21,'Flan de Huevo al Caramelo',5.0,3);
 
 
 
