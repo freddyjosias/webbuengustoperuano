@@ -276,39 +276,52 @@ input[type="submit"]:active{
 /* START HACER PEDIDOS */
 
 .carta {
+    background-color: #f2f2f2;
+    padding-top: 2rem;
+}
+
+.carta > div {
     background-color: white;
 }
 
-.menu-central-icono{
+.carta > div > h1 {
+    margin: 0;
     text-align: center;
+    padding: 1.5rem 0 1rem 0;
+    text-decoration-line: underline;
+    font-size: 35px;
 }
 
-.menu-central-cartas{
+.contenido-carta {
     width: 80%;
-    border: 3px solid #969696;
     margin: auto;  
 }
 
-.menu-central-cartas > div{
-    text-align: center;
-    width: 100%;
-    display: flex;  
-    padding: 5px;
+.contenido-carta h2 {
+    font-size: 30px;
+    margin: 0;
 }
 
-.menu-central-cartas > div > div{
-    border: 1px solid black; 
-    width: 100%;   
+.contenido-carta > div{
+    margin: 1rem auto 2rem auto;
+}
+
+.productos-carta {
+    width: 80%;
     background-color: rgb(220, 255, 217);
-    margin-bottom: 1rem;
-    margin-left: 1rem;
-    margin-top: 1rem;
-    margin-right: 1rem;
+    border-radius: 5px;
+    border: 1px solid  green;
+    margin: 1rem auto;
+    display: flex;
+    justify-content: space-between;
+    font-size: 19px;
+    padding: 1rem;
 }
 
-.menu-central-cartas ul li{
-    display: flex; 
-    justify-content: space-between;
+.contenido-carta > div h3 {
+    font-size: 19px;
+    font-weight: 600;
+    margin: 0;
 }
 
 /* END HACER PEDIDOS */

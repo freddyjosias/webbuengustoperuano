@@ -36,6 +36,7 @@
 	    <link rel="stylesheet" type="text/css" href="css/estilos.css">
 </head>
 <body>
+
     <header class="header-restaurante">
         <div>
             <img src="img/norteño.jpg" alt="">
@@ -49,40 +50,46 @@
         </nav>
 	</header>
 	
-    <main class= "carta contenedor-general">
+    <main class= "carta">
 
-	    <div class="menu-central-icono">
-		    <h1>MENÚ - CARTA</h1>
-		</div>
-    	
-			<div class="menu-central-cartas">	
-					
-			     <div>
-					<div>							
-							<h4>Entradas</h4>
-							<ul>
-								<li>Causa de pollo
-									<p>S/.9.00</p>
-								</li>
-								<li>Ceviche achorado(pescado y chicharron mixto)
-									<p>S/.10.00</p>
-								</li>
-								<li>Langostinos pacifico(6 unidades)
-									<p>S/.15.00</p>
-								</li>
-								<li>Papa a la huancaina
-									<p>S/.10.00</p>
-								</li>
-								<li>Tequeños de lomo saltado
-									<p>S/.12.00</p>
-								</li>
-								<li>Wantanes peruanos
-									<p>S/.13.00</p>
-								</li>
-							</ul>						
-					</div>
-    			
-						<div>
+        <div class= "contenedor-general">
+
+            <h1>MENÚ - CARTA</h1>
+
+			<div class="contenido-carta">	
+                    
+                <h2>Entradas:</h2>
+
+			    <div>
+					<div class="productos-carta">
+                        <div><h3> Causa de pollo</h3></div>
+                        <div>S/.9.00</div>
+                    </div>
+                    <div class="productos-carta">
+                        <div><h3>Ceviche achorado(pescado y chicharron mixto)</h3></div>
+                        <div>S/.10.00</div>
+                    </div>
+                    <div class="productos-carta">
+                        <div><h3>Langostinos pacifico(6 unidades)</h3></div>
+                        <div>S/.15.00</div>
+                    </div>
+                    <div class="productos-carta">
+                        <div><h3>Papa a la huancaina</h3></div>
+                        <div>S/.10.00</div>
+                    </div>
+                    <div class="productos-carta">
+                        <div><h3>Tequeños de lomo saltado</h3></div>
+                        <div>S/.12.00</div>
+                    </div>
+                    <div class="productos-carta">
+                        <div><h3>Wantanes peruanos</h3></div>
+                        <div>S/.13.00</div>
+                    </div>						
+				</div>
+                
+                <h2>Fondos:</h2>
+
+				<div>
 							<div>
 								<h4>Fondos</h4>
 							</div>
@@ -109,7 +116,10 @@
 								</ul>
 							</div>
 						</div>
-				</div>
+                </div>
+                
+                <h2>Postres:</h2>
+
     			<div>
     				<div>
     					<h4>Postres</h4>
@@ -124,9 +134,11 @@
 	    						<p>S/.9.00</p>
 	    					</li>
 	    				</ul>
-    				</div>			
+                </div>	
+                    
+                <h2>Refrescos:</h2>
 				 
-    				<div>
+    			<div>
     					<h4>Refrescos</h4>
 	    				<ul>
 	    					<li>Chicha morada
@@ -158,7 +170,10 @@
 	    					</li>
 	    				</ul>
     				</div>				
-				</div>
+                </div>
+                
+                <h2>Gaseosas:</h2>
+
                <div>
     				<div>
     					<h4>Gaseosas</h4>
@@ -171,15 +186,20 @@
 	    					</li>
 	    				</ul>
     				</div>
-			   </div>
-    		</div>
-		
-	</main>
-		<footer class="footer-inicio">
-            <div>
-                <div>© 2020 Restaurante 1 SAC. Todos los derechos reservados</div>
+               </div>
+               
             </div>
-        </footer>
+            
+        </div>
+
+    </main>
+    
+	<footer class="footer-inicio">
+        <div>
+            <div>© 2020 Restaurante 1 SAC. Todos los derechos reservados</div>
+        </div>
+    </footer>
+
 </body>
 </html>
 
