@@ -63,8 +63,7 @@
 			<div class="menu-central-cartas">	
 					
 			     <div>
-					<div class="entradas">
-							
+					<div>							
 							<h4>Entradas</h4>
 							<ul>
 								<li>Causa de pollo
@@ -88,7 +87,7 @@
 							</ul>						
 					</div>
     			
-						<div class="fondos">
+						<div>
 							<div>
 								<h4>Fondos</h4>
 							</div>
@@ -115,8 +114,9 @@
 								</ul>
 							</div>
 						</div>
-    			
-    				<div class="postres">
+				</div>
+    			<div>
+    				<div>
     					<h4>Postres</h4>
 	    				<ul>
 	    					<li>Flan al pisco y fresas
@@ -129,10 +129,9 @@
 	    						<p>S/.9.00</p>
 	    					</li>
 	    				</ul>
-    				</div>
-				</div>
-				
-    				<div class="refrescos">
+    				</div>			
+				 
+    				<div>
     					<h4>Refrescos</h4>
 	    				<ul>
 	    					<li>Chicha morada
@@ -163,10 +162,10 @@
 	    						<p>S/.6.00</p>
 	    					</li>
 	    				</ul>
-    				</div>
-				
-				
-    				<div class="gaseosas">
+    				</div>				
+				</div>
+               <div>
+    				<div>
     					<h4>Gaseosas</h4>
 	    				<ul>
 	    					<li>Inca Kola
@@ -177,7 +176,7 @@
 	    					</li>
 	    				</ul>
     				</div>
-    			
+			   </div>
     		</div>
 		
 	</main>

@@ -278,15 +278,34 @@ input[type="submit"]:active{
 .menu-central-cartas{
     width: 80%;
     border: 3px solid #969696;
-    background-color: rgb(220, 255, 217);
-    margin: auto;
+    margin: auto;  
 }
 
 .menu-central-cartas > div{
-   display: flex;
     text-align: center;
-    border: 3rem solid #f5f5f5;
+    width: 100%;
+    display: flex;  
+    padding: 5px;
 }
+
+.menu-central-cartas > div > div{
+    border: 1px solid black; 
+    width: 100%;   
+    background-color: rgb(220, 255, 217);
+    margin-bottom: 1rem;
+    margin-left: 1rem;
+    margin-top: 1rem;
+    margin-right: 1rem;
+}
+
+.menu-central-cartas ul li{
+    display: flex; 
+    justify-content: space-between;
+}
+
+
+
+
 
 
 
