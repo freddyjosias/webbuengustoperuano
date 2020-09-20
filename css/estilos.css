@@ -212,6 +212,11 @@ input[type="submit"]:active{
     font-size: 20px;
 }
 
+.contenedor-general img {
+    width: 300px;
+    float: right;
+    margin: 0  0 2rem 2rem;
+}
 /* END MENU */
 /* END MENU */
 /* END MENU */
