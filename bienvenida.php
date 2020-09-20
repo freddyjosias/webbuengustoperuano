@@ -45,7 +45,7 @@
             <ul>
                 <li><a href="">Inicio</a></li>
                 <li><a href="">Pedidos</a></li>
-                <li><a href="">Quienes Somos</a></li>
+                <li><a href="">Nosotros</a></li>
             </ul>
         </nav>
     </header>
