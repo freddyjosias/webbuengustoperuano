@@ -52,7 +52,7 @@
                 if ($contadorRestaurantes % 2 == 0) { ?>
                     <div class="presentacion-restaurantes">
                 <?php } ?>
-                    <a href="nosotros.php?view=<?php echo $row['idsucursal']; ?>">
+                    <a href="bienvenida.php?view=<?php echo $row['idsucursal']; ?>">
                         <div>
                             <h2><?php echo $row['nomsucursal']; ?>:</h2>
                             <img src="img/img<?php echo ($row['idsucursal'] + 4); ?>.jpg">
@@ -68,7 +68,7 @@
     </section>
 
     <footer class="footer-inicio">
-        <div>
+        <div class= "contenedor-general">
             <div>© 2020 El Buen Gusto Peruano SAC. Todos los derechos reservados</div>
         </div>
     </footer>

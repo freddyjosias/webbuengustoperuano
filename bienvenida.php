@@ -43,9 +43,9 @@
         </div>
         <nav>
             <ul>
-                <li><a href="">Inicio</a></li>
+                <li><a href="">Bienvenida</a></li>
                 <li><a href="">Pedidos</a></li>
-                <li><a href="">Nosotros</a></li>
+                <li><a href="nosotros.php?view=<?php echo $idRestaurante ?>">Nosotros</a></li>
             </ul>
         </nav>
     </header>
@@ -60,7 +60,7 @@
                 <p>Contamos con un personal especializado en cada una de sus áreas de trabajo, para brindar al cliente fiel una respuesta excelente a la confianza que ha depositado en nosotros, y al nuevo usuario una posibilidad de establecer un lugar con el que se sienta identificado.</p>      
     </main>
     <footer class="footer-inicio">
-        <div>
+        <div class= "contenedor-general">
             <div>© 2020 Restaurante 1 SAC. Todos los derechos reservados</div>
         </div>
     </footer>
