@@ -137,7 +137,119 @@ VALUES (3,'ariano@gmail.com','Arian','Chuquilin Sanches','vivaellol');
 INSERT INTO usuario (idsucursal,email,nombreencargado,apellidoencargado,contraseña) 
 VALUES (4,'jordidrox@gmail.com','Jordi','Panduro Valverde','vivaelclash');
 
+--Ingreso de categoria de productos
+
+INSERT INTO categoriaproductos (idsucursal,descripcioncategoriaproducto) 
+VALUES (1,'Desayuno');
+INSERT INTO categoriaproductos (idsucursal,descripcioncategoriaproducto) 
+VALUES (1,'Entrada');
+INSERT INTO categoriaproductos (idsucursal,descripcioncategoriaproducto) 
+VALUES (1,'Menú');
+INSERT INTO categoriaproductos (idsucursal,descripcioncategoriaproducto) 
+VALUES (1,'Cena');
+INSERT INTO categoriaproductos (idsucursal,descripcioncategoriaproducto) 
+VALUES (1,'Postres');
+INSERT INTO categoriaproductos (idsucursal,descripcioncategoriaproducto) 
+VALUES (1,'Guarniciones');
+INSERT INTO categoriaproductos (idsucursal,descripcioncategoriaproducto) 
+VALUES (1,'Otros');
+INSERT INTO categoriaproductos (idsucursal,descripcioncategoriaproducto) 
+VALUES (1,'Bebidas');
+INSERT INTO categoriaproductos (idsucursal,descripcioncategoriaproducto) 
+VALUES (2,'Desayuno');
+INSERT INTO categoriaproductos (idsucursal,descripcioncategoriaproducto) 
+VALUES (2,'Entrada');
+INSERT INTO categoriaproductos (idsucursal,descripcioncategoriaproducto) 
+VALUES (2,'Menú');
+INSERT INTO categoriaproductos (idsucursal,descripcioncategoriaproducto) 
+VALUES (2,'Cena');
+INSERT INTO categoriaproductos (idsucursal,descripcioncategoriaproducto) 
+VALUES (2,'Postres');
+INSERT INTO categoriaproductos (idsucursal,descripcioncategoriaproducto) 
+VALUES (2,'Guarniciones');
+INSERT INTO categoriaproductos (idsucursal,descripcioncategoriaproducto) 
+VALUES (2,'Otros');
+INSERT INTO categoriaproductos (idsucursal,descripcioncategoriaproducto) 
+VALUES (2,'Bebidas');
+INSERT INTO categoriaproductos (idsucursal,descripcioncategoriaproducto) 
+VALUES (3,'Desayuno');
+INSERT INTO categoriaproductos (idsucursal,descripcioncategoriaproducto) 
+VALUES (3,'Entrada');
+INSERT INTO categoriaproductos (idsucursal,descripcioncategoriaproducto) 
+VALUES (3,'Menú');
+INSERT INTO categoriaproductos (idsucursal,descripcioncategoriaproducto) 
+VALUES (3,'Cena');
+INSERT INTO categoriaproductos (idsucursal,descripcioncategoriaproducto) 
+VALUES (3,'Postres');
+INSERT INTO categoriaproductos (idsucursal,descripcioncategoriaproducto) 
+VALUES (3,'Guarniciones');
+INSERT INTO categoriaproductos (idsucursal,descripcioncategoriaproducto) 
+VALUES (3,'Otros');
+INSERT INTO categoriaproductos (idsucursal,descripcioncategoriaproducto) 
+VALUES (3,'Bebidas');
+INSERT INTO categoriaproductos (idsucursal,descripcioncategoriaproducto) 
+VALUES (4,'Desayuno');
+INSERT INTO categoriaproductos (idsucursal,descripcioncategoriaproducto) 
+VALUES (4,'Entrada');
+INSERT INTO categoriaproductos (idsucursal,descripcioncategoriaproducto) 
+VALUES (4,'Menú');
+INSERT INTO categoriaproductos (idsucursal,descripcioncategoriaproducto) 
+VALUES (4,'Cena');
+INSERT INTO categoriaproductos (idsucursal,descripcioncategoriaproducto) 
+VALUES (4,'Postres');
+INSERT INTO categoriaproductos (idsucursal,descripcioncategoriaproducto) 
+VALUES (4,'Guarniciones');
+INSERT INTO categoriaproductos (idsucursal,descripcioncategoriaproducto) 
+VALUES (4,'Otros');
+INSERT INTO categoriaproductos (idsucursal,descripcioncategoriaproducto) 
+VALUES (4,'Bebidas');
+
+SELECT*FROM categoriaproductos
+
 --Ingreso de productos
+INSERT INTO productos (idcategoriaproducto,nomproducto,precio,stock) 
+VALUES (25,'Desayuno Americano',16.0,5);
+INSERT INTO productos (idcategoriaproducto,nomproducto,precio,stock) 
+VALUES (25,'Desayuno Francés',17.0,2);
+INSERT INTO productos (idcategoriaproducto,nomproducto,precio,stock) 
+VALUES (25,'Omelette Regional',19.0,10);
+INSERT INTO productos (idcategoriaproducto,nomproducto,precio,stock) 
+VALUES (25,'Omelette Vegetariano',17.0,7);
+INSERT INTO productos (idcategoriaproducto,nomproducto,precio,stock) 
+VALUES (25,'Sandwich',6.0,3);
+
+INSERT INTO productos (idcategoriaproducto,nomproducto,precio,stock) 
+VALUES (26,'Papa a la Huancaína',16.0,10);
+INSERT INTO productos (idcategoriaproducto,nomproducto,precio,stock) 
+VALUES (26,'Ensalada mixta',17.0,5);
+INSERT INTO productos (idcategoriaproducto,nomproducto,precio,stock) 
+VALUES (26,'Ensalada de palta y palmito',22.0,8);
+INSERT INTO productos (idcategoriaproducto,nomproducto,precio,stock) 
+VALUES (26,'Salpicón de pollo',22.0,6);
+INSERT INTO productos (idcategoriaproducto,nomproducto,precio,stock) 
+VALUES (26,'Ensalada de atún',22.0,12);
+
+INSERT INTO productos (idcategoriaproducto,nomproducto,precio,stock) 
+VALUES (3,'Chupe de camarones',33.0,5);
+INSERT INTO productos (idcategoriaproducto,nomproducto,precio,stock) 
+VALUES (3,'Sudado de conchas negras',22.0,2);
+INSERT INTO productos (idcategoriaproducto,nomproducto,precio,stock) 
+VALUES (3,'Ceviche de pescado',25.0,10);
+INSERT INTO productos (idcategoriaproducto,nomproducto,precio,stock) 
+VALUES (3,'Ceviche de corvina',35.0,7);
+INSERT INTO productos (idcategoriaproducto,nomproducto,precio,stock) 
+VALUES (3,'Tiradito de pescado',30.0,3);
+
+INSERT INTO productos (idcategoriaproducto,nomproducto,precio,stock) 
+VALUES (8,'Inka Cola',8.0,5);
+INSERT INTO productos (idcategoriaproducto,nomproducto,precio,stock) 
+VALUES (8,'Coca Cola',8.0,2);
+INSERT INTO productos (idcategoriaproducto,nomproducto,precio,stock) 
+VALUES (8,'1 Litro de Refresco Maiz Morado',7.0,10);
+INSERT INTO productos (idcategoriaproducto,nomproducto,precio,stock) 
+VALUES (8,'Agua San Luis',3.0,7);
+INSERT INTO productos (idcategoriaproducto,nomproducto,precio,stock) 
+VALUES (8,'1 Litro de Refresco Cocona',7.0,3);
 
 
 
