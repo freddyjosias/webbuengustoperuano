@@ -220,6 +220,18 @@ input[type="submit"]:active{
 /* START QUIENES SOMOS */
 /* START QUIENES SOMOS */
 
+.logo-icono {
+    position: fixed;
+    z-index: 10;
+    top: 0;
+    left: 0;
+}
+
+.logo-icono img {
+    width: 5rem;
+    height: 5rem;
+}
+
 .introduccion-quienes-somos {
     font-size: 25px;
     text-align: justify;

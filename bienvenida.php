@@ -37,6 +37,11 @@
 	    <link rel="stylesheet" type="text/css" href="fonts/style.css">
 </head>
 <body>
+
+    <div class='logo-icono'>
+        <a href="index.php"><img src="img/logo-icono.png" alt=""></a>
+    </div>
+
     <header class="header-restaurante">
         <div>
             <img src="img/norteño.jpg" alt="">
