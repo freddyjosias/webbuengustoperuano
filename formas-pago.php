@@ -31,7 +31,7 @@
 
                 <h1>Formas de Pago</h1>
 
-                <form action="">
+                <form action="" class='form-panel'>
 
                     <p>Forma 1</p>
                     <p><input type="radio" id="" name="forma1" value=""> Habilitar</p>

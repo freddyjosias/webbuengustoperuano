@@ -31,7 +31,7 @@
 
                 <h1>Eliminar Producto</h1>
 
-                <form action="">
+                <form action="" class='form-panel'>
                     <p>Elegir Producto: 
                         <select name="" id="">
                             <option value="">Hola</option>

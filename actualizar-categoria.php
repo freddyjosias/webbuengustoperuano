@@ -31,9 +31,9 @@
 
                 <h1>Actualizar Categoria</h1>
 
-                <form action="">
+                <form action="" class='form-panel'>
 
-                    <p> Elegir Categoria: 
+                    <p> Elegir Categoria:&nbsp;  
                         <select name="" id="">
                             <option value="">Hola</option>
                             <option value="">Mundo</option>
@@ -44,7 +44,7 @@
 
                 </form>
 
-                <form action="">
+                <form action="" class='form-panel'>
 
                     <p>Nombre: </p>
                     <p>Nuevo nombre: <input type="text"></p>

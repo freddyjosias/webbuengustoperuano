@@ -31,7 +31,7 @@
 
                 <h1>Añadir Producto</h1>
 
-                <form action="">
+                <form action="" class='form-panel'>
                     <p> Categoria: 
                         <select name="" id="">
                             <option value="">Hola</option>

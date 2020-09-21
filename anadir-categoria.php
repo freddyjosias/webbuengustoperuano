@@ -31,7 +31,7 @@
 
                 <h1>Añadir Categoria</h1>
 
-                <form action="">
+                <form action="" class='form-panel'>
 
                     <p>Categoria Nueva: <input type="text"></p>  
 

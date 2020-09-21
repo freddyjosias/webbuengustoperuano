@@ -489,6 +489,26 @@ input[type="submit"]:active{
     font-weight: 700;
 }
 
+.formulario-panel h1{
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.formulario-panel form {
+    width: 70%;
+    margin: auto;
+}
+
+.form-panel p {
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.form-panel input {
+    font-size: 18px;
+    font-weight: 500;
+}
+
 /* END PANEL DE CONTROL */
 /* END PANEL DE CONTROL */
 /* END PANEL DE CONTROL */

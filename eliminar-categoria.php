@@ -31,7 +31,7 @@
 
                 <h1>Eliminar Categoria</h1>
 
-                <form action="">
+                <form action="" class='form-panel'>
                     <p>Elegir Categoria: 
                         <select name="" id="">
                             <option value="">Hola</option>
