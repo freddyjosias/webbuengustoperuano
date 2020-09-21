@@ -13,7 +13,7 @@
 
     <main>
         <div class="contenedor-general panel-control">
-            <nav>
+            <nav class=>
                 <ul>
                     <li>Anñadir Producto</li>
                     <li>Añadir Forma de Pago</li>
@@ -22,15 +22,24 @@
             </nav>
 
             <div class="prueba1">
-                <ul>
-                    <img src="img/norteño.jpg" alt="">
-                </ul>
-                <ul>
-                   <li>dasdad</li>
-                   <li>fdsfsdf</li>
-                   <li>gsdgdf</li>
-                   <li>gsgdefs</li>
-                </ul> 
+                <img src="img/norteño.jpg" class="img-panel-control">
+                <div class="bloque-panel-control">
+                    <div class="bloques-panel-control">
+                        <a href="">asdasd</a>
+                    </div>
+
+                    <div class="bloques-panel-control">
+                        <a href="">asdsadf</a>
+                    </div>
+
+                    <div class="bloques-panel-control">
+                        <a href="">asddasc</a>
+                    </div>
+                    
+                    <div class="bloques-panel-control">
+                        <a href="">asdasadas</a>
+                    </div>
+                </div> 
             </div>
 
         </div>
