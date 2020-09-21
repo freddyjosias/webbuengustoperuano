@@ -414,6 +414,12 @@ input[type="submit"]:active{
     display: flex;
 }
 
+.panel-control nav ul li{
+    text-decoration: none;
+     margin: 1rem;
+
+}
+
 .panel-control > nav {
     width: 20%;
     background-color: rgb(116, 116, 116);
@@ -423,6 +429,19 @@ input[type="submit"]:active{
 .panel-control > div {
     width: 70%;
     background-color: #f2f2f2;
+}
+
+.prueba1 ul {
+    display: flex;
+    margin: 5rem;
+}
+
+.prueba1 > ul > li{
+    margin: 1rem;
+}
+.prueba1  ul  img{
+  width: 200px;
+  margin: 0 0 0 3rem;
 }
 
 /* END PANEL DE CONTROL */

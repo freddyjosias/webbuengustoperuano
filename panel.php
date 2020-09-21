@@ -21,8 +21,16 @@
                 </ul>
             </nav>
 
-            <div>
-                
+            <div class="prueba1">
+                <ul>
+                    <img src="img/norteño.jpg" alt="">
+                </ul>
+                <ul>
+                   <li>dasdad</li>
+                   <li>fdsfsdf</li>
+                   <li>gsdgdf</li>
+                   <li>gsgdefs</li>
+                </ul> 
             </div>
 
         </div>
