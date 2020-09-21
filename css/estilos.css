@@ -405,3 +405,26 @@ input[type="submit"]:active{
 /* END BIENVENIDA */
 /* END BIENVENIDA */
 /* END BIENVENIDA */
+
+/* START PANEL DE CONTROL */
+/* START PANEL DE CONTROL */
+/* START PANEL DE CONTROL */
+
+.panel-control {
+    display: flex;
+}
+
+.panel-control > nav {
+    width: 20%;
+    background-color: rgb(116, 116, 116);
+    color: white;
+}
+
+.panel-control > div {
+    width: 70%;
+    background-color: #f2f2f2;
+}
+
+/* END PANEL DE CONTROL */
+/* END PANEL DE CONTROL */
+/* END PANEL DE CONTROL */
