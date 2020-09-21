@@ -1,32 +1,45 @@
-let indice = 1;
+$(document).ready(function(){
 
-muestraSlider(indice);
+    let indice = 1;
 
-function avanzaSlider(n){
-    muestraSlider(indice+=n);
-}
+    muestraSlider(indice);
 
-function posicionSlider(n){
-    muestraSlider(indice=n);
-}
+    $('.atras').click(function(){
+        avanzaSlider(-1);
+    });
 
-setInterval(function tiempo(){
-    muestraSlider(indice+=1)
-}, 3000);
+    $('.adelante').click(function(){
+        avanzaSlider(1);
+    });
 
-function muestraSlider(n){
-    let i;
-    let slider = document.getElementsByClassName('slider-img');
-
-    if(n > slider.length){
-        indice = 1;
-    } 
-    if (n < 1){
-        indice = slider.length;
-    }
-    for(i=0; i < slider.length; i++){
-        slider[i].style.display = 'none';
+    function avanzaSlider(n){
+        muestraSlider(indice+=n);
     }
 
-    slider[indice-1].style.display = 'block';
-}
+    function posicionSlider(n){
+        muestraSlider(indice=n);
+    }
+
+    setInterval(function tiempo(){
+        muestraSlider(indice+=1)
+    }, 3000);
+
+    function muestraSlider(n){
+        let i;
+
+        let slider = document.getElementsByClassName('slider-img');
+
+        if(n > slider.length){
+            indice = 1;
+        } 
+        if (n < 1){
+            indice = slider.length;
+        }
+        for(i=0; i < slider.length; i++){
+            slider[i].style.display = 'none';
+        }
+
+        slider[indice-1].style.display = 'block';
+    }
+
+});

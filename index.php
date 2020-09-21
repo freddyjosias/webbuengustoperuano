@@ -41,8 +41,8 @@
 			<img src="img/img4.jpg">
         </div>
         <div class="direcciones">
-            <a href="#" class="atras" onclick="avanzaSlide(-1)">&#10094</a>
-            <a href="#" class="adelante" onclick="avanzaSlide(1)">&#10095</a>
+            <a href="#" class="atras">&#10094</a>
+            <a href="#" class="adelante">&#10095</a>
         </div>
 	</div>
 
@@ -75,6 +75,7 @@
             <div>© 2020 El Buen Gusto Peruano SAC. Todos los derechos reservados</div>
         </div>
     </footer>
+    <script src="js/jquery-3.5.1.min.js"></script>
     <script src="js/slider.js"></script>
 </body>
 </html>
