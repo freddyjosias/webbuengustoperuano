@@ -29,17 +29,17 @@
 
             <div class='formulario-panel'>
 
-                <h1>Eliminar Producto</h1>
+                <h1>Eliminar Categoria</h1>
 
                 <form action="">
-                    <p>Elegir Producto: 
+                    <p>Elegir Categoria: 
                         <select name="" id="">
                             <option value="">Hola</option>
                             <option value="">Mundo</option>
                         </select>
                     </p>
 
-                    <input type="submit" value="Eliminar Producto">
+                    <input type="submit" value="Eliminar Categoria">
 
                 </form>
 

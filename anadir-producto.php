@@ -39,7 +39,7 @@
                         </select>
                     </p>
 
-                    <p>Producto: <input type="text"></p>  
+                    <p>Nuevo Producto: <input type="text"></p>  
                     
                     <p>Precio: <input type="number"></p>
 

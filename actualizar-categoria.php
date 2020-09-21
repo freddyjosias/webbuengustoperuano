@@ -29,11 +29,11 @@
 
             <div class='formulario-panel'>
 
-                <h1>Actualizar Producto</h1>
+                <h1>Actualizar Categoria</h1>
 
                 <form action="">
 
-                    <p> Elegir Producto: 
+                    <p> Elegir Categoria: 
                         <select name="" id="">
                             <option value="">Hola</option>
                             <option value="">Mundo</option>
@@ -47,15 +47,9 @@
                 <form action="">
 
                     <p>Nombre: </p>
-                    <p>Nuevo nombre: <input type="text"></p>  
+                    <p>Nuevo nombre: <input type="text"></p>
                     
-                    <p>Precio: </p>
-                    <p>Nuevo precio: <input type="number"></p>
-
-                    <p>Stock</p>
-                    <p>Nuevo Stock: <input type="number"></p>
-                    
-                    <input type="submit" value="Actualizar Producto">
+                    <input type="submit" value="Actualizar Categoria">
 
                 </form>
 

@@ -29,23 +29,13 @@
 
             <div class='formulario-panel'>
 
-                <h1>Añadir Producto</h1>
+                <h1>Añadir Categoria</h1>
 
                 <form action="">
-                    <p> Categoria: 
-                        <select name="" id="">
-                            <option value="">Hola</option>
-                            <option value="">Mundo</option>
-                        </select>
-                    </p>
 
-                    <p>Producto: <input type="text"></p>  
-                    
-                    <p>Precio: <input type="number"></p>
+                    <p>Categoria Nueva: <input type="text"></p>  
 
-                    <p>Stock: <input type="number"></p>
-                    
-                    <input type="submit" value="Añadir Producto">
+                    <input type="submit" value="Añadir Categoria">
 
                 </form>
 
