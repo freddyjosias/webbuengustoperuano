@@ -27,11 +27,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Hacer Pedido</title>
         <meta charset="utf-8">
         <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-        <title>Quienes Somos - Restaurante 1</title>
-    
+        <title>Hacer Pedido - Restaurante 1</title>
+        <link rel="shorcut icon" href="img/favicon.ico">
         <link rel="stylesheet" href="css/normalize.css">
 	    <link rel="stylesheet" type="text/css" href="css/estilos.css">
 </head>
@@ -47,9 +46,9 @@
         </div>
         <nav>
             <ul>
-                <li><a href="inicio.php?view=<?php echo $idRestaurante ?>">Inicio</a></li>
+                <li><a href="bienvenida.php?view=<?php echo $idRestaurante ?>">Bienvenida</a></li>
                 <li><a href="">Pedidos</a></li>
-                <li><a href="quienes-somos.php?view=<?php echo $idRestaurante ?>">Quienes Somos</a></li>
+                <li><a href="nosotros.php?view=<?php echo $idRestaurante ?>">Nosotros</a></li>
             </ul>
         </nav>
 	</header>

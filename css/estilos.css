@@ -212,11 +212,6 @@ input[type="submit"]:active{
     font-size: 20px;
 }
 
-.contenedor-general img {
-    width: 300px;
-    float: right;
-    margin: 0  0 2rem 2rem;
-}
 /* END MENU */
 /* END MENU */
 /* END MENU */
@@ -295,10 +290,12 @@ input[type="submit"]:active{
 .carta {
     background-color: #f2f2f2;
     padding-top: 2rem;
+    padding-bottom: 2rem;
 }
 
 .carta > div {
     background-color: white;
+    padding-bottom: 2rem;
 }
 
 .carta > div > h1 {
@@ -344,3 +341,67 @@ input[type="submit"]:active{
 /* END HACER PEDIDOS */
 /* END HACER PEDIDOS */
 /* END HACER PEDIDOS */
+
+/* START BIENVENIDA */
+/* START BIENVENIDA */
+/* START BIENVENIDA */
+
+.bienvenida-page {
+    margin-top: 2rem;
+}
+
+.bienvenida-page > div > img {
+    width: 40rem;
+    height: 22rem;
+    margin: 4.5rem 0 1rem 2rem;
+}
+
+.bienvenida-page > div > img:first-child {
+    float: right;
+}
+
+.bienvenida-page > div > img:last-child {
+    display: none;
+}
+
+.bienvenida-page  h1 {
+    font-size: 35px;
+    text-transform: uppercase;
+}
+
+.bienvenida-page > div > p {
+    font-size: 20px;
+    text-align: justify;
+}
+
+.bienvenida-page > div {
+    margin: 3rem 0;
+}
+
+.destacados-bienvenida {
+    display: flex;
+    justify-content: space-between;
+}
+
+.destacados-bienvenida div {
+    width: 31%;
+    background-color: rgb(77, 92, 160);
+}
+
+.destacados-bienvenida img {
+    width: 90%;
+    height: 15rem;
+    margin: 1rem 5% 0 5%;
+}
+
+.destacados-bienvenida h3 {
+    font-size: 18px;
+    margin: 1.5rem;
+    font-weight: 400;
+    text-align: justify;
+    color: white;
+}
+
+/* END BIENVENIDA */
+/* END BIENVENIDA */
+/* END BIENVENIDA */
