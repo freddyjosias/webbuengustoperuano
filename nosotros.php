@@ -32,7 +32,8 @@
     <title>Quienes Somos - Restaurante 1</title>
     <link rel="shorcut icon" href="img/favicon.ico">
     <link rel="stylesheet" href="css/normalize.css">
-	<link rel="stylesheet" type="text/css" href="css/estilos.css">
+    <link rel="stylesheet" type="text/css" href="css/estilos.css">
+    <link rel="stylesheet" type="text/css" href="css/menupegajoso.css">
 
 </head>
 <body>
@@ -125,6 +126,8 @@
             <div>© 2020 Restaurante 1 SAC. Todos los derechos reservados</div>
         </div>
     </footer>
+    <script src="js/jquery-3.5.1.min.js"></script>
+    <script src="js/menupegajosho.js"></script>
 </body>
 </html>
 
