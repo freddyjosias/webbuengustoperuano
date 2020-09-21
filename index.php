@@ -15,6 +15,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/normalize.css">
 	<link rel="stylesheet" type="text/css" href="css/estilos.css">
+    <link rel="stylesheet" type="text/css" href="css/slider.css">
 </head>
 <body>
     
@@ -27,20 +28,22 @@
 	</header>
 
 	<div class="slider contenedor-general">
-		<ul>
-			<li>
-				<img src="img/img1.jpg">
-			</li>
-			<li>
-                <img src="img/img2.jpg">
-            </li>
-			<li>
-                <img src="img/img3.jpg">
-            </li>
-			<li>
-                <img src="img/img4.jpg">
-            </li>
-		</ul>
+		<div class="slider-img efecto">
+			<img src="img/img1.jpg">
+        </div>
+		<div class="slider-img efecto">
+			<img src="img/img2.jpg">
+        </div>
+		<div class="slider-img efecto">
+			<img src="img/img3.jpg">
+        </div>
+		<div class="slider-img efecto">
+			<img src="img/img4.jpg">
+        </div>
+        <div class="direcciones">
+            <a href="#" class="atras" onclick="avanzaSlide(-1)">&#10094</a>
+            <a href="#" class="adelante" onclick="avanzaSlide(1)">&#10095</a>
+        </div>
 	</div>
 
     <section class="section-inicio">
@@ -72,6 +75,6 @@
             <div>© 2020 El Buen Gusto Peruano SAC. Todos los derechos reservados</div>
         </div>
     </footer>
-
+    <script src="js/slider.js"></script>
 </body>
 </html>
