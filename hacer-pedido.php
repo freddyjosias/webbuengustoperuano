@@ -33,6 +33,7 @@
         <link rel="shorcut icon" href="img/favicon.ico">
         <link rel="stylesheet" href="css/normalize.css">
 	    <link rel="stylesheet" type="text/css" href="css/estilos.css">
+        <link rel="stylesheet" type="text/css" href="css/deslizar-arriba.css">
 </head>
 <body>
 
@@ -60,7 +61,8 @@
             <h1>MENÚ - CARTA</h1>
 
 			<div class="contenido-carta">	
-                    
+
+                <img src="img/ir-arriba.png" class="ir-arriba">  
                 <h2>Entradas:</h2>
 
 			    <div>
@@ -187,8 +189,7 @@
                     <div class="productos-carta">
                         <div><h3>Coca Cola</h3></div>
                         <div>S/.2.00</div>
-                    </div>	
-    				<div>  						    				
+                    </div>						    				
                </div>             
             </div>           
         </div>
@@ -199,7 +200,8 @@
             <div>© 2020 Restaurante 1 SAC. Todos los derechos reservados</div>
         </div>
     </footer>
-
+    <script src="js/jquery-3.5.1.min.js"></script>
+    <script src="js/deslizar-arriba.js"></script>
 </body>
 </html>
 
