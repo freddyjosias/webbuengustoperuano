@@ -36,7 +36,7 @@ body{
 .contenido-header-inicio-img {
     width: 50%;
 }
-
+/* 
 .slider{
 	margin: auto;
     overflow: hidden;
@@ -71,7 +71,7 @@ body{
 	75%{margin-left: -300%;}
 	100%{margin-left: -300%;}
 
-}
+} */
 
 .section-inicio {
     background: rgb(226, 226, 226);
