@@ -458,13 +458,13 @@ input[type="submit"]:active{
 }
 
 .panel-control > div {
-    width: 70%;
+    width: 80%;
     background-color: #f2f2f2;
 }
 
 .contenido-panel-home {
     text-align: center;
-    padding: 5rem;
+    padding: 5rem 0;
 }
 
 .contenido-panel-home  img {
@@ -475,6 +475,18 @@ input[type="submit"]:active{
     font-size: 50px;
     font-weight: 900;
     text-transform: uppercase;
+    margin-bottom: 6rem;
+}
+
+.contenido-panel-home a {
+    background-color: white;
+    color: brown;
+    padding: 1rem 2rem;
+    text-decoration: none;
+    border: 1px solid brown;
+    font-size: 20px;
+    border-radius: 30px;
+    font-weight: 700;
 }
 
 /* END PANEL DE CONTROL */

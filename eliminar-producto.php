@@ -15,17 +15,29 @@
         <div class="contenedor-general panel-control">
             <nav>
                 <ul>
-                    <li><a href="">Inicio</a></li>
+                    <li><a href="panel.php">Inicio</a></li>
                     <li><a href="anadir-producto.php">Añadir Producto</a></li>
-                    <li><a href="eliminar-producto.php">Eliminar Producto</a></li>
+                    <li><a href="">Eliminar Producto</a></li>
                     <li><a href="actualizar-producto.php">Actualizar Praducto</a></li>
                 </ul>
             </nav>
 
-            <div class='contenido-panel-home'>
-                <img src="img/logo-icono.png">
-                <p>Bienvenido a su Panel de Control</p>
-                <a href="">Ver mi Restaurante</a>
+            <div class='formulario-panel'>
+
+                <h1>Eliminar Producto</h1>
+
+                <form action="">
+                    <p>Elegir Producto: 
+                        <select name="" id="">
+                            <option value="">Hola</option>
+                            <option value="">Mundo</option>
+                        </select>
+                    </p>
+
+                    <input type="submit" value="Eliminar Producto">
+
+                </form>
+
             </div>
 
         </div>

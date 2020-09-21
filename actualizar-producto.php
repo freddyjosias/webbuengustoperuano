@@ -18,29 +18,39 @@
                     <li><a href="panel.php">Inicio</a></li>
                     <li><a href="">Añadir Producto</a></li>
                     <li><a href="eliminar-producto.php">Eliminar Producto</a></li>
-                    <li><a href="actualizar-producto.php">Actualizar Praducto</a></li>
+                    <li><a href="">Actualizar Praducto</a></li>
                 </ul>
             </nav>
 
             <div class='formulario-panel'>
 
-                <h1>Añadir Producto</h1>
+                <h1>Actualizar Producto</h1>
 
                 <form action="">
-                    <p> Categoria: 
+
+                    <p> Elegir Producto: 
                         <select name="" id="">
                             <option value="">Hola</option>
                             <option value="">Mundo</option>
                         </select>
                     </p>
 
-                    <p>Producto: <input type="text"></p>  
-                    
-                    <p>Precio: <input type="number"></p>
+                    <input type="submit" value="Selecionar">
 
-                    <p>Stock: <input type="number"></p>
+                </form>
+
+                <form action="">
+
+                    <p>Nombre: </p>
+                    <p>Nuevo nombre: <input type="text"></p>  
                     
-                    <input type="submit" value="Añadir Producto">
+                    <p>Precio: </p>
+                    <p>Nuevo precio: <input type="number"></p>
+
+                    <p>Stock</p>
+                    <p>Nuevo Stock: <input type="number"></p>
+                    
+                    <input type="submit" value="Actualizar Producto">
 
                 </form>
 
