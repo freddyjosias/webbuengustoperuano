@@ -63,7 +63,7 @@ CREATE TABLE usuario(
    email VARCHAR(50) NOT NULL,
    nombreencargado VARCHAR(50),
    apellidoencargado VARCHAR(50),
-   contraseña VARCHAR(50) NOT NULL,
+   contrasena VARCHAR(50) NOT NULL,
 	CONSTRAINT pk_usuario PRIMARY KEY (idusuario),
    CONSTRAINT fk_sucursal_usuario FOREIGN KEY (idsucursal) REFERENCES sucursal(idsucursal)
 );

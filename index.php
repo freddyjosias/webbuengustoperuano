@@ -18,63 +18,107 @@
     <link rel="stylesheet" type="text/css" href="css/slider.css">
 </head>
 <body>
+
+    <?php session_start(); 
+    if (isset($_SESSION['idusuario'])) { ?>                        
+        
+        <header class="header-inicio">
+            <div class="contenedor-general contenido-header-inicio">
+                <div class="contenedor-img">  
+                    <img src="img/logo-white.png" class="contenido-header-inicio-img">
+                </div> 
+            </div>
+        </header>
+
+        <div class="slider contenedor-general">
+            <div class="slider-img efecto">
+                <img src="img/img1.jpg">
+            </div>
+            <div class="slider-img efecto">
+                <img src="img/img2.jpg">
+            </div>
+            <div class="slider-img efecto">
+                <img src="img/img3.jpg">
+            </div>
+            <div class="slider-img efecto">
+                <img src="img/img4.jpg">
+            </div>
+            <div class="direcciones">
+                <a href="#" class="atras">&#10094</a>
+                <a href="#" class="adelante">&#10095</a>
+            </div>
+        </div>
+
+        <section class="section-inicio">
+            <div class="contenedor-general">
+                <h1>RESTAURANTES</h1>
+                <?php $contadorRestaurantes = 0;
+                $resultados = mysqli_query($conexionDB, $consultaRestaurantes); 
+                while($row = mysqli_fetch_assoc($resultados)) { 
+                    if ($contadorRestaurantes % 2 == 0) { ?>
+                        <div class="presentacion-restaurantes">
+                    <?php } ?>
+                        <a href="bienvenida.php?view=<?php echo $row['idsucursal']; ?>">
+                            <div>
+                                <h2><?php echo $row['nomsucursal']; ?>:</h2>
+                                <img src="img/img<?php echo ($row['idsucursal'] + 4); ?>.jpg">
+                            </div>
+                        </a>
+                    <?php $contadorRestaurantes++;
+                    if ($contadorRestaurantes % 2 == 0) {?>
+                    </div>
+                <?php }
+                } mysqli_free_result($resultados); ?>
+
+            </div>
+        </section>
+
+        <footer class="footer-inicio">
+            <div class= "contenedor-general">
+                <div>© 2020 El Buen Gusto Peruano SAC. Todos los derechos reservados</div>
+            </div>
+        </footer>
+
+    <?php } else { ?>
+
+        <form method='post'>
+            <h1>Iniciar sesión</h1>
+            <input type="text" placeholder="&#128272; Usuario" name="usuario">
+            <input type="password" placeholder="&#128272; Contraseña" name="clave">
+            <input type="submit" value="Ingresar" name="login">
+        </form>
+        
+    <?php 
     
-	<header class="header-inicio">
-		<div class="contenedor-general contenido-header-inicio">
-            <div class="contenedor-img">  
-                <img src="img/logo-white.png" class="contenido-header-inicio-img">
-            </div> 
-		</div>
-	</header>
+        if (isset($_POST['login'])) {
+            if (strlen($_POST['usuario']) > 0 && strlen($_POST['clave']) > 0) {
+                $usuario = $_POST['usuario'];
+                $clave = $_POST['clave'];
+                $consultaUsuario = 'SELECT * FROM usuario';
+                $datosErroneos = 1;
+                $resultados = mysqli_query($conexionDB, $consultaUsuario); 
+                while($row = mysqli_fetch_assoc($resultados)) { 
+                    if ($row['email'] == $usuario && $row['contrasena'] == $clave) {
+                        $datosErroneos = 0;
+                        $_SESSION['idusuario'] = $row['idusuario'];
+                        $_SESSION['email'] = $row['email'];
+                        $_SESSION['nombreencargado'] = $row['nombreencargado'];
+                        $_SESSION['apellidoencargado'] = $row['nombreencargado'];
+                    }
+                } mysqli_free_result($resultados);
+                
+                if ($datosErroneos == 1) {
+                    echo 'Ingrese bien sus datos';
+                }
 
-	<div class="slider contenedor-general">
-		<div class="slider-img efecto">
-			<img src="img/img1.jpg">
-        </div>
-		<div class="slider-img efecto">
-			<img src="img/img2.jpg">
-        </div>
-		<div class="slider-img efecto">
-			<img src="img/img3.jpg">
-        </div>
-		<div class="slider-img efecto">
-			<img src="img/img4.jpg">
-        </div>
-        <div class="direcciones">
-            <a href="#" class="atras">&#10094</a>
-            <a href="#" class="adelante">&#10095</a>
-        </div>
-	</div>
+                header('Location: index.php');
 
-    <section class="section-inicio">
-        <div class="contenedor-general">
-            <h1>RESTAURANTES</h1>
-            <?php $contadorRestaurantes = 0;
-            $resultados = mysqli_query($conexionDB, $consultaRestaurantes); 
-            while($row = mysqli_fetch_assoc($resultados)) { 
-                if ($contadorRestaurantes % 2 == 0) { ?>
-                    <div class="presentacion-restaurantes">
-                <?php } ?>
-                    <a href="bienvenida.php?view=<?php echo $row['idsucursal']; ?>">
-                        <div>
-                            <h2><?php echo $row['nomsucursal']; ?>:</h2>
-                            <img src="img/img<?php echo ($row['idsucursal'] + 4); ?>.jpg">
-                        </div>
-                    </a>
-                <?php $contadorRestaurantes++;
-                if ($contadorRestaurantes % 2 == 0) {?>
-                </div>
-            <?php }
-            } ?>
+            } else {
+                echo 'Ingresa tus datos';
+            }
+        }
 
-        </div>
-    </section>
-
-    <footer class="footer-inicio">
-        <div class= "contenedor-general">
-            <div>© 2020 El Buen Gusto Peruano SAC. Todos los derechos reservados</div>
-        </div>
-    </footer>
+    } ?>
     <script src="js/jquery-3.5.1.min.js"></script>
     <script src="js/slider.js"></script>
 </body>
