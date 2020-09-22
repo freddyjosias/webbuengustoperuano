@@ -7,13 +7,15 @@
         header('Location: index.php');
     } else {
 
-        $consultaVerificarRestaurante = 'SELECT idsucursal FROM sucursal';
+        $consultaVerificarRestaurante = 'SELECT * FROM sucursal';
 
         $idRestaurante;
+        $telefonoRestaurante;
         $resultados = mysqli_query($conexionDB, $consultaVerificarRestaurante); 
         while($row = mysqli_fetch_assoc($resultados)) { 
             if ($row['idsucursal'] ==  $_GET['view']) {
                 $idRestaurante = $row['idsucursal'];
+                $telefonoRestaurante = $row['telefono'];
                 break;
             }
         }
@@ -21,6 +23,8 @@
         if (!isset($idRestaurante)) {
             header('Location: index.php');
         } else {
+
+
 
 ?>
 
@@ -74,7 +78,7 @@
                 <div class="telefono">
                     <h2>Telefono</h2>
                     <ul>
-                        <li><p>+51 42 204050</p></li>
+                        <li><p><?php echo $telefonoRestaurante; ?></p></li>
                     </ul>
                 </div>
             </div>

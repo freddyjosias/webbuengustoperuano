@@ -20,6 +20,7 @@ CREATE TABLE sucursal(
    direcsucursal VARCHAR(50),
    telefono VARCHAR(50),
    horaatencion TIME,
+   correosucursal VARCHAR(50),
   	CONSTRAINT pk_sucursal PRIMARY KEY (idsucursal)
 );
 CREATE TABLE detalleformaspago(
@@ -98,14 +99,14 @@ CREATE TABLE detalleventa(
 );
 
 -- Ingreso de sucursal
-INSERT INTO sucursal (nomsucursal,direcsucursal,telefono) 
-VALUES ('El Norteño','Santa María 246, Tarapoto','+51 42 522604');
-INSERT INTO sucursal (nomsucursal,direcsucursal,telefono) 
-VALUES ('La Collpa','Av. Circunvalación 202, Tarapoto','+51 42 522644');
-INSERT INTO sucursal (nomsucursal,direcsucursal,telefono) 
-VALUES ('Doña Zully','Jr. San Pablo de la Cruz 244, Tarapoto','+51 42 530670');
-INSERT INTO sucursal (nomsucursal,direcsucursal,telefono) 
-VALUES ('Chalet Venzia','Jr. Alegría Arias de Morey 293-175, Tarapoto','+51 42 522104');
+INSERT INTO sucursal (nomsucursal,direcsucursal,telefono,correosucursal) 
+VALUES ('El Norteño','Santa María 246, Tarapoto','+51 42 522604',@gmail.com);
+INSERT INTO sucursal (nomsucursal,direcsucursal,telefono,correosucursal) 
+VALUES ('La Collpa','Av. Circunvalación 202, Tarapoto','+51 42 522644',@gmail.com);
+INSERT INTO sucursal (nomsucursal,direcsucursal,telefono,correosucursal) 
+VALUES ('Doña Zully','Jr. San Pablo de la Cruz 244, Tarapoto','+51 42 530670',@gmail.com);
+INSERT INTO sucursal (nomsucursal,direcsucursal,telefono,correosucursal) 
+VALUES ('Chalet Venzia','Jr. Alegría Arias de Morey 293-175, Tarapoto','+51 42 522104',@gmail.com);
 
 
 -- Consulta
