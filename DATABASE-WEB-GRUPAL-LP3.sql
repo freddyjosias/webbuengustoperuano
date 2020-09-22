@@ -100,13 +100,13 @@ CREATE TABLE detalleventa(
 
 -- Ingreso de sucursal
 INSERT INTO sucursal (nomsucursal,direcsucursal,telefono,correosucursal) 
-VALUES ('El Norteño','Santa María 246, Tarapoto','+51 42 522604',@gmail.com);
+VALUES ('El Norteño','Santa María 246, Tarapoto','+51 42 522604','elnorteño@gmail.com');
 INSERT INTO sucursal (nomsucursal,direcsucursal,telefono,correosucursal) 
-VALUES ('La Collpa','Av. Circunvalación 202, Tarapoto','+51 42 522644',@gmail.com);
+VALUES ('La Collpa','Av. Circunvalación 202, Tarapoto','+51 42 522644','lacollpa@gmail.com');
 INSERT INTO sucursal (nomsucursal,direcsucursal,telefono,correosucursal) 
-VALUES ('Doña Zully','Jr. San Pablo de la Cruz 244, Tarapoto','+51 42 530670',@gmail.com);
+VALUES ('Doña Zully','Jr. San Pablo de la Cruz 244, Tarapoto','+51 42 530670','doñazully@gmail.com');
 INSERT INTO sucursal (nomsucursal,direcsucursal,telefono,correosucursal) 
-VALUES ('Chalet Venzia','Jr. Alegría Arias de Morey 293-175, Tarapoto','+51 42 522104',@gmail.com);
+VALUES ('Chalet Venzia','Jr. Alegría Arias de Morey 293-175, Tarapoto','+51 42 522104','chaletvenzia@gmail.com');
 
 
 -- Consulta

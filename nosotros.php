@@ -11,11 +11,15 @@
 
         $idRestaurante;
         $telefonoRestaurante;
+        $correoRestaurante;
+
+
         $resultados = mysqli_query($conexionDB, $consultaVerificarRestaurante); 
         while($row = mysqli_fetch_assoc($resultados)) { 
             if ($row['idsucursal'] ==  $_GET['view']) {
                 $idRestaurante = $row['idsucursal'];
                 $telefonoRestaurante = $row['telefono'];
+                $correoRestaurante = $row['correosucursal'];
                 break;
             }
         }
@@ -94,7 +98,7 @@
                 <div class="correoelectronico">
                     <h2>Correo electronico</h2>
                     <ul>
-                        <li><p>Cristianfd10@gmail.com</p></li>
+                        <li><p><?php echo $correoRestaurante ?></p></li>
                     </ul>
                 </div>
             </div>
