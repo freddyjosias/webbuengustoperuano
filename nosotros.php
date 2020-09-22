@@ -12,6 +12,7 @@
         $idRestaurante;
         $telefonoRestaurante;
         $correoRestaurante;
+        $ubicacionRestaurante;
 
 
         $resultados = mysqli_query($conexionDB, $consultaVerificarRestaurante); 
@@ -20,6 +21,7 @@
                 $idRestaurante = $row['idsucursal'];
                 $telefonoRestaurante = $row['telefono'];
                 $correoRestaurante = $row['correosucursal'];
+                $ubicacionRestaurante= $row['direcsucursal'];
                 break;
             }
         }
@@ -91,14 +93,14 @@
                 <div class="ubicacion">
                     <h2>Dirección</h2>
                     <ul>
-                        <li><p>San Martin_Tarapoto</p></li>
+                        <li><p><?php echo $ubicacionRestaurante;?></p></li>
                     </ul>
                 </div>
 
                 <div class="correoelectronico">
                     <h2>Correo electronico</h2>
                     <ul>
-                        <li><p><?php echo $correoRestaurante ?></p></li>
+                        <li><p><?php echo $correoRestaurante; ?></p></li>
                     </ul>
                 </div>
             </div>
