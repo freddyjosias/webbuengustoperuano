@@ -4,6 +4,8 @@
 
     $consultaRestaurantes = 'SELECT idsucursal, nomsucursal FROM sucursal';
 
+    session_start();
+
 ?>
 
 <!DOCTYPE html>
@@ -20,8 +22,7 @@
 </head>
 <body>
 
-    <?php session_start(); 
-    if (isset($_SESSION['idusuario'])) { ?>                        
+    <?php if (isset($_SESSION['idusuario'])) { ?>                        
         
         <header class="header-inicio">
             <div class="contenedor-general contenido-header-inicio">
