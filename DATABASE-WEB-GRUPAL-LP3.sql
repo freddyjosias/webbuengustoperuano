@@ -112,7 +112,7 @@ VALUES ('Chalet Venzia','Jr. Alegría Arias de Morey 293-175, Tarapoto','+51 42 
 -- Consulta
 SELECT*FROM sucursal;
 
---Ingreso de formas de pago
+-- Ingreso de formas de pago
 INSERT INTO formaspago (descripcionformaspago) 
 VALUES ('Efectivo');
 INSERT INTO formaspago (descripcionformaspago) 
@@ -120,7 +120,7 @@ VALUES ('Online');
 INSERT INTO formaspago (descripcionformaspago) 
 VALUES ('POS');
 
---Ingreso de tipos de pedido
+-- Ingreso de tipos de pedido
 INSERT INTO tipospedido (descripciontipospedido) 
 VALUES ('Delivery');
 INSERT INTO tipospedido (descripciontipospedido) 
@@ -128,7 +128,7 @@ VALUES ('Recojo en local');
 INSERT INTO tipospedido (descripciontipospedido) 
 VALUES ('Reserva');
 
---Ingreso de usuarios
+-- Ingreso de usuarios
 INSERT INTO usuario (idsucursal,email,nombreencargado,apellidoencargado,contraseña) 
 VALUES (1,'jerryinga12@gmail.com','Jerry Josias','Sobojeda Pinchi','aguantelgtb');
 INSERT INTO usuario (idsucursal,email,nombreencargado,apellidoencargado,contraseña) 
@@ -138,7 +138,7 @@ VALUES (3,'ariano@gmail.com','Arian','Chuquilin Sanches','vivaellol');
 INSERT INTO usuario (idsucursal,email,nombreencargado,apellidoencargado,contraseña) 
 VALUES (4,'jordidrox@gmail.com','Jordi','Panduro Valverde','vivaelclash');
 
---Ingreso de categoria de productos
+-- Ingreso de categoria de productos
 
 INSERT INTO categoriaproductos (idsucursal,descripcioncategoriaproducto) 
 VALUES (1,'Desayuno');
@@ -207,9 +207,9 @@ VALUES (4,'Bebidas');
 
 SELECT*FROM categoriaproductos
 
---Ingreso de productos
+-- Ingreso de productos
 
---chalet venzia
+-- chalet venzia
 INSERT INTO productos (idcategoriaproducto,nomproducto,precio,stock) 
 VALUES (25,'Desayuno Americano',16.0,5);
 INSERT INTO productos (idcategoriaproducto,nomproducto,precio,stock) 
@@ -232,7 +232,7 @@ VALUES (26,'Salpicón de pollo',22.0,6);
 INSERT INTO productos (idcategoriaproducto,nomproducto,precio,stock) 
 VALUES (26,'Ensalada de atún',22.0,12);
 
----el norteño
+-- el norteño
 INSERT INTO productos (idcategoriaproducto,nomproducto,precio,stock) 
 VALUES (3,'Chupe de camarones',33.0,5);
 INSERT INTO productos (idcategoriaproducto,nomproducto,precio,stock) 
@@ -255,7 +255,7 @@ VALUES (8,'Agua San Luis',3.0,7);
 INSERT INTO productos (idcategoriaproducto,nomproducto,precio,stock) 
 VALUES (8,'1 Litro de Refresco Cocona',7.0,3);
 
----la collpa
+-- la collpa
 INSERT INTO productos (idcategoriaproducto,nomproducto,precio,stock) 
 VALUES (12,'Tilapia Frita',30.0,7);
 INSERT INTO productos (idcategoriaproducto,nomproducto,precio,stock) 
@@ -278,7 +278,7 @@ VALUES (13,'Brownie',5.0,7);
 INSERT INTO productos (idcategoriaproducto,nomproducto,precio,stock) 
 VALUES (13,'Surtido de Postres',7.0,3);
 
---doña zully
+-- doña zully
 INSERT INTO productos (idcategoriaproducto,nomproducto,precio,stock) 
 VALUES (20,'Tilapia Frita',27.0,7);
 INSERT INTO productos (idcategoriaproducto,nomproducto,precio,stock) 
@@ -289,20 +289,3 @@ INSERT INTO productos (idcategoriaproducto,nomproducto,precio,stock)
 VALUES (20,'Avispa Juane',28.0,15);
 INSERT INTO productos (idcategoriaproducto,nomproducto,precio,stock) 
 VALUES (20,'Inshicapi',20.0,10);
-
-INSERT INTO productos (idcategoriaproducto,nomproducto,precio,stock) 
-VALUES (21,'Maceta de Tiramisú',11.0,10);
-INSERT INTO productos (idcategoriaproducto,nomproducto,precio,stock) 
-VALUES (21,'Tarta fina de Manzana',8.0,15);
-INSERT INTO productos (idcategoriaproducto,nomproducto,precio,stock) 
-VALUES (21,'Crepe',10.0,10);
-INSERT INTO productos (idcategoriaproducto,nomproducto,precio,stock) 
-VALUES (21,'Pudín',7.0,7);
-INSERT INTO productos (idcategoriaproducto,nomproducto,precio,stock) 
-VALUES (21,'Flan de Huevo al Caramelo',5.0,3);
-
-
-
-
-
-
