@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="css/normalize.css">
 	<link rel="stylesheet" type="text/css" href="css/estilos.css">
     <link rel="stylesheet" type="text/css" href="css/slider.css">
+    <link rel="stylesheet" type="text/css" href="css/login.css">
 </head>
 <body>
 
@@ -26,7 +27,10 @@
             <div class="contenedor-general contenido-header-inicio">
                 <div class="contenedor-img">  
                     <img src="img/logo-white.png" class="contenido-header-inicio-img">
-                </div> 
+                </div>
+                <div class="cerrar-sesion">
+                    <a href="logout.php"><img src="img/cerrar-sesion.png"></a>
+                </div>
             </div>
         </header>
 
@@ -81,7 +85,7 @@
 
     <?php } else { ?>
 
-        <form method='post'>
+        <form method='post' class="box-login">
             <h1>Iniciar sesión</h1>
             <input type="text" placeholder="&#128272; Usuario" name="usuario">
             <input type="password" placeholder="&#128272; Contraseña" name="clave">

@@ -129,13 +129,13 @@ INSERT INTO tipospedido (descripciontipospedido)
 VALUES ('Reserva');
 
 -- Ingreso de usuarios
-INSERT INTO usuario (idsucursal,email,nombreencargado,apellidoencargado,contraseña) 
+INSERT INTO usuario (idsucursal,email,nombreencargado,apellidoencargado,contrasena) 
 VALUES (1,'jerryinga12@gmail.com','Jerry Josias','Sobojeda Pinchi','aguantelgtb');
-INSERT INTO usuario (idsucursal,email,nombreencargado,apellidoencargado,contraseña) 
+INSERT INTO usuario (idsucursal,email,nombreencargado,apellidoencargado,contrasena) 
 VALUES (2,'freddyhidalgo@gmail.com','Freddy Roberto','Culqui Chupingawa','vivaelpubg');
-INSERT INTO usuario (idsucursal,email,nombreencargado,apellidoencargado,contraseña) 
+INSERT INTO usuario (idsucursal,email,nombreencargado,apellidoencargado,contrasena) 
 VALUES (3,'ariano@gmail.com','Arian','Chuquilin Sanches','vivaellol');
-INSERT INTO usuario (idsucursal,email,nombreencargado,apellidoencargado,contraseña) 
+INSERT INTO usuario (idsucursal,email,nombreencargado,apellidoencargado,contrasena) 
 VALUES (4,'jordidrox@gmail.com','Jordi','Panduro Valverde','vivaelclash');
 
 -- Ingreso de categoria de productos
@@ -204,8 +204,6 @@ INSERT INTO categoriaproductos (idsucursal,descripcioncategoriaproducto)
 VALUES (4,'Otros');
 INSERT INTO categoriaproductos (idsucursal,descripcioncategoriaproducto) 
 VALUES (4,'Bebidas');
-
-SELECT*FROM categoriaproductos
 
 -- Ingreso de productos
 
