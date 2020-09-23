@@ -19,6 +19,7 @@
     left: 50%;
     transform: translate(-50%, -50%);
     background: #191919;
+    border-radius: 28px;
 }
 
 .box-login h1 {
