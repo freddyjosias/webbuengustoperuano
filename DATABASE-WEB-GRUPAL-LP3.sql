@@ -19,7 +19,16 @@ CREATE TABLE sucursal(
    nomsucursal VARCHAR(50),
    direcsucursal VARCHAR(50),
    telefono VARCHAR(50),
-   horaatencion TIME,
+   imgbienvenida VARCHAR(150),
+   textobienvenida VARCHAR(100),
+   imgdestacado1 VARCHAR(150),
+	platodestacado1 VARCHAR(100),
+	imgdestacado2 VARCHAR(150),
+   platodestacado2 VARCHAR(100),
+   imgdestacado3 VARCHAR(150),
+   platodestacado3 VARCHAR(100),
+   horaatencioninicio TIME,
+   horaatencioncierre TIME,
    correosucursal VARCHAR(50),
   	CONSTRAINT pk_sucursal PRIMARY KEY (idsucursal)
 );
@@ -57,17 +66,26 @@ CREATE TABLE productos(
 	CONSTRAINT fk_categoriaproductos_productos FOREIGN KEY (idcategoriaproducto) REFERENCES categoriaproductos(idcategoriaproducto)
 );
 	
-CREATE TABLE usuario(
-   idusuario INT NOT NULL AUTO_INCREMENT,
+CREATE TABLE usuario_encargado(
+   idusuario_encargado INT NOT NULL AUTO_INCREMENT,
    idsucursal INT NOT NULL,
-   email VARCHAR(50) NOT NULL,
+   emailencargado VARCHAR(50) NOT NULL,
    nombreencargado VARCHAR(50),
    apellidoencargado VARCHAR(50),
-   contrasena VARCHAR(50) NOT NULL,
-	CONSTRAINT pk_usuario PRIMARY KEY (idusuario),
-   CONSTRAINT fk_sucursal_usuario FOREIGN KEY (idsucursal) REFERENCES sucursal(idsucursal)
+   contrasenae VARCHAR(50) NOT NULL,
+    CONSTRAINT pk_usuario_encargado PRIMARY KEY (idusuario_encargado),
+   CONSTRAINT fk_sucursal_usuario_encargado FOREIGN KEY (idsucursal) REFERENCES sucursal(idsucursal)
 );
-
+CREATE TABLE usuario (
+    idusuario INT NOT NULL AUTO_INCREMENT,
+    idsucursal iNT NOT NULL,
+    emailusuario VARCHAR(50),
+    nombreusuario VARCHAR(50),
+    apellidousuario VARCHAR(50),
+    contrasenau VARCHAR(50) NOT NULL,
+    CONSTRAINT pk_usuario PRIMARY KEY (idusuario),
+    CONSTRAINT fk_sucursal_usuario FOREIGN KEY (idsucursal) REFERENCES sucursal(idsucursal)
+);
 CREATE TABLE pedidos (
 	idventa INT NOT NULL AUTO_INCREMENT,
 	idformaspago INT NOT NULL,
@@ -129,14 +147,14 @@ INSERT INTO tipospedido (descripciontipospedido)
 VALUES ('Reserva');
 
 -- Ingreso de usuarios
-INSERT INTO usuario (idsucursal,email,nombreencargado,apellidoencargado,contrasena) 
+INSERT INTO usuario_encargado (idsucursal,emailencargado,nombreencargado,apellidoencargado,contrasenae) 
 VALUES (1,'jerryinga12@gmail.com','Jerry Josias','Sobojeda Pinchi','aguantelgtb');
-INSERT INTO usuario (idsucursal,email,nombreencargado,apellidoencargado,contrasena) 
+INSERT INTO usuario_encargado (idsucursal,emailencargado,nombreencargado,apellidoencargado,contrasenae) 
 VALUES (2,'freddyhidalgo@gmail.com','Freddy Roberto','Culqui Chupingawa','vivaelpubg');
-INSERT INTO usuario (idsucursal,email,nombreencargado,apellidoencargado,contrasena) 
+INSERT INTO usuario_encargado (idsucursal,emailencargado,nombreencargado,apellidoencargado,contrasenae) 
 VALUES (3,'ariano@gmail.com','Arian','Chuquilin Sanches','vivaellol');
-INSERT INTO usuario (idsucursal,email,nombreencargado,apellidoencargado,contrasena) 
-VALUES (4,'jordidrox@gmail.com','Jordi','Panduro Valverde','vivaelclash');
+INSERT INTO usuario_encargado (idsucursal,emailencargado,nombreencargado,apellidoencargado,contrasenae) 
+VALUES (4,'admin','ElAdmin','Dios Admin','admin');
 
 -- Ingreso de categoria de productos
 
