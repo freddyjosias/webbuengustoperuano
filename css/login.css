@@ -22,6 +22,10 @@
     border-radius: 28px;
 }
 
+.box-login p {
+    color: white;
+}
+
 .box-login h1 {
     color: white;
     text-transform: uppercase;
