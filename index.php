@@ -100,14 +100,14 @@
             if (strlen($_POST['usuario']) > 0 && strlen($_POST['clave']) > 0) {
                 $usuario = $_POST['usuario'];
                 $clave = $_POST['clave'];
-                $consultaUsuario = 'SELECT * FROM usuario';
+                $consultaUsuario = 'SELECT * FROM usuario_encargado';
                 $datosErroneos = 1;
                 $resultados = mysqli_query($conexionDB, $consultaUsuario); 
                 while($row = mysqli_fetch_assoc($resultados)) { 
-                    if ($row['email'] == $usuario && $row['contrasena'] == $clave) {
+                    if ($row['emailencargado'] == $usuario && $row['contrasenae'] == $clave) {
                         $datosErroneos = 0;
-                        $_SESSION['idusuario'] = $row['idusuario'];
-                        $_SESSION['email'] = $row['email'];
+                        $_SESSION['idusuario'] = $row['idusuario_encargado'];
+                        $_SESSION['email'] = $row['emailencargado'];
                         $_SESSION['nombreencargado'] = $row['nombreencargado'];
                         $_SESSION['apellidoencargado'] = $row['nombreencargado'];
                     }
