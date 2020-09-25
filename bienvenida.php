@@ -48,7 +48,7 @@
         <nav>
             <ul>
                 <li><a href="">Bienvenida</a></li>
-                <li><a href="hacer-pedido.php?view=<?php echo $idRestaurante ?>">Pedidos</a></li>
+                <li><a href="hacerpedido.php?view=<?php echo $idRestaurante ?>">Pedidos</a></li>
                 <li><a href="nosotros.php?view=<?php echo $idRestaurante ?>">Nosotros</a></li>
             </ul>
         </nav>
