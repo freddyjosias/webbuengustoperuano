@@ -8,6 +8,7 @@
     } else {
 
         $consultaVerificarRestaurante = 'SELECT * FROM sucursal';
+        /*$consultaformadepago = 'SELECT idformaspago FROM formaspago';*/
 
         $idRestaurante;
         $telefonoRestaurante;
@@ -21,7 +22,7 @@
                 $idRestaurante = $row['idsucursal'];
                 $telefonoRestaurante = $row['telefono'];
                 $correoRestaurante = $row['correosucursal'];
-                $ubicacionRestaurante= $row['direcsucursal'];
+                $ubicacionRestaurante = $row['direcsucursal'];
                 break;
             }
         }
@@ -59,7 +60,7 @@
         <nav>
             <ul>
                 <li><a href="bienvenida.php?view=<?php echo $idRestaurante ?>">Bienvenida</a></li>
-                <li><a href="hacer-pedido.php?view=<?php echo $idRestaurante ?>">Pedidos</a></li>
+                <li><a href="hacerpedido.php?view=<?php echo $idRestaurante ?>">Pedidos</a></li>
                 <li><a href="">Nosotros</a></li>
             </ul>
         </nav>
@@ -109,9 +110,9 @@
                 <div class="formadepago">
                     <h2>Forma de pagos</h2>
                     <ul>
-                        <li><p>Pago en efectivo</p></li>
-                        <li><p>Pago con POS</p></li>
-                        <li><P>Pago online</P></li>
+                        <li><p><?php echo $formaspago; ?></p></li>
+                        <li><p><?php echo $formaspago; ?></p></li>
+                        <li><P><?php echo $formaspago; ?></P></li>
                 </ul>
                 </div>
 
