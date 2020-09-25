@@ -49,6 +49,52 @@ CONSTRAINT pk_detalletipospedido PRIMARY KEY (idtipospedido,idsucursal),
 CONSTRAINT fk_tipospedido_detalle FOREIGN KEY (idtipospedido) REFERENCES tipospedido(idtipospedido),
 CONSTRAINT fk_sucursal_detalle2 FOREIGN KEY (idsucursal) REFERENCES sucursal(idsucursal)
 );
+
+SELECT descripciontipospedido FROM tipospedido INNER JOIN detalletipospedido ON tipospedido.idtipospedido = detalletipospedido.idtipospedido 
+	INNER JOIN sucursal ON sucursal.idsucursal = detalletipospedido.idsucursal
+	WHERE disponibilidadtipospedido = 1 AND sucursal.idsucursal = 1
+
+
+INSERT INTO detalletipospedido (idtipospedido, idsucursal, disponibilidadtipospedido) VALUE (1,1,1);
+
+INSERT INTO detalletipospedido (idtipospedido,idsucursal,disponibilidadtipospedido) 
+VALUES (2,1,1);
+
+INSERT INTO detalletipospedido (idtipospedido,idsucursal,disponibilidadtipospedido) 
+VALUES (3,1,0);
+
+INSERT INTO detalletipospedido (idtipospedido,idsucursal,disponibilidadtipospedido) 
+VALUES (1,2,1);
+
+INSERT INTO detalletipospedido (idtipospedido,idsucursal,disponibilidadtipospedido) 
+VALUES (2,2,0);
+
+INSERT INTO detalletipospedido (idtipospedido,idsucursal,disponibilidadtipospedido) 
+VALUES (3,2,0);
+
+INSERT INTO detalletipospedido (idtipospedido,idsucursal,disponibilidadtipospedido) 
+VALUES (1,3,0);
+
+INSERT INTO detalletipospedido (idtipospedido,idsucursal,disponibilidadtipospedido) 
+VALUES (2,3,1);
+
+INSERT INTO detalletipospedido (idtipospedido,idsucursal,disponibilidadtipospedido) 
+VALUES (3,3,0);
+
+INSERT INTO detalletipospedido (idtipospedido,idsucursal,disponibilidadtipospedido) 
+VALUES (1,4,1);
+
+INSERT INTO detalletipospedido (idtipospedido,idsucursal,disponibilidadtipospedido) 
+VALUES (2,4,1);
+
+INSERT INTO detalletipospedido (idtipospedido,idsucursal,disponibilidadtipospedido) 
+VALUES (3,4,1);
+
+
+
+
+
+
 CREATE TABLE categoriaproductos(
 	idcategoriaproducto INT NOT NULL AUTO_INCREMENT,
 	idsucursal INT NOT NULL,
@@ -118,16 +164,16 @@ CREATE TABLE detalleventa(
 
 -- Ingreso de sucursal
 INSERT INTO sucursal (nomsucursal,direcsucursal,telefono ,imgbienvenida,textobienvenida, imgdestacado1,platodestacado1,imgdestacado2,platodestacado2,imgdestacado3,platodestacado3,horaatencioninicio,horaatencioncierre,correosucursal) 
-VALUES ('El Norteño','Santa María 246, Tarapoto','+51 42 522604','img/menu.jpg','Hace varios ayeres, en el Perú cambio el concepto del comer; Este gran cambio se ha convertido en toda una filosofía que permite que muchos restaurantes queden como favoritos de la gente','img/destacado1.jpg','plato1','img/destacado2.jpg','plato2','img/destacado3.jpg','plato3','07:00','21:00','elnorteño@gmail.com');
+VALUES ('El Norteño','Santa María 246, Tarapoto','+51 42 522604','img/menu.jpg','Hace varios ayeres, n como favoritos de la gente','img/destacado1.jpg','plato1','img/destacado2.jpg','plato2','img/destacado3.jpg','plato3','07:00','21:00','elnorteño@gmail.com');
 
 INSERT INTO sucursal (nomsucursal,direcsucursal,telefono,imgbienvenida,textobienvenida, imgdestacado1,platodestacado1,imgdestacado2,platodestacado2,imgdestacado3,platodestacado3,horaatencioninicio,horaatencioncierre,correosucursal) 
-VALUES ('La Collpa','Av. Circunvalación 202, Tarapoto','+51 42 522644','img/menu.jpg','Hace varios ayeres, en el Perú cambio el concepto del comer; Este gran cambio se ha convertido en toda una filosofía que permite que muchos restaurantes queden como favoritos de la gente','img/destacado1.jpg','plato1','img/destacado2.jpg','plato2','img/destacado3.jpg','plato3','07:00','21:00','lacollpa@gmail.com');
+VALUES ('La Collpa','Av. Circunvalación 202, Tarapoto','+51 42 522644','img/menu.jpg','Hace vaa filoests de la gente','img/destacado1.jpg','plato1','img/destacado2.jpg','plato2','img/destacado3.jpg','plato3','07:00','21:00','lacollpa@gmail.com');
 
 INSERT INTO sucursal (nomsucursal,direcsucursal,telefono ,imgbienvenida,textobienvenida, imgdestacado1,platodestacado1,imgdestacado2,platodestacado2,imgdestacado3,platodestacado3,horaatencioninicio,horaatencioncierre,correosucursal) 
-VALUES ('Doña Zully','Jr. San Pablo de la Cruz 244, Tarapoto','+51 42 530670','img/menu.jpg','Hace varios ayeres, en el Perú cambio el concepto del comer; Este gran cambio se ha convertido en toda una filosofía que permite que muchos restaurantes queden como favoritos de la gente','img/destacado1.jpg','plati1','img/destacado2.jpg','plati2','img/destacado3.jpg','plati3','08:00','20:00','doñazully@gmail.com');
+VALUES ('Doña Zully','Jr. San Pablo de la Cruz 244, Tarapoto','+51 42 530670','img/menu.jpg','Haclamb unaucavoritos de la gente','img/destacado1.jpg','plati1','img/destacado2.jpg','plati2','img/destacado3.jpg','plati3','08:00','20:00','doñazully@gmail.com');
 
 INSERT INTO sucursal (nomsucursal,direcsucursal,telefono ,imgbienvenida,textobienvenida, imgdestacado1,platodestacado1,imgdestacado2,platodestacado2,imgdestacado3,platodestacado3,horaatencioninicio,horaatencioncierre,correosucursal) 
-VALUES ('Chalet Venzia','Jr. Alegría Arias de Morey 293-175, Tarapoto','+51 42 522104','img/menu.jpg','Hace varios ayeres, en el Perú cambio el concepto del comer; Este gran cambio se ha convertido en toda una filosofía que permite que muchos restaurantes queden como favoritos de la gente','img/destacado1.jpg','plaito1','img/destacado2.jpg','platito2','img/destacado3.jpg','platito3','07:00','21:00','chaletvenzia@gmail.com');
+VALUES ('Chalet Venzia','Jr. Alegría Arias de Morey 293-175, Tarapoto','+51 42 522104','img/menu.jpg','Ha la gente','img/destacado1.jpg','plaito1','img/destacado2.jpg','platito2','img/destacado3.jpg','platito3','07:00','21:00','chaletvenzia@gmail.com');
 
 
 -- Consulta
