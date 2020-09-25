@@ -64,3 +64,16 @@
     cursor: pointer;
     background: #2ecc71;
 }
+
+.box-login input[name = "xdefecto"] {
+    border: 2px solid #c72f2f;
+}
+
+.box-login input[name = "xdefecto"]:hover {
+    cursor: pointer;
+    background: #c72f2f;
+}
+
+
+
+

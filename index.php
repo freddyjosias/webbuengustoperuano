@@ -92,6 +92,7 @@
             <input type="text" placeholder="&#128272; Usuario" name="usuario">
             <input type="password" placeholder="&#128272; Contraseña" name="clave">
             <input type="submit" value="Ingresar" name="login">
+            <input type="submit" value="Usuario y Contraseña por defecto" name="xdefecto">
         </form>
         
     <?php 
@@ -122,6 +123,23 @@
             } else {
                 echo 'Ingresa tus datos';
             }
+        }
+        
+        if (isset($_POST['xdefecto'])) {
+            $consultaAdmi = 'SELECT * FROM usuario_encargado';
+            $resultadosAdmi = mysqli_query($conexionDB, $consultaAdmi);
+            $usuarioAdmi = "admin"; 
+            $claveAdmi = "admin";
+            while($row = mysqli_fetch_assoc($resultadosAdmi)) { 
+                if ($row['emailencargado'] == $usuarioAdmi && $row['contrasenae'] == $claveAdmi) {
+                    $_SESSION['idusuario'] = $row['idusuario_encargado'];
+                    $_SESSION['email'] = $row['emailencargado'];
+                    $_SESSION['nombreencargado'] = $row['nombreencargado'];
+                    $_SESSION['apellidoencargado'] = $row['nombreencargado'];
+                }
+            } mysqli_free_result($resultados);
+
+            header('Location: index.php');
         }
 
     } ?>
