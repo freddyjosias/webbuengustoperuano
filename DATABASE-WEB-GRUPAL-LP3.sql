@@ -121,10 +121,10 @@ INSERT INTO sucursal (nomsucursal,direcsucursal,telefono,correosucursal)
 VALUES ('El Norteño','Santa María 246, Tarapoto','+51 42 522604','elnorteño@gmail.com');
 INSERT INTO sucursal (nomsucursal,direcsucursal,telefono,correosucursal) 
 VALUES ('La Collpa','Av. Circunvalación 202, Tarapoto','+51 42 522644','lacollpa@gmail.com');
+INSERT INTO sucursal (nomsucursal,direcsucursal,telefono,imgbienvenida ,imgbienvenida,imgdestacado1,platodestacado1,imgdestacado2,platodestacado2,imgdestacado3,platodestacado3,horaatencioninicio,horaatencioncierre,correosucursal) 
+VALUES ('Doña Zully','Jr. San Pablo de la Cruz 244, Tarapoto','+51 42 530670','img/menu.jpg','Hace varios ayeres, en el Perú cambio el concepto del comer; Este gran cambio se ha convertido en toda una filosofía que permite que muchos restaurantes queden como favoritos de la gente.','img/destacado1.jpg','plaito1','img/destacado2.jpg','platito2','img/destacado3.jpg','platito3','08:00','20:00','doñazully@gmail.com');
 INSERT INTO sucursal (nomsucursal,direcsucursal,telefono,correosucursal) 
-VALUES ('Doña Zully','Jr. San Pablo de la Cruz 244, Tarapoto','+51 42 530670','doñazully@gmail.com');
-INSERT INTO sucursal (nomsucursal,direcsucursal,telefono,correosucursal) 
-VALUES ('Chalet Venzia','Jr. Alegría Arias de Morey 293-175, Tarapoto','+51 42 522104','chaletvenzia@gmail.com');
+VALUES ('Chalet Venzia','Jr. Alegría Arias de Morey 293-175, Tarapoto','+51 42 522104','img/menu.jpg','Hace varios ayeres, en el Perú cambio el concepto del comer; Este gran cambio se ha convertido en toda una filosofía que permite que muchos restaurantes queden como favoritos de la gente.','img/destacado1.jpg','plaito1','img/destacado2.jpg','platito2','img/destacado3.jpg','platito3','07:00','21:00','chaletvenzia@gmail.com');
 
 
 -- Consulta
