@@ -50,51 +50,6 @@ CONSTRAINT fk_tipospedido_detalle FOREIGN KEY (idtipospedido) REFERENCES tipospe
 CONSTRAINT fk_sucursal_detalle2 FOREIGN KEY (idsucursal) REFERENCES sucursal(idsucursal)
 );
 
-SELECT descripciontipospedido FROM tipospedido INNER JOIN detalletipospedido ON tipospedido.idtipospedido = detalletipospedido.idtipospedido 
-	INNER JOIN sucursal ON sucursal.idsucursal = detalletipospedido.idsucursal
-	WHERE disponibilidadtipospedido = 1 AND sucursal.idsucursal = 1
-
-
-INSERT INTO detalletipospedido (idtipospedido, idsucursal, disponibilidadtipospedido) VALUE (1,1,1);
-
-INSERT INTO detalletipospedido (idtipospedido,idsucursal,disponibilidadtipospedido) 
-VALUES (2,1,1);
-
-INSERT INTO detalletipospedido (idtipospedido,idsucursal,disponibilidadtipospedido) 
-VALUES (3,1,0);
-
-INSERT INTO detalletipospedido (idtipospedido,idsucursal,disponibilidadtipospedido) 
-VALUES (1,2,1);
-
-INSERT INTO detalletipospedido (idtipospedido,idsucursal,disponibilidadtipospedido) 
-VALUES (2,2,0);
-
-INSERT INTO detalletipospedido (idtipospedido,idsucursal,disponibilidadtipospedido) 
-VALUES (3,2,0);
-
-INSERT INTO detalletipospedido (idtipospedido,idsucursal,disponibilidadtipospedido) 
-VALUES (1,3,0);
-
-INSERT INTO detalletipospedido (idtipospedido,idsucursal,disponibilidadtipospedido) 
-VALUES (2,3,1);
-
-INSERT INTO detalletipospedido (idtipospedido,idsucursal,disponibilidadtipospedido) 
-VALUES (3,3,0);
-
-INSERT INTO detalletipospedido (idtipospedido,idsucursal,disponibilidadtipospedido) 
-VALUES (1,4,1);
-
-INSERT INTO detalletipospedido (idtipospedido,idsucursal,disponibilidadtipospedido) 
-VALUES (2,4,1);
-
-INSERT INTO detalletipospedido (idtipospedido,idsucursal,disponibilidadtipospedido) 
-VALUES (3,4,1);
-
-
-
-
-
-
 CREATE TABLE categoriaproductos(
 	idcategoriaproducto INT NOT NULL AUTO_INCREMENT,
 	idsucursal INT NOT NULL,
@@ -354,3 +309,40 @@ INSERT INTO productos (idcategoriaproducto,nomproducto,precio,stock)
 VALUES (20,'Avispa Juane',28.0,15);
 INSERT INTO productos (idcategoriaproducto,nomproducto,precio,stock) 
 VALUES (20,'Inshicapi',20.0,10);
+
+-- detalles tipo pedido
+INSERT INTO detalletipospedido (idtipospedido,idsucursal,disponibilidadtipospedido) 
+VALUE (1,1,1);
+
+INSERT INTO detalletipospedido (idtipospedido,idsucursal,disponibilidadtipospedido) 
+VALUES (2,1,1);
+
+INSERT INTO detalletipospedido (idtipospedido,idsucursal,disponibilidadtipospedido) 
+VALUES (3,1,0);
+
+INSERT INTO detalletipospedido (idtipospedido,idsucursal,disponibilidadtipospedido) 
+VALUES (1,2,1);
+
+INSERT INTO detalletipospedido (idtipospedido,idsucursal,disponibilidadtipospedido) 
+VALUES (2,2,0);
+
+INSERT INTO detalletipospedido (idtipospedido,idsucursal,disponibilidadtipospedido) 
+VALUES (3,2,0);
+
+INSERT INTO detalletipospedido (idtipospedido,idsucursal,disponibilidadtipospedido) 
+VALUES (1,3,0);
+
+INSERT INTO detalletipospedido (idtipospedido,idsucursal,disponibilidadtipospedido) 
+VALUES (2,3,1);
+
+INSERT INTO detalletipospedido (idtipospedido,idsucursal,disponibilidadtipospedido) 
+VALUES (3,3,0);
+
+INSERT INTO detalletipospedido (idtipospedido,idsucursal,disponibilidadtipospedido) 
+VALUES (1,4,1);
+
+INSERT INTO detalletipospedido (idtipospedido,idsucursal,disponibilidadtipospedido) 
+VALUES (2,4,1);
+
+INSERT INTO detalletipospedido (idtipospedido,idsucursal,disponibilidadtipospedido) 
+VALUES (3,4,1);
