@@ -346,3 +346,7 @@ VALUES (2,4,1);
 
 INSERT INTO detalletipospedido (idtipospedido,idsucursal,disponibilidadtipospedido) 
 VALUES (3,4,1);
+
+SELECT descripciontipospedido FROM tipospedido INNER JOIN detalletipospedido ON tipospedido.idtipospedido = detalletipospedido.idtipospedido 
+	INNER JOIN sucursal ON sucursal.idsucursal = detalletipospedido.idsucursal
+	WHERE disponibilidadtipospedido = 1 AND sucursal.idsucursal = 1
