@@ -22,15 +22,15 @@ CREATE TABLE sucursal(
    imgbienvenida VARCHAR(150),
    textobienvenida VARCHAR(100),
    imgdestacado1 VARCHAR(150),
-	platodestacado1 VARCHAR(100),
-	imgdestacado2 VARCHAR(150),
+   platodestacado1 VARCHAR(100),
+   imgdestacado2 VARCHAR(150),
    platodestacado2 VARCHAR(100),
    imgdestacado3 VARCHAR(150),
    platodestacado3 VARCHAR(100),
    horaatencioninicio TIME,
    horaatencioncierre TIME,
    correosucursal VARCHAR(50),
-  	CONSTRAINT pk_sucursal PRIMARY KEY (idsucursal)
+CONSTRAINT pk_sucursal PRIMARY KEY (idsucursal)
 );
 CREATE TABLE detalleformaspago(
 	idformaspago INT NOT NULL,
@@ -63,8 +63,8 @@ CREATE TABLE productos(
 	nomproducto VARCHAR(50),
 	precio DECIMAL(10.2),
 	stock INT,
-	CONSTRAINT pk_productos PRIMARY KEY (idproducto),
-	CONSTRAINT fk_categoriaproductos_productos FOREIGN KEY (idcategoriaproducto) REFERENCES categoriaproductos(idcategoriaproducto)
+CONSTRAINT pk_productos PRIMARY KEY (idproducto),
+CONSTRAINT fk_categoriaproductos_productos FOREIGN KEY (idcategoriaproducto) REFERENCES categoriaproductos(idcategoriaproducto)
 );
 	
 CREATE TABLE usuario_encargado(
@@ -74,8 +74,8 @@ CREATE TABLE usuario_encargado(
    nombreencargado VARCHAR(50),
    apellidoencargado VARCHAR(50),
    contrasenae VARCHAR(50) NOT NULL,
-    CONSTRAINT pk_usuario_encargado PRIMARY KEY (idusuario_encargado),
-   CONSTRAINT fk_sucursal_usuario_encargado FOREIGN KEY (idsucursal) REFERENCES sucursal(idsucursal)
+CONSTRAINT pk_usuario_encargado PRIMARY KEY (idusuario_encargado),
+CONSTRAINT fk_sucursal_usuario_encargado FOREIGN KEY (idsucursal) REFERENCES sucursal(idsucursal)
 );
 CREATE TABLE usuario (
     idusuario INT NOT NULL AUTO_INCREMENT,
@@ -84,8 +84,8 @@ CREATE TABLE usuario (
     nombreusuario VARCHAR(50),
     apellidousuario VARCHAR(50),
     contrasenau VARCHAR(50) NOT NULL,
-    CONSTRAINT pk_usuario PRIMARY KEY (idusuario),
-    CONSTRAINT fk_sucursal_usuario FOREIGN KEY (idsucursal) REFERENCES sucursal(idsucursal)
+CONSTRAINT pk_usuario PRIMARY KEY (idusuario),
+CONSTRAINT fk_sucursal_usuario FOREIGN KEY (idsucursal) REFERENCES sucursal(idsucursal)
 );
 CREATE TABLE pedidos (
 	idventa INT NOT NULL AUTO_INCREMENT,
@@ -101,9 +101,9 @@ CREATE TABLE pedidos (
 	direccionconsumidor VARCHAR(50),
 	referenciaconsumidor VARCHAR(50),
 	dniconsumidor VARCHAR(8),
-   CONSTRAINT pk_pedidos PRIMARY KEY (idventa),
-   CONSTRAINT fk_formaspago_pedidos FOREIGN KEY (idformaspago) REFERENCES formaspago(idformaspago),
-	CONSTRAINT fk_tipospedido_pedidos FOREIGN KEY (idtipospedido) REFERENCES tipospedido(idtipospedido)	   
+CONSTRAINT pk_pedidos PRIMARY KEY (idventa),
+CONSTRAINT fk_formaspago_pedidos FOREIGN KEY (idformaspago) REFERENCES formaspago(idformaspago),
+CONSTRAINT fk_tipospedido_pedidos FOREIGN KEY (idtipospedido) REFERENCES tipospedido(idtipospedido)	   
 );
 
 CREATE TABLE detalleventa(
@@ -111,10 +111,10 @@ CREATE TABLE detalleventa(
 	idproducto INT NOT NULL,
 	idsucursal INT NOT NULL,
 	cantidad VARCHAR(50),
-	CONSTRAINT pk_detalleventa PRIMARY KEY (idventa,idproducto,idsucursal),
-	CONSTRAINT fk_pedidos_detalleventa FOREIGN KEY (idventa) REFERENCES pedidos(idventa),
-	CONSTRAINT fk_productos_detalleventa FOREIGN KEY (idproducto) REFERENCES productos(idproducto),
-	CONSTRAINT fk_sucursal_detalleventa FOREIGN KEY (idsucursal) REFERENCES sucursal(idsucursal)
+CONSTRAINT pk_detalleventa PRIMARY KEY (idventa,idproducto,idsucursal),
+CONSTRAINT fk_pedidos_detalleventa FOREIGN KEY (idventa) REFERENCES pedidos(idventa),
+CONSTRAINT fk_productos_detalleventa FOREIGN KEY (idproducto) REFERENCES productos(idproducto),
+CONSTRAINT fk_sucursal_detalleventa FOREIGN KEY (idsucursal) REFERENCES sucursal(idsucursal)
 );
 
 -- Ingreso de sucursal
