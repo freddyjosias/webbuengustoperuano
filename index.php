@@ -93,7 +93,7 @@
             <input type="password" placeholder="&#128272; Contraseña" name="clave">
             <input type="submit" value="Ingresar" name="login">
             <p>Usuario por defecto: <b>admin</b></p>
-            <p>Contraseña por defecto: <b>admin</b></p>
+            <p>Contraseña por defecto: <b>Tfc2cr54uZkAk8JA</b></p>
         </form>
         
     <?php 
