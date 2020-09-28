@@ -2,7 +2,7 @@
 
     session_start();
 
-    $conexionDB = new mysqli('localhost', 'root', '', 'buengustoperuano');
+    $conexionDB = new mysqli('bm12bwjh2ogki5nep1dq-mysql.services.clever-cloud.com', 'udq5trupmgax8sb2', '2zEPbb8IUZ93mDSBLxwx', 'bm12bwjh2ogki5nep1dq');
     $conexionDB -> set_charset("utf8");
 
     $consultaRestaurantes = 'SELECT idsucursal, nomsucursal FROM sucursal';

@@ -1,6 +1,10 @@
-CREATE DATABASE buengustoperuano;
+-- CREATE DATABASE buengustoperuano;
 
-USE buengustoperuano;
+-- USE buengustoperuano;
+
+CREATE DATABASE bm12bwjh2ogki5nep1dq;
+
+USE bm12bwjh2ogki5nep1dq;
 
 CREATE TABLE formaspago (
 	idformaspago INT NOT NULL AUTO_INCREMENT,
