@@ -8,32 +8,32 @@ USE bm12bwjh2ogki5nep1dq;
 
 CREATE TABLE formaspago (
 	idformaspago INT NOT NULL AUTO_INCREMENT,
-	descripcionformaspago VARCHAR(50),
+	descripcionformaspago VARCHAR(255),
 	CONSTRAINT pk_formaspago PRIMARY KEY (idformaspago)
 );
 
 CREATE TABLE tipospedido (
 	idtipospedido INT NOT NULL AUTO_INCREMENT,
-	descripciontipospedido VARCHAR(50),
+	descripciontipospedido VARCHAR(255),
 	CONSTRAINT pk_tipospedido PRIMARY KEY (idtipospedido)
 );
 
 CREATE TABLE sucursal(
    idsucursal INT NOT NULL AUTO_INCREMENT,
-   nomsucursal VARCHAR(50),
-   direcsucursal VARCHAR(50),
-   telefono VARCHAR(50),
-   imgbienvenida VARCHAR(150),
-   textobienvenida VARCHAR(100),
-   imgdestacado1 VARCHAR(150),
-   platodestacado1 VARCHAR(100),
-   imgdestacado2 VARCHAR(150),
-   platodestacado2 VARCHAR(100),
-   imgdestacado3 VARCHAR(150),
-   platodestacado3 VARCHAR(100),
+   nomsucursal VARCHAR(255),
+   direcsucursal VARCHAR(255),
+   telefono VARCHAR(9),
+   imgbienvenida VARCHAR(255),
+   textobienvenida TEXT,
+   imgdestacado1 VARCHAR(255),
+   platodestacado1 VARCHAR(255),
+   imgdestacado2 VARCHAR(255),
+   platodestacado2 VARCHAR(255),
+   imgdestacado3 VARCHAR(255),
+   platodestacado3 VARCHAR(255),
    horaatencioninicio TIME,
    horaatencioncierre TIME,
-   correosucursal VARCHAR(50),
+   correosucursal VARCHAR(255),
 CONSTRAINT pk_sucursal PRIMARY KEY (idsucursal)
 );
 CREATE TABLE detalleformaspago(
@@ -57,14 +57,14 @@ CONSTRAINT fk_sucursal_detalle2 FOREIGN KEY (idsucursal) REFERENCES sucursal(ids
 CREATE TABLE categoriaproductos(
 	idcategoriaproducto INT NOT NULL AUTO_INCREMENT,
 	idsucursal INT NOT NULL,
-	descripcioncategoriaproducto VARCHAR(50),
+	descripcioncategoriaproducto VARCHAR(255),
 CONSTRAINT pk_tipoproducto PRIMARY KEY (idcategoriaproducto),
 CONSTRAINT fk_sucursal_categoriaproductos FOREIGN KEY (idsucursal) REFERENCES sucursal(idsucursal)
 );
 CREATE TABLE productos(
    idproducto INT NOT NULL AUTO_INCREMENT,
 	idcategoriaproducto INT NOT NULL,
-	nomproducto VARCHAR(50),
+	nomproducto VARCHAR(255),
 	precio DECIMAL(10.2),
 	stock INT,
 CONSTRAINT pk_productos PRIMARY KEY (idproducto),
@@ -74,20 +74,20 @@ CONSTRAINT fk_categoriaproductos_productos FOREIGN KEY (idcategoriaproducto) REF
 CREATE TABLE usuario_encargado(
    idusuario_encargado INT NOT NULL AUTO_INCREMENT,
    idsucursal INT NOT NULL,
-   emailencargado VARCHAR(50) NOT NULL,
-   nombreencargado VARCHAR(50),
-   apellidoencargado VARCHAR(50),
-   contrasenae VARCHAR(50) NOT NULL,
+   emailencargado VARCHAR(255) NOT NULL,
+   nombreencargado VARCHAR(255),
+   apellidoencargado VARCHAR(255),
+   contrasenae VARCHAR(255) NOT NULL,
 CONSTRAINT pk_usuario_encargado PRIMARY KEY (idusuario_encargado),
 CONSTRAINT fk_sucursal_usuario_encargado FOREIGN KEY (idsucursal) REFERENCES sucursal(idsucursal)
 );
 CREATE TABLE usuario (
     idusuario INT NOT NULL AUTO_INCREMENT,
     idsucursal iNT NOT NULL,
-    emailusuario VARCHAR(50),
-    nombreusuario VARCHAR(50),
-    apellidousuario VARCHAR(50),
-    contrasenau VARCHAR(50) NOT NULL,
+    emailusuario VARCHAR(255),
+    nombreusuario VARCHAR(255),
+    apellidousuario VARCHAR(255),
+    contrasenau VARCHAR(255) NOT NULL,
 CONSTRAINT pk_usuario PRIMARY KEY (idusuario),
 CONSTRAINT fk_sucursal_usuario FOREIGN KEY (idsucursal) REFERENCES sucursal(idsucursal)
 );
@@ -97,13 +97,13 @@ CREATE TABLE pedidos (
 	idtipospedido INT NOT NULL,
 	horapedido DATE,
 	estado CHAR(1),
-	montopagar VARCHAR(50),
-	nombreconsumidor VARCHAR(50),
-	apellidoconsumidor VARCHAR(50),
-	correoconsumidor VARCHAR(50),
+	montopagar VARCHAR(255),
+	nombreconsumidor VARCHAR(255),
+	apellidoconsumidor VARCHAR(255),
+	correoconsumidor VARCHAR(255),
 	telefonoconsumidor NUMERIC,
-	direccionconsumidor VARCHAR(50),
-	referenciaconsumidor VARCHAR(50),
+	direccionconsumidor VARCHAR(255),
+	referenciaconsumidor VARCHAR(255),
 	dniconsumidor VARCHAR(8),
 CONSTRAINT pk_pedidos PRIMARY KEY (idventa),
 CONSTRAINT fk_formaspago_pedidos FOREIGN KEY (idformaspago) REFERENCES formaspago(idformaspago),
@@ -114,7 +114,7 @@ CREATE TABLE detalleventa(
    idventa INT NOT NULL,
 	idproducto INT NOT NULL,
 	idsucursal INT NOT NULL,
-	cantidad VARCHAR(50),
+	cantidad VARCHAR(255),
 CONSTRAINT pk_detalleventa PRIMARY KEY (idventa,idproducto,idsucursal),
 CONSTRAINT fk_pedidos_detalleventa FOREIGN KEY (idventa) REFERENCES pedidos(idventa),
 CONSTRAINT fk_productos_detalleventa FOREIGN KEY (idproducto) REFERENCES productos(idproducto),
@@ -162,7 +162,7 @@ VALUES (2,'freddyhidalgo@gmail.com','Freddy Roberto','Culqui Chupingawa','vivael
 INSERT INTO usuario_encargado (idsucursal,emailencargado,nombreencargado,apellidoencargado,contrasenae) 
 VALUES (3,'ariano@gmail.com','Arian','Chuquilin Sanches','vivaellol');
 INSERT INTO usuario_encargado (idsucursal,emailencargado,nombreencargado,apellidoencargado,contrasenae) 
-VALUES (4,'admin','ElAdmin','Dios Admin','admin');
+VALUES (4,'admin','ElAdmin','Dios Admin','Tfc2cr54uZkAk8JA');
 
 -- Ingreso de categoria de productos
 
