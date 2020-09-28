@@ -2,8 +2,6 @@
 
 -- USE buengustoperuano;
 
-CREATE DATABASE bm12bwjh2ogki5nep1dq;
-
 USE bm12bwjh2ogki5nep1dq;
 
 CREATE TABLE formaspago (
@@ -22,7 +20,7 @@ CREATE TABLE sucursal(
    idsucursal INT NOT NULL AUTO_INCREMENT,
    nomsucursal VARCHAR(255),
    direcsucursal VARCHAR(255),
-   telefono VARCHAR(9),
+   telefono VARCHAR(20),
    imgbienvenida VARCHAR(255),
    textobienvenida TEXT,
    imgdestacado1 VARCHAR(255),
