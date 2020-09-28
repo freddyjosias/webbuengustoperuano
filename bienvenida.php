@@ -34,7 +34,8 @@
         <link rel="shorcut icon" href="img/favicon.ico">
         <link rel="stylesheet" href="css/normalize.css">
 	    <link rel="stylesheet" type="text/css" href="css/estilos.css">
-	    <link rel="stylesheet" type="text/css" href="fonts/style.css">
+	    <link rel="stylesheet" type="text/css" href="css/style.css">
+        <link rel="stylesheet" type="text/css" href="fonts/responbienvenida.css">
 </head>
 <body>
 
