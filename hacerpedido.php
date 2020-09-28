@@ -28,12 +28,14 @@
 <html>
 <head>
         <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@400;500;600;700;800&display=swap" rel="stylesheet">
         <title>Hacer Pedido - Restaurante 1</title>
         <link rel="shorcut icon" href="img/favicon.ico">
         <link rel="stylesheet" href="css/normalize.css">
 	    <link rel="stylesheet" type="text/css" href="css/estilos.css">
         <link rel="stylesheet" type="text/css" href="css/deslizar-arriba.css">
+        <link rel="stylesheet" href="css/pedidosresponsivo.css">
 </head>
 <body>
 
@@ -62,7 +64,7 @@
 
 			<div class="contenido-carta">	
 
-                <img src="img/ir-arriba.png" class="ir-arriba">  
+                  
                 <h2>Entradas:</h2>
 
 			    <div>
@@ -200,6 +202,9 @@
             <div>© 2020 Restaurante 1 SAC. Todos los derechos reservados</div>
         </div>
     </footer>
+
+    <img src="img/ir-arriba.png" class="ir-arriba">
+
     <script src="js/jquery-3.5.1.min.js"></script>
     <script src="js/deslizar-arriba.js"></script>
 </body>

@@ -1,0 +1,20 @@
+@media (max-width: 1100px){ 
+    .contenedor-general {
+        width: 95%;
+    }
+
+    .contenido-carta {
+        width: 95%;
+    }
+
+    .productos-carta {
+        width: 90%;
+    }
+
+}
+
+@media (max-width: 950px){ 
+    .contenedor-general {
+        width: 98%;
+    }
+}

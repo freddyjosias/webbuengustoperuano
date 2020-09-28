@@ -207,9 +207,9 @@ input[type="submit"]:active{
 
 .header-restaurante nav a {
     text-decoration: none;
+    padding: 1rem 4rem;
     color: white;
     display: flex;
-    padding: 1rem 4rem;
     font-size: 20px;
 }
 
@@ -514,3 +514,33 @@ input[type="submit"]:active{
 /* END PANEL DE CONTROL */
 /* END PANEL DE CONTROL */
 /* END PANEL DE CONTROL */
+
+@media (max-width: 950px) {
+
+    .header-restaurante > div {
+        height: 15vh;
+    }
+
+}
+
+@media (max-width: 640px){ 
+    .header-restaurante nav {
+        width: 100%;
+    }
+
+    .header-restaurante ul {
+        width: 100%;
+    }
+
+    .header-restaurante li {
+        width: 33%;
+    }
+
+    .header-restaurante li a {
+        justify-content: center;
+        height: 2.5rem;
+        padding: 0;
+        line-height: 1.8;
+    }
+
+}
