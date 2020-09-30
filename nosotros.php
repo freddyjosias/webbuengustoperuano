@@ -42,12 +42,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="utf-8">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link href="https://fonts.googleapis.com/css2?family=Dosis:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <title>Quienes Somos - Restaurante 1</title>
     <link rel="shorcut icon" href="img/favicon.ico">
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" type="text/css" href="css/estilos.css">
+    <link rel="stylesheet" type="text/css" href="css/estilosnosotros.css">
 
 </head>
 <body>
@@ -77,7 +79,7 @@
 		
 		<div class="contenido-main-somos">
             
-            <div>
+            <div class="div">
                 <div class="horariodeatencion">
                     <h2>Horario de atención</h2>
                     <ul>
@@ -93,7 +95,7 @@
                 </div>
             </div>
             
-            <div>
+            <div class="div">
                 <div class="ubicacion">
                     <h2>Dirección</h2>
                     <ul>
@@ -109,7 +111,7 @@
                 </div>
             </div>
             
-            <div>
+            <div class="div">
                 <div class="formadepago">
                     <h2>Tipos de envio</h2>
                     <ul>

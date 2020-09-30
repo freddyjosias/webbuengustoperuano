@@ -60,11 +60,17 @@ $(function() {
     });
 
     $(window).scroll(function(){
-        if($(this).scrollTop() > 0 ){
-            $('.ir-arriba').slideDown(500);
+        if ($(window).width() > 600) {
+            if($(this).scrollTop() > 0 ){
+                $('.ir-arriba').slideDown(500);
+            } else {
+                $('.ir-arriba').slideUp(500);
+            }
         } else {
-            $('.ir-arriba').slideUp(500);
+            $('.ir-arriba').hide();
         }
+
+        
     });
 
     //Menu

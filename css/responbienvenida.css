@@ -4,17 +4,18 @@
     }
 
     .bienvenida-page{
-        width: 95%;
+        width: 100%;
     }
 
     .destacados-bienvenida {
-        width: 95%;
+        width: 100%;
     }
-
+    
 }
 
-@media (max-width: 950px){ 
-    .contenedor-general {
-        width: 98%;
+@media (max-width: 500px){ 
+    .destacados-bienvenida h3{
+        font-size: 1rem;
     }
+
 }

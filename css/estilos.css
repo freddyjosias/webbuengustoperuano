@@ -193,7 +193,7 @@ input[type="submit"]:active{
 }
 
 .header-restaurante > nav {
-    background-color: teal;
+    background-color: #212F3D;
 }
 
 .header-restaurante ul {
@@ -581,13 +581,60 @@ input[type="submit"]:active{
     right: 20px;
 }
 
+@media (max-width: 1100px){ 
+    .contenedor-general {
+        width: 95%;
+    }
+
+    .contenido-carta {
+        width: 95%;
+    }
+
+    .productos-carta {
+        width: 90%;
+    }
+
+    .bienvenida-page > div > img:first-child {
+        display: none;
+    }
+
+    .bienvenida-page > div {
+        margin-top: 1rem;
+    }
+
+    .bienvenida-page > div > img:last-child {
+        display: initial;
+        width: 100%;
+        height: 20rem;
+        margin: 0;
+    }
+
+}
+
 @media (max-width: 950px) {
 
     .header-restaurante > div {
         height: 15vh;
     }
 
+    .contenedor-general {
+        width: 98%;
+    }
+
 }
+
+@media (max-width: 900px){ 
+    .ir-arriba {
+        right: -20px;
+    }
+}
+
+@media (max-width: 830px) {
+    .bienvenida-page > div > img:last-child {
+        height: 15rem;
+    }
+}
+
 
 @media (max-width: 640px){ 
     .header-restaurante nav {
@@ -607,6 +654,10 @@ input[type="submit"]:active{
         height: 2.5rem;
         padding: 0;
         line-height: 1.8;
+    }
+    
+    .logo-icono img{
+        display: none;
     }
 
 }
