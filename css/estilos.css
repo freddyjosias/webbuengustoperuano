@@ -581,13 +581,39 @@ input[type="submit"]:active{
     right: 20px;
 }
 
+@media (max-width: 1100px){ 
+    .contenedor-general {
+        width: 95%;
+    }
+
+    .contenido-carta {
+        width: 95%;
+    }
+
+    .productos-carta {
+        width: 90%;
+    }
+
+}
+
 @media (max-width: 950px) {
 
     .header-restaurante > div {
         height: 15vh;
     }
 
+    .contenedor-general {
+        width: 98%;
+    }
+
 }
+
+@media (max-width: 900px){ 
+    .ir-arriba {
+        right: -20px;
+    }
+}
+
 
 @media (max-width: 640px){ 
     .header-restaurante nav {
@@ -607,6 +633,10 @@ input[type="submit"]:active{
         height: 2.5rem;
         padding: 0;
         line-height: 1.8;
+    }
+    
+    .logo-icono img{
+        display: none;
     }
 
 }
