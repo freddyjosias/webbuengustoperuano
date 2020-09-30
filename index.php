@@ -18,6 +18,7 @@
     <link rel="stylesheet" href="css/normalize.css">
 	<link rel="stylesheet" type="text/css" href="css/estilos.css">
     <link rel="stylesheet" type="text/css" href="css/login.css">
+    <link rel="stylesheet" href="css/indexresponsivo.css">
 </head>
 <body>
 
