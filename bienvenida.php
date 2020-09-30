@@ -34,8 +34,7 @@
         <link rel="shorcut icon" href="img/favicon.ico">
         <link rel="stylesheet" href="css/normalize.css">
 	    <link rel="stylesheet" type="text/css" href="css/estilos.css">
-	    <link rel="stylesheet" type="text/css" href="css/style.css">
-        <link rel="stylesheet" type="text/css" href="fonts/responbienvenida.css">
+        <link rel="stylesheet" type="text/css" href="css/responbienvenida.css">
 </head>
 <body>
 
@@ -95,6 +94,8 @@
             <div>© 2020 Restaurante 1 SAC. Todos los derechos reservados</div>
         </div>
     </footer>
+
+    <img src="img/ir-arriba.png" class="ir-arriba">
 
     <script src="js/jquery-3.5.1.min.js"></script>
     <script src="js/script.js"></script>

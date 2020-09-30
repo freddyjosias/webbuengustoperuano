@@ -34,7 +34,6 @@
         <link rel="shorcut icon" href="img/favicon.ico">
         <link rel="stylesheet" href="css/normalize.css">
 	    <link rel="stylesheet" type="text/css" href="css/estilos.css">
-        <link rel="stylesheet" type="text/css" href="css/deslizar-arriba.css">
         <link rel="stylesheet" href="css/pedidosresponsivo.css">
 </head>
 <body>
@@ -206,7 +205,7 @@
     <img src="img/ir-arriba.png" class="ir-arriba">
 
     <script src="js/jquery-3.5.1.min.js"></script>
-    <script src="js/deslizar-arriba.js"></script>
+    <script src="js/script.js"></script>
 </body>
 </html>
 

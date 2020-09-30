@@ -1,7 +1,7 @@
 <?php
 
     session_start();
-    
+
     require 'conexion.php';
 
     $consultaRestaurantes = 'SELECT idsucursal, nomsucursal FROM sucursal';
@@ -17,7 +17,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/normalize.css">
 	<link rel="stylesheet" type="text/css" href="css/estilos.css">
-    <link rel="stylesheet" type="text/css" href="css/slider.css">
     <link rel="stylesheet" type="text/css" href="css/login.css">
 </head>
 <body>
@@ -65,7 +64,7 @@
                     if ($contadorRestaurantes % 2 == 0) { ?>
                         <div class="presentacion-restaurantes">
                     <?php } ?>
-                        <a href="bienvenida.php?view=<?php echo $row['idsucursal']; ?>">
+                        <a href="hacerpedido.php?view=<?php echo $row['idsucursal']; ?>">
                             <div>
                                 <h2><?php echo $row['nomsucursal']; ?>:</h2>
                                 <img src="img/img<?php echo ($row['idsucursal'] + 4); ?>.jpg">
@@ -131,6 +130,6 @@
 
     } ?>
     <script src="js/jquery-3.5.1.min.js"></script>
-    <script src="js/slider.js"></script>
+    <script src="js/script.js"></script>
 </body>
 </html>

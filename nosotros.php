@@ -21,9 +21,12 @@
         foreach($resultados as $row) {
             if ($row['idsucursal'] ==  $_GET['view']) {
                 $idRestaurante = $row['idsucursal'];
+                $nombresucursal = $row['nomsucursal'];
                 $telefonoRestaurante = $row['telefono'];
                 $correoRestaurante = $row['correosucursal'];
                 $ubicacionRestaurante = $row['direcsucursal'];
+                $atencioninicioRestautante = $row['horaatencioninicio'];
+                $atencioncierreRestautante = $row['horaatencioncierre'];
                 break;
             }
         }
@@ -45,7 +48,6 @@
     <link rel="shorcut icon" href="img/favicon.ico">
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" type="text/css" href="css/estilos.css">
-    <link rel="stylesheet" type="text/css" href="css/menupegajoso.css">
 
 </head>
 <body>
@@ -79,7 +81,7 @@
                 <div class="horariodeatencion">
                     <h2>Horario de atención</h2>
                     <ul>
-                        <li><p> lunes_Sabado  8.00 am_10 pm </p></li>
+                        <li><p>Lunes a Domingo <?php echo $atencioninicioRestautante . ' - ' . $atencioncierreRestautante ?></p></li>
                     </ul>
                 </div>
                 
@@ -109,7 +111,7 @@
             
             <div>
                 <div class="formadepago">
-                    <h2>Forma de pagos</h2>
+                    <h2>Tipos de envio</h2>
                     <ul>
                         <?php $resultados = $conexion -> prepare($consultaFormaPago);
                         $resultados -> execute();
@@ -121,7 +123,7 @@
                 </div>
 
                 <div class="gastosdeenvio">
-                    <h2>Tipos de envio</h2>
+                    <h2>Forma de pagos</h2>
                     <ul>
                         <li><p>Tarifa: S/3.00</p>	</li>
                     </ul>
@@ -138,11 +140,14 @@
     </main>
     <footer class="footer-inicio">
         <div class="contenedor-general">
-            <div>© 2020 Restaurante 1 SAC. Todos los derechos reservados</div>
+            <div>© 2020 <?php echo $nombresucursal ?>. Todos los derechos reservados</div>
         </div>
     </footer>
+
+    <img src="img/ir-arriba.png" class="ir-arriba">
+
     <script src="js/jquery-3.5.1.min.js"></script>
-    <script src="js/menupegajosho.js"></script>
+    <script src="js/script.js"></script>
 </body>
 </html>
 
