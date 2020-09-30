@@ -85,6 +85,10 @@ CREATE TABLE usuario (
     nombreusuario VARCHAR(255),
     apellidousuario VARCHAR(255),
     contrasenau VARCHAR(255) NOT NULL,
+	telefonousuario NUMERIC,
+	direccionusuario VARCHAR(255),
+	referenciausuario VARCHAR(255),
+	dniusuario VARCHAR(8),
 CONSTRAINT pk_usuario PRIMARY KEY (idusuario),
 );
 
@@ -92,19 +96,14 @@ CREATE TABLE pedidos (
 	idventa INT NOT NULL AUTO_INCREMENT,
 	idformaspago INT NOT NULL,
 	idtipospedido INT NOT NULL,
+	idusuario INT NOT NUll,
 	horapedido DATE,
 	estado CHAR(1),
 	montopagar VARCHAR(255),
-	nombreconsumidor VARCHAR(255),
-	apellidoconsumidor VARCHAR(255),
-	correoconsumidor VARCHAR(255),
-	telefonoconsumidor NUMERIC,
-	direccionconsumidor VARCHAR(255),
-	referenciaconsumidor VARCHAR(255),
-	dniconsumidor VARCHAR(8),
 CONSTRAINT pk_pedidos PRIMARY KEY (idventa),
 CONSTRAINT fk_formaspago_pedidos FOREIGN KEY (idformaspago) REFERENCES formaspago(idformaspago),
-CONSTRAINT fk_tipospedido_pedidos FOREIGN KEY (idtipospedido) REFERENCES tipospedido(idtipospedido)	   
+CONSTRAINT fk_tipospedido_pedidos FOREIGN KEY (idtipospedido) REFERENCES tipospedido(idtipospedido),
+CONSTRAINT fk_usuario_pedidos FOREIGN KEY (idusuario) REFERENCES usuario(idusuario),		   
 );
 
 CREATE TABLE detallepedido(
@@ -345,6 +344,19 @@ VALUES (2,4,1);
 
 INSERT INTO detalletipospedido (idtipospedido,idsucursal,disponibilidadtipospedido) 
 VALUES (3,4,1);
+
+--detalle forma de pago
+INSERT INTO detalleformaspago (idformaspago ,idsucursal ,disponibilidadformaspago) 
+VALUES (1,2,1);
+
+INSERT INTO detalleformaspago (idformaspago ,idsucursal ,disponibilidadformaspago) 
+VALUES (2,1,1);
+
+INSERT INTO detalleformaspago (idformaspago ,idsucursal ,disponibilidadformaspago) 
+VALUES (3,4,0);
+
+INSERT INTO detalleformaspago (idformaspago ,idsucursal ,disponibilidadformaspago) 
+VALUES (2,3,1);
 
 SELECT descripciontipospedido FROM tipospedido INNER JOIN detalletipospedido ON tipospedido.idtipospedido = detalletipospedido.idtipospedido 
 	INNER JOIN sucursal ON sucursal.idsucursal = detalletipospedido.idsucursal
