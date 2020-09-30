@@ -1,9 +1,7 @@
 <?php
 
     session_start();
-
-    $conexionDB = new mysqli('bm12bwjh2ogki5nep1dq-mysql.services.clever-cloud.com', 'udq5trupmgax8sb2', '2zEPbb8IUZ93mDSBLxwx', 'bm12bwjh2ogki5nep1dq');
-    $conexionDB -> set_charset("utf8");
+    require 'conexion.php';
 
     $consultaRestaurantes = 'SELECT idsucursal, nomsucursal FROM sucursal';
 
@@ -59,8 +57,10 @@
             <div class="contenedor-general">
                 <h1>RESTAURANTES</h1>
                 <?php $contadorRestaurantes = 0;
-                $resultados = mysqli_query($conexionDB, $consultaRestaurantes); 
-                while($row = mysqli_fetch_assoc($resultados)) { 
+                $resultados = $conexion -> prepare($consultaRestaurantes);
+                $resultados -> execute();
+                $resultados = $resultados -> fetchAll(PDO::FETCH_ASSOC);
+                foreach($resultados as $row) {
                     if ($contadorRestaurantes % 2 == 0) { ?>
                         <div class="presentacion-restaurantes">
                     <?php } ?>
@@ -74,7 +74,7 @@
                     if ($contadorRestaurantes % 2 == 0) {?>
                     </div>
                 <?php }
-                } mysqli_free_result($resultados); ?>
+                } ?>
 
             </div>
         </section>
@@ -104,8 +104,10 @@
                 $clave = $_POST['clave'];
                 $consultaUsuario = 'SELECT * FROM usuario_encargado';
                 $datosErroneos = 1;
-                $resultados = mysqli_query($conexionDB, $consultaUsuario); 
-                while($row = mysqli_fetch_assoc($resultados)) { 
+                $resultados = $conexion -> prepare($consultaUsuario);
+                $resultados -> execute();
+                $resultados = $resultados -> fetchAll(PDO::FETCH_ASSOC);
+                foreach($resultados as $row) { 
                     if ($row['emailencargado'] == $usuario && $row['contrasenae'] == $clave) {
                         $datosErroneos = 0;
                         $_SESSION['idusuario'] = $row['idusuario_encargado'];
@@ -113,7 +115,7 @@
                         $_SESSION['nombreencargado'] = $row['nombreencargado'];
                         $_SESSION['apellidoencargado'] = $row['nombreencargado'];
                     }
-                } mysqli_free_result($resultados);
+                }
                 
                 if ($datosErroneos == 1) {
                     echo 'Ingrese bien sus datos';
