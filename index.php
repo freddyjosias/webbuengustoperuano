@@ -1,6 +1,7 @@
 <?php
 
     session_start();
+    
     require 'conexion.php';
 
     $consultaRestaurantes = 'SELECT idsucursal, nomsucursal FROM sucursal';

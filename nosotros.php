@@ -1,14 +1,13 @@
 <?php 
 
-    $conexionDB = new mysqli('localhost', 'root', '', 'buengustoperuano');
-    $conexionDB -> set_charset("utf8");
+    require 'conexion.php';
 
     if (!isset($_GET['view'])) {
         header('Location: index.php');
     } else {
 
         $consultaVerificarRestaurante = 'SELECT * FROM sucursal';
-        /*$consultaformadepago = 'SELECT idformaspago FROM formaspago';*/
+        
 
         $idRestaurante;
         $telefonoRestaurante;
@@ -16,8 +15,10 @@
         $ubicacionRestaurante;
 
 
-        $resultados = mysqli_query($conexionDB, $consultaVerificarRestaurante); 
-        while($row = mysqli_fetch_assoc($resultados)) { 
+        $resultados = $conexion -> prepare($consultaVerificarRestaurante);
+        $resultados -> execute();
+        $resultados = $resultados -> fetchAll(PDO::FETCH_ASSOC);
+        foreach($resultados as $row) {
             if ($row['idsucursal'] ==  $_GET['view']) {
                 $idRestaurante = $row['idsucursal'];
                 $telefonoRestaurante = $row['telefono'];
@@ -30,8 +31,8 @@
         if (!isset($idRestaurante)) {
             header('Location: index.php');
         } else {
-
-
+        
+            $consultaFormaPago = 'SELECT descripciontipospedido FROM tipospedido INNER JOIN detalletipospedido ON tipospedido.idtipospedido = detalletipospedido.idtipospedido INNER JOIN sucursal ON sucursal.idsucursal = detalletipospedido.idsucursal WHERE disponibilidadtipospedido = 1 AND sucursal.idsucursal = ' . $_GET['view'];
 
 ?>
 
@@ -110,14 +111,17 @@
                 <div class="formadepago">
                     <h2>Forma de pagos</h2>
                     <ul>
-                        <li><p><?php echo $formaspago; ?></p></li>
-                        <li><p><?php echo $formaspago; ?></p></li>
-                        <li><P><?php echo $formaspago; ?></P></li>
+                        <?php $resultados = $conexion -> prepare($consultaFormaPago);
+                        $resultados -> execute();
+                        $resultados = $resultados -> fetchAll(PDO::FETCH_ASSOC);
+                        foreach($resultados as $row) {?>
+                            <li><p><?php echo $row['descripciontipospedido'] ?></p></li>
+                        <?php } ?>
                 </ul>
                 </div>
 
                 <div class="gastosdeenvio">
-                    <h2>Gastos de envios</h2>
+                    <h2>Tipos de envio</h2>
                     <ul>
                         <li><p>Tarifa: S/3.00</p>	</li>
                     </ul>
