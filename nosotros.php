@@ -48,6 +48,7 @@
     <link rel="shorcut icon" href="img/favicon.ico">
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" type="text/css" href="css/estilos.css">
+    <link rel="stylesheet" type="text/css" href="css/estilosnosotros.css">
 
 </head>
 <body>
@@ -77,7 +78,7 @@
 		
 		<div class="contenido-main-somos">
             
-            <div>
+            <div class="div">
                 <div class="horariodeatencion">
                     <h2>Horario de atención</h2>
                     <ul>
@@ -93,7 +94,7 @@
                 </div>
             </div>
             
-            <div>
+            <div class="div">
                 <div class="ubicacion">
                     <h2>Dirección</h2>
                     <ul>
@@ -109,7 +110,7 @@
                 </div>
             </div>
             
-            <div>
+            <div class="div">
                 <div class="formadepago">
                     <h2>Tipos de envio</h2>
                     <ul>
