@@ -89,7 +89,7 @@ CREATE TABLE usuario (
 	direccionusuario VARCHAR(255),
 	referenciausuario VARCHAR(255),
 	dniusuario VARCHAR(8),
-CONSTRAINT pk_usuario PRIMARY KEY (idusuario),
+CONSTRAINT pk_usuario PRIMARY KEY (idusuario)
 );
 
 CREATE TABLE pedidos (
@@ -103,7 +103,7 @@ CREATE TABLE pedidos (
 CONSTRAINT pk_pedidos PRIMARY KEY (idventa),
 CONSTRAINT fk_formaspago_pedidos FOREIGN KEY (idformaspago) REFERENCES formaspago(idformaspago),
 CONSTRAINT fk_tipospedido_pedidos FOREIGN KEY (idtipospedido) REFERENCES tipospedido(idtipospedido),
-CONSTRAINT fk_usuario_pedidos FOREIGN KEY (idusuario) REFERENCES usuario(idusuario),		   
+CONSTRAINT fk_usuario_pedidos FOREIGN KEY (idusuario) REFERENCES usuario(idusuario)		   
 );
 
 CREATE TABLE detallepedido(
@@ -345,7 +345,8 @@ VALUES (2,4,1);
 INSERT INTO detalletipospedido (idtipospedido,idsucursal,disponibilidadtipospedido) 
 VALUES (3,4,1);
 
---detalle forma de pago
+-- detalle forma de pago
+
 INSERT INTO detalleformaspago (idformaspago ,idsucursal ,disponibilidadformaspago) 
 VALUES (1,2,1);
 
