@@ -361,4 +361,7 @@ VALUES (2,3,1);
 
 SELECT descripciontipospedido FROM tipospedido INNER JOIN detalletipospedido ON tipospedido.idtipospedido = detalletipospedido.idtipospedido 
 	INNER JOIN sucursal ON sucursal.idsucursal = detalletipospedido.idsucursal
-	WHERE disponibilidadtipospedido = 1 AND sucursal.idsucursal = 1
+	WHERE disponibilidadtipospedido = 1 AND sucursal.idsucursal = 1;
+	
+SELECT descripcioncategoriaproducto, idcategoriaproducto FROM categoriaproductos INNER JOIN sucursal ON 
+	sucursalidsucursal = categoriaproductos.idsucursal WHERE sucursal.idsucursal = 1;

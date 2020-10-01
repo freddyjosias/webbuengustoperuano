@@ -37,6 +37,8 @@
         
             $consultaFormaPago = 'SELECT descripciontipospedido FROM tipospedido INNER JOIN detalletipospedido ON tipospedido.idtipospedido = detalletipospedido.idtipospedido INNER JOIN sucursal ON sucursal.idsucursal = detalletipospedido.idsucursal WHERE disponibilidadtipospedido = 1 AND sucursal.idsucursal = ' . $_GET['view'];
 
+            $consultaTipoPago = 'SELECT descripcionformaspago FROM formaspago INNER JOIN detalleformaspago ON formaspago.idformaspago = detalleformaspago.idformaspago INNER JOIN sucursal ON sucursal.idsucursal = detalleformaspago.idsucursal WHERE disponibilidadformaspago = 1 AND sucursal.idsucursal = ?';
+
 ?>
 
 <!DOCTYPE html>
@@ -127,7 +129,12 @@
                 <div class="gastosdeenvio">
                     <h2>Forma de pagos</h2>
                     <ul>
-                        <li><p>Tarifa: S/3.00</p>	</li>
+                        <?php $resultados = $conexion -> prepare($consultaTipoPago);
+                        $resultados -> execute(array($_GET['view']));
+                        $resultados = $resultados -> fetchAll(PDO::FETCH_ASSOC);
+                        foreach($resultados as $row) {?>
+                            <li><p><?php echo $row['descripcionformaspago'] ?></p></li>
+                        <?php } ?>
                     </ul>
                 </div>
             </div>

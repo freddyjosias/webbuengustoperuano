@@ -1,19 +1,22 @@
 <?php 
 
-    $conexionDB = new mysqli('localhost', 'root', '', 'buengustoperuano');
-    $conexionDB -> set_charset("utf8");
+    require 'conexion.php';
 
     if (!isset($_GET['view'])) {
         header('Location: index.php');
     } else {
 
-        $consultaVerificarRestaurante = 'SELECT idsucursal FROM sucursal';
+        $consultaVerificarRestaurante = 'SELECT idsucursal, nomsucursal FROM sucursal';
 
         $idRestaurante;
-        $resultados = mysqli_query($conexionDB, $consultaVerificarRestaurante); 
-        while($row = mysqli_fetch_assoc($resultados)) { 
+
+        $resultados = $conexion -> prepare($consultaVerificarRestaurante);
+        $resultados -> execute();
+        $resultados = $resultados -> fetchAll(PDO::FETCH_ASSOC);
+        foreach($resultados as $row) {
             if ($row['idsucursal'] ==  $_GET['view']) {
                 $idRestaurante = $row['idsucursal'];
+                $nombresucursal = $row['nomsucursal'];
                 break;
             }
         }
@@ -63,141 +66,56 @@
 
 			<div class="contenido-carta">	
 
-                  
-                <h2>Entradas:</h2>
-
-			    <div>
-					<div class="productos-carta">
-                        <div><h3> Causa de pollo</h3></div>
-                        <div>S/.9.00</div>
-                    </div>
-                    <div class="productos-carta">
-                        <div><h3>Ceviche achorado(pescado y chicharron mixto)</h3></div>
-                        <div>S/.10.00</div>
-                    </div>
-                    <div class="productos-carta">
-                        <div><h3>Langostinos pacifico(6 unidades)</h3></div>
-                        <div>S/.15.00</div>
-                    </div>
-                    <div class="productos-carta">
-                        <div><h3>Papa a la huancaina</h3></div>
-                        <div>S/.10.00</div>
-                    </div>
-                    <div class="productos-carta">
-                        <div><h3>Tequeños de lomo saltado</h3></div>
-                        <div>S/.12.00</div>
-                    </div>
-                    <div class="productos-carta">
-                        <div><h3>Wantanes peruanos</h3></div>
-                        <div>S/.13.00</div>
-                    </div>						
-				</div>
+                <?php $consultaCategoria = 'SELECT descripcioncategoriaproducto, idcategoriaproducto FROM categoriaproductos INNER JOIN sucursal ON sucursal.idsucursal = categoriaproductos.idsucursal WHERE sucursal.idsucursal = ?';
                 
-				<h2>Fondos:</h2>
-				
-				<div>
-					<div class="productos-carta">
-                        <div><h3> Aji de gallina</h3></div>
-                        <div>S/.20.00</div>
-                    </div>
-                    <div class="productos-carta">
-                        <div><h3>Arroz chaufa de Mamani con pollo y carne</h3></div>
-                        <div>S/.25.00</div>
-                    </div>
-                    <div class="productos-carta">
-                        <div><h3>Arroz con mariscos</h3></div>
-                        <div>S/.20.00</div>
-                    </div>
-                    <div class="productos-carta">
-                        <div><h3>Jalea mixta</h3></div>
-                        <div>S/.30.00</div>
-                    </div>
-                    <div class="productos-carta">
-                        <div><h3>Lomo saltado</h3></div>
-                        <div>S/.25.00</div>
-                    </div>
-                    <div class="productos-carta">
-                        <div><h3>Tacu tacu de mariscos</h3></div>
-                        <div>S/.25.00</div>
-                    </div>						
-				</div>
-              
-                <h2>Postres:</h2>
+                $resultados = $conexion -> prepare($consultaCategoria);
+                $resultados -> execute(array($idRestaurante));
+                $resultados = $resultados -> fetchAll(PDO::FETCH_ASSOC);
+                foreach($resultados as $row) {
 
-				<div>
-					<div class="productos-carta">
-                        <div><h3> Flan al pisco y fresas</h3></div>
-                        <div>S/.9.00</div>
-                    </div>
-                    <div class="productos-carta">
-                        <div><h3>Panqueque con manjar blanco y durazno</h3></div>
-                        <div>S/.9.00</div>
-                    </div>
-                    <div class="productos-carta">
-                        <div><h3>Picarones</h3></div>
-                        <div>S/.9.00</div>
-                    </div>						
-				</div>
-    			                  
-				<h2>Refrescos:</h2>
-				
-				<div>
-					<div class="productos-carta">
-                        <div><h3> Chicha morada</h3></div>
-                        <div>S/.6.00</div>
-                    </div>
-                    <div class="productos-carta">
-                        <div><h3>Limonada</h3></div>
-                        <div>S/.6.00</div>
-                    </div>
-                    <div class="productos-carta">
-                        <div><h3>Naranjada</h3></div>
-                        <div>S/.6.00</div>
-                    </div>
-                    <div class="productos-carta">
-                        <div><h3>Piña</h3></div>
-                        <div>S/.6.00</div>
-                    </div>
-                    <div class="productos-carta">
-                        <div><h3>Uva</h3></div>
-                        <div>S/.6.00</div>
-                    </div>
-                    <div class="productos-carta">
-                        <div><h3>Taperibá</h3></div>
-                        <div>S/.6.00</div>
-					</div>
-					<div class="productos-carta">
-                        <div><h3>Maracuyá</h3></div>
-                        <div>S/.6.00</div>
-                    </div>
-                    <div class="productos-carta">
-                        <div><h3>Guanábana</h3></div>
-                        <div>S/.6.00</div>
-                    </div>
-                    <div class="productos-carta">
-                        <div><h3>Camu Camu</h3></div>
-                        <div>S/.6.00</div>
-                    </div>									
-				</div>
-		             
-                <h2>Gaseosas:</h2>
+                    $consultaProductoCategoria = 'SELECT * FROM productos WHERE idcategoriaproducto = ?';
+                    $resultados2 = $conexion -> prepare($consultaProductoCategoria);
+                    $resultados2 -> execute(array($row['idcategoriaproducto']));
+                    $resultados2 = $resultados2 -> fetchAll(PDO::FETCH_ASSOC);
 
-                <div>
-			        <div class="productos-carta">
-                        <div><h3>Inca Kola</h3></div>
-                        <div>S/.2.00</div>
-                    </div>
-                    <div class="productos-carta">
-                        <div><h3>Coca Cola</h3></div>
-                        <div>S/.2.00</div>
-                    </div>						    				
-               </div>             
+                    $productosOK = 0;
+
+                    foreach ($resultados2 as $key) {
+                        if ($key['stock'] > 0) {
+                            $productosOK = 1;
+                            break;
+                        }
+                    }
+                    
+                    if (count($resultados2) > 0 && $productosOK == 1) {?>
+                    
+                        <h2><?php echo $row['descripcioncategoriaproducto'] ?></h2>
+
+                        <div>
+
+                            <?php foreach($resultados2 as $row2) {
+                                
+                                if ($row2['stock'] > 0) {?>
+
+                                    <div class="productos-carta">
+                                        <div><h3><?php echo $row2['stock'] . ' &nbsp; &nbsp; | &nbsp; &nbsp;' .$row2['nomproducto'] ?></h3></div>
+                                        <div><i class="fas fa-cart-plus"></i> &nbsp; &nbsp; &nbsp; | &nbsp; &nbsp; &nbsp; S/. <?php echo $row2['precio'] ?></div>
+                                    </div>
+
+                            <?php }
+                            } ?>
+                
+                        </div>
+                    
+                <?php } 
+                } ?>
+            
             </div>           
         </div>
     </main>
     
 	<footer class="footer-inicio">
-        <div>
+        <div class='contenedor-general'>
             <div>© 2020 Restaurante 1 SAC. Todos los derechos reservados</div>
         </div>
     </footer>
@@ -205,6 +123,7 @@
     <img src="img/ir-arriba.png" class="ir-arriba">
 
     <script src="js/jquery-3.5.1.min.js"></script>
+    <script src="https://kit.fontawesome.com/4580061bb3.js" crossorigin="anonymous"></script>
     <script src="js/script.js"></script>
 </body>
 </html>
