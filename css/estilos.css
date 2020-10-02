@@ -388,7 +388,8 @@ input[type="submit"]:active{
 
 .destacados-bienvenida div {
     width: 31%;
-    background-color: rgb(77, 92, 160);
+    background-color: #212F3D;
+    border-radius: 15px;
 }
 
 .destacados-bienvenida img {
