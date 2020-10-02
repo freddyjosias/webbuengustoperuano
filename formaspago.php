@@ -13,18 +13,18 @@
         $idSucursal = $resultados['idsucursal'][0];
         
         if (isset($_POST['forma1'])) {
-            $resultados1 = $conexion -> prepare('UPDATE detalleformaspago SET disponibilidadformaspago = ? WHERE idformaspago = 1');
-            $resultados1 -> execute(array($_POST['forma1']));
+            $resultados1 = $conexion -> prepare('UPDATE detalleformaspago SET disponibilidadformaspago = ? WHERE idformaspago = 1 AND idsucursal = ?');
+            $resultados1 -> execute(array($_POST['forma1']), $idSucursal);
         }
 
         if (isset($_POST['forma2'])) {
-            $resultados2 = $conexion -> prepare('UPDATE detalleformaspago SET disponibilidadformaspago = ? WHERE idformaspago = 2');
-            $resultados2 -> execute(array($_POST['forma2']));
+            $resultados2 = $conexion -> prepare('UPDATE detalleformaspago SET disponibilidadformaspago = ? WHERE idformaspago = 2 AND idsucursal = ?');
+            $resultados2 -> execute(array($_POST['forma2']), $idSucursal);
         }
 
         if (isset($_POST['forma3'])) {
-            $resultados3 = $conexion -> prepare('UPDATE detalleformaspago SET disponibilidadformaspago = ? WHERE idformaspago = 3');
-            $resultados3 -> execute(array($_POST['forma3']));
+            $resultados3 = $conexion -> prepare('UPDATE detalleformaspago SET disponibilidadformaspago = ? WHERE idformaspago = 3 AND idsucursal = ?');
+            $resultados3 -> execute(array($_POST['forma3']), $idSucursal);
         }
     }
 
