@@ -374,6 +374,7 @@ input[type="submit"]:active{
 .bienvenida-page > div > p {
     font-size: 20px;
     text-align: justify;
+    min-height: 22rem;
 }
 
 .bienvenida-page > div {

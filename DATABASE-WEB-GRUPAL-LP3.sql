@@ -145,9 +145,6 @@ El pisco sour, elaborado con la típica receta peruana, es el favorito de muchos
 La invitación es a conocernos y a vivir un verdadero festín al paladar.','img/pescado.jpg','Pescado a la Hoja','img/tacacho.jpg','Tacaho con Cecina','img/caldo.jpg','Caldo de Gallina','07:00','21:00','chaletvenzia@gmail.com');
 
 
--- Consulta
-SELECT*FROM sucursal;
-
 -- Ingreso de formas de pago
 INSERT INTO formaspago (descripcionformaspago) 
 VALUES ('Efectivo');
@@ -374,10 +371,3 @@ VALUES (3,4,0);
 
 INSERT INTO detalleformaspago (idformaspago ,idsucursal ,disponibilidadformaspago) 
 VALUES (2,3,1);
-
-SELECT descripciontipospedido FROM tipospedido INNER JOIN detalletipospedido ON tipospedido.idtipospedido = detalletipospedido.idtipospedido 
-	INNER JOIN sucursal ON sucursal.idsucursal = detalletipospedido.idsucursal
-	WHERE disponibilidadtipospedido = 1 AND sucursal.idsucursal = 1;
-	
-SELECT descripcioncategoriaproducto, idcategoriaproducto FROM categoriaproductos INNER JOIN sucursal ON 
-	sucursalidsucursal = categoriaproductos.idsucursal WHERE sucursal.idsucursal = 1;

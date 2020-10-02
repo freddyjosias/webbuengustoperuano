@@ -1,3 +1,24 @@
+<?php
+
+    require 'conexion.php';
+
+    session_start();
+
+    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+
+        $resultados = $conexion -> prepare('SELECT idsucursal FROM usuario_encargado WHERE idusuario_encargado = ?');
+        $resultados -> execute(array($_SESSION['idusuario']));
+        $resultados = $resultados -> fetch(PDO::FETCH_ASSOC);
+
+        $idSucursal = $resultados['idsucursal'][0]; 
+        
+        $resultados = $conexion -> prepare('INSERT INTO categoriaproductos(descripcioncategoriaproducto, idsucursal) VALUE(?, ?)');
+        $resultados -> execute(array($_POST['nuevacategoria'], $idSucursal));
+
+    }
+
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -32,9 +53,9 @@
 
                 <h1>Añadir Categoria</h1>
 
-                <form action="" class='form-panel'>
+                <form action="" class='form-panel' method="post">
 
-                    <p>Categoria Nueva: <input type="text"></p>  
+                    <p>Categoria Nueva: <input type="text" name='nuevacategoria'></p>  
 
                     <input type="submit" value="Añadir Categoria">
 
