@@ -1,19 +1,38 @@
 <?php 
 
-    $conexionDB = new mysqli('localhost', 'root', '', 'buengustoperuano');
-    $conexionDB -> set_charset("utf8");
+    require 'conexion.php';
 
     if (!isset($_GET['view'])) {
         header('Location: index.php');
     } else {
 
-        $consultaVerificarRestaurante = 'SELECT idsucursal FROM sucursal';
+        $consultaVerificarRestaurante = 'SELECT * FROM sucursal';
 
         $idRestaurante;
-        $resultados = mysqli_query($conexionDB, $consultaVerificarRestaurante); 
-        while($row = mysqli_fetch_assoc($resultados)) { 
+        $imagenSucursal;
+        $textoBienvenida;
+        $imgdestacado1;
+        $imgdestacado2;
+        $imgdestacado3;
+        $platodescatado1;
+        $platodescatado2;
+        $platodescatado3;
+
+        $resultados = $conexion -> prepare($consultaVerificarRestaurante);
+        $resultados -> execute();
+        $resultados = $resultados -> fetchAll(PDO::FETCH_ASSOC);
+
+        foreach($resultados as $row) {
             if ($row['idsucursal'] ==  $_GET['view']) {
                 $idRestaurante = $row['idsucursal'];
+                $imagenSucursal = $row['imgbienvenida'];
+                $textoBienvenida = $row['textobienvenida'];
+                $imgdestacado1 = $row['imgdestacado1'];
+                $imgdestacado2 = $row['imgdestacado2'];
+                $imgdestacado3 = $row['imgdestacado3'];
+                $platodescatado1 = $row['platodestacado1'];
+                $platodescatado2 = $row['platodestacado2'];
+                $platodescatado3 = $row['platodestacado3'];
                 break;
             }
         }
@@ -30,7 +49,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-        <title>Bienvenida - Restaurante 1</title>
+        <title>Bienvenida - Restaurante <?php echo $idRestaurante ?></title>
         <link rel="shorcut icon" href="img/favicon.ico">
         <link rel="stylesheet" href="css/normalize.css">
 	    <link rel="stylesheet" type="text/css" href="css/estilos.css">
@@ -58,13 +77,10 @@
         <div class='bienvenida-page'>
 
             <div>
-                <img src="img/menu.jpg"> 
+                <?php echo "<img src='".$imagenSucursal."' >" ?>
                 <h1>Bienvenidos:</h1>
                 
-                <p>Hace varios ayeres, en el Perú cambio el concepto del comer; Este gran cambio se ha convertido en toda una filosofía que permite que muchos restaurantes queden como favoritos de la gente.</p>
-                <p>Esta gran filosofía es; “EL BUEN COMER…” es decir que todos trabajamos con el Mandil bien puesto,  y esto no es sino, mas que el meditado cuidado de todos los detalles”…, porque la intención ha sido siempre tratar a nuestros invitados como tú lo harías en tu propia casa.</p>
-                <p>Nosotros como empresa gastronómica no podíamos estar ajenos a ello ya que todos los que conformamos Oh…mar, tratamos de personificar esa filosofía valiéndonos de nuestra rica gastronomía, típica y de tradición; admirada y envidiada por muchos, agregándole los ingredientes de calidad del producto, la atención personalizada y el costo proporcionado.</p>
-                <p>Contamos con un personal especializado en cada una de sus áreas de trabajo, para brindar al cliente fiel una respuesta excelente a la confianza que ha depositado en nosotros, y al nuevo usuario una posibilidad de establecer un lugar con el que se sienta identificado.</p> 
+                <p><?php echo $textoBienvenida ?></p>
                 <img src="img/menu.jpg"> 
                 
             </div>
@@ -73,16 +89,16 @@
                 <h1>Destacados:</h1>
                 <div class="destacados-bienvenida">
                     <div>
-                        <img src="img/destacado1.jpg" alt="">
-                        <h3>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero cum voluptates quo incidunt neque culpa aliquid hic minus</h3>
+                        <?php echo "<img src='".$imgdestacado1."' >" ?>
+                        <h3><?php echo $platodescatado1 ?> </h3>
                     </div>
                     <div>
-                        <img src="img/destacado2.jpg" alt="">
-                        <h3>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero cum voluptates quo incidunt neque culpa aliquid hic minus</h3>
+                        <?php echo "<img src='".$imgdestacado2."' >" ?>
+                        <h3> <?php echo $platodescatado2 ?> </h3>
                     </div>
                     <div>
-                        <img src="img/destacado3.jpg" alt="">
-                        <h3>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero cum voluptates quo incidunt neque culpa aliquid hic minus</h3>
+                        <?php echo "<img src='".$imgdestacado3."' >" ?>
+                        <h3> <?php echo $platodescatado3 ?> </h3>
                     </div>
                 </div>
             </div>
