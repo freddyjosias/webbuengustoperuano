@@ -6,7 +6,8 @@
     <title>Quienes Somos - Restaurante 1</title>
     <link rel="shorcut icon" href="img/favicon.ico">
     <link rel="stylesheet" href="css/normalize.css">
-	<link rel="stylesheet" type="text/css" href="css/estilos.css">
+    <link rel="stylesheet" type="text/css" href="css/estilos.css">
+    <link rel="stylesheet" type="text/css" href="css/responpanel.css">
 
 </head>
 <body>
