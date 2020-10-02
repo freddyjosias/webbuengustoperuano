@@ -1,3 +1,30 @@
+<?php
+
+    require 'conexion.php';
+
+    session_start();
+
+    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+
+        $resultados = $conexion -> prepare('SELECT idsucursal FROM usuario_encargado WHERE idusuario_encargado = ?');
+        $resultados -> execute(array($_SESSION['idusuario']));
+        $resultados = $resultados -> fetch(PDO::FETCH_ASSOC);
+
+        $idSucursal = $resultados['idsucursal'][0]; 
+        
+        $resultados1 = $conexion -> prepare('UPDATE detalleformaspago SET disponibilidadformaspago = ? WHERE idformaspago = 1');
+        $resultados1 -> execute(array($_POST['forma1']));
+        
+        $resultados2 = $conexion -> prepare('UPDATE detalleformaspago SET disponibilidadformaspago = ? WHERE idformaspago = 2');
+        $resultados2 -> execute(array($_POST['forma2']));
+        
+        $resultados3 = $conexion -> prepare('UPDATE detalleformaspago SET disponibilidadformaspago = ? WHERE idformaspago = 3');
+        $resultados3 -> execute(array($_POST['forma3']));
+
+    }
+
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -32,15 +59,18 @@
 
                 <h1>Formas de Pago</h1>
 
-                <form action="" class='form-panel'>
+                <form action="" class='form-panel' method="post">
+                    <p>Efectivo</p>
+                    <p><input type="radio" id="" name="forma1" value="1"> Habilitar</p>
+                    <p><input type="radio" id="" name="forma1" value="0"> Desabilitar</p>
 
-                    <p>Forma 1</p>
-                    <p><input type="radio" id="" name="forma1" value=""> Habilitar</p>
-                    <p><input type="radio" id="" name="forma1" value=""> Dasabilitar</p>
+                    <p>Online</p>
+                    <p><input type="radio" id="" name="forma2" value="1"> Habilitar</p>
+                    <p><input type="radio" id="" name="forma2" value="0"> Desabilitar</p>
 
-                    <p>Forma 2</p>
-                    <p><input type="radio" id="" name="forma2" value=""> Habilitar</p>
-                    <p><input type="radio" id="" name="forma2" value=""> Dasabilitar</p>
+                    <p>POS</p>
+                    <p><input type="radio" id="" name="forma3" value="1"> Habilitar</p>
+                    <p><input type="radio" id="" name="forma3" value="0"> Desabilitar</p>
                     
                     <input type="submit" value="Actualizar">
 
