@@ -56,7 +56,7 @@
 
             <div class='formulario-panel'>
 
-                <h1>Tipos de Pedido</h1>
+                <h1>Actualizar Tipos de Pedido</h1>
 
                 <form action="" class='form-panel' method="post"> 
     

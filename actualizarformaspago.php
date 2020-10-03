@@ -56,7 +56,7 @@
 
             <div class='formulario-panel'>
 
-                <h1>Formas de Pago</h1>
+                <h1>Actualizar Formas de Pago</h1>
 
                 <form action="" class='form-panel' method="post">
                     <p>Efectivo</p>
