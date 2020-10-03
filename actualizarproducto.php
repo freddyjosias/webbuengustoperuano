@@ -11,7 +11,6 @@
     //$consultaProducto = $conexion -> prepare('SELECT * FROM productos WHERE idcategoriaproducto = ?');
     //$consultaCategorias -> execute(array($_POST['categoria']));
     //$consultaProducto = $consultaProducto -> fetchAll(PDO::FETCH_ASSOC);
-    //var_dump($consultaProducto); die;
 
 ?>
 
