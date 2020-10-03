@@ -1,3 +1,27 @@
+<?php 
+
+    require 'conexion.php';
+
+    session_start();
+
+    $resultados = $conexion -> prepare('SELECT idsucursal FROM usuario_encargado WHERE idusuario_encargado = ?');
+    $resultados -> execute(array($_SESSION['idusuario']));
+    $resultados = $resultados -> fetch(PDO::FETCH_ASSOC);
+
+    $idSucursal = $resultados['idsucursal'][0];
+
+    $consultaCategorias = $conexion -> prepare('SELECT idcategoriaproducto, idsucursal, descripcioncategoriaproducto FROM categoriaproductos WHERE idsucursal = ?');
+    $consultaCategorias -> execute(array($idSucursal));
+    $consultaCategorias = $consultaCategorias -> fetchAll(PDO::FETCH_ASSOC);
+
+    //$consultaProducto = $conexion -> prepare('SELECT * FROM productos WHERE idcategoriaproducto = ?');
+    //$consultaCategorias -> execute(array($_POST['categoria']));
+    //$consultaProducto = $consultaProducto -> fetchAll(PDO::FETCH_ASSOC);
+    //var_dump($consultaProducto); die;
+
+?>
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -34,19 +58,24 @@
 
                 <form action="" class='form-panel'>
 
+                    <p>Categoria: 
+                        <select name="categoria">            
+                            <?php foreach($consultaCategorias as $row) { ?>
+                                <option value="<?php echo $row['idcategoriaproducto'] ?>"> <?php echo $row['descripcioncategoriaproducto'] ?> </option>
+                            <?php } ?>
+                        </select>
+                    </p>
+
                     <p> Elegir Producto: 
-                        <select name="" id="">
-                            <option value="">Hola</option>
-                            <option value="">Mundo</option>
+                        <select name="producto">
+                            <?php foreach($consultaProducto as $row) {?>
+                                <option value="<?php echo $row['idproducto'] ?>"> <?php echo $row['nomproducto'] ?> </option>
+                            <?php } ?>
                         </select>
                     </p>
 
                     <input type="submit" value="Selecionar">
-
-                </form>
-
-                <form action="" class='form-panel'>
-
+           
                     <p>Nombre: </p>
                     <p>Nuevo nombre: <input type="text"></p>  
                     

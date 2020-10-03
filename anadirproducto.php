@@ -1,3 +1,29 @@
+<?php 
+
+    require 'conexion.php';
+
+    session_start();
+
+    $resultados = $conexion -> prepare('SELECT idsucursal FROM usuario_encargado WHERE idusuario_encargado = ?');
+    $resultados -> execute(array($_SESSION['idusuario']));
+    $resultados = $resultados -> fetch(PDO::FETCH_ASSOC);
+
+    $idSucursal = $resultados['idsucursal'][0];
+    
+    $consultaCategorias = $conexion -> prepare('SELECT idcategoriaproducto, idsucursal, descripcioncategoriaproducto FROM categoriaproductos WHERE idsucursal = ?');
+    $consultaCategorias -> execute(array($idSucursal));
+    $consultaCategorias = $consultaCategorias -> fetchAll(PDO::FETCH_ASSOC);
+
+    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+
+        $agregarproducto = $conexion -> prepare('INSERT INTO productos(idcategoriaproducto,nomproducto,precio,stock) VALUES (?,?,?,?)');
+        $agregarproducto -> execute(array($_POST['categoria'], $_POST['nuevo_producto'], $_POST['precio'], $_POST['stock']));
+
+    }
+
+
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -32,19 +58,18 @@
 
                 <h1>Añadir Producto</h1>
 
-                <form action="" class='form-panel'>
-                    <p> Categoria: 
-                        <select name="" id="">
-                            <option value="">Hola</option>
-                            <option value="">Mundo</option>
+                <form class='form-panel' method = "post">
+                    <p>Categoria: 
+                        <select name="categoria">            
+                            <?php foreach($consultaCategorias as $row) { ?>
+                                <option value="<?php echo $row['idcategoriaproducto'] ?>"> <?php echo $row['descripcioncategoriaproducto'] ?> </option>
+                            <?php } ?>
                         </select>
                     </p>
 
-                    <p>Nuevo Producto: <input type="text"></p>  
-                    
-                    <p>Precio: <input type="number"></p>
-
-                    <p>Stock: <input type="number"></p>
+                    <p>Nuevo Producto: <input type="text" name="nuevo_producto" ></p>  
+                    <p>Precio: <input type="number" name="precio"></p>
+                    <p>Stock: <input type="number" name="stock"></p>
                     
                     <input type="submit" value="Añadir Producto">
 

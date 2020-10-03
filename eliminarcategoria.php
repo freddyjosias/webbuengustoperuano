@@ -1,3 +1,21 @@
+<?php 
+
+    require 'conexion.php';
+
+    session_start();
+
+    $resultados = $conexion -> prepare('SELECT idsucursal FROM usuario_encargado WHERE idusuario_encargado = ?');
+    $resultados -> execute(array($_SESSION['idusuario']));
+    $resultados = $resultados -> fetch(PDO::FETCH_ASSOC);
+
+    $idSucursal = $resultados['idsucursal'][0];
+    
+    $consultaCategorias = $conexion -> prepare('SELECT idsucursal, descripcioncategoriaproducto FROM categoriaproductos WHERE idsucursal = ?');
+    $consultaCategorias -> execute(array($idSucursal));
+    $consultaCategorias = $consultaCategorias -> fetchAll(PDO::FETCH_ASSOC);
+
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -32,14 +50,14 @@
 
                 <h1>Eliminar Categoria</h1>
 
-                <form action="" class='form-panel'>
+                <form action="" class='form-panel' method="post">
                     <p>Elegir Categoria: 
-                        <select name="" id="">
-                            <option value="">Hola</option>
-                            <option value="">Mundo</option>
+                        <select name="categoria" id="">            
+                            <?php foreach($consultaCategorias as $row) { ?>
+                                <option value=""> <?php echo $row['descripcioncategoriaproducto'] ?> </option>
+                            <?php } ?>
                         </select>
                     </p>
-
                     <input type="submit" value="Eliminar Categoria">
 
                 </form>
