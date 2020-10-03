@@ -5,26 +5,20 @@
     session_start();
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-
-        $resultados = $conexion -> prepare('SELECT idsucursal FROM usuario_encargado WHERE idusuario_encargado = ?');
-        $resultados -> execute(array($_SESSION['idusuario']));
-        $resultados = $resultados -> fetch(PDO::FETCH_ASSOC);
-
-        $idSucursal = $resultados['idsucursal'][0];
-        
+     
         if (isset($_POST['forma1'])) {
             $resultados1 = $conexion -> prepare('UPDATE detalleformaspago SET disponibilidadformaspago = ? WHERE idformaspago = 1 AND idsucursal = ?');
-            $resultados1 -> execute(array($_POST['forma1'], $idSucursal));
+            $resultados1 -> execute(array($_POST['forma1'], $_SESSION['idsucursal']));
         }
 
         if (isset($_POST['forma2'])) {
             $resultados2 = $conexion -> prepare('UPDATE detalleformaspago SET disponibilidadformaspago = ? WHERE idformaspago = 2 AND idsucursal = ?');
-            $resultados2 -> execute(array($_POST['forma2'], $idSucursal));
+            $resultados2 -> execute(array($_POST['forma2'], $_SESSION['idsucursal']));
         }
 
         if (isset($_POST['forma3'])) {
             $resultados3 = $conexion -> prepare('UPDATE detalleformaspago SET disponibilidadformaspago = ? WHERE idformaspago = 3 AND idsucursal = ?');
-            $resultados3 -> execute(array($_POST['forma3'], $idSucursal));
+            $resultados3 -> execute(array($_POST['forma3'], $_SESSION['idsucursal']));
         }
     }
 
