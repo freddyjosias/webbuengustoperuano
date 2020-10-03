@@ -1,3 +1,35 @@
+<?php
+
+    require 'conexion.php';
+
+    session_start();
+
+    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+
+        $resultados = $conexion -> prepare('SELECT idsucursal FROM usuario_encargado WHERE idusuario_encargado = ?');
+        $resultados -> execute(array($_SESSION['idusuario']));
+        $resultados = $resultados -> fetch(PDO::FETCH_ASSOC);
+
+        $idSucursal = $resultados['idsucursal'][0];
+        
+        if (isset($_POST['delivery'])) {
+            $resultados1 = $conexion -> prepare('UPDATE detalletipospedido SET disponibilidadtipospedido = ? WHERE idtipospedido = 1 AND idsucursal = ?');
+            $resultados1 -> execute(array($_POST['delivery'],$idSucursal));
+        }
+
+        if (isset($_POST['recojo'])) {
+            $resultados2 = $conexion -> prepare('UPDATE detalletipospedido SET disponibilidadtipospedido = ? WHERE idtipospedido = 2 AND idsucursal = ?');
+            $resultados2 -> execute(array($_POST['recojo'],$idSucursal));
+        }
+
+        if (isset($_POST['reserva'])) {
+            $resultados3 = $conexion -> prepare('UPDATE detalletipospedido SET disponibilidadtipospedido = ? WHERE idtipospedido = 3 AND idsucursal = ?');
+            $resultados3 -> execute(array($_POST['reserva'],$idSucursal));
+        }
+    }
+
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -32,16 +64,20 @@
 
                 <h1>Tipos de Pedido</h1>
 
-                <form action="" class='form-panel'>
+                <form action="" class='form-panel' method="post"> 
+    
+                    <p>Delivery</p>
+                    <p><input type="radio" id="" name="delivery" value="1"> Habilitar</p>
+                    <p><input type="radio" id="" name="delivery" value="0"> Desabilitar</p>
 
-                    <p>Forma 1</p>
-                    <p><input type="radio" id="" name="forma1" value=""> Habilitar</p>
-                    <p><input type="radio" id="" name="forma1" value=""> Dasabilitar</p>
-
-                    <p>Forma 2</p>
-                    <p><input type="radio" id="" name="forma2" value=""> Habilitar</p>
-                    <p><input type="radio" id="" name="forma2" value=""> Dasabilitar</p>
+                    <p>Recojo</p>
+                    <p><input type="radio" id="" name="recojo" value="1"> Habilitar</p>
+                    <p><input type="radio" id="" name="recojo" value="0"> Dasabilitar</p>
                     
+                    <p>Reserva</p>
+                    <p><input type="radio" id="" name="reserva" value="1"> Habilitar</p>
+                    <p><input type="radio" id="" name="reserva" value="0"> Dasabilitar</p>
+
                     <input type="submit" value="Actualizar">
 
                 </form>
