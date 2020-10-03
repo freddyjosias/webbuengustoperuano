@@ -38,8 +38,8 @@
                     <li><a href="anadirproducto.php">Añadir Producto</a></li>
                     <li><a href="eliminarproducto.php">Eliminar Producto</a></li>
                     <li><a href="actualizarproducto.php">Actualizar Praducto</a></li>
-                    <li><a href="formaspago.php">Formas de Pago</a></li>
-                    <li><a href="tipospedido.php">Tipos de pedido</a></li>
+                    <li><a href="actualizarformaspago.php">Actualizar Formas de Pago</a></li>
+                    <li><a href="actualizartipospedido.php">Actualizar Tipos de pedido</a></li>
                 </ul>
             </nav>
 
