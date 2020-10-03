@@ -32,6 +32,7 @@ CREATE TABLE sucursal(
    horaatencioninicio TIME,
    horaatencioncierre TIME,
    correosucursal VARCHAR(255),
+   estado BOOLEAN default 1,
 CONSTRAINT pk_sucursal PRIMARY KEY (idsucursal)
 );
 CREATE TABLE detalleformaspago(
@@ -56,6 +57,7 @@ CREATE TABLE categoriaproductos(
 	idcategoriaproducto INT NOT NULL AUTO_INCREMENT,
 	idsucursal INT NOT NULL,
 	descripcioncategoriaproducto VARCHAR(255),
+    estado BOOLEAN default 1,
 CONSTRAINT pk_tipoproducto PRIMARY KEY (idcategoriaproducto),
 CONSTRAINT fk_sucursal_categoriaproductos FOREIGN KEY (idsucursal) REFERENCES sucursal(idsucursal)
 );
@@ -63,19 +65,24 @@ CREATE TABLE productos(
    idproducto INT NOT NULL AUTO_INCREMENT,
 	idcategoriaproducto INT NOT NULL,
 	nomproducto VARCHAR(255),
-	precio DECIMAL(10.2),
+	precio DECIMAL(10,2),
 	stock INT,
-CONSTRAINT pk_productos PRIMARY KEY (idproducto),
-CONSTRAINT fk_categoriaproductos_productos FOREIGN KEY (idcategoriaproducto) REFERENCES categoriaproductos(idcategoriaproducto)
+    estado BOOLEAN default 1,
+    CONSTRAINT pk_productos PRIMARY KEY (idproducto),
+    CONSTRAINT fk_categoriaproductos_productos FOREIGN KEY (idcategoriaproducto) REFERENCES categoriaproductos(idcategoriaproducto)
 );
 	
 CREATE TABLE usuario_encargado(
-   idusuario_encargado INT NOT NULL AUTO_INCREMENT,
-   idsucursal INT NOT NULL,
-   emailencargado VARCHAR(255) NOT NULL,
-   nombreencargado VARCHAR(255),
-   apellidoencargado VARCHAR(255),
-   contrasenae VARCHAR(255) NOT NULL,
+    idusuario_encargado INT NOT NULL AUTO_INCREMENT,
+    idsucursal INT NOT NULL,
+    emailusuario VARCHAR(255),
+    nombreusuario VARCHAR(255),
+    apellidousuario VARCHAR(255),
+    contrasena VARCHAR(255) NOT NULL,
+    telefonousuario NUMERIC,
+    direccionusuario VARCHAR(255),
+    referenciausuario VARCHAR(255),
+    dniusuario VARCHAR(8),
 CONSTRAINT pk_usuario_encargado PRIMARY KEY (idusuario_encargado),
 CONSTRAINT fk_sucursal_usuario_encargado FOREIGN KEY (idsucursal) REFERENCES sucursal(idsucursal)
 );
@@ -84,12 +91,13 @@ CREATE TABLE usuario (
     emailusuario VARCHAR(255),
     nombreusuario VARCHAR(255),
     apellidousuario VARCHAR(255),
-    contrasenau VARCHAR(255) NOT NULL,
+    contrasena VARCHAR(255) NOT NULL,
 	telefonousuario NUMERIC,
 	direccionusuario VARCHAR(255),
 	referenciausuario VARCHAR(255),
 	dniusuario VARCHAR(8),
-CONSTRAINT pk_usuario PRIMARY KEY (idusuario)
+    estado BOOLEAN default 1,
+    CONSTRAINT pk_usuario PRIMARY KEY (idusuario)
 );
 
 CREATE TABLE pedidos (
@@ -100,10 +108,10 @@ CREATE TABLE pedidos (
 	horapedido DATE,
 	estado CHAR(1),
 	montopagar VARCHAR(255),
-CONSTRAINT pk_pedidos PRIMARY KEY (idventa),
-CONSTRAINT fk_formaspago_pedidos FOREIGN KEY (idformaspago) REFERENCES formaspago(idformaspago),
-CONSTRAINT fk_tipospedido_pedidos FOREIGN KEY (idtipospedido) REFERENCES tipospedido(idtipospedido),
-CONSTRAINT fk_usuario_pedidos FOREIGN KEY (idusuario) REFERENCES usuario(idusuario)		   
+    CONSTRAINT pk_pedidos PRIMARY KEY (idventa),
+    CONSTRAINT fk_formaspago_pedidos FOREIGN KEY (idformaspago) REFERENCES formaspago(idformaspago),
+    CONSTRAINT fk_tipospedido_pedidos FOREIGN KEY (idtipospedido) REFERENCES tipospedido(idtipospedido),
+    CONSTRAINT fk_usuario_pedidos FOREIGN KEY (idusuario) REFERENCES usuario(idusuario)		   
 );
 
 CREATE TABLE detallepedido(
@@ -169,16 +177,6 @@ INSERT INTO tipospedido (descripciontipospedido)
 VALUES ('Recojo en local');
 INSERT INTO tipospedido (descripciontipospedido) 
 VALUES ('Reserva');
-
--- Ingreso de usuarios
-INSERT INTO usuario_encargado (idsucursal,emailencargado,nombreencargado,apellidoencargado,contrasenae) 
-VALUES (1,'jerryinga12@gmail.com','Jerry Josias','Sobojeda Pinchi','aguantelgtb');
-INSERT INTO usuario_encargado (idsucursal,emailencargado,nombreencargado,apellidoencargado,contrasenae) 
-VALUES (2,'freddyhidalgo@gmail.com','Freddy Roberto','Culqui Chupingawa','vivaelpubg');
-INSERT INTO usuario_encargado (idsucursal,emailencargado,nombreencargado,apellidoencargado,contrasenae) 
-VALUES (3,'ariano@gmail.com','Arian','Chuquilin Sanches','vivaellol');
-INSERT INTO usuario_encargado (idsucursal,emailencargado,nombreencargado,apellidoencargado,contrasenae) 
-VALUES (4,'admin','ElAdmin','Dios Admin','Tfc2cr54uZkAk8JA');
 
 -- Ingreso de categoria de productos
 
@@ -380,3 +378,10 @@ VALUES (3,4,0);
 
 INSERT INTO detalleformaspago (idformaspago ,idsucursal ,disponibilidadformaspago) 
 VALUES (2,3,1);
+
+INSERT INTO usuario_encargado (idsucursal, emailusuario, contrasena) VALUE (1, 'prueba.encargado', 'NowPass');
+INSERT INTO usuario_encargado (idsucursal, emailusuario, contrasena) VALUE (2, 'harry@gmail.com', 'NowPass1');
+INSERT INTO usuario_encargado (idsucursal, emailusuario, contrasena) VALUE (3, 'arian@gmail.com', 'NowPass1');
+INSERT INTO usuario_encargado (idsucursal, emailusuario, contrasena) VALUE (4, 'jordi@gmail.com', 'NowPass1');
+
+INSERT INTO usuario (nombreusuario, emailusuario, contrasena) VALUE ('prueba', 'prueba', 'NowPass');

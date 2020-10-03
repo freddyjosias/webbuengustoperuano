@@ -3,16 +3,17 @@
     require 'conexion.php';
 
     session_start();
-
-    $resultados = $conexion -> prepare('SELECT idsucursal FROM usuario_encargado WHERE idusuario_encargado = ?');
-    $resultados -> execute(array($_SESSION['idusuario']));
-    $resultados = $resultados -> fetch(PDO::FETCH_ASSOC);
-
-    $idSucursal = $resultados['idsucursal'][0];
     
-    $consultaCategorias = $conexion -> prepare('SELECT idsucursal, descripcioncategoriaproducto FROM categoriaproductos WHERE idsucursal = ?');
-    $consultaCategorias -> execute(array($idSucursal));
+    $consultaCategorias = $conexion -> prepare('SELECT idcategoriaproducto, descripcioncategoriaproducto FROM categoriaproductos WHERE idsucursal = ?');
+    $consultaCategorias -> execute(array($_SESSION['idsucursal']));
     $consultaCategorias = $consultaCategorias -> fetchAll(PDO::FETCH_ASSOC);
+
+    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+        
+        $resultados = $conexion -> prepare('UPDATE categoriaproductos SET estado = 0 WHERE idcategoriaproducto = ?');
+        $resultados -> execute(array($_POST['categoria']));
+
+    }
 
 ?>
 
@@ -54,7 +55,7 @@
                     <p>Elegir Categoria: 
                         <select name="categoria" id="">            
                             <?php foreach($consultaCategorias as $row) { ?>
-                                <option value=""> <?php echo $row['descripcioncategoriaproducto'] ?> </option>
+                                <option value="<?php echo $row['idcategoriaproducto'] ?>"> <?php echo $row['descripcioncategoriaproducto'] ?> </option>
                             <?php } ?>
                         </select>
                     </p>

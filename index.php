@@ -94,8 +94,10 @@
             <input type="text" placeholder="&#128272; Usuario" name="usuario">
             <input type="password" placeholder="&#128272; Contraseña" name="clave">
             <input type="submit" value="Ingresar" name="login">
-            <p>Usuario por defecto: <b>admin</b></p>
-            <p>Contraseña por defecto: <b>Tfc2cr54uZkAk8JA</b></p>
+            <p>Usuario por defecto: <b>prueba</b></p>
+            <p>Contraseña por defecto: <b>NowPass</b></p>
+            <p>Usuario Encargado por defecto: <b>prueba.encargado</b></p>
+            <p>Contraseña Encargado por defecto: <b>NowPass</b></p>
         </form>
         
     <?php 
@@ -110,15 +112,34 @@
                 $resultados -> execute();
                 $resultados = $resultados -> fetchAll(PDO::FETCH_ASSOC);
                 foreach($resultados as $row) { 
-                    if ($row['emailencargado'] == $usuario && $row['contrasenae'] == $clave) {
+                    if ($row['emailusuario'] == $usuario && $row['contrasena'] == $clave) {
                         $datosErroneos = 0;
-                        $_SESSION['idusuario'] = $row['idusuario_encargado'];
+                        $_SESSION['idusuario'] = $row['emailusuario'];
                         $_SESSION['email'] = $row['emailencargado'];
-                        $_SESSION['nombreencargado'] = $row['nombreencargado'];
-                        $_SESSION['apellidoencargado'] = $row['nombreencargado'];
+                        $_SESSION['nombreusuario'] = $row['nombreusuario'];
+                        $_SESSION['apellidousuario'] = $row['apellidousuario'];
+                        $_SESSION['idsucursal'] = $row['idsucursal'];
+                        break;
                     }
                 }
                 
+                if ($datosErroneos == 1) {
+                    $consultaUsuario = 'SELECT * FROM usuario';
+                    $resultados = $conexion -> prepare($consultaUsuario);
+                    $resultados -> execute();
+                    $resultados = $resultados -> fetchAll(PDO::FETCH_ASSOC);
+                    foreach($resultados as $row) { 
+                        if ($row['emailusuario'] == $usuario && $row['contrasena'] == $clave) {
+                            $datosErroneos = 0;
+                            $_SESSION['idusuario'] = $row['emailusuario'];
+                            $_SESSION['email'] = $row['emailencargado'];
+                            $_SESSION['nombreusuario'] = $row['nombreusuario'];
+                            $_SESSION['apellidousuario'] = $row['apellidousuario'];
+                            break;
+                        }
+                    }
+                }
+
                 if ($datosErroneos == 1) {
                     echo 'Ingrese bien sus datos';
                 }

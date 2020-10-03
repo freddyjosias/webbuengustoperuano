@@ -5,15 +5,9 @@
     session_start();
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-
-        $resultados = $conexion -> prepare('SELECT idsucursal FROM usuario_encargado WHERE idusuario_encargado = ?');
-        $resultados -> execute(array($_SESSION['idusuario']));
-        $resultados = $resultados -> fetch(PDO::FETCH_ASSOC);
-
-        $idSucursal = $resultados['idsucursal'][0]; 
         
         $resultados = $conexion -> prepare('INSERT INTO categoriaproductos(descripcioncategoriaproducto, idsucursal) VALUE(?, ?)');
-        $resultados -> execute(array($_POST['nuevacategoria'], $idSucursal));
+        $resultados -> execute(array($_POST['nuevacategoria'], $_SESSION['idsucursal']));
 
     }
 

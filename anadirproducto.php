@@ -3,21 +3,15 @@
     require 'conexion.php';
 
     session_start();
-
-    $resultados = $conexion -> prepare('SELECT idsucursal FROM usuario_encargado WHERE idusuario_encargado = ?');
-    $resultados -> execute(array($_SESSION['idusuario']));
-    $resultados = $resultados -> fetch(PDO::FETCH_ASSOC);
-
-    $idSucursal = $resultados['idsucursal'][0];
     
     $consultaCategorias = $conexion -> prepare('SELECT idcategoriaproducto, idsucursal, descripcioncategoriaproducto FROM categoriaproductos WHERE idsucursal = ?');
-    $consultaCategorias -> execute(array($idSucursal));
+    $consultaCategorias -> execute(array($_SESSION['idsucursal']));
     $consultaCategorias = $consultaCategorias -> fetchAll(PDO::FETCH_ASSOC);
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         $agregarproducto = $conexion -> prepare('INSERT INTO productos(idcategoriaproducto,nomproducto,precio,stock) VALUES (?,?,?,?)');
-        $agregarproducto -> execute(array($_POST['categoria'], $_POST['nuevo_producto'], $_POST['precio'], $_POST['stock']));
+        $agregarproducto -> execute(array($_POST['categoria'], $_POST['nuevo_producto'], floatval($_POST['precio']), $_POST['stock']));
 
     }
 
@@ -68,7 +62,7 @@
                     </p>
 
                     <p>Nuevo Producto: <input type="text" name="nuevo_producto" ></p>  
-                    <p>Precio: <input type="number" name="precio"></p>
+                    <p>Precio: <input type="number" name="precio" step='0.01'></p>
                     <p>Stock: <input type="number" name="stock"></p>
                     
                     <input type="submit" value="Añadir Producto">
