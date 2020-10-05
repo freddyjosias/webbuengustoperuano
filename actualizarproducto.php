@@ -4,20 +4,13 @@
 
     session_start();
 
-    $resultados = $conexion -> prepare('SELECT idsucursal FROM usuario_encargado WHERE idusuario_encargado = ?');
-    $resultados -> execute(array($_SESSION['idusuario']));
-    $resultados = $resultados -> fetch(PDO::FETCH_ASSOC);
-
-    $idSucursal = $resultados['idsucursal'][0];
-
     $consultaCategorias = $conexion -> prepare('SELECT idcategoriaproducto, idsucursal, descripcioncategoriaproducto FROM categoriaproductos WHERE idsucursal = ?');
-    $consultaCategorias -> execute(array($idSucursal));
+    $consultaCategorias -> execute(array($_SESSION['idsucursal']));
     $consultaCategorias = $consultaCategorias -> fetchAll(PDO::FETCH_ASSOC);
 
     //$consultaProducto = $conexion -> prepare('SELECT * FROM productos WHERE idcategoriaproducto = ?');
     //$consultaCategorias -> execute(array($_POST['categoria']));
     //$consultaProducto = $consultaProducto -> fetchAll(PDO::FETCH_ASSOC);
-    //var_dump($consultaProducto); die;
 
 ?>
 
