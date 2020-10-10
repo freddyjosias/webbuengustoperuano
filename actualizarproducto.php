@@ -20,6 +20,13 @@
         $consultaProductoA -> execute(array($_GET['producto']));
         $consultaProductoA = $consultaProductoA -> fetchAll(PDO::FETCH_ASSOC);
     }
+
+    if($_SERVER['REQUEST_METHOD'] == 'POST') {
+
+        $resultados = $conexion -> prepare('UPDATE productos SET nomproducto = ?, precio = ?, stock = ? WHERE idproducto = ?');
+        $resultados -> execute(array($_POST['nuevonombre'],$_POST['nuevoprecio'],$_POST['nuevostock'], $_GET['producto']));
+
+    }
 ?>
 
 
@@ -127,15 +134,15 @@
 
                 <?php }  ?>                     
                 <?php if(isset($_GET['categoria']) && isset($_GET['producto']))   {    ?>         
-                    <form action="" class='form-panel'>
+                    <form action="" class='form-panel' method = "post">
                     <?php foreach($consultaProductoA as $row) { ?>
-                        <p>Nuevo nombre: <input type="text"></p>  
+                        <p>Nuevo nombre: <input type="text" name="nuevonombre"></p>  
                         
                         <p>Precio: <?php echo $row['precio'] ?></p>
-                        <p>Nuevo precio: <input type="number"></p>
+                        <p>Nuevo precio: <input type="number" name="nuevoprecio" step='0.01'></p>
 
                         <p>Stock: <?php echo $row['stock'] ?></p>
-                        <p>Nuevo Stock: <input type="number"></p>
+                        <p>Nuevo Stock: <input type="number" name="nuevostock"></p>
                     <?php } ?>
                         
                         <input type="submit" value="Actualizar Producto">
