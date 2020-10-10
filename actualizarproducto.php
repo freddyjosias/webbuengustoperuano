@@ -7,6 +7,7 @@
     $consultaCategorias = $conexion -> prepare('SELECT idcategoriaproducto, idsucursal, descripcioncategoriaproducto FROM categoriaproductos WHERE idsucursal = ?');
     $consultaCategorias -> execute(array($_SESSION['idsucursal']));
     $consultaCategorias = $consultaCategorias -> fetchAll(PDO::FETCH_ASSOC);
+    
 
     if (isset($_GET['categoria'])) {
         $consultaProducto = $conexion -> prepare('SELECT * FROM productos WHERE idcategoriaproducto = ?');
@@ -14,10 +15,11 @@
         $consultaProducto = $consultaProducto -> fetchAll(PDO::FETCH_ASSOC);
     }
 
-    $consultaProductoA = $conexion -> prepare('SELECT*FROM productos WHERE idproducto = ?');
-    $consultaProductoA -> execute(array($_GET['producto']));
-    $consultaProductoA = $consultaProductoA -> fetchAll(PDO::FETCH_ASSOC);
-
+    if (isset($_GET['producto'])) {
+        $consultaProductoA = $conexion -> prepare('SELECT*FROM productos WHERE idproducto = ?');
+        $consultaProductoA -> execute(array($_GET['producto']));
+        $consultaProductoA = $consultaProductoA -> fetchAll(PDO::FETCH_ASSOC);
+    }
 ?>
 
 
@@ -123,8 +125,7 @@
                     <input type='submit' value='Seleccionar'>
                 </form>
 
-                <?php }  ?>    
-
+                <?php }  ?>                     
                 <?php if(isset($_GET['categoria']) && isset($_GET['producto']))   {    ?>         
                     <form action="" class='form-panel'>
                     <?php foreach($consultaProductoA as $row) { ?>
