@@ -61,8 +61,6 @@
                             <?php } ?>
                         </select>
                     </p>
-
-                    <p>Nombre: </p>
                     <p>Nuevo nombre: <input type="text" name = 'cat-actualizada'></p>
                     
                     <input type="submit" value="Actualizar Categoria">
