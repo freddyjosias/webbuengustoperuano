@@ -280,6 +280,10 @@ input[type="submit"]:active{
     height: 26.1rem;
 }
 
+#cate-edit-pro {
+    display: none;
+}
+
 
 /* END QUIENES SOMOS */
 /* END QUIENES SOMOS */

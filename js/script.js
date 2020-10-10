@@ -83,6 +83,11 @@ $(function() {
 		} else {
 			$('.header-restaurante nav').removeClass('menu-fixed');
 		}
-	});
+    });
+    
+    console.log($('.opciones-categoria option'));
+    $('.opciones-categoria option').click(function () {
+        console.log('Jery');
+    })
 
 });
