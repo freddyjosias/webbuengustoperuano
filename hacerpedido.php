@@ -73,7 +73,7 @@
                 $resultados = $resultados -> fetchAll(PDO::FETCH_ASSOC);
                 foreach($resultados as $row) {
 
-                    $consultaProductoCategoria = 'SELECT * FROM productos WHERE idcategoriaproducto = ?';
+                    $consultaProductoCategoria = 'SELECT * FROM productos WHERE idcategoriaproducto = ? AND estado = 1';
                     $resultados2 = $conexion -> prepare($consultaProductoCategoria);
                     $resultados2 -> execute(array($row['idcategoriaproducto']));
                     $resultados2 = $resultados2 -> fetchAll(PDO::FETCH_ASSOC);

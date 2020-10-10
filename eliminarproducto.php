@@ -10,7 +10,7 @@
     
 
     if (isset($_GET['categoria'])) {
-        $consultaProducto = $conexion -> prepare('SELECT * FROM productos WHERE idcategoriaproducto = ?');
+        $consultaProducto = $conexion -> prepare('SELECT * FROM productos WHERE idcategoriaproducto = ? AND estado = 1');
         $consultaProducto -> execute(array($_GET['categoria']));
         $consultaProducto = $consultaProducto -> fetchAll(PDO::FETCH_ASSOC);
 
@@ -19,7 +19,7 @@
     if($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         $resultados = $conexion -> prepare('UPDATE productos SET estado = 0 WHERE idproducto = ?');
-        $resultados -> execute(array($_GET['producto']));
+        $resultados -> execute(array($_POST['producto']));
 
     }
 
@@ -91,7 +91,7 @@
                 </form>
 
                 <?php if(isset($_GET['categoria']))   {    ?>       
-                <form   form action="" method="get"  class='form-panel'>
+                <form   form action="" method="post"  class='form-panel'>
 
                     <input type="number" name="categoria" id="cate-edit-pro" value="<?php echo $_GET['categoria'] ?>">
 
@@ -119,14 +119,10 @@
                             <?php } ?>
                         </select>
                     </p>
-                    <input type='submit' value='Seleccionar Producto'>   
+                    <input type="submit" value="Eliminar Producto"> 
                 </form>
-                <?php }  ?>                     
-                <?php if(isset($_GET['categoria']) && isset($_GET['producto'])){?>    
-                    <form   form action="" method="get"  class='form-panel'>     
-                        <input type="submit" value="Eliminar Producto">
-                    </form>
-                <?php } ?>  
+                <?php }  ?>   
+                
             </div>
 
         </div>
