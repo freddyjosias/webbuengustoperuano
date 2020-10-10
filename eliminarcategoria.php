@@ -4,7 +4,7 @@
 
     session_start();
     
-    $consultaCategorias = $conexion -> prepare('SELECT idcategoriaproducto, descripcioncategoriaproducto FROM categoriaproductos WHERE idsucursal = ?');
+    $consultaCategorias = $conexion -> prepare('SELECT idcategoriaproducto, descripcioncategoriaproducto FROM categoriaproductos WHERE idsucursal = ? AND estado = 1');
     $consultaCategorias -> execute(array($_SESSION['idsucursal']));
     $consultaCategorias = $consultaCategorias -> fetchAll(PDO::FETCH_ASSOC);
 
