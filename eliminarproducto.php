@@ -1,3 +1,30 @@
+<?php 
+
+    require 'conexion.php';
+
+    session_start();
+
+    $consultaCategorias = $conexion -> prepare('SELECT idcategoriaproducto, idsucursal, descripcioncategoriaproducto FROM categoriaproductos WHERE idsucursal = ? AND estado = 1');
+    $consultaCategorias -> execute(array($_SESSION['idsucursal']));
+    $consultaCategorias = $consultaCategorias -> fetchAll(PDO::FETCH_ASSOC);
+    
+
+    if (isset($_GET['categoria'])) {
+        $consultaProducto = $conexion -> prepare('SELECT * FROM productos WHERE idcategoriaproducto = ?');
+        $consultaProducto -> execute(array($_GET['categoria']));
+        $consultaProducto = $consultaProducto -> fetchAll(PDO::FETCH_ASSOC);
+
+    }
+
+    if($_SERVER['REQUEST_METHOD'] == 'POST') {
+
+        $resultados = $conexion -> prepare('UPDATE productos SET estado = 0 WHERE idproducto = ?');
+        $resultados -> execute(array($_GET['producto']));
+
+    }
+
+
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -32,22 +59,79 @@
 
                 <h1>Eliminar Producto</h1>
 
-                <form action="" class='form-panel'>
-                    <p>Elegir Producto: 
-                        <select name="" id="">
-                            <option value="">Hola</option>
-                            <option value="">Mundo</option>
+                <form action="" method="get"  class='form-panel'>
+                    <p>Categoria: 
+                        <select name="categoria"  class='opciones-categoria'>            
+                            <?php foreach($consultaCategorias as $row) { ?>
+
+                                <?php 
+                                    
+                                    if (isset($_GET['categoria'])) {
+                                        
+                                        if ($row['idcategoriaproducto'] == $_GET['categoria']) { ?>
+                                            <option value="<?php echo $row['idcategoriaproducto'] ?>" selected> <?php echo $row['descripcioncategoriaproducto'] ?> </option> <?php
+                                        } else {
+                                            ?>
+                                            <option value="<?php echo $row['idcategoriaproducto'] ?>" > <?php echo $row['descripcioncategoriaproducto'] ?> </option> <?php
+                                        }
+
+                                    } else {
+                                        ?>
+                                            <option value="<?php echo $row['idcategoriaproducto'] ?>"> <?php echo $row['descripcioncategoriaproducto'] ?> </option> <?php
+                                    }
+                                
+                                ?>
+                                
+                                
+                                
+                            <?php } ?>
                         </select>
                     </p>
-
-                    <input type="submit" value="Eliminar Producto">
-
+                    <input type='submit' value='Seleccionar'>
                 </form>
 
+                <?php if(isset($_GET['categoria']))   {    ?>       
+                <form   form action="" method="get"  class='form-panel'>
+
+                    <input type="number" name="categoria" id="cate-edit-pro" value="<?php echo $_GET['categoria'] ?>">
+
+                    <p>Elegir Producto:  
+                        <select name="producto" >  
+
+                            <?php foreach($consultaProducto as $row) { ?>
+                                <?php 
+                                    
+                                    if (isset($_GET['producto'])) {
+                                        
+                                        if ($row['idproducto'] == $_GET['producto']) { ?>
+                                            <option value="<?php echo $row['idproducto'] ?>" selected> <?php echo $row['nomproducto'] ?> </option> <?php
+                                        } else {
+                                            ?>
+                                            <option value="<?php echo $row['idproducto'] ?>"> <?php echo $row['nomproducto'] ?> </option> <?php
+                                        }
+
+                                    } else {
+                                        ?>
+                                            <option value="<?php echo $row['idproducto'] ?>"> <?php echo $row['nomproducto'] ?> </option> <?php
+                                    }
+                                
+                                ?>
+                            <?php } ?>
+                        </select>
+                    </p>
+                    <input type='submit' value='Seleccionar Producto'>   
+                </form>
+                <?php }  ?>                     
+                <?php if(isset($_GET['categoria']) && isset($_GET['producto'])){?>    
+                    <form   form action="" method="get"  class='form-panel'>     
+                        <input type="submit" value="Eliminar Producto">
+                    </form>
+                <?php } ?>  
             </div>
 
         </div>
     </main>
-
+    <script src="js/jquery-3.5.1.min.js"></script>
+    <script src="js/script.js"></script>
 </body>
 </html>
