@@ -1,3 +1,23 @@
+<?php
+
+    require 'conexion.php';
+
+    session_start();
+
+    $consultaCategorias = $conexion -> prepare('SELECT idcategoriaproducto, descripcioncategoriaproducto FROM categoriaproductos WHERE idsucursal = ?');
+    $consultaCategorias -> execute(array($_SESSION['idsucursal']));
+    $consultaCategorias = $consultaCategorias -> fetchAll(PDO::FETCH_ASSOC);
+
+    if($_SERVER['REQUEST_METHOD'] == 'POST') {
+
+        $resultados = $conexion -> prepare('UPDATE categoriaproductos SET descripcioncategoriaproducto = ? WHERE idcategoriaproducto = ?');
+        $resultados -> execute(array($_POST['cat-actualizada'], $_POST['categoria']));
+
+    }
+        
+       
+?> 
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -32,23 +52,18 @@
 
                 <h1>Actualizar Categoria</h1>
 
-                <form action="" class='form-panel'>
+                <form action="" class='form-panel' method = "post">
 
                     <p> Elegir Categoria:&nbsp;  
-                        <select name="" id="">
-                            <option value="">Hola</option>
-                            <option value="">Mundo</option>
+                        <select name="categoria" id="">
+                            <?php foreach($consultaCategorias as $row) { ?>
+                                <option value="<?php echo $row['idcategoriaproducto'] ?>"> <?php echo $row['descripcioncategoriaproducto'] ?> </option>
+                            <?php } ?>
                         </select>
                     </p>
 
-                    <input type="submit" value="Selecionar">
-
-                </form>
-
-                <form action="" class='form-panel'>
-
                     <p>Nombre: </p>
-                    <p>Nuevo nombre: <input type="text"></p>
+                    <p>Nuevo nombre: <input type="text" name = 'cat-actualizada'></p>
                     
                     <input type="submit" value="Actualizar Categoria">
 
