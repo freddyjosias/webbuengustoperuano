@@ -14,7 +14,9 @@
         $consultaProducto = $consultaProducto -> fetchAll(PDO::FETCH_ASSOC);
     }
 
-    
+    $consultaProductoA = $conexion -> prepare('SELECT*FROM productos WHERE idproducto = ?');
+    $consultaProductoA -> execute(array($_GET['producto']));
+    $consultaProductoA = $consultaProductoA -> fetchAll(PDO::FETCH_ASSOC);
 
 ?>
 
@@ -94,9 +96,26 @@
                     <p>Elegir Producto:  
                         <select name="producto" >  
 
-                            <?php foreach($consultaProducto as $row) { ?>{?>
+                            <?php foreach($consultaProducto as $row) { ?>
+
+                                <?php 
+                                    
+                                    if (isset($_GET['producto'])) {
                                         
-                                <option value="<?php echo $row['idproducto'] ?>"> <?php echo $row['nomproducto'] ?> </option>
+                                        if ($row['idproducto'] == $_GET['producto']) { ?>
+                                            <option value="<?php echo $row['idproducto'] ?>" selected> <?php echo $row['nomproducto'] ?> </option> <?php
+                                        } else {
+                                            ?>
+                                            <option value="<?php echo $row['idproducto'] ?>"> <?php echo $row['nomproducto'] ?> </option> <?php
+                                        }
+
+                                    } else {
+                                        ?>
+                                            <option value="<?php echo $row['idproducto'] ?>"> <?php echo $row['nomproducto'] ?> </option> <?php
+                                    }
+                                
+                                ?>
+                                        
                             
                             <?php } ?>
                         </select>
@@ -108,15 +127,15 @@
 
                 <?php if(isset($_GET['categoria']) && isset($_GET['producto']))   {    ?>         
                     <form action="" class='form-panel'>
-            
-                        <p>Nombre: </p>
+                    <?php foreach($consultaProductoA as $row) { ?>
                         <p>Nuevo nombre: <input type="text"></p>  
                         
-                        <p>Precio: </p>
+                        <p>Precio: <?php echo $row['precio'] ?></p>
                         <p>Nuevo precio: <input type="number"></p>
 
-                        <p>Stock</p>
+                        <p>Stock: <?php echo $row['stock'] ?></p>
                         <p>Nuevo Stock: <input type="number"></p>
+                    <?php } ?>
                         
                         <input type="submit" value="Actualizar Producto">
 
