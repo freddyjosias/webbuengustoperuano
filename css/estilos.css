@@ -736,7 +736,7 @@ input[type="submit"]:active{
 /*STAR RESPONSIVE INDEX*/
 /*STAR RESPONSIVE INDEX*/
 
-@media (max-width: 768px){
+@media (max-width: 800px){
 
     .cerrar-sesion img{
         width: 30px;
@@ -762,7 +762,7 @@ input[type="submit"]:active{
 
 @media (max-width: 680px){
     .header-inicio{
-        height: 60px;
+        height: 65px;
     }
 
     .slider{
@@ -917,16 +917,17 @@ input[type="submit"]:active{
 /*START LOGIN CSS*/
 
 .cerrar-sesion{
-    width: 50%;
+    width: 45%;
 }
 
 .cerrar-sesion img {
-    width: 45px;
-    height: 45px;
+    width: 42px;
+    height: 42px;
     cursor: pointer;
     position: absolute;
     right: 5%;
-    margin-top: 1rem;
+    margin-top: 0.8rem;
+
 }
 
 .box-login{
