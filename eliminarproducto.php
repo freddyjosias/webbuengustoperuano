@@ -4,6 +4,10 @@
 
     session_start();
 
+    if (!isset($_SESSION['idsucursal'])) {
+        header('Location: index.php');
+    }
+
     $consultaCategorias = $conexion -> prepare('SELECT idcategoriaproducto, idsucursal, descripcioncategoriaproducto FROM categoriaproductos WHERE idsucursal = ? AND estado = 1');
     $consultaCategorias -> execute(array($_SESSION['idsucursal']));
     $consultaCategorias = $consultaCategorias -> fetchAll(PDO::FETCH_ASSOC);

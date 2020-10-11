@@ -3,6 +3,10 @@
     require 'conexion.php';
 
     session_start();
+    
+    if (!isset($_SESSION['idsucursal'])) {
+        header('Location: index.php');
+    }
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
      

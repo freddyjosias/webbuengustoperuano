@@ -137,7 +137,7 @@
                         }
                     }
                 } else {
-                    header('Location: hacerpedido.php?view=' . $row['idsucursal']);
+                    header('Location: nosotros.php?view=' . $row['idsucursal']);
                     die;
                 }
 

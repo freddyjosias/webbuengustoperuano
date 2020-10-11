@@ -4,6 +4,10 @@
 
     session_start();
 
+    if (!isset($_SESSION['idsucursal'])) {
+        header('Location: index.php');
+    }
+
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         
         $resultados = $conexion -> prepare('INSERT INTO categoriaproductos(descripcioncategoriaproducto, idsucursal) VALUE(?, ?)');
