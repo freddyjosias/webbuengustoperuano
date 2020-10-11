@@ -136,12 +136,15 @@
                             break;
                         }
                     }
+                } else {
+                    header('Location: hacerpedido.php?view=' . $row['idsucursal']);
+                    die;
                 }
 
                 if ($datosErroneos == 1) {
                     echo 'Ingrese bien sus datos';
-                }
-
+                } 
+                
                 header('Location: index.php');
 
             } else {
