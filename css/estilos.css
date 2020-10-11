@@ -587,6 +587,90 @@ input[type="submit"]:active{
     right: 20px;
 }
 
+
+.cerrar-sesion{
+    width: 45%;
+}
+
+.cerrar-sesion img {
+    width: 44px;
+    height: 44px;
+    cursor: pointer;
+    position: absolute;
+    right: 5%;
+    margin-top: 1.1rem;
+
+}
+
+.box-login{
+    width: 300px;
+    padding: 40px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #191919;
+    border-radius: 28px;
+}
+
+.box-login p {
+    color: white;
+}
+
+.box-login h1 {
+    color: white;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.box-login input[type = "text"], .box-login input[type = "password"] {
+    background: none;
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+    border: 2px solid #3498db;
+    padding: 14px 10px;
+    width: 200px;
+    outline: none;
+    color: white;
+    border-radius: 24px;
+    transition: 0.25s;
+}
+
+.box-login input[type = "text"]:focus, .box-login input[type = "password"]:focus {
+    width: 280px;
+    border-color: #2ecc71;
+}
+
+.box-login input[type = "submit"] {
+    background: none;
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+    border: 2px solid #2ecc71;
+    padding: 14px 40px;
+    outline: none;
+    color: white;
+    border-radius: 24px;
+    transition: 0.25s;
+}
+
+.box-login input[type = "submit"]:hover {
+    cursor: pointer;
+    background: #2ecc71;
+}
+
+.box-login input[name = "xdefecto"] {
+    border: 2px solid #c72f2f;
+}
+
+.box-login input[name = "xdefecto"]:hover {
+    cursor: pointer;
+    background: #c72f2f;
+}
+
+
+
 @media (max-width: 1100px){ 
     .contenedor-general {
         width: 95%;
@@ -736,11 +820,26 @@ input[type="submit"]:active{
 /*STAR RESPONSIVE INDEX*/
 /*STAR RESPONSIVE INDEX*/
 
+
+
+
+@media (max-width: 910px){
+    .cerrar-sesion img {
+    margin-top: 0.5rem;
+    }
+}
+
+@media (max-width: 850px){
+    .cerrar-sesion img {
+    margin-top: 0.5rem;
+    }
+}
+
 @media (max-width: 800px){
 
     .cerrar-sesion img{
-        width: 30px;
-        height: 30px;
+        width: 40px;
+        height: 40px;
     }
 
     .direcciones a{
@@ -911,94 +1010,4 @@ input[type="submit"]:active{
 /*END RESPONSIVE PANEL*/
 /*END RESPONSIVE PANEL*/
 /*END RESPONSIVE PANEL*/
-
-/*START LOGIN CSS*/
-/*START LOGIN CSS*/
-/*START LOGIN CSS*/
-
-.cerrar-sesion{
-    width: 45%;
-}
-
-.cerrar-sesion img {
-    width: 44px;
-    height: 44px;
-    cursor: pointer;
-    position: absolute;
-    right: 5%;
-    margin-top: 1.1rem;
-
-}
-
-.box-login{
-    width: 300px;
-    padding: 40px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: #191919;
-    border-radius: 28px;
-}
-
-.box-login p {
-    color: white;
-}
-
-.box-login h1 {
-    color: white;
-    text-transform: uppercase;
-    text-align: center;
-}
-
-.box-login input[type = "text"], .box-login input[type = "password"] {
-    background: none;
-    display: block;
-    margin: 20px auto;
-    text-align: center;
-    border: 2px solid #3498db;
-    padding: 14px 10px;
-    width: 200px;
-    outline: none;
-    color: white;
-    border-radius: 24px;
-    transition: 0.25s;
-}
-
-.box-login input[type = "text"]:focus, .box-login input[type = "password"]:focus {
-    width: 280px;
-    border-color: #2ecc71;
-}
-
-.box-login input[type = "submit"] {
-    background: none;
-    display: block;
-    margin: 20px auto;
-    text-align: center;
-    border: 2px solid #2ecc71;
-    padding: 14px 40px;
-    outline: none;
-    color: white;
-    border-radius: 24px;
-    transition: 0.25s;
-}
-
-.box-login input[type = "submit"]:hover {
-    cursor: pointer;
-    background: #2ecc71;
-}
-
-.box-login input[name = "xdefecto"] {
-    border: 2px solid #c72f2f;
-}
-
-.box-login input[name = "xdefecto"]:hover {
-    cursor: pointer;
-    background: #c72f2f;
-}
-
-/*END LOGIN CSS*/
-/*END LOGIN CSS*/
-/*END LOGIN CSS*/
-
 
