@@ -75,7 +75,7 @@
 
     <header class="header-restaurante">
         <div>
-            <img src="img/bannernorteño.jpg" alt="">
+            <?php echo "<img src='".$bannerSucursal."' >" ?>
         </div>
         <nav>
             <ul>
