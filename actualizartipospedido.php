@@ -47,6 +47,7 @@
             <nav>
                 <ul>
                     <li><a href="panel.php">Inicio</a></li>
+                    <li><a href="anadirtextobienvenida.php">Añadir Texto de Bienvenida</a></li>
                     <li><a href="anadircategoria.php">Añadir Categoria</a></li>
                     <li><a href="eliminarcategoria.php">Eliminar Categoria</a></li>
                     <li><a href="actualizarcategoria.php">Actualizar Categoria</a></li>

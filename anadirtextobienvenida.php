@@ -4,20 +4,13 @@
 
     session_start();
 
-    if (!isset($_SESSION['idsucursal'])) {
-        header('Location: index.php');
-    }
-
-    $consultaCategorias = $conexion -> prepare('SELECT idcategoriaproducto, descripcioncategoriaproducto FROM categoriaproductos WHERE idsucursal = ?');
-    $consultaCategorias -> execute(array($_SESSION['idsucursal']));
-    $consultaCategorias = $consultaCategorias -> fetchAll(PDO::FETCH_ASSOC);
-
-    if($_SERVER['REQUEST_METHOD'] == 'POST') {
-
-        $resultados = $conexion -> prepare('UPDATE categoriaproductos SET descripcioncategoriaproducto = ? WHERE idcategoriaproducto = ?');
-        $resultados -> execute(array($_POST['cat-actualizada'], $_POST['categoria']));
+    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+        
+        $resultados = $conexion -> prepare('INSERT INTO sucursal(textobienvenida, idsucursal) VALUE(?, ?)');
+        $resultados -> execute(array($_POST['nuevotextobienvenida'], $_SESSION['idsucursal']));
 
     }
+
         
        
 ?> 
@@ -55,20 +48,15 @@
 
             <div class='formulario-panel'>
 
-                <h1>Actualizar Categoria</h1>
+                <h1>Añadir Texto de Bienvenida</h1>
 
-                <form action="" class='form-panel' method = "post">
+                <form action="" class='form-panel' method="post">
 
-                    <p> Elegir Categoria:&nbsp;  
-                        <select name="categoria" id="">
-                            <?php foreach($consultaCategorias as $row) { ?>
-                                <option value="<?php echo $row['idcategoriaproducto'] ?>"> <?php echo $row['descripcioncategoriaproducto'] ?> </option>
-                            <?php } ?>
-                        </select>
-                    </p>
-                    <p>Nuevo nombre: <input type="text" name = 'cat-actualizada'></p>
+                    <p>Nuevo Texto de Bienvenida: </p>
                     
-                    <input type="submit" value="Actualizar Categoria">
+                    <textarea style= "resize: vertical" name="nuevotextobienvenida" id="" cols="100" rows="10"></textarea><br><br>
+                    
+                    <input type="submit" value="Añadir Texto de Bienvenida">
 
                 </form>
 
