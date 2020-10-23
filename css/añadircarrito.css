@@ -1,0 +1,9 @@
+.carrito {
+    margin: 10rem;
+    font-size: 2rem; 
+}
+.carrito-carrito{
+    display: flex;
+    margin: 10rem;
+    margin-top: 5rem;
+}
