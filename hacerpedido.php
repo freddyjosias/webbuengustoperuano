@@ -11,9 +11,10 @@
         header('Location: index.php');
     } else {
 
-        $consultaVerificarRestaurante = 'SELECT idsucursal, nomsucursal FROM sucursal';
+        $consultaVerificarRestaurante = 'SELECT idsucursal, nomsucursal, banner FROM sucursal';
 
         $idRestaurante;
+        $nombresucursal;
         $bannerSucursal;
 
         $resultados = $conexion -> prepare($consultaVerificarRestaurante);
@@ -22,8 +23,8 @@
         foreach($resultados as $row) {
             if ($row['idsucursal'] ==  $_GET['view']) {
                 $idRestaurante = $row['idsucursal'];
-                $bannerSucursal = $row['banner'];
                 $nombresucursal = $row['nomsucursal'];
+                $bannerSucursal = $row['banner'];
                 break;
             }
         }
@@ -47,7 +48,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-        <title>Bienvenida | <?php echo $nombreRestaurante ?></title>
+        <title>Bienvenida | <?php echo $nombresucursal ?></title>
         <link rel="shorcut icon" href="img/favicon.ico">
         <link rel="stylesheet" href="css/normalize.css">
 	    <link rel="stylesheet" type="text/css" href="css/estilos.css">
@@ -61,7 +62,7 @@
 
     <header class="header-restaurante">
         <div>
-            <img src="img/norteño.jpg" alt="">
+            <?php echo "<img src='".$bannerSucursal."' >" ?>
         </div>
         <nav>
             <ul>
