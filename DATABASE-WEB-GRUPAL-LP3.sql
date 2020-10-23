@@ -126,13 +126,13 @@ CONSTRAINT fk_productos_detallepedido FOREIGN KEY (idproducto) REFERENCES produc
 
 -- Ingreso de sucursal
 INSERT INTO sucursal (nomsucursal,direcsucursal,telefono,banner,imgbienvenida,textobienvenida, imgdestacado1,platodestacado1,imgdestacado2,platodestacado2,imgdestacado3,platodestacado3,horaatencioninicio,horaatencioncierre,correosucursal) 
-VALUES ('El Norteño','Santa María 246, Tarapoto','+51 42 522604','img/bannernorteño','img/menu.jpg','Hace varios ayeres, en el Perú cambio el concepto del comer; Este gran cambio se ha convertido en toda una filosofía que permite que muchos restaurantes queden como favoritos de la gente.
+VALUES ('El Norteño','Santa María 246, Tarapoto','+51 42 522604','img/bannernorteño.jpg','img/menu.jpg','Hace varios ayeres, en el Perú cambio el concepto del comer; Este gran cambio se ha convertido en toda una filosofía que permite que muchos restaurantes queden como favoritos de la gente.
 Esta gran filosofía es; “EL BUEN COMER…” es decir que todos trabajamos con el Mandil bien puesto,  y esto no es sino, mas que el meditado cuidado de todos los detalles”…, porque la intención ha sido siempre tratar a nuestros invitados como tú lo harías en tu propia casa.
 Nosotros como empresa gastronómica no podíamos estar ajenos a ello ya que todos los que conformamos Oh…mar, tratamos de personificar esa filosofía valiéndonos de nuestra rica gastronomía, típica y de tradición; admirada y envidiada por muchos, agregándole los ingredientes de calidad del producto, la atención personalizada y el costo proporcionado.
 Contamos con un personal especializado en cada una de sus áreas de trabajo, para brindar al cliente fiel una respuesta excelente a la confianza que ha depositado en nosotros, y al nuevo usuario una posibilidad de establecer un lugar con el que se sienta identificado','img/destacado1.jpg','Combinado','img/destacado2.jpg','Ceviche','img/destacado3.jpg','Seco','07:00','21:00','elnorteño@gmail.com');
 
 INSERT INTO sucursal (nomsucursal,direcsucursal,telefono,banner,imgbienvenida,textobienvenida, imgdestacado1,platodestacado1,imgdestacado2,platodestacado2,imgdestacado3,platodestacado3,horaatencioninicio,horaatencioncierre,correosucursal) 
-VALUES ('La Collpa','Av. Circunvalación 202, Tarapoto','+51 42 522644','img/bannercollpa','img/logocollpa.jpg','Cocina rica, hecha con mucha ilusión, para gente que le gusta comer y disfrutar cada bocado de la vida…..
+VALUES ('La Collpa','Av. Circunvalación 202, Tarapoto','+51 42 522644','img/bannercollpa.jpg','img/logocollpa.jpg','Cocina rica, hecha con mucha ilusión, para gente que le gusta comer y disfrutar cada bocado de la vida…..
 Cinco Sentidos es un lugar íntimo en el que puedes saborear a gusto y conversar de forma relajada. 
 Hacemos todo de forma casera y procuramos poner siempre un toque personal en nuestro trabajo diario, por eso somos un restaurante artesanal.
 Tenemos una bonita barra para tomar tapas recién hechas, y un salón con siete mesas en el que puedes sentarte a comer tranquilamente. A mediodía es un sitio informal con menú del día, por las noches es una sala de luces bajas y velas en las mesas… Por eso dicen que somos un restaurante con encanto.',
@@ -141,7 +141,7 @@ Tenemos una bonita barra para tomar tapas recién hechas, y un salón con siete 
 'img/arrozchaufa.jpg','Arroz Chaufa Regional:Es un plato estilo chifa, una cocina china. Consiste en una mezcla de arroz frito con vegetales, que generalmente incluye cebolletas, huevos y pollo, cocinados rápidamente a fuego alto, a menudo en un wok con salsa de soja y aceite.','07:00','21:00','lacollpa@gmail.com');
 
 INSERT INTO sucursal (nomsucursal,direcsucursal,telefono ,banner,imgbienvenida,textobienvenida, imgdestacado1,platodestacado1,imgdestacado2,platodestacado2,imgdestacado3,platodestacado3,horaatencioninicio,horaatencioncierre,correosucursal) 
-VALUES ('Doña Zully','Jr. San Pablo de la Cruz 244, Tarapoto','+51 42 530670','img/bannerzuly','img/doña.jpg','Modernos en el estilo y clásicos en el sabor.
+VALUES ('Doña Zully','Jr. San Pablo de la Cruz 244, Tarapoto','+51 42 530670','img/bannerzuly.jpg','img/doña.jpg','Modernos en el estilo y clásicos en el sabor.
  Un equipo de profesionales que hemos creado el restaurante donde nos gustaría comer a diario y en las ocasiones especiales. Con menú o a la carta. Con amigos o con clientes, con tiempo para disfrutar o con algo más de prisa porque el trabajo lo requiere.
  Firmes defensores de que calidad no está en el precio, sino en el producto.
  Exigentes porque también somos consumidores y estamos convencidos de que la experiencia debe resultar completa.
@@ -152,7 +152,7 @@ VALUES ('Doña Zully','Jr. San Pablo de la Cruz 244, Tarapoto','+51 42 530670','
  'img/pescadofrito.jpg','Pescado Frito: Este platillo es altamente nutritivo y de agradable aroma.','08:00','20:00','doñazully@gmail.com');
 
 INSERT INTO sucursal (nomsucursal,direcsucursal,telefono ,banner,imgbienvenida,textobienvenida, imgdestacado1,platodestacado1,imgdestacado2,platodestacado2,imgdestacado3,platodestacado3,horaatencioninicio,horaatencioncierre,correosucursal) 
-VALUES ('Chalet Venzia','Jr. Alegría Arias de Morey 293-175, Tarapoto','+51 42 522104','bannerchalet','img/chalet.jpg','La Gastronomía peruana es reconocida a nivel mundial; con más de 250 platos típicos, se ha posicionado como una de las más importantes del planeta.
+VALUES ('Chalet Venzia','Jr. Alegría Arias de Morey 293-175, Tarapoto','+51 42 522104','img/bannerchalet.jpg','img/chalet.jpg','La Gastronomía peruana es reconocida a nivel mundial; con más de 250 platos típicos, se ha posicionado como una de las más importantes del planeta.
 Sus preparaciones, sabores y  aromas son únicos y datan de añosas recetas. Es en su afán por traspasar estas maravillosas preparaciones que, Jhony oriundo de Perú, pero radicado ya varios años en Curicó, decide abrir en el año 2007, un restaurant  que reúne lo mejor de su cocina.
 Fue durante 2017, cuando “Perú Gastronómico” se consolida renovando su carta y su local; actualmente atiende de de lunes a domingo y ofrece servicio de cafetería, menú ejecutivo y a la carta y por cierto, una amplia gama de platos peruanos que día a día fascinan a quienes degustan estas preparaciones.
 Es la calidad en los productos utilizados y, por cierto, la destreza de nuestros chefs, la que otorga un producto de la más alta calidad, excelente presentación y exquisito sabor.
