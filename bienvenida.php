@@ -1,9 +1,12 @@
 <?php 
-
+    session_start();
+    
     require 'conexion.php';
 
     if (!isset($_GET['view'])) {
         header('Location: index.php');
+
+
     } else {
 
         $consultaVerificarRestaurante = 'SELECT * FROM sucursal';
@@ -71,6 +74,11 @@
                 <li><a href="">Bienvenida</a></li>
                 <li><a href="hacerpedido.php?view=<?php echo $idRestaurante ?>">Pedidos</a></li>
                 <li><a href="nosotros.php?view=<?php echo $idRestaurante ?>">Nosotros</a></li>
+                <?php
+                    if (isset($_SESSION['idsucursal'])) { ?>
+                    <li><a href="panel.php?view=<?php echo $idRestaurante?>">Panel</a></li>
+                    <?php }                 
+                ?>          
             </ul>
         </nav>
     </header>
