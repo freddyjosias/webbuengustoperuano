@@ -2,6 +2,12 @@
 
     require 'conexion.php';
 
+    session_start();
+
+    if (!isset($_SESSION['idusuario'])) {
+        header('Location: index.php');
+    } 
+
     if (!isset($_GET['view'])) {
         header('Location: index.php');
     } else {
@@ -47,7 +53,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link href="https://fonts.googleapis.com/css2?family=Dosis:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <title>Quienes Somos - Restaurante 1</title>
+    <title>Bienvenida | <?php echo $nombreRestaurante ?></title>
     <link rel="shorcut icon" href="img/favicon.ico">
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" type="text/css" href="css/estilos.css">
