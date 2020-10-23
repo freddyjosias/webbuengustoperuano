@@ -1,6 +1,11 @@
 <?php 
 
     require 'conexion.php';
+    session_start();
+
+    if (!isset($_SESSION['idusuario'])) {
+        header('Location: index.php');
+    } 
 
     if (!isset($_GET['view'])) {
         header('Location: index.php');
@@ -24,6 +29,13 @@
         if (!isset($idRestaurante)) {
             header('Location: index.php');
         } else {
+            
+            if (isset($_GET['anadir'])) {
+                $resultadosAnadir = $conexion -> prepare('SELECT idproducto FROM productos INNER JOIN categoriaproductos ON categoriaproductos.idcategoriaproducto = productos.idcategoriaproducto INNER JOIN sucursal ON sucursal.idsucursal = categoriaproductos.idsucursal WHERE sucursal.idsucursal = ? AND categoriaproductos.idsucursal = ? AND categoriaproductos.estado = 1 AND productos.estado = 1 AND productos.idproducto = ?');
+                $resultadosAnadir -> execute(array($_GET['view'], $_GET['view'], $_GET['anadir']));
+                $resultadosAnadir = $resultadosAnadir -> fetchAll(PDO::FETCH_ASSOC);
+                
+            }
 
 ?>
 
@@ -99,7 +111,7 @@
 
                                     <div class="productos-carta">
                                         <div><h3><?php echo $row2['stock'] . ' &nbsp; &nbsp; | &nbsp; &nbsp;' .$row2['nomproducto'] ?></h3></div>
-                                        <div><i class="fas fa-cart-plus"></i> &nbsp; &nbsp; &nbsp; | &nbsp; &nbsp; &nbsp; S/. <?php echo $row2['precio'] ?></div>
+                                        <div><a href="?view=<?php echo $_GET['view'] ?>&anadir=<?php echo $row2['idproducto'] ?>"><i class="fas fa-cart-plus"></i></a> &nbsp; &nbsp; &nbsp; | &nbsp; &nbsp; &nbsp; S/. <?php echo $row2['precio'] ?></div>
                                     </div>
 
                             <?php }
