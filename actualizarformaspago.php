@@ -26,6 +26,15 @@
         }
     }
 
+    $resultado1 = $conexion -> prepare('SELECT disponibilidadformaspago FROM detalleformaspago WHERE idformaspago = 1 AND idsucursal = ?');
+    $resultado1 -> execute(array($_SESSION['idsucursal']));
+
+    $resultado2 = $conexion -> prepare('SELECT disponibilidadformaspago FROM detalleformaspago WHERE idformaspago = 2 AND idsucursal = ?');
+    $resultado2 -> execute(array($_SESSION['idsucursal']));
+
+    $resultado3 = $conexion -> prepare('SELECT disponibilidadformaspago FROM detalleformaspago WHERE idformaspago = 3 AND idsucursal = ?');
+    $resultado3 -> execute(array($_SESSION['idsucursal']));
+
 ?>
 
 <!DOCTYPE html>
@@ -64,18 +73,42 @@
                 <h1>Actualizar Formas de Pago</h1>
 
                 <form action="" class='form-panel' method="post">
-                    <p>Efectivo</p>
-                    <p><input type="radio" id="" name="forma1" value="1"> Habilitar</p>
-                    <p><input type="radio" id="" name="forma1" value="0"> Desabilitar</p>
-
-                    <p>Online</p>
-                    <p><input type="radio" id="" name="forma2" value="1"> Habilitar</p>
-                    <p><input type="radio" id="" name="forma2" value="0"> Desabilitar</p>
-
-                    <p>POS</p>
-                    <p><input type="radio" id="" name="forma3" value="1"> Habilitar</p>
-                    <p><input type="radio" id="" name="forma3" value="0"> Desabilitar</p>
-                    
+                <?php foreach($resultado1 as $row) { ?>
+                    <?php
+                        if($row['disponibilidadformaspago'] == 1 ){?>
+                            <p>Efectivo</p>
+                            <p><input type="radio" id="" name="forma1" value="1"checked> Habilitar</p>
+                            <p><input type="radio" id="" name="forma1" value="0"> Desabilitar</p><?php
+                        }else{?>
+                            <p>Efectivo</p>
+                            <p><input type="radio" id="" name="forma1" value="1"> Habilitar</p>
+                            <p><input type="radio" id="" name="forma1" value="0"checked> Desabilitar</p><?php
+                        }?>
+                <?php } ?>
+                <?php foreach($resultado2 as $row) { ?>
+                    <?php
+                        if($row['disponibilidadformaspago'] == 1 ){?>
+                            <p>Online</p>
+                            <p><input type="radio" id="" name="forma2" value="1"checked> Habilitar</p>
+                            <p><input type="radio" id="" name="forma2" value="0"> Desabilitar</p><?php
+                        }else{?>
+                            <p>Online</p>
+                            <p><input type="radio" id="" name="forma2" value="1"> Habilitar</p>
+                            <p><input type="radio" id="" name="forma2" value="0"checked> Desabilitar</p><?php
+                        }?>
+                <?php } ?>
+                <?php foreach($resultado3 as $row) { ?>
+                    <?php
+                        if($row['disponibilidadformaspago'] == 1 ){?>
+                            <p>POS</p>
+                            <p><input type="radio" id="" name="forma3" value="1"checked> Habilitar</p>
+                            <p><input type="radio" id="" name="forma3" value="0"> Desabilitar</p><?php
+                        }else{?>
+                            <p>POS</p>
+                            <p><input type="radio" id="" name="forma3" value="1"> Habilitar</p>
+                            <p><input type="radio" id="" name="forma3" value="0"checked> Desabilitar</p><?php
+                        }?>
+                <?php } ?>                    
                     <input type="submit" value="Actualizar">
 
                 </form>
