@@ -14,6 +14,7 @@
         $consultaVerificarRestaurante = 'SELECT idsucursal, nomsucursal FROM sucursal';
 
         $idRestaurante;
+        $bannerSucursal;
 
         $resultados = $conexion -> prepare($consultaVerificarRestaurante);
         $resultados -> execute();
@@ -21,6 +22,7 @@
         foreach($resultados as $row) {
             if ($row['idsucursal'] ==  $_GET['view']) {
                 $idRestaurante = $row['idsucursal'];
+                $bannerSucursal = $row['banner'];
                 $nombresucursal = $row['nomsucursal'];
                 break;
             }

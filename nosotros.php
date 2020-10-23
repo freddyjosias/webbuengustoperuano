@@ -16,6 +16,7 @@
         
 
         $idRestaurante;
+        $bannerSucursal;
         $telefonoRestaurante;
         $correoRestaurante;
         $ubicacionRestaurante;
@@ -27,6 +28,7 @@
         foreach($resultados as $row) {
             if ($row['idsucursal'] ==  $_GET['view']) {
                 $idRestaurante = $row['idsucursal'];
+                $bannerSucursal = $row['banner'];
                 $nombresucursal = $row['nomsucursal'];
                 $telefonoRestaurante = $row['telefono'];
                 $correoRestaurante = $row['correosucursal'];
@@ -67,7 +69,7 @@
 
     <header class="header-restaurante">
         <div>
-            <img src="img/norteño.jpg" alt="">
+            <?php echo "<img src='".$bannerSucursal."' >" ?>
         </div>
         <nav>
             <ul>
