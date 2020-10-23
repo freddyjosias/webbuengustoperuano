@@ -42,7 +42,7 @@
             <div class='contenido-panel-home'>
                 <img src="img/logo-icono.png">
                 <p>Bienvenido a su Panel de Control</p>
-                <a href="index.php">Ver mi Restaurante</a>
+                <a href="bienvenida.php?view=<?php echo $_SESSION['idsucursal'] ?>">Ver mi Restaurante</a>
             </div>
 
         </div>
