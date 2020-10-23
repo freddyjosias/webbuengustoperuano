@@ -66,6 +66,11 @@
                 <li><a href="bienvenida.php?view=<?php echo $idRestaurante ?>">Bienvenida</a></li>
                 <li><a href="">Pedidos</a></li>
                 <li><a href="nosotros.php?view=<?php echo $idRestaurante ?>">Nosotros</a></li>
+                    <?php if (isset($_SESSION['idsucursal'])) { ?>
+                            <?php if ($_SESSION['idsucursal'] == $_GET['view']) { ?>
+                                <li><a href="panel.php">Panel</a></li>
+                            <?php } ?> 
+                        <?php } ?> 
             </ul>
         </nav>
 	</header>
@@ -111,7 +116,7 @@
 
                                     <div class="productos-carta">
                                         <div><h3><?php echo $row2['stock'] . ' &nbsp; &nbsp; | &nbsp; &nbsp;' .$row2['nomproducto'] ?></h3></div>
-                                        <div><a href="?view=<?php echo $_GET['view'] ?>&anadir=<?php echo $row2['idproducto'] ?>"><i class="fas fa-cart-plus"></i></a> &nbsp; &nbsp; &nbsp; | &nbsp; &nbsp; &nbsp; S/. <?php echo $row2['precio'] ?></div>
+                                        <div><a class="carrito" href="?view=<?php echo $_GET['view'] ?>&anadir=<?php echo $row2['idproducto'] ?>"><i class="fas fa-cart-plus"></i></a> &nbsp; &nbsp; &nbsp; | &nbsp; &nbsp; &nbsp; S/. <?php echo $row2['precio'] ?></div>
                                     </div>
 
                             <?php }
