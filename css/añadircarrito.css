@@ -1,9 +1,15 @@
+.text-carrito{
+    text-align: center;
+}
 .carrito {
     margin: 10rem;
     font-size: 2rem; 
+    margin: auto;
+    padding: auto;
+    margin-bottom: 10rem;
+    
 }
 .carrito-carrito{
     display: flex;
-    margin: 10rem;
-    margin-top: 5rem;
+    
 }
