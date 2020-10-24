@@ -2,14 +2,14 @@
     text-align: center;
 }
 .carrito {
-    margin: 10rem;
+   
     font-size: 2rem; 
     margin: auto;
     padding: auto;
-    margin-bottom: 10rem;
-    
+    margin-bottom: 10rem;   
 }
+
 .carrito-carrito{
     display: flex;
-    
 }
+
