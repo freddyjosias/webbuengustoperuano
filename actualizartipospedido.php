@@ -26,6 +26,15 @@
         }
     }
 
+    $resultado1 = $conexion -> prepare('SELECT disponibilidadtipospedido FROM detalletipospedido WHERE idtipospedido = 1 AND idsucursal = ?');
+    $resultado1 -> execute(array($_SESSION['idsucursal']));
+
+    $resultado2 = $conexion -> prepare('SELECT disponibilidadtipospedido FROM detalletipospedido WHERE idtipospedido = 2 AND idsucursal = ?');
+    $resultado2 -> execute(array($_SESSION['idsucursal']));
+
+    $resultado3 = $conexion -> prepare('SELECT disponibilidadtipospedido FROM detalletipospedido WHERE idtipospedido = 3 AND idsucursal = ?');
+    $resultado3 -> execute(array($_SESSION['idsucursal']));
+
 ?>
 
 <!DOCTYPE html>
@@ -64,19 +73,42 @@
                 <h1>Actualizar Tipos de Pedido</h1>
 
                 <form action="" class='form-panel' method="post"> 
-    
-                    <p>Delivery</p>
-                    <p><input type="radio" id="" name="delivery" value="1"> Habilitar</p>
-                    <p><input type="radio" id="" name="delivery" value="0"> Desabilitar</p>
-
-                    <p>Recojo</p>
-                    <p><input type="radio" id="" name="recojo" value="1"> Habilitar</p>
-                    <p><input type="radio" id="" name="recojo" value="0"> Desabilitar</p>
-                    
-                    <p>Reserva</p>
-                    <p><input type="radio" id="" name="reserva" value="1"> Habilitar</p>
-                    <p><input type="radio" id="" name="reserva" value="0"> Desabilitar</p>
-
+                <?php foreach($resultado1 as $row) { ?>
+                    <?php
+                        if($row['disponibilidadtipospedido'] == 1 ){?>
+                            <p>Delivery</p>
+                            <p><input type="radio" id="" name="delivery" value="1"checked> Habilitar</p>
+                            <p><input type="radio" id="" name="delivery" value="0"> Desabilitar</p><?php
+                        }else{?>
+                            <p>Delivery</p>
+                            <p><input type="radio" id="" name="delivery" value="1"> Habilitar</p>
+                            <p><input type="radio" id="" name="delivery" value="0"checked> Desabilitar</p><?php
+                        }?>
+                <?php } ?>
+                <?php foreach($resultado2 as $row) { ?>
+                    <?php
+                        if($row['disponibilidadtipospedido'] == 1 ){?>
+                            <p>Recojo</p>
+                            <p><input type="radio" id="" name="recojo" value="1"checked> Habilitar</p>
+                            <p><input type="radio" id="" name="recojo" value="0"> Desabilitar</p><?php
+                        }else{?>
+                            <p>Recojo</p>
+                            <p><input type="radio" id="" name="recojo" value="1"> Habilitar</p>
+                            <p><input type="radio" id="" name="recojo" value="0"checked> Desabilitar</p><?php
+                        }?>
+                <?php } ?>
+                <?php foreach($resultado3 as $row) { ?>
+                    <?php
+                        if($row['disponibilidadtipospedido'] == 1 ){?>
+                            <p>Reserva</p>
+                            <p><input type="radio" id="" name="reserva" value="1"checked> Habilitar</p>
+                            <p><input type="radio" id="" name="reserva" value="0"> Desabilitar</p><?php
+                        }else{?>
+                            <p>Reserva</p>
+                            <p><input type="radio" id="" name="reserva" value="1"> Habilitar</p>
+                            <p><input type="radio" id="" name="reserva" value="0"checked> Desabilitar</p><?php
+                        }?>
+                <?php } ?> 
                     <input type="submit" value="Actualizar">
 
                 </form>

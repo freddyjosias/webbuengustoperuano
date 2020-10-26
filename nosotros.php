@@ -2,6 +2,12 @@
 
     require 'conexion.php';
 
+    session_start();
+
+    if (!isset($_SESSION['idusuario'])) {
+        header('Location: index.php');
+    } 
+
     if (!isset($_GET['view'])) {
         header('Location: index.php');
     } else {
@@ -10,6 +16,8 @@
         
 
         $idRestaurante;
+        $bannerSucursal;
+        $nombresucursal;
         $telefonoRestaurante;
         $correoRestaurante;
         $ubicacionRestaurante;
@@ -21,6 +29,7 @@
         foreach($resultados as $row) {
             if ($row['idsucursal'] ==  $_GET['view']) {
                 $idRestaurante = $row['idsucursal'];
+                $bannerSucursal = $row['banner'];
                 $nombresucursal = $row['nomsucursal'];
                 $telefonoRestaurante = $row['telefono'];
                 $correoRestaurante = $row['correosucursal'];
@@ -47,7 +56,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link href="https://fonts.googleapis.com/css2?family=Dosis:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <title>Quienes Somos - Restaurante 1</title>
+    <title>Bienvenida | <?php echo $nombresucursal ?></title>
     <link rel="shorcut icon" href="img/favicon.ico">
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" type="text/css" href="css/estilos.css">
@@ -61,13 +70,18 @@
 
     <header class="header-restaurante">
         <div>
-            <img src="img/norteño.jpg" alt="">
+            <?php echo "<img src='".$bannerSucursal."' >" ?>
         </div>
         <nav>
             <ul>
                 <li><a href="bienvenida.php?view=<?php echo $idRestaurante ?>">Bienvenida</a></li>
                 <li><a href="hacerpedido.php?view=<?php echo $idRestaurante ?>">Pedidos</a></li>
                 <li><a href="">Nosotros</a></li>
+                    <?php if (isset($_SESSION['idsucursal'])) { ?>
+                                <?php if ($_SESSION['idsucursal'] == $_GET['view']) { ?>
+                                    <li><a href="panel.php">Panel</a></li>
+                                <?php } ?> 
+                            <?php } ?> 
             </ul>
         </nav>
 	</header>

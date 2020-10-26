@@ -1,14 +1,23 @@
 <?php 
-
+    
     require 'conexion.php';
+
+    session_start();
+
+    if (!isset($_SESSION['idusuario'])) {
+        header('Location: index.php');
+    } 
 
     if (!isset($_GET['view'])) {
         header('Location: index.php');
+
+
     } else {
 
         $consultaVerificarRestaurante = 'SELECT * FROM sucursal';
 
         $idRestaurante;
+        $bannerSucursal;
         $imagenSucursal;
         $textoBienvenida;
         $imgdestacado1;
@@ -18,6 +27,7 @@
         $platodescatado2;
         $platodescatado3;
         $nombreRestaurante;
+        
 
         $resultados = $conexion -> prepare($consultaVerificarRestaurante);
         $resultados -> execute();
@@ -26,6 +36,7 @@
         foreach($resultados as $row) {
             if ($row['idsucursal'] ==  $_GET['view']) {
                 $idRestaurante = $row['idsucursal'];
+                $bannerSucursal = $row['banner'];
                 $imagenSucursal = $row['imgbienvenida'];
                 $textoBienvenida = $row['textobienvenida'];
                 $imgdestacado1 = $row['imgdestacado1'];
@@ -64,13 +75,18 @@
 
     <header class="header-restaurante">
         <div>
-            <img src="img/norteño.jpg" alt="">
+            <?php echo "<img src='".$bannerSucursal."' >" ?>
         </div>
         <nav>
             <ul>
                 <li><a href="">Bienvenida</a></li>
                 <li><a href="hacerpedido.php?view=<?php echo $idRestaurante ?>">Pedidos</a></li>
                 <li><a href="nosotros.php?view=<?php echo $idRestaurante ?>">Nosotros</a></li>
+                    <?php if (isset($_SESSION['idsucursal'])) { ?>
+                        <?php if ($_SESSION['idsucursal'] == $_GET['view']) { ?>
+                            <li><a href="panel.php">Panel</a></li>
+                        <?php } ?> 
+                    <?php } ?>           
             </ul>
         </nav>
     </header>

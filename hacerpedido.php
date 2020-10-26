@@ -1,14 +1,21 @@
 <?php 
 
     require 'conexion.php';
+    session_start();
+
+    if (!isset($_SESSION['idusuario'])) {
+        header('Location: index.php');
+    } 
 
     if (!isset($_GET['view'])) {
         header('Location: index.php');
     } else {
 
-        $consultaVerificarRestaurante = 'SELECT idsucursal, nomsucursal FROM sucursal';
+        $consultaVerificarRestaurante = 'SELECT idsucursal, nomsucursal, banner FROM sucursal';
 
         $idRestaurante;
+        $nombresucursal;
+        $bannerSucursal;
 
         $resultados = $conexion -> prepare($consultaVerificarRestaurante);
         $resultados -> execute();
@@ -17,6 +24,7 @@
             if ($row['idsucursal'] ==  $_GET['view']) {
                 $idRestaurante = $row['idsucursal'];
                 $nombresucursal = $row['nomsucursal'];
+                $bannerSucursal = $row['banner'];
                 break;
             }
         }
@@ -24,6 +32,13 @@
         if (!isset($idRestaurante)) {
             header('Location: index.php');
         } else {
+            
+            if (isset($_GET['anadir'])) {
+                $resultadosAnadir = $conexion -> prepare('SELECT idproducto FROM productos INNER JOIN categoriaproductos ON categoriaproductos.idcategoriaproducto = productos.idcategoriaproducto INNER JOIN sucursal ON sucursal.idsucursal = categoriaproductos.idsucursal WHERE sucursal.idsucursal = ? AND categoriaproductos.idsucursal = ? AND categoriaproductos.estado = 1 AND productos.estado = 1 AND productos.idproducto = ?');
+                $resultadosAnadir -> execute(array($_GET['view'], $_GET['view'], $_GET['anadir']));
+                $resultadosAnadir = $resultadosAnadir -> fetchAll(PDO::FETCH_ASSOC);
+                
+            }
 
 ?>
 
@@ -33,7 +48,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-        <title>Hacer Pedido - Restaurante 1</title>
+        <title>Bienvenida | <?php echo $nombresucursal ?></title>
         <link rel="shorcut icon" href="img/favicon.ico">
         <link rel="stylesheet" href="css/normalize.css">
 	    <link rel="stylesheet" type="text/css" href="css/estilos.css">
@@ -47,13 +62,18 @@
 
     <header class="header-restaurante">
         <div>
-            <img src="img/norteño.jpg" alt="">
+            <?php echo "<img src='".$bannerSucursal."' >" ?>
         </div>
         <nav>
             <ul>
                 <li><a href="bienvenida.php?view=<?php echo $idRestaurante ?>">Bienvenida</a></li>
                 <li><a href="">Pedidos</a></li>
                 <li><a href="nosotros.php?view=<?php echo $idRestaurante ?>">Nosotros</a></li>
+                    <?php if (isset($_SESSION['idsucursal'])) { ?>
+                            <?php if ($_SESSION['idsucursal'] == $_GET['view']) { ?>
+                                <li><a href="panel.php">Panel</a></li>
+                            <?php } ?> 
+                        <?php } ?> 
             </ul>
         </nav>
 	</header>
@@ -99,7 +119,7 @@
 
                                     <div class="productos-carta">
                                         <div><h3><?php echo $row2['stock'] . ' &nbsp; &nbsp; | &nbsp; &nbsp;' .$row2['nomproducto'] ?></h3></div>
-                                        <div><i class="fas fa-cart-plus"></i> &nbsp; &nbsp; &nbsp; | &nbsp; &nbsp; &nbsp; S/. <?php echo $row2['precio'] ?></div>
+                                        <div><a class="carrito" href="?view=<?php echo $_GET['view'] ?>&anadir=<?php echo $row2['idproducto'] ?>"><i class="fas fa-cart-plus"></i></a> &nbsp; &nbsp; &nbsp; | &nbsp; &nbsp; &nbsp; S/. <?php echo $row2['precio'] ?></div>
                                     </div>
 
                             <?php }
