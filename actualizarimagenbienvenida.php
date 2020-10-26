@@ -4,16 +4,18 @@
 
     session_start();
 
-    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-        
-        $resultados = $conexion -> prepare('INSERT INTO sucursal(textobienvenida, idsucursal) VALUE(?, ?)');
-        $resultados -> execute(array($_POST['nuevotextobienvenida'], $_SESSION['idsucursal']));
+    if($_SERVER["REQUEST_METHOD"] == "POST"){
 
+        $ruta = 'img/'.$_FILES['nuevaimagen']['name']; 
+        move_uploaded_file($_FILES['nuevaimagen']['tmp_name'], $ruta);
+
+        $query = $conexion->prepare("UPDATE sucursal SET imgbienvenida = ? WHERE idsucursal = ?");
+        $resultado = $query->execute(array($ruta, $_SESSION['idsucursal']));  
+
+        
     }
-
         
-       
-?> 
+?>
 
 <!DOCTYPE html>
 <html>
@@ -34,7 +36,8 @@
             <nav>
                 <ul>
                     <li><a href="panel.php">Inicio</a></li>
-                    <li><a href="anadirtextobienvenida.php">Añadir Texto de Bienvenida</a></li>
+                    <li><a href="actualizartextobienvenida.php">Actualizar Texto de Bienvenida</a></li>
+                    <li><a href="actualizarimagenbienvenida.php">Actualizar Imagen de Bienvenida</a></li>
                     <li><a href="anadircategoria.php">Añadir Categoria</a></li>
                     <li><a href="eliminarcategoria.php">Eliminar Categoria</a></li>
                     <li><a href="actualizarcategoria.php">Actualizar Categoria</a></li>
@@ -48,15 +51,15 @@
 
             <div class='formulario-panel'>
 
-                <h1>Añadir Texto de Bienvenida</h1>
+                <h1>Actualizar Imagen de Bienvenida</h1>
 
-                <form action="" class='form-panel' method="post">
+                <form action="" class='form-panel' method="post" enctype="multipart/form-data">
 
-                    <p>Nuevo Texto de Bienvenida: </p>
+                    <p>Nueva Imagen de Bienvenida: </p>
                     
-                    <textarea style= "resize: vertical" name="nuevotextobienvenida" id="" cols="100" rows="10"></textarea><br><br>
+                    <input type="file" name="nuevaimagen"><br><br>
                     
-                    <input type="submit" value="Añadir Texto de Bienvenida">
+                    <input type="submit" value="Actualizar Imagen de Bienvenida">
 
                 </form>
 
@@ -67,3 +70,4 @@
 
 </body>
 </html>
+
