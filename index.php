@@ -55,8 +55,8 @@
         </div>
 
         <section class="box-usuario">
-            <div class="contenedor-general">
-                <h1>RESTAURANTES</h1>
+            <div class="contenedor-general view-restaurants mb-4">
+                <h1 class='text-center'>RESTAURANTES</h1>
                 <?php $contadorRestaurantes = 0;
                 $resultados = $conexion -> prepare($consultaRestaurantes);
                 $resultados -> execute();
@@ -105,6 +105,7 @@
                         $_SESSION['email'] = $row['emailusuario'];
                         $_SESSION['nombreusuario'] = $row['nombreusuario'];
                         $_SESSION['apellidousuario'] = $row['apellidousuario'];
+                        $_SESSION['profile'] = $row['id_profile']; 
                         if ($row['id_profile'] == 2) {
 
                             $resultadosR = $conexion -> prepare('SELECT idsucursal FROM access WHERE idusuario = ?');

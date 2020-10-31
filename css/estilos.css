@@ -73,6 +73,15 @@ body{
 
 } */
 
+.view-restaurants > h1 {
+    font-weight: 700;
+}
+
+.view-restaurants  h2 {
+    font-weight: 600;
+    font-size: 27px;
+}
+
 .section-inicio {
     background: rgb(226, 226, 226);
     margin: 2rem 0 0 0;
