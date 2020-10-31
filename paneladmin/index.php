@@ -1,5 +1,5 @@
 <?php
 
-    header('Location: anadirencargado.php');
+    header('Location: listarencargados.php');
 
 ?>

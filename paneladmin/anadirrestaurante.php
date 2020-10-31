@@ -8,9 +8,9 @@
 
     require '../conexion.php';
 
-    $resultadosEn = $conexion -> prepare('SELECT nombreusuario, nomsucursal, emailusuario FROM access INNER JOIN usuario ON access.idusuario = usuario.idusuario INNER JOIN sucursal ON sucursal.idsucursal = access.idsucursal WHERE id_profile = 2');
-    $resultadosEn -> execute();
-    $resultadosEn = $resultadosEn -> fetchAll(PDO::FETCH_ASSOC);
+    $resultadosRes = $conexion -> prepare('SELECT nomsucursal, correosucursal, telefono FROM sucursal');
+    $resultadosRes -> execute();
+    $resultadosRes = $resultadosRes -> fetchAll(PDO::FETCH_ASSOC);
 
 ?>
 
@@ -37,6 +37,7 @@
                     <li><a href="listarencargados.php">Listar Encargados</a></li>
                     <li><a href="anadirencargado.php">Añadir Encargado</a></li>
                     <li><a href="eliminarencargado.php">Eliminar Encargado</a></li>
+                    <li><a href="listarrestaurantes.php">Listar Restaurantes</a></li>
                     <li><a href="anadirrestaurante.php">Añadir Restaurante</a></li>
                     <li><a href="eliminarrestaurante.php">Eliminar Restaurante</a></li>
                     
@@ -45,7 +46,7 @@
 
             <div class='container p-5'>
                 
-                <h1 class='h3 text-center font-weight-bold'>LISTAR ENCARGADOS</h1>
+                <h1 class='h3 text-center font-weight-bold'>LISTAR RESTAURANTES</h1>
 
                 <table class="table mt-4">
                     <thead class='thead-light'>
@@ -53,23 +54,20 @@
                         <th scope="col">N°</th>
                         <th scope="col">Nombre</th>
                         <th scope="col">Correo</th>
-                        <th scope="col">Restaurante</th>
+                        <th scope="col">Teléfono</th>
                         </tr>
                     </thead>
                     <tbody>
                     <?php 
                         $cont = 0;
-                        foreach($resultadosEn as $val) { 
-                        if ($val['nombreusuario'] == '') {
-                            $val['nombreusuario'] = 'N/A';
-                        }
+                        foreach($resultadosRes as $val) { 
                         $cont++;
                     ?>
                             <tr>
                                 <th scope="row"><?php echo $cont ?></th>
-                                <td><?php echo $val['nombreusuario'] ?></td>
-                                <td><?php echo $val['emailusuario'] ?></td>
                                 <td><?php echo $val['nomsucursal'] ?></td>
+                                <td><?php echo $val['correosucursal'] ?></td>
+                                <td><?php echo $val['telefono'] ?></td>
                             </tr>
                     <?php } ?>
 
