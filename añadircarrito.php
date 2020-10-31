@@ -59,7 +59,9 @@ $consultaVerificarRestaurante = 'SELECT * FROM sucursal';
     </header>
     
         <div class="text-carrito">
-            <h1>Si el pago es en efectivo, indicar en COMENTARIOS el monto con el que cancelará. Si necesita una factura, indicar sus datos (RUC/Razón Social)</h1>
+                <ul>
+					<li>Antes de hacer algun cambio, deberas actualizar tus datos. <a href="usuario.php">Actualizar Datos</a></li>			
+				</ul>
         </div>
 
     
