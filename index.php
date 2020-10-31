@@ -111,7 +111,7 @@
                             $resultadosR = $conexion -> prepare('SELECT idsucursal FROM access WHERE idusuario = ?');
                             $resultadosR -> execute(array($row['idusuario']));
                             $resultadosR = $resultadosR -> fetchAll(PDO::FETCH_ASSOC);
-                            $_SESSION['sucursal'] = $resultadosR[0]['idsucursal']
+                            $_SESSION['sucursal'] = $resultadosR[0]['idsucursal'];
 
                             header('Location: nosotros.php?view=' . $resultadosR[0]['idsucursal']);
                             die;

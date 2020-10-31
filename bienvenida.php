@@ -53,6 +53,10 @@
         if (!isset($idRestaurante)) {
             header('Location: index.php');
         } else {
+            
+            if ($_SESSION['profile'] == 2) {
+                
+            }
 
 ?>
 
@@ -82,8 +86,8 @@
                 <li><a href="">Bienvenida</a></li>
                 <li><a href="hacerpedido.php?view=<?php echo $idRestaurante ?>">Pedidos</a></li>
                 <li><a href="nosotros.php?view=<?php echo $idRestaurante ?>">Nosotros</a></li>
-                    <?php if (isset($_SESSION['idsucursal'])) { ?>
-                        <?php if ($_SESSION['idsucursal'] == $_GET['view']) { ?>
+                    <?php if ($_SESSION['profile'] == 2 && isset($_SESSION['sucursal'])) { ?>
+                        <?php if ($_SESSION['sucursal'] == $_GET['view']) { ?>
                             <li><a href="panel.php">Panel</a></li>
                         <?php } ?> 
                     <?php } ?>           
