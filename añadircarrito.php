@@ -52,58 +52,36 @@ $consultaVerificarRestaurante = 'SELECT * FROM sucursal';
             <ul>
                 <li><a href="bienvenida.php?view=<?php echo $idRestaurante ?>">Bienvenida</a></li>
                 <li><a href="hacerpedido.php?view=<?php echo $idRestaurante ?>">Pedidos</a></li>
-                <li><a href="">Nosotros</a></li>
+                <li><a href="nosotros.php?view=<?php echo $idRestaurante ?> ">Nosotros</a></li>
+                <li><a href="panel.php?view=<?php echo $idRestaurante ?> ">Panel</a></li>
                   
             </ul>
         </nav>
     </header>
     
-        <div class="text-carrito">
-            <h1>Si el pago es en efectivo, indicar en COMENTARIOS el monto con el que cancelará. Si necesita una factura, indicar sus datos (RUC/Razón Social)</h1>
-        </div>
 
-    
+
+
+        <div class="BGP">
+            <h1>BUEN GUSTO PERUANO</h1>
+        </div>
+        <div class="text-carrito">
+                <ul>
+					<li>Antes de hacer algun cambio, deberas actualizar tus datos. <a href="usuario.php?view=<?php echo $_SESSION['idusuario'] ?>">Actualizar Datos</a></li>			
+				</ul>
+        </div>
+  
                 <section class="carrito-carrito"> 
                     <div class="carrito">
-                            <div>
-                                <p>Contacto</p>
-                                <a href=""></a> 
-                                <input type="text">
-                                <i class="far fa-id-badge"></i>            
-                            </div>
-                            <div>
-                                <p>Cantidad producto</p>
-                                <input type="number">
-                                <i class="fas fa-cash-register"></i>
-                            </div>
-                            <div>
-                                <p>Formas de pago</p>
-                                <input type="texto">
-                                <i class="fas fa-align-center"></i>
-                            </div>
                             <div>
                                 <p>Tipos de pedido</p>
                                 <input type="texto">
                                 <i class="fas fa-bars"></i>
                             </div>
-                    </div>
-                    
-                    <div class="carrito"> 
                             <div>
-                                <p>Contacto</p>
-                                <a href=""></a> 
+                                <p>Forma de Pago</p>
                                 <input type="text">
-                                <i class="far fa-id-badge"></i>            
-                            </div>
-                            <div>
-                                <p>Cantidad producto</p>
-                                <input type="number">
                                 <i class="fas fa-cash-register"></i>
-                            </div>
-                            <div>
-                                <p>Formas de pago</p>
-                                <input type="texto">
-                                <i class="fas fa-align-center"></i>
                             </div>
                             <div>
                                 <p>Pedido con la seguridad que nos caracteriza.</p>
@@ -112,10 +90,6 @@ $consultaVerificarRestaurante = 'SELECT * FROM sucursal';
                     </div>
                     
                 </section>
-
-
-
-
 
                 <footer class="footer-inicio">
                     <div class= "contenedor-general">
