@@ -58,15 +58,15 @@ $consultaVerificarRestaurante = 'SELECT * FROM sucursal';
             </ul>
         </nav>
     </header>
-    
-        <div class="bgp">
-            <h1>BUEN GUSTO PERUANO</h1>
-        </div>
-        <div class="text-carrito">
-                <ul>
-					<li>Antes de hacer algun cambio, deberas actualizar tus datos. <a href="usuario.php?view=<?php echo $_SESSION['idusuario'] ?>">Actualizar Datos</a></li>			
-				</ul>
-        </div>
+        <main class="contenedor-carrito">
+                <div class="bgp">
+                    <h1>BUEN GUSTO PERUANO</h1>
+                </div>
+                <div class="text-carrito">
+                        <ul>
+                            <li>Antes de hacer algun cambio, deberas actualizar tus datos. <a href="usuario.php?view=<?php echo $_SESSION['idusuario'] ?>">Actualizar Datos</a></li>			
+                        </ul>
+                </div>
   
                 <section class="carrito-carrito"> 
                     <div class="carrito">
@@ -87,7 +87,7 @@ $consultaVerificarRestaurante = 'SELECT * FROM sucursal';
                     </div>
                     
                 </section>
-
+        </main>
                 <footer class="footer-inicio">
                     <div class= "contenedor-general">
                         <div>© 2020 El Buen Gusto Peruano SAC. Todos los derechos reservados</div>
