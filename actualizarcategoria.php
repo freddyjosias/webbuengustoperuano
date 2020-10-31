@@ -4,7 +4,7 @@
 
     session_start();
 
-    if (!isset($_SESSION['idsucursal'])) {
+    if (!isset($_SESSION['sucursal'])) {
         header('Location: index.php');
     }
 

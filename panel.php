@@ -2,7 +2,7 @@
 
     session_start();
 
-    if (!isset($_SESSION['idsucursal'])) {
+    if (!isset($_SESSION['sucursal'])) {
         header('Location: index.php');
     }
 
@@ -44,7 +44,7 @@
             <div class='contenido-panel-home'>
                 <img src="img/logo-icono.png">
                 <p>Bienvenido a su Panel de Control</p>
-                <a href="bienvenida.php?view=<?php echo $_SESSION['idsucursal'] ?>">Ver mi Restaurante</a>
+                <a href="bienvenida.php?view=<?php echo $_SESSION['sucursal'] ?>">Ver mi Restaurante</a>
             </div>
 
         </div>

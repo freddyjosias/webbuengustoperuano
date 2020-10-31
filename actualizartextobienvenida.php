@@ -4,14 +4,20 @@
 
     session_start();
 
+    if (!isset($_SESSION['sucursal'])) {
+        header('Location: index.php');
+    }
+
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         
         $resultados = $conexion -> prepare('UPDATE sucursal SET textobienvenida = ? WHERE idsucursal = ?');
-        $resultados -> execute(array($_POST['nuevotextobienvenida'], $_SESSION['idsucursal']));
+        $resultados -> execute(array($_POST['nuevotextobienvenida'], $_SESSION['sucursal']));
 
     }
 
-        
+    $resultadosText = $conexion -> prepare('SELECT textobienvenida FROM sucursal WHERE idsucursal = ?');
+    $resultadosText -> execute(array($_SESSION['sucursal']));
+    $resultadosText = $resultadosText -> fetchAll(PDO::FETCH_ASSOC);   
        
 ?> 
 
@@ -20,7 +26,7 @@
 <head>
 	<meta charset="utf-8">
 	<link href="https://fonts.googleapis.com/css2?family=Dosis:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <title>Quienes Somos - Restaurante 1</title>
+    <title>Actualizar Texto de Bienvenida</title>
     <link rel="shorcut icon" href="img/favicon.ico">
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" type="text/css" href="css/estilos.css">
@@ -56,9 +62,9 @@
 
                     <p>Nuevo Texto de Bienvenida: </p>
                     
-                    <textarea style= "resize: vertical" name="nuevotextobienvenida" id="" cols="100" rows="10"></textarea><br><br>
+                    <textarea style= "resize: vertical" name="nuevotextobienvenida" id="" cols="100" rows="10"><?php echo $resultadosText[0]['textobienvenida'] ?></textarea><br><br>
                     
-                    <input type="submit" value="Añadir Texto de Bienvenida">
+                    <input type="submit" value="Actualizar Texto de Bienvenida">
 
                 </form>
 
