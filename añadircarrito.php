@@ -52,12 +52,19 @@ $consultaVerificarRestaurante = 'SELECT * FROM sucursal';
             <ul>
                 <li><a href="bienvenida.php?view=<?php echo $idRestaurante ?>">Bienvenida</a></li>
                 <li><a href="hacerpedido.php?view=<?php echo $idRestaurante ?>">Pedidos</a></li>
-                <li><a href="">Nosotros</a></li>
+                <li><a href="nosotros.php?view=<?php echo $idRestaurante ?> ">Nosotros</a></li>
+                <li><a href="panel.php?view=<?php echo $idRestaurante ?> ">Panel</a></li>
                   
             </ul>
         </nav>
     </header>
     
+
+
+
+        <div class="BGP">
+            <h1>BUEN GUSTO PERUANO</h1>
+        </div>
         <div class="text-carrito">
                 <ul>
 					<li>Antes de hacer algun cambio, deberas actualizar tus datos. <a href="usuario.php?view=<?php echo $_SESSION['idusuario'] ?>">Actualizar Datos</a></li>			
