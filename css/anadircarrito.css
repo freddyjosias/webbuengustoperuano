@@ -1,12 +1,23 @@
+.bgp{
+ text-align: center;
+}
 .text-carrito{
     text-align: center;
 }
+
+.text-carrito ul li{
+    list-style: none;
+    font-size: 25px;
+}
+
 .carrito {
    
     font-size: 2rem; 
     margin: auto;
     padding: auto;
     margin-bottom: 10rem;   
+    border: 2px solid black;
+    
 }
 
 .carrito-carrito{
