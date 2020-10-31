@@ -23,6 +23,24 @@ $consultaVerificarRestaurante = 'SELECT * FROM sucursal';
                 $nombresucursal = $row['nomsucursal'];
                 break;     
         }
+    
+        $consultatipospedidos = $conexion -> prepare(
+        "SELECT t.idtipospedido, t.descripciontipospedido, d.idsucursal 
+         FROM tipospedido AS t INNER JOIN detalletipospedido AS d ON t.idtipospedido = d.idtipospedido 
+        WHERE d.idsucursal = ? AND d.disponibilidadtipospedido = 1"
+        );
+        $consultatipospedidos -> execute(array($_SESSION['sucursal']));
+        $consultatipospedidos = $consultatipospedidos -> fetchAll(PDO::FETCH_ASSOC);
+
+        $consultaformaspago = $conexion -> prepare(
+        "SELECT f.idformaspago, f.descripcionformaspago, d.idsucursal 
+         FROM formaspago AS f INNER JOIN detalleformaspago AS d ON f.idformaspago = d.idformaspago 
+         WHERE d.idsucursal = ? AND d.disponibilidadformaspago = 1"
+        );
+        $consultaformaspago -> execute(array($_SESSION['sucursal']));
+        $consultaformaspago = $consultaformaspago -> fetchAll(PDO::FETCH_ASSOC);
+
+    
 
 ?>
 
@@ -70,20 +88,22 @@ $consultaVerificarRestaurante = 'SELECT * FROM sucursal';
   
                 <section class="carrito-carrito"> 
                     <div class="carrito">
-                            <div>
-                                <p>Tipos de pedido</p>
-                                <input type="texto">
-                                <i class="fas fa-bars"></i>
-                            </div>
-                            <div>
-                                <p>Forma de Pago</p>
-                                <input type="text">
-                                <i class="fas fa-cash-register"></i>
-                            </div>
-                            <div>
-                                <p>Pedido con la seguridad que nos caracteriza.</p>
-                                <input type="submit" name="" value="Guardar">
-                            </div>
+                        <form action="" method="post">
+                            <p>Tipos de pedido:</p>
+                                <select name="tipopedido">
+                                    <?php foreach ($consultatipospedidos as $tipopedido) { ?>
+                                        <option value="<?php echo $tipopedido['idtipospedido'] ?>"><?php echo $tipopedido['descripciontipospedido'] ?></option>
+                                    <?php }  ?>
+                                </select>
+                            <p>Forma de Pago:</p>
+                                <select name="formapago">
+                                    <?php foreach ($consultaformaspago as $formaspago) { ?>
+                                        <option value="<?php echo $formaspago['idformaspago'] ?>"><?php echo $formaspago['descripcionformaspago'] ?></option>
+                                    <?php }  ?>
+                                </select>
+                            <p>Pedido con la seguridad que nos caracteriza.</p>
+                            <input type="submit" name="" value="Guardar">
+                        </form>
                     </div>
                     
                 </section>
