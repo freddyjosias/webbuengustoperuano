@@ -112,7 +112,7 @@
                 foreach($resultados as $row) { 
                     if ($row['emailusuario'] == $usuario && $row['contrasena'] == $clave) {
                         $datosErroneos = 0;
-                        $_SESSION['idusuario'] = $row['emailusuario'];
+                        $_SESSION['idusuario'] = $row['idusuario_encargado'];
                         $_SESSION['email'] = $row['emailencargado'];
                         $_SESSION['nombreusuario'] = $row['nombreusuario'];
                         $_SESSION['apellidousuario'] = $row['apellidousuario'];
@@ -129,7 +129,7 @@
                     foreach($resultados as $row) { 
                         if ($row['emailusuario'] == $usuario && $row['contrasena'] == $clave) {
                             $datosErroneos = 0;
-                            $_SESSION['idusuario'] = $row['emailusuario'];
+                            $_SESSION['idusuario'] = $row['idusuario'];
                             $_SESSION['email'] = $row['emailencargado'];
                             $_SESSION['nombreusuario'] = $row['nombreusuario'];
                             $_SESSION['apellidousuario'] = $row['apellidousuario'];

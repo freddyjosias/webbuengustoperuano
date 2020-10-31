@@ -1,10 +1,49 @@
 <?php
 
+    require 'conexion.php';
+
     session_start();
 
-    if (!isset($_SESSION['idsucursal'])) {
-        header('Location: index.php');
+
+
+    if($_SERVER["REQUEST_METHOD"] == "POST") {
+
+
+        if (isset($_POST['nombre'])) {
+            $resultados2 = $conexion -> prepare('UPDATE usuario SET nombreusuario = ? WHERE idusuario = ?');
+            $resultados2 -> execute(array($_POST['nombre'], $_SESSION['idusuario']));
+        }
+
+        if (isset($_POST['apellido'])) {
+            $resultados3 = $conexion -> prepare('UPDATE usuario SET apellidousuario = ? WHERE idusuario = ?');
+            $resultados3 -> execute(array($_POST['apellido'], $_SESSION['idusuario']));
+        }
+
+        if (isset($_POST['clave'])) {
+            $resultados4 = $conexion -> prepare('UPDATE usuario SET contrasena = ? WHERE idusuario = ?');
+            $resultados4 -> execute(array($_POST['clave'], $_SESSION['idusuario']));
+        }
+
+        if (isset($_POST['telefono'])) {
+            $resultados5 = $conexion -> prepare('UPDATE usuario SET telefonousuario = ? WHERE idusuario = ?');
+            $resultados5 -> execute(array($_POST['telefono'], $_SESSION['idusuario']));
+        }
+
+        if (isset($_POST['direccion'])) {
+            $resultados6 = $conexion -> prepare('UPDATE usuario SET direccionusuario = ? WHERE idusuario = ?');
+            $resultados6 -> execute(array($_POST['direccion'], $_SESSION['idusuario']));
+        }
+
+        if (isset($_POST['dni'])) {
+            $resultados7 = $conexion -> prepare('UPDATE usuario SET dniusuario = ? WHERE idusuario = ?');
+            $resultados7 -> execute(array($_POST['dni'], $_SESSION['idusuario']));
+        }
+
     }
+
+    $consultaUsuario = $conexion -> prepare('SELECT * FROM usuario WHERE idusuario = ?');
+    $consultaUsuario -> execute(array($_SESSION['idusuario']));
+    $consultaUsuario = $consultaUsuario -> fetchAll(PDO::FETCH_ASSOC);
 
 ?>
 
@@ -35,19 +74,22 @@
         <section class="form-register">
                     
                     <div class="form-centro">
+
+                    <form action="" class='form-panel' method = "post">
+
+                    <?php foreach($consultaUsuario as $row) { ?>
+                        <p>Nombres <input type="text" name="nombre" value ="<?php echo $row['nombreusuario'] ?>"></p>
+                        <p>Apellidos <input type="text" name="apellido" value ="<?php echo $row['apellidousuario'] ?>"></p>
+                        <p>Contraseña <input type="text" name="clave" value ="<?php echo $row['contrasena'] ?>"></p>
+                        <p>Telefono <input type="number" name="telefono" value ="<?php echo $row['telefonousuario'] ?>"></p>
+                        <p>Dirección <input type="Text" name="direccion" value ="<?php echo $row['direccionusuario'] ?>"></p>
+                        <p>DNI <input type="number" name="dni" value ="<?php echo $row['dniusuario'] ?>"></p>    
+                    <?php } ?>
+
+                        <input type="submit" value="Guardar">
                            
-                                <input type="email" name="usuario" placeholder="correo electronico" value="@gmail.com">
-                                <input type="text" name="titulo" placeholder="Nombres" required>
-                                <input type="text" name="titulo" placeholder="Apellidos" required>
-                                <input type="text" name="clave" placeholder="Contraseña" required>
-                                <input type="number" name="resumen" placeholder="Telefono" required>
-                                <input type="Text" name="resumen" placeholder="Dirección" required>
-                                <input type="number" name="resumen" placeholder="Dni" required>    
-                  
-                                <button type="submit">Guardar</button>
-                                <button type="submit">Cancelar</button>
-                           
-                    
+                    </form>
+
                     </div>
             </section>
 
