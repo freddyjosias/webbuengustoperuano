@@ -16,6 +16,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shorcut icon" href="img/favicon.ico">
     <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/normalize.css">
 	<link rel="stylesheet" type="text/css" href="css/estilos.css">
 </head>
@@ -85,72 +86,64 @@
             </div>
         </footer>
 
-    <?php } else { ?>
-
-        <form method='post' class="box-login">
-            <h1>Iniciar sesión</h1>
-            <input type="text" placeholder="&#128272; Usuario" name="usuario">
-            <input type="password" placeholder="&#128272; Contraseña" name="clave">
-            <input type="submit" value="Ingresar" name="login">
-            <p>Usuario por defecto: <b>prueba</b></p>
-            <p>Contraseña por defecto: <b>NowPass</b></p>
-            <p>Usuario Encargado por defecto: <b>prueba.encargado</b></p>
-            <p>Contraseña Encargado por defecto: <b>NowPass</b></p>
-        </form>
+    <?php } else { 
         
-    <?php 
-    
         if (isset($_POST['login'])) {
             if (strlen($_POST['usuario']) > 0 && strlen($_POST['clave']) > 0) {
                 $usuario = $_POST['usuario'];
                 $clave = $_POST['clave'];
-                $consultaUsuario = 'SELECT * FROM usuario_encargado';
+                $consultaUsuario = 'SELECT * FROM usuario';
                 $datosErroneos = 1;
                 $resultados = $conexion -> prepare($consultaUsuario);
                 $resultados -> execute();
                 $resultados = $resultados -> fetchAll(PDO::FETCH_ASSOC);
+
                 foreach($resultados as $row) { 
                     if ($row['emailusuario'] == $usuario && $row['contrasena'] == $clave) {
                         $datosErroneos = 0;
-                        $_SESSION['idusuario'] = $row['idusuario_encargado'];
-                        $_SESSION['email'] = $row['emailencargado'];
+                        $_SESSION['idusuario'] = $row['idusuario'];
+                        $_SESSION['email'] = $row['emailusuario'];
                         $_SESSION['nombreusuario'] = $row['nombreusuario'];
                         $_SESSION['apellidousuario'] = $row['apellidousuario'];
-                        $_SESSION['idsucursal'] = $row['idsucursal'];
+                        if ($row['id_profile'] == 2) {
+
+                            $resultadosR = $conexion -> prepare('SELECT idsucursal FROM access WHERE idusuario = ?');
+                            $resultadosR -> execute(array($row['idusuario']));
+                            $resultadosR = $resultadosR -> fetchAll(PDO::FETCH_ASSOC);
+
+                            header('Location: nosotros.php?view=' . $resultadosR[0]['idsucursal']);
+                            die;
+
+                        }
+                        header('Location: index.php');
+                        die;
                         break;
                     }
                 }
                 
-                if ($datosErroneos == 1) {
-                    $consultaUsuario = 'SELECT * FROM usuario';
-                    $resultados = $conexion -> prepare($consultaUsuario);
-                    $resultados -> execute();
-                    $resultados = $resultados -> fetchAll(PDO::FETCH_ASSOC);
-                    foreach($resultados as $row) { 
-                        if ($row['emailusuario'] == $usuario && $row['contrasena'] == $clave) {
-                            $datosErroneos = 0;
-                            $_SESSION['idusuario'] = $row['idusuario'];
-                            $_SESSION['email'] = $row['emailencargado'];
-                            $_SESSION['nombreusuario'] = $row['nombreusuario'];
-                            $_SESSION['apellidousuario'] = $row['apellidousuario'];
-                            break;
-                        }
-                    }
-                } else {
-                    header('Location: nosotros.php?view=' . $row['idsucursal']);
-                    die;
-                }
 
-                if ($datosErroneos == 1) {
-                    echo 'Ingrese bien sus datos';
-                } 
-                
-                header('Location: index.php');
-
-            } else {
-                echo 'Ingresa tus datos';
             }
         }
+    
+        ?>
+
+            <form method='post' class="box-login col-3">
+                <h1 class='mt-0'>Iniciar sesión</h1>
+                <input type="text" placeholder="&#128272; Correo" name="usuario" required>
+                <input type="password" placeholder="&#128272; Contraseña" name="clave" required>
+                <input type="submit" value="Ingresar" name="login">
+                <?php
+                    if (isset($datosErroneos)) {
+                        ?>
+                            <div class="alert alert-danger text-center" role='alert'>
+                                Datos incorrectos &nbsp; <i class="far fa-times-circle"></i>
+                            </div>
+                        <?php
+                    }
+                ?>
+            </form>
+        
+        <?php 
 
     } ?>
     <script src="js/jquery-3.5.1.min.js"></script>
