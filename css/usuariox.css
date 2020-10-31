@@ -1,0 +1,47 @@
+.header-inicio {
+    background-color: #212F3D;
+    width: 100%;
+}
+
+.contenido-header-inicio {
+    display: flex;
+}
+
+.contenedor-img{
+    background-size:cover;
+    background-position: center center;
+}
+
+.contenido-header-inicio-img {
+    width: 50%;
+}
+
+.box-usuario {
+    width: 300px;
+    padding: 20px;
+    position: absolute;
+    top: 58%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #212F3D;
+    border-radius: 20px;
+}
+
+.form-centro h1{
+    color: white;
+}
+
+.form-centro input{
+    border-radius: 5px;
+    
+}
+
+.form-centro p{
+    color: white;
+    display: inline-block;
+}
+
+.botonguardar{
+    text-align: right;
+
+}

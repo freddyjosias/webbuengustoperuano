@@ -53,7 +53,7 @@
             </div>
         </div>
 
-        <section class="section-inicio">
+        <section class="box-usuario">
             <div class="contenedor-general">
                 <h1>RESTAURANTES</h1>
                 <?php $contadorRestaurantes = 0;
