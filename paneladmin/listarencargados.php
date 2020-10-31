@@ -2,9 +2,9 @@
 
     session_start();
 
-    if (!isset($_SESSION['idsucursal'])) {
-        header('Location: index.php');
-    }
+    // if (!isset($_SESSION['idsucursal'])) {
+    //     header('Location: index.php');
+    // }
 
     require '../conexion.php';
 
