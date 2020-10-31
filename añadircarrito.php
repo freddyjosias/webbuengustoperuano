@@ -63,49 +63,18 @@ $consultaVerificarRestaurante = 'SELECT * FROM sucursal';
 					<li>Antes de hacer algun cambio, deberas actualizar tus datos. <a href="usuario.php?view=<?php echo $_SESSION['idusuario'] ?>">Actualizar Datos</a></li>			
 				</ul>
         </div>
-
-    
+  
                 <section class="carrito-carrito"> 
                     <div class="carrito">
-                            <div>
-                                <p>Contacto</p>
-                                <a href=""></a> 
-                                <input type="text">
-                                <i class="far fa-id-badge"></i>            
-                            </div>
-                            <div>
-                                <p>Cantidad producto</p>
-                                <input type="number">
-                                <i class="fas fa-cash-register"></i>
-                            </div>
-                            <div>
-                                <p>Formas de pago</p>
-                                <input type="texto">
-                                <i class="fas fa-align-center"></i>
-                            </div>
                             <div>
                                 <p>Tipos de pedido</p>
                                 <input type="texto">
                                 <i class="fas fa-bars"></i>
                             </div>
-                    </div>
-                    
-                    <div class="carrito"> 
                             <div>
-                                <p>Contacto</p>
-                                <a href=""></a> 
+                                <p>Forma de Pago</p>
                                 <input type="text">
-                                <i class="far fa-id-badge"></i>            
-                            </div>
-                            <div>
-                                <p>Cantidad producto</p>
-                                <input type="number">
                                 <i class="fas fa-cash-register"></i>
-                            </div>
-                            <div>
-                                <p>Formas de pago</p>
-                                <input type="texto">
-                                <i class="fas fa-align-center"></i>
                             </div>
                             <div>
                                 <p>Pedido con la seguridad que nos caracteriza.</p>
@@ -114,10 +83,6 @@ $consultaVerificarRestaurante = 'SELECT * FROM sucursal';
                     </div>
                     
                 </section>
-
-
-
-
 
                 <footer class="footer-inicio">
                     <div class= "contenedor-general">
