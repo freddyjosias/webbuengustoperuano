@@ -56,6 +56,7 @@
     <title>Usuario</title>
     <link rel="shorcut icon" href="img/favicon.ico">
     <link rel="stylesheet" href="../css/normalize.css">
+    <link rel="stylesheet" href="css/usuariox.css">
     <link rel="stylesheet" type="text/css" href="../css/estilos.css">
 
 </head>
@@ -71,10 +72,11 @@
                     </div>
                 </header>
 
-        <section class="form-register">
+        <section class="box-usuario">
                     
                     <div class="form-centro">
 
+                        <h1>ACTUALIZA TUS DATOS</h1>
                     <form action="" class='form-panel' method = "post">
 
                     <?php foreach($consultaUsuario as $row) { ?>
@@ -85,9 +87,10 @@
                         <p>Dirección <input type="Text" name="direccion" value ="<?php echo $row['direccionusuario'] ?>"></p>
                         <p>DNI <input type="number" name="dni" value ="<?php echo $row['dniusuario'] ?>"></p>    
                     <?php } ?>
-
+                    
+                    <div class="botonguardar">
                         <input type="submit" value="Guardar">
-                           
+                    </div>       
                     </form>
 
                     </div>
