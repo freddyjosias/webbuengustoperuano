@@ -69,11 +69,11 @@
                 <li><a href="bienvenida.php?view=<?php echo $idRestaurante ?>">Bienvenida</a></li>
                 <li><a href="">Pedidos</a></li>
                 <li><a href="nosotros.php?view=<?php echo $idRestaurante ?>">Nosotros</a></li>
-                    <?php if (isset($_SESSION['idsucursal'])) { ?>
-                            <?php if ($_SESSION['idsucursal'] == $_GET['view']) { ?>
-                                <li><a href="panel.php">Panel</a></li>
-                            <?php } ?> 
+                    <?php if ($_SESSION['profile'] == 2 && isset($_SESSION['sucursal'])) { ?>
+                        <?php if ($_SESSION['sucursal'] == $_GET['view']) { ?>
+                            <li><a href="panel.php">Panel</a></li>
                         <?php } ?> 
+                    <?php } ?> 
             </ul>
         </nav>
 	</header>

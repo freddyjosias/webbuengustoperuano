@@ -53,10 +53,6 @@
         if (!isset($idRestaurante)) {
             header('Location: index.php');
         } else {
-            
-            if ($_SESSION['profile'] == 2) {
-                
-            }
 
 ?>
 
