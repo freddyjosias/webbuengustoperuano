@@ -11,7 +11,7 @@
         header('Location: index.php');
     } else {
 
-        $consultaVerificarRestaurante = 'SELECT idsucursal, nomsucursal, banner FROM sucursal';
+        $consultaVerificarRestaurante = 'SELECT idsucursal, nomsucursal, banner FROM sucursal WHERE estado = 1';
 
         $idRestaurante;
         $nombresucursal;

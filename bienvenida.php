@@ -14,7 +14,7 @@
 
     } else {
 
-        $consultaVerificarRestaurante = 'SELECT * FROM sucursal';
+        $consultaVerificarRestaurante = 'SELECT * FROM sucursal WHERE estado = 1';
 
         $idRestaurante;
         $bannerSucursal;

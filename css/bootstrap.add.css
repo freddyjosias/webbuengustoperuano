@@ -1,3 +1,7 @@
+:root {
+    --color-dark: #343a40;
+}
+
 .fw-700 {
     font-weight: 700;
 }
@@ -12,4 +16,9 @@
 
 .h-25r {
     height: 20rem;
+}
+
+.hr-solid-dark {
+    border: 1px solid var(--color-dark);
+    border-radius: 5px;
 }

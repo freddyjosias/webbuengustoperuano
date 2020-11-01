@@ -4,7 +4,7 @@
 
     require 'conexion.php';
 
-    $consultaRestaurantes = 'SELECT idsucursal, nomsucursal FROM sucursal';
+    $consultaRestaurantes = 'SELECT idsucursal, nomsucursal, imgbienvenida FROM sucursal WHERE estado = 1';
 
 ?>
 
@@ -68,7 +68,7 @@
                         <a href="hacerpedido.php?view=<?php echo $row['idsucursal']; ?>">
                             <div>
                                 <h2><?php echo $row['nomsucursal']; ?>:</h2>
-                                <img src="img/img<?php echo ($row['idsucursal'] + 4); ?>.jpg">
+                                <img src="<?php echo $row['imgbienvenida']; ?>">
                             </div>
                         </a>
                     <?php $contadorRestaurantes++;

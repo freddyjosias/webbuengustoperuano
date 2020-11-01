@@ -8,7 +8,7 @@
 
     require '../conexion.php';
 
-    $resultadosR = $conexion -> prepare('SELECT idsucursal, nomsucursal FROM sucursal');
+    $resultadosR = $conexion -> prepare('SELECT idsucursal, nomsucursal FROM sucursal WHERE estado = 1');
     $resultadosR -> execute();
     $resultadosR = $resultadosR -> fetchAll(PDO::FETCH_ASSOC);
 
@@ -50,13 +50,13 @@
         <div class="contenedor-general panel-control">
             <nav>
                 <ul>
-                    <li><a href="panel.php">Regresar</a></li>
+                    <li><a href="../">Regresar</a></li>
                     <li><a href="listarencargados.php">Listar Encargados</a></li>
                     <li><a href="anadirencargado.php">Añadir Encargado</a></li>
                     <li><a href="eliminarencargado.php">Eliminar Encargado</a></li>
+                    <li><a href="listarrestaurantes.php">Listar Restaurantes</a></li>
                     <li><a href="anadirrestaurante.php">Añadir Restaurante</a></li>
                     <li><a href="eliminarrestaurante.php">Eliminar Restaurante</a></li>
-                    
                 </ul>
             </nav>
 
