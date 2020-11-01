@@ -87,7 +87,7 @@ $consultaVerificarRestaurante = 'SELECT * FROM sucursal WHERE idsucursal = ?';
                 </div>
                 <div class="text-carrito">
                         <ul>
-                            <li>Antes de hacer algun cambio, deberas actualizar tus datos. <a href="usuario.php?view=<?php echo $_SESSION['idusuario'] ?>">Actualizar Datos</a></li>			
+                            <li>Antes de hacer algun cambio, deberas actualizar tus datos. <a href="usuario.php">Actualizar Datos</a></li>			
                         </ul>
                 </div>
   
