@@ -2,9 +2,13 @@
 
     session_start();
 
-    // if (!isset($_SESSION['idsucursal'])) {
-    //     header('Location: index.php');
-    // }
+    if (isset($_SESSION['idusuario'])) {
+        if ($_SESSION['id_profile'] != 3) {
+            header('Location: ../index.php');
+        }
+    } else {
+        header('Location: ../index.php');
+    }
 
     require '../conexion.php';
 
