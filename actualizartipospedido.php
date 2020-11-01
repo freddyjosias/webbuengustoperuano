@@ -4,7 +4,7 @@
 
     session_start();
 
-    if (!isset($_SESSION['idsucursal'])) {
+    if (!isset($_SESSION['sucursal'])) {
         header('Location: index.php');
     }
 
@@ -12,28 +12,28 @@
         
         if (isset($_POST['delivery'])) {
             $resultados1 = $conexion -> prepare('UPDATE detalletipospedido SET disponibilidadtipospedido = ? WHERE idtipospedido = 1 AND idsucursal = ?');
-            $resultados1 -> execute(array($_POST['delivery'],$_SESSION['idsucursal']));
+            $resultados1 -> execute(array($_POST['delivery'],$_SESSION['sucursal']));
         }
 
         if (isset($_POST['recojo'])) {
             $resultados2 = $conexion -> prepare('UPDATE detalletipospedido SET disponibilidadtipospedido = ? WHERE idtipospedido = 2 AND idsucursal = ?');
-            $resultados2 -> execute(array($_POST['recojo'],$_SESSION['idsucursal']));
+            $resultados2 -> execute(array($_POST['recojo'],$_SESSION['sucursal']));
         }
 
         if (isset($_POST['reserva'])) {
             $resultados3 = $conexion -> prepare('UPDATE detalletipospedido SET disponibilidadtipospedido = ? WHERE idtipospedido = 3 AND idsucursal = ?');
-            $resultados3 -> execute(array($_POST['reserva'],$_SESSION['idsucursal']));
+            $resultados3 -> execute(array($_POST['reserva'],$_SESSION['sucursal']));
         }
     }
 
     $resultado1 = $conexion -> prepare('SELECT disponibilidadtipospedido FROM detalletipospedido WHERE idtipospedido = 1 AND idsucursal = ?');
-    $resultado1 -> execute(array($_SESSION['idsucursal']));
+    $resultado1 -> execute(array($_SESSION['sucursal']));
 
     $resultado2 = $conexion -> prepare('SELECT disponibilidadtipospedido FROM detalletipospedido WHERE idtipospedido = 2 AND idsucursal = ?');
-    $resultado2 -> execute(array($_SESSION['idsucursal']));
+    $resultado2 -> execute(array($_SESSION['sucursal']));
 
     $resultado3 = $conexion -> prepare('SELECT disponibilidadtipospedido FROM detalletipospedido WHERE idtipospedido = 3 AND idsucursal = ?');
-    $resultado3 -> execute(array($_SESSION['idsucursal']));
+    $resultado3 -> execute(array($_SESSION['sucursal']));
 
 ?>
 

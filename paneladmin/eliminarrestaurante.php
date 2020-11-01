@@ -15,10 +15,12 @@
             $deleteEncargado = $conexion -> prepare('DELETE FROM access WHERE idsucursal = ?');
             $deleteEncargado -> execute(array($_GET['delete']));
 
-            for ($i = 0; $i < count($accessRest); $i++) {
+            $auxAccess = count($accessRest);
+
+            for ($i = 0; $i < $auxAccess; $i++) {
 
                 $updateProfile = $conexion -> prepare('UPDATE usuario SET id_profile = 1 WHERE idusuario = ?');
-                $updateProfile -> execute(array($accessRest[0]['idusuario']));
+                $updateProfile -> execute(array($accessRest[$i]['idusuario']));
 
             }
                 

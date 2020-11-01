@@ -4,14 +4,14 @@
 
     session_start();
 
-    if (!isset($_SESSION['idsucursal'])) {
+    if (!isset($_SESSION['sucursal'])) {
         header('Location: index.php');
     }
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         
         $resultados = $conexion -> prepare('INSERT INTO categoriaproductos(descripcioncategoriaproducto, idsucursal) VALUE(?, ?)');
-        $resultados -> execute(array($_POST['nuevacategoria'], $_SESSION['idsucursal']));
+        $resultados -> execute(array($_POST['nuevacategoria'], $_SESSION['sucursal']));
 
     }
 

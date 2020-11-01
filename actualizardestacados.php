@@ -12,7 +12,7 @@
             move_uploaded_file($_FILES['imagendestacada1']['tmp_name'], $ruta1);
 
             $query1 = $conexion->prepare("UPDATE sucursal SET imgdestacado1 = ? AND platodestacado1 = ? WHERE idsucursal = ?");
-            $resultado1 = $query1->execute(array($ruta1,$_POST['descripcion1'] , $_SESSION['idsucursal']));
+            $resultado1 = $query1->execute(array($ruta1,$_POST['descripcion1'] , $_SESSION['sucursal']));
              
         } 
         
@@ -21,12 +21,12 @@
             move_uploaded_file($_FILES['imagendestacada1']['tmp_name'], $ruta2);
 
             $query2 = $conexion->prepare("UPDATE sucursal SET imgdestacado1 = ? WHERE idsucursal = ?");
-            $resultado2 = $query2->execute(array($ruta2, $_SESSION['idsucursal']));
+            $resultado2 = $query2->execute(array($ruta2, $_SESSION['sucursal']));
         } 
         
         if(isset($_POST['descripcion1']) && $_FILES['imagendestacada1']['name']==""){
             $query3 = $conexion->prepare("UPDATE sucursal SET platodestacado1 = ? WHERE idsucursal = ?");
-            $resultado3 = $query3->execute(array($_POST['descripcion1'], $_SESSION['idsucursal']));
+            $resultado3 = $query3->execute(array($_POST['descripcion1'], $_SESSION['sucursal']));
 
         }   
 
@@ -36,7 +36,7 @@
             move_uploaded_file($_FILES['imagendestacada2']['tmp_name'], $ruta4);
 
             $query4 = $conexion->prepare("UPDATE sucursal SET imgdestacado2 = ? AND platodestacado2 = ? WHERE idsucursal = ?");
-            $resultado4 = $query4->execute(array($ruta4,$_POST['descripcion2'] , $_SESSION['idsucursal']));  
+            $resultado4 = $query4->execute(array($ruta4,$_POST['descripcion2'] , $_SESSION['sucursal']));  
         } 
 
         if(isset($_FILES['imagendestacada2']['name']) && $_POST['descripcion2']==""){
@@ -44,12 +44,12 @@
             move_uploaded_file($_FILES['imagendestacada2']['tmp_name'], $ruta5);
 
             $query5 = $conexion->prepare("UPDATE sucursal SET imgdestacado2 = ? WHERE idsucursal = ?");
-            $resultado5 = $query5->execute(array($ruta5, $_SESSION['idsucursal']));
+            $resultado5 = $query5->execute(array($ruta5, $_SESSION['sucursal']));
         } 
 
         if(isset($_POST['descripcion2']) && $_FILES['imagendestacada2']['name']=="") {
             $query6 = $conexion->prepare("UPDATE sucursal SET platodestacado2 = ? WHERE idsucursal = ?");
-            $resultado6 = $query6->execute(array($_POST['descripcion2'], $_SESSION['idsucursal']));
+            $resultado6 = $query6->execute(array($_POST['descripcion2'], $_SESSION['sucursal']));
         }   
 
         //Plato destacado 3:
@@ -58,7 +58,7 @@
             move_uploaded_file($_FILES['imagendestacada3']['tmp_name'], $ruta7);
 
             $query7 = $conexion->prepare("UPDATE sucursal SET imgdestacado3 = ? AND platodestacado3 = ? WHERE idsucursal = ?");
-            $resultado7 = $query7->execute(array($ruta7,$_POST['descripcion3'] , $_SESSION['idsucursal']));  
+            $resultado7 = $query7->execute(array($ruta7,$_POST['descripcion3'] , $_SESSION['sucursal']));  
         } 
 
         if(isset($_FILES['imagendestacada3']['name']) && $_POST['descripcion3']==""){
@@ -66,12 +66,12 @@
             move_uploaded_file($_FILES['imagendestacada3']['tmp_name'], $ruta8);
 
             $query8 = $conexion->prepare("UPDATE sucursal SET imgdestacado3 = ? WHERE idsucursal = ?");
-            $resultado8 = $query8->execute(array($ruta8, $_SESSION['idsucursal']));
+            $resultado8 = $query8->execute(array($ruta8, $_SESSION['sucursal']));
         } 
 
         if(isset($_POST['descripcion3']) && $_FILES['imagendestacada3']['name']=="") {
             $query9 = $conexion->prepare("UPDATE sucursal SET platodestacado3 = ? WHERE idsucursal = ?");
-            $resultado9 = $query9->execute(array($_POST['descripcion3'], $_SESSION['idsucursal']));
+            $resultado9 = $query9->execute(array($_POST['descripcion3'], $_SESSION['sucursal']));
         }   
     }
         
