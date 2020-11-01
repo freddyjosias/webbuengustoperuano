@@ -3,7 +3,7 @@
     session_start();
 
     if (isset($_SESSION['idusuario'])) {
-        if ($_SESSION['id_profile'] != 3) {
+        if ($_SESSION['profile'] != 3) {
             header('Location: ../index.php');
         }
     } else {
