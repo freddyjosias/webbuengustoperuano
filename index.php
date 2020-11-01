@@ -92,7 +92,7 @@
             if (strlen($_POST['usuario']) > 0 && strlen($_POST['clave']) > 0) {
                 $usuario = $_POST['usuario'];
                 $clave = $_POST['clave'];
-                $consultaUsuario = 'SELECT * FROM usuario';
+                $consultaUsuario = 'SELECT * FROM usuario WHERE estado = 1 AND estado = 2';
                 $datosErroneos = 1;
                 $resultados = $conexion -> prepare($consultaUsuario);
                 $resultados -> execute();

@@ -8,9 +8,9 @@
 
     require '../conexion.php';
 
-    $resultadosRes = $conexion -> prepare('SELECT nomsucursal, correosucursal, telefono FROM sucursal');
-    $resultadosRes -> execute();
-    $resultadosRes = $resultadosRes -> fetchAll(PDO::FETCH_ASSOC);
+    if (isset($_POST['create'])) {
+        $nombre = 'Restaurante ' . 
+    }
 
 ?>
 
@@ -20,7 +20,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link href="https://fonts.googleapis.com/css2?family=Dosis:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <title>Añadir Encargado</title>
+    <title>Añadir Restaurante</title>
     <link rel="shorcut icon" href="../img/favicon.ico">
     <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/normalize.css">
@@ -46,33 +46,11 @@
 
             <div class='container p-5'>
                 
-                <h1 class='h3 text-center font-weight-bold'>LISTAR RESTAURANTES</h1>
+                <h1 class='h3 text-center font-weight-bold'>AÑADIR RESTAURANTE</h1>
 
-                <table class="table mt-4">
-                    <thead class='thead-light'>
-                        <tr>
-                        <th scope="col">N°</th>
-                        <th scope="col">Nombre</th>
-                        <th scope="col">Correo</th>
-                        <th scope="col">Teléfono</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                    <?php 
-                        $cont = 0;
-                        foreach($resultadosRes as $val) { 
-                        $cont++;
-                    ?>
-                            <tr>
-                                <th scope="row"><?php echo $cont ?></th>
-                                <td><?php echo $val['nomsucursal'] ?></td>
-                                <td><?php echo $val['correosucursal'] ?></td>
-                                <td><?php echo $val['telefono'] ?></td>
-                            </tr>
-                    <?php } ?>
-
-                    </tbody>
-                </table>
+                <form action="" method="post" class='text-center mt-5'>
+                    <button class='btn btn-primary' name='create' value='true'>Añadir nuevo restaurante</button>
+                </form>
 
             </div>
 
