@@ -82,6 +82,10 @@ body{
     font-size: 27px;
 }
 
+.carrito-compras{
+    width: 23px;
+}
+
 .section-inicio {
     background: rgb(226, 226, 226);
     margin: 2rem 0 0 0;

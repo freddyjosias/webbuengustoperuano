@@ -14,7 +14,7 @@ $consultaVerificarRestaurante = 'SELECT * FROM sucursal WHERE idsucursal = ?';
     
 
         $resultados = $conexion -> prepare($consultaVerificarRestaurante);
-        $resultados -> execute(array($_SESSION['sucursal']));
+        $resultados -> execute(array($_GET['view']));
         $resultados = $resultados -> fetchAll(PDO::FETCH_ASSOC);
         foreach($resultados as $row) {
            
@@ -29,7 +29,7 @@ $consultaVerificarRestaurante = 'SELECT * FROM sucursal WHERE idsucursal = ?';
          FROM tipospedido AS t INNER JOIN detalletipospedido AS d ON t.idtipospedido = d.idtipospedido 
         WHERE d.idsucursal = ? AND d.disponibilidadtipospedido = 1"
         );
-        $consultatipospedidos -> execute(array($_SESSION['sucursal']));
+        $consultatipospedidos -> execute(array($_GET['view']));
         $consultatipospedidos = $consultatipospedidos -> fetchAll(PDO::FETCH_ASSOC);
 
         $consultaformaspago = $conexion -> prepare(
@@ -37,7 +37,7 @@ $consultaVerificarRestaurante = 'SELECT * FROM sucursal WHERE idsucursal = ?';
          FROM formaspago AS f INNER JOIN detalleformaspago AS d ON f.idformaspago = d.idformaspago 
          WHERE d.idsucursal = ? AND d.disponibilidadformaspago = 1"
         );
-        $consultaformaspago -> execute(array($_SESSION['sucursal']));
+        $consultaformaspago -> execute(array($_GET['view']));
         $consultaformaspago = $consultaformaspago -> fetchAll(PDO::FETCH_ASSOC);
 
     

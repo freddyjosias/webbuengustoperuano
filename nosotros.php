@@ -82,6 +82,7 @@
                             <li><a href="panel.php">Panel</a></li>
                         <?php } ?> 
                     <?php } ?> 
+                <li><a href="anadircarrito.php?view=<?php echo $idRestaurante ?>"><img src="img/carrito.png" class="carrito-compras"></a></li>  
             </ul>
         </nav>
 	</header>

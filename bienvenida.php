@@ -86,7 +86,8 @@
                         <?php if ($_SESSION['sucursal'] == $_GET['view']) { ?>
                             <li><a href="panel.php">Panel</a></li>
                         <?php } ?> 
-                    <?php } ?>           
+                    <?php } ?>   
+                <li><a href="anadircarrito.php?view=<?php echo $idRestaurante ?>"><img src="img/carrito.png" class="carrito-compras"></a></li>        
             </ul>
         </nav>
     </header>
