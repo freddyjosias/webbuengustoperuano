@@ -5,7 +5,7 @@ require 'conexion.php';
 
 session_start();
 
-$consultaVerificarRestaurante = 'SELECT * FROM sucursal';
+$consultaVerificarRestaurante = 'SELECT * FROM sucursal WHERE idsucursal = ?';
         
 
         $idRestaurante;
@@ -14,7 +14,7 @@ $consultaVerificarRestaurante = 'SELECT * FROM sucursal';
     
 
         $resultados = $conexion -> prepare($consultaVerificarRestaurante);
-        $resultados -> execute();
+        $resultados -> execute(array($_SESSION['sucursal']));
         $resultados = $resultados -> fetchAll(PDO::FETCH_ASSOC);
         foreach($resultados as $row) {
            
@@ -52,6 +52,7 @@ $consultaVerificarRestaurante = 'SELECT * FROM sucursal';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shorcut icon" href="img/favicon.ico">
     <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <title>Bienvenida | <?php echo $nombreRestaurante ?></title>
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" type="text/css" href="css/anadircarrito.css">
     <link rel="stylesheet" type="text/css" href="css/estilos.css">
