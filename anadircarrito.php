@@ -5,6 +5,10 @@ require 'conexion.php';
 
 session_start();
 
+if (!isset($_GET['view'])) {
+    header('Location: index.php');
+}
+
 $consultaVerificarRestaurante = 'SELECT * FROM sucursal WHERE idsucursal = ?';
         
 
