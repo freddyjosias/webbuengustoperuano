@@ -99,7 +99,7 @@
                 <h1>Bienvenidos:</h1>
                 
                 <p><?php echo $textoBienvenida ?></p>
-                <img src="img/menu.jpg"> 
+                <?php echo "<img src='".$imagenSucursal."' >" ?>
                 
             </div>
             
