@@ -72,7 +72,7 @@
                     </div>
                 </header>
 
-        <section class="box-usuario">
+        <section class="box-usuariox">
                     
                     <div class="form-centro">
 
