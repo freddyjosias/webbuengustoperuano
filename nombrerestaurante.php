@@ -16,30 +16,32 @@
         header('Location: index.php');
     }
 
-    $consultaCategorias = $conexion -> prepare('SELECT idcategoriaproducto, descripcioncategoriaproducto FROM categoriaproductos WHERE idsucursal = ?');
-    $consultaCategorias -> execute(array($_SESSION['sucursal']));
-    $consultaCategorias = $consultaCategorias -> fetchAll(PDO::FETCH_ASSOC);
-
+    
+    
     if($_SERVER['REQUEST_METHOD'] == 'POST') {
 
-        $resultados = $conexion -> prepare('UPDATE categoriaproductos SET descripcioncategoriaproducto = ? WHERE idcategoriaproducto = ?');
-        $resultados -> execute(array($_POST['cat-actualizada'], $_POST['categoria']));
+        $resultados = $conexion -> prepare('UPDATE sucursal SET nomsucursal = ? WHERE idsucursal = ?');
+        $resultados -> execute(array($_POST['res-actualizada'], $_SESSION['sucursal']));
 
     }
-        
-       
-?> 
+
+    $consulta = $conexion -> prepare('SELECT * FROM sucursal WHERE idsucursal = ?');
+    $consulta -> execute(array($_SESSION['sucursal']));
+    $consulta = $consulta -> fetchAll(PDO::FETCH_ASSOC);
+
+
+?>
 
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="utf-8">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link href="https://fonts.googleapis.com/css2?family=Dosis:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <title>Actualizar Categoria</title>
+    <title>Panel</title>
     <link rel="shorcut icon" href="img/favicon.ico">
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" type="text/css" href="css/estilos.css">
-    <link rel="stylesheet" type="text/css" href="css/responpanel.css">
 
 </head>
 <body>
@@ -64,23 +66,20 @@
                     <li><a href="actualizartipospedido.php">Actualizar Tipos de pedido</a></li>
                 </ul>
             </nav>
-
             <div class='formulario-panel'>
 
-                <h1>Actualizar Categoria</h1>
+                <h1>Nombre Restaurante</h1>
 
                 <form action="" class='form-panel' method = "post">
 
-                    <p> Elegir Categoria:&nbsp;  
-                        <select name="categoria" id="">
-                            <?php foreach($consultaCategorias as $row) { ?>
-                                <option value="<?php echo $row['idcategoriaproducto'] ?>"> <?php echo $row['descripcioncategoriaproducto'] ?> </option>
+                    <p> Nombre Restaurante:&nbsp;  
+                            <?php foreach($consulta as $row) { ?>
+                                <?php echo $row['nomsucursal'] ?>
                             <?php } ?>
-                        </select>
                     </p>
-                    <p>Nuevo nombre: <input type="text" name = 'cat-actualizada'></p>
+                    <p>Nuevo nombre: <input type="text" name = 'res-actualizada'></p>
                     
-                    <input type="submit" value="Actualizar Categoria">
+                    <input type="submit" value="Actualizar Nombre">
 
                 </form>
 

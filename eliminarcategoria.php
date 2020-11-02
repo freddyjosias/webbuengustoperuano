@@ -7,6 +7,14 @@
     if (!isset($_SESSION['sucursal'])) {
         header('Location: index.php');
     }
+
+    if (isset($_SESSION['idusuario'])) {
+        if ($_SESSION['profile'] != 2) {
+            header('Location: index.php');
+        }
+    } else {
+        header('Location: index.php');
+    }
     
     $consultaCategorias = $conexion -> prepare('SELECT idcategoriaproducto, descripcioncategoriaproducto FROM categoriaproductos WHERE idsucursal = ? AND estado = 1');
     $consultaCategorias -> execute(array($_SESSION['sucursal']));
@@ -40,6 +48,7 @@
             <nav>
                 <ul>
                     <li><a href="panel.php">Inicio</a></li>
+                    <li><a href="nombrerestaurante.php">Nombre Restaurante</a></li>
                     <li><a href="actualizarbanner.php">Actualizar Banner</a></li>
                     <li><a href="actualizartextobienvenida.php">Actualizar Texto de Bienvenida</a></li>
                     <li><a href="actualizarimagenbienvenida.php">Actualizar Imagen de Bienvenida</a></li>
