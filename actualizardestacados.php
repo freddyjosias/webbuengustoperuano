@@ -20,7 +20,7 @@
              
         } 
         
-        if(isset($_FILES['imagendestacada1']['name']) && !isset($_POST['descripcion1'])){
+        if(isset($_FILES['imagendestacada1']['name']) && $_POST['descripcion1']==""){
             $ruta2 = 'img/'.$_FILES['imagendestacada1']['name']; 
             move_uploaded_file($_FILES['imagendestacada1']['tmp_name'], $ruta2);
 
@@ -43,7 +43,7 @@
             $resultado4 = $query4->execute(array($ruta4,$_POST['descripcion2'] , $_SESSION['sucursal']));  
         } 
 
-        if(isset($_FILES['imagendestacada2']['name']) && !isset(&& $_POST['descripcion2'])){
+        if(isset($_FILES['imagendestacada2']['name']) && $_POST['descripcion2']==""){
             $ruta5 = 'img/'.$_FILES['imagendestacada2']['name']; 
             move_uploaded_file($_FILES['imagendestacada2']['tmp_name'], $ruta5);
 
@@ -86,7 +86,7 @@
 <head>
 	<meta charset="utf-8">
 	<link href="https://fonts.googleapis.com/css2?family=Dosis:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <title>Actualizar Destacados</title>
+    <title>Quienes Somos - Restaurante 1</title>
     <link rel="shorcut icon" href="img/favicon.ico">
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" type="text/css" href="css/estilos.css">
@@ -100,7 +100,6 @@
             <nav>
                 <ul>
                     <li><a href="panel.php">Inicio</a></li>
-                    <li><a href="actualizarbanner.php">Actualizar Banner</a></li>
                     <li><a href="actualizartextobienvenida.php">Actualizar Texto de Bienvenida</a></li>
                     <li><a href="actualizarimagenbienvenida.php">Actualizar Imagen de Bienvenida</a></li>
                     <li><a href="actualizardestacados.php">Actualizar Platos Destacados</a></li>
