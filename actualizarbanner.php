@@ -75,7 +75,7 @@
                 </form>
 
                 <div class='text-center mt-5'>
-                    <?php echo "<img class='h-25r border border-dark' src='". $resultadosBanner[0]['banner'] ."' >" ?>
+                    <?php echo "<img class='h-24r border border-dark' src='". $resultadosBanner[0]['banner'] ."' >" ?>
                 </div>
 
             </div>
