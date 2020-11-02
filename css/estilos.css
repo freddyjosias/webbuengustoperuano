@@ -1496,7 +1496,7 @@ input[type="submit"]:active{
     }
 }
 
-/*responsive añadir carrtio*/
+/*responsive añadir carrito*/
 @media (max-width: 700px){
     .table thead tr th{
         font-size: 12px;
@@ -1511,15 +1511,11 @@ input[type="submit"]:active{
         font-size: 12px;
     }
 
-    .carrito form select{
-        border-radius: 10px;
+    .carrito form select{   
         width: 20%;
         height: 30px;
-        border: none;
         padding: .3rem 0.5rem;
-        font-weight: 580;
-        -webkit-appearance: none;
-        text-align-last: center;
+  
     }
 }
 
