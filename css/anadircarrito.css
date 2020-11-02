@@ -133,16 +133,11 @@
         font-size: 12px;
     }
 
-    .carrito form select option{
-        font-size: 8px;
-    }
-
     .carrito form select{
         border-radius: 10px;
-        width: 12%;
+        width: 20%;
         height: 30px;
         border: none;
-        font-size: 8px;
         padding: .3rem 0.5rem;
         font-weight: 580;
         -webkit-appearance: none;
