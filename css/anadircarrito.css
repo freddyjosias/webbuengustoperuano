@@ -101,6 +101,7 @@
 
 .table tbody tr td{
     color: white;
+    font-size: 1rem;
 }
 
 .table tbody tr td a{
@@ -108,7 +109,7 @@
     text-decoration: none;
     color: black;
     font-size: 16px;
-    padding: .60rem;
+    padding: .30rem;
     border-radius: 8px;
     font-weight: 580;
 }
@@ -116,4 +117,44 @@
 .table tbody tr td a:hover{
     background-color: #1C6F23;
     color: white;
+}
+
+@media (max-width: 700px){
+    .table thead tr th{
+        font-size: 12px;
+    }
+
+    .carrito p{
+        font-size: 10px;
+    }
+
+    .carrito form input[type="submit"]{
+        width: 20%;
+        font-size: 12px;
+    }
+
+    .carrito form select option{
+        font-size: 8px;
+    }
+
+    .carrito form select{
+        border-radius: 10px;
+        width: 12%;
+        height: 30px;
+        border: none;
+        font-size: 8px;
+        padding: .3rem 0.5rem;
+        font-weight: 580;
+        -webkit-appearance: none;
+        text-align-last: center;
+    }
+}
+
+@media (max-width: 650px){
+
+    .carrito form input[type="submit"]{
+        width: 25%;
+        font-size: 8px;
+    }
+
 }
