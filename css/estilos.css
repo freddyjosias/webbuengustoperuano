@@ -1036,7 +1036,7 @@ input[type="submit"]:active{
         font-size: 30px;
     }
 }
- @media (max-width: 604px){ 
+@media (max-width: 604px){ 
     .contenido-panel-home p {
         font-size: 15px;
     }
@@ -1047,16 +1047,45 @@ input[type="submit"]:active{
         font-size: 15px;
     }
 }
- @media (max-width: 604px){ 
+@media (max-width: 604px){ 
     .contenido-panel-home a {
         font-size: 12px;
     }
+}    
+
+@media (max-width: 300px){ 
+    .contenido-panel-home a {
+        font-size: 10px;
+    }
 }
 
+@media (max-width: 200px){ 
+    .contenido-panel-home a {
+        font-size: 8px;
+    }
+}    
+
+@media (max-width: 180px){ 
+        .contenido-panel-home a {
+            font-size: 5px;
+    }
+}
 
 @media (max-width: 604px){ 
     .contenido-panel-home img {
         width: 10rem;
+    }
+}
+
+@media (max-width: 604px){ 
+    .contenido-panel-home img {
+        width: 10rem;
+    }
+}
+
+@media (max-width: 270px){ 
+    .contenido-panel-home img {
+        width: 6rem;
     }
 }
 
