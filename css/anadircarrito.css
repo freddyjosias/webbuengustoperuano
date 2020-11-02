@@ -33,6 +33,7 @@
 }
 
 .carrito {
+    width: 70%;
     font-size: 2rem; 
     margin: 1rem auto;
     margin-bottom: 2.5rem;
@@ -45,12 +46,14 @@
 
 .carrito form select{
     border-radius: 10px;
-    width: 78%;
+    width: 22%;
+    height: 40px;
     border: none;
     font-size: 16px;
     padding: .6rem 1rem;
     font-weight: 580;
     -webkit-appearance: none;
+    text-align-last: center;
 }
 
 .carrito form select option{
@@ -59,9 +62,9 @@
 }
 
 .carrito form input[type="submit"]{
-    width: 34%;
+    width: 30%;
     font-size: 22px;
-    padding: .4rem 1rem;
+    padding: .5rem 1rem;
     color: #212F3D;
     border: none;
     font-weight: 580;
@@ -83,4 +86,34 @@
     color: white;
 }
 
+.table{
+    width: 100%;
+    margin: 2rem auto;
+}
 
+.table thead tr th{
+    background: linear-gradient(180deg, var(--black2) 0%, var(--black1) 100%);
+    color: white;
+    padding: .5rem;
+    font-size: 22px;
+    font-weight: 500;
+}
+
+.table tbody tr td{
+    color: white;
+}
+
+.table tbody tr td a{
+    background-color:white;
+    text-decoration: none;
+    color: black;
+    font-size: 16px;
+    padding: .60rem;
+    border-radius: 8px;
+    font-weight: 580;
+}
+
+.table tbody tr td a:hover{
+    background-color: #1C6F23;
+    color: white;
+}

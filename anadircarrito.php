@@ -99,23 +99,44 @@ $consultaVerificarRestaurante = 'SELECT * FROM sucursal WHERE idsucursal = ?';
                 <section class="carrito-carrito"> 
                     <div class="carrito">
                         <form action="" method="post">
-                            <p>Tipos de pedido:</p>
-                                <select name="tipopedido">
-                                    <?php foreach ($consultatipospedidos as $tipopedido) { ?>
-                                        <option value="<?php echo $tipopedido['idtipospedido'] ?>"><?php echo $tipopedido['descripciontipospedido'] ?></option>
-                                    <?php }  ?>
-                                </select>
-                            <p>Forma de Pago:</p>
-                                <select name="formapago">
-                                    <?php foreach ($consultaformaspago as $formaspago) { ?>
-                                        <option value="<?php echo $formaspago['idformaspago'] ?>"><?php echo $formaspago['descripcionformaspago'] ?></option>
-                                    <?php }  ?>
-                                </select>
-                            <p>Pedido con la seguridad que nos caracteriza.</p>
-                            <input type="submit" name="" value="Guardar">
+                                <p>Productos elegidos:</p>
+                                <table class="table">
+                                    <thead>
+                                        <tr>                    
+                                            <th>Producto</th>
+                                            <th>Cantidad</th>
+                                            <th>Precio Unit.</th>
+                                            <th>Monto Total</th>
+                                            <th colspan="2">Opcion</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Sandwich</td>
+                                            <td>2</td>
+                                            <td>10</td>
+                                            <td>20</td>
+                                            <td><a href="">Eliminar 1</a></td>
+                                            <td><a href="">Eliminar Todo</a></td>
+                                        </tr>
+                                    </tbody>
+                                </table>   
+                                <p>Tipos de pedido:</p>
+                                    <select name="tipopedido">
+                                        <?php foreach ($consultatipospedidos as $tipopedido) { ?>
+                                            <option value="<?php echo $tipopedido['idtipospedido'] ?>"><?php echo $tipopedido['descripciontipospedido'] ?></option>
+                                        <?php }  ?>
+                                    </select>
+                                <p>Forma de Pago:</p>
+                                    <select name="formapago">
+                                        <?php foreach ($consultaformaspago as $formaspago) { ?>
+                                            <option value="<?php echo $formaspago['idformaspago'] ?>"><?php echo $formaspago['descripcionformaspago'] ?></option>
+                                        <?php }  ?>
+                                    </select>
+                                <p>Pedido con la seguridad que nos caracteriza.</p>
+                            <input type="submit" name="" value="Realizar Pedido">
                         </form>
-                    </div>
-                    
+                    </div> 
                 </section>
         </main>
                 <footer class="footer-inicio">
