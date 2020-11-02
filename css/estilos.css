@@ -534,6 +534,10 @@ input[type="submit"]:active{
     font-weight: 500;
 }
 
+.h-24r{
+    height: 18rem;
+}
+
 /* END PANEL DE CONTROL */
 /* END PANEL DE CONTROL */
 /* END PANEL DE CONTROL */
@@ -1184,6 +1188,72 @@ input[type="submit"]:active{
 @media (max-width: 185px){
     .h-25r{
         height: 7rem;
+    }
+}
+/*BANNER*/
+@media (max-width: 1000px){
+    .h-24r{
+        height: 16rem;
+    }
+}
+
+@media (max-width: 920px){
+    .h-24r{
+        height: 14rem;
+    }
+}
+
+@media (max-width: 830px){
+    .h-24r{
+        height: 13rem;
+    }
+}
+
+@media (max-width: 800px){
+    .h-24r{
+        height: 11rem;
+    }
+}
+
+@media (max-width: 660px){
+    .h-24r{
+        height: 9rem;
+    }
+}
+
+@media (max-width: 550px){
+    .h-24r{
+        height: 7rem;
+    }
+}
+
+@media (max-width: 440px){
+    .h-24r{
+        height: 6rem;
+    }
+}
+
+@media (max-width: 370px){
+    .h-24r{
+        height: 5rem;
+    }
+}
+
+@media (max-width: 315px){
+    .h-24r{
+        height: 4rem;
+    }
+}
+
+@media (max-width: 260px){
+    .h-24r{
+        height: 3rem;
+    }
+}
+
+@media (max-width: 190px){
+    .h-24r{
+        height: 2rem;
     }
 }
 /*END RESPONSIVE PANEL*/
