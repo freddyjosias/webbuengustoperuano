@@ -58,9 +58,7 @@ $consultaVerificarRestaurante = 'SELECT * FROM sucursal WHERE idsucursal = ?';
     <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <title>Bienvenida | <?php echo $nombreRestaurante ?></title>
     <link rel="stylesheet" href="css/normalize.css">
-    <link rel="stylesheet" type="text/css" href="css/anadircarrito.css">
     <link rel="stylesheet" type="text/css" href="css/estilos.css">
-    <link rel="stylesheet" type="text/css" href="css/responanadircar.css">
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
     
 <body>

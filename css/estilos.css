@@ -538,6 +538,129 @@ input[type="submit"]:active{
     height: 18rem;
 }
 
+/*añadir carrito*/
+.contenedor-carrito{
+    width: auto;
+    height: auto;
+   }
+   
+   .bgp{
+    text-align: center;
+   }
+   .text-carrito{
+       text-align: center;
+       margin: 0 1rem;
+   }
+   
+   .text-carrito ul{
+       padding: 0;
+   }
+   
+   .text-carrito ul li{
+       list-style: none;
+       font-size: 20px;
+       font-weight: 580;
+   }
+   
+   .text-carrito ul li a{
+       text-decoration: none;
+       color: #B42727;
+   }
+   
+   .carrito-carrito{
+       display: flex;
+       text-align: center;
+       font-weight: 500;
+   }
+   
+   .carrito {
+       width: 70%;
+       font-size: 2rem; 
+       margin: 1rem auto;
+       margin-bottom: 2.5rem;
+       padding: auto; 
+       border: 3px solid #0B1442;
+       border-radius: 20px;
+       padding: 2rem;
+       background-color: #212F3D;
+   }
+   
+   .carrito form select{
+       border-radius: 10px;
+       width: 22%;
+       height: 40px;
+       border: none;
+       font-size: 16px;
+       padding: .6rem 1rem;
+       font-weight: 580;
+       -webkit-appearance: none;
+       text-align-last: center;
+   }
+   
+   .carrito form select option{
+       font-size: 16px;
+       font-weight: 580;
+   }
+   
+   .carrito form input[type="submit"]{
+       width: 30%;
+       font-size: 22px;
+       padding: .5rem 1rem;
+       color: #212F3D;
+       border: none;
+       font-weight: 580;
+       border-radius: 7px;
+   }
+   
+   .carrito form input[type="submit"]:hover{
+       background-color: #1C6F23;
+       color: white;
+       cursor: pointer;
+   }
+   
+   .carrito p{
+       color: white;
+       font-size: 20px;
+   }
+   
+   .carrito i{
+       color: white;
+   }
+   
+   .table{
+       width: 100%;
+       margin: 2rem auto;
+   }
+   
+   .table thead tr th{
+       background: linear-gradient(180deg, var(--black2) 0%, var(--black1) 100%);
+       color: white;
+       padding: .5rem;
+       font-size: 22px;
+       font-weight: 500;
+   }
+   
+   .table tbody tr td{
+       color: white;
+       font-size: 1rem;
+   }
+   
+   .table tbody tr td a{
+       background-color:white;
+       text-decoration: none;
+       color: black;
+       font-size: 16px;
+       padding: .30rem;
+       border-radius: 8px;
+       font-weight: 580;
+   }
+   
+   .table tbody tr td a:hover{
+       background-color: #1C6F23;
+       color: white;
+   }
+/*end añadir carrito*/
+
 /* END PANEL DE CONTROL */
 /* END PANEL DE CONTROL */
 /* END PANEL DE CONTROL */
@@ -801,6 +924,78 @@ input[type="submit"]:active{
     }
 }
 
+/*START USUARIO*/
+/*START USUARIO*/
+/*START USUARIO*/
+
+.header-inicio {
+    background-color: #212F3D;
+    width: 100%;
+}
+
+.contenido-header-inicio {
+    display: flex;
+}
+
+.contenedor-img{
+    background-size:cover;
+    background-position: center center;
+}
+
+.contenido-header-inicio-img {
+    width: 50%;
+}
+
+.box-usuario {
+    width: 360px;
+    padding: 20px;
+    position: absolute;
+    top: 58%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #212F3D;
+    border-radius: 20px;
+}
+
+.form-centro h1{
+    color: white;
+    text-align: center;
+}
+
+.form-centro p{
+    color: white;
+    display: inline-block;
+}
+
+.botonguardar input{
+    text-align: center;
+    border-radius: 10px;
+    width: 78%;
+    border: none;
+    font-size: 16px;
+    padding: .6rem .5rem;
+}
+
+.botonguardar input[type="submit"]:hover{
+    background-color: #1C6F23;
+    color: white;
+    cursor: pointer;
+}
+
+.botonguardar input[type="submit"]{
+    width: 34%;
+    font-size: 22px;
+    padding: .4rem 1rem;
+    color: #212F3D;
+    border: none;
+    font-weight: 500;
+}
+
+/*END USUARIO*/
+/*END USUARIO*/
+/*END USUARIO*/
+
+
 /*START RESPONSIVE BIENVENIDA*/
 /*START RESPONSIVE BIENVENIDA*/
 /*START RESPONSIVE BIENVENIDA*/
@@ -867,6 +1062,50 @@ input[type="submit"]:active{
 /*END RESPONSIVE NOSOTROS*/
 /*END RESPONSIVE NOSOTROS*/
 /*END RESPONSIVE NOSOTROS*/
+
+/*START RESPONSIVE USUARIO*/
+/*START RESPONSIVE USUARIO*/
+/*START RESPONSIVE USUARIO*/
+@media (max-width: 655px){ 
+    .contenedor-general {
+        width: 90%;
+    }
+
+    .bienvenida-page{
+        width: 100%;
+    }
+
+    .box-usuario {
+        width: auto;
+        flex-direction: column;
+        align-items: center;
+    } 
+
+    .form-centro h1{
+        font-size: 20px;
+    }
+
+    .botonguardar input[type="submit"]{
+        width: 40%;
+        font-size: 10px;
+    }
+}
+
+@media (max-width: 375px){
+    .botonguardar input[type="submit"]{
+        width: 50%;
+        font-size: 8px;
+        text-align: center;
+    }
+
+    .conetener-img{
+        width: 10%;
+    }
+}
+/*END RESPONSIVE USUARIO*/
+/*END RESPONSIVE USUARIO*/
+/*END RESPONSIVE USUARIO*/
+
 
 /*STAR RESPONSIVE INDEX*/
 /*STAR RESPONSIVE INDEX*/
@@ -1256,6 +1495,51 @@ input[type="submit"]:active{
         height: 2rem;
     }
 }
+
+/*responsive añadir carrtio*/
+@media (max-width: 700px){
+    .table thead tr th{
+        font-size: 12px;
+    }
+
+    .carrito p{
+        font-size: 10px;
+    }
+
+    .carrito form input[type="submit"]{
+        width: 20%;
+        font-size: 12px;
+    }
+
+    .carrito form select{
+        border-radius: 10px;
+        width: 20%;
+        height: 30px;
+        border: none;
+        padding: .3rem 0.5rem;
+        font-weight: 580;
+        -webkit-appearance: none;
+        text-align-last: center;
+    }
+}
+
+@media (max-width: 650px){
+
+    .carrito form input[type="submit"]{
+        width: 25%;
+        font-size: 8px;
+    }
+
+}
+
+@media (max-width: 380px){
+    .carrito form input[type="submit"]{
+        width: 50%;
+        font-size: 14px;
+    }
+}
+/*end responsive añadir carrtio*/
+
 /*END RESPONSIVE PANEL*/
 /*END RESPONSIVE PANEL*/
 /*END RESPONSIVE PANEL*/

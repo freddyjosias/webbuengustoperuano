@@ -35,8 +35,6 @@
     <link rel="stylesheet" href="css/bootstrap.add.css">
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" type="text/css" href="css/estilos.css">
-    <link rel="stylesheet" type="text/css" href="css/responpanel.css">
-
 </head>
 <body>
 
