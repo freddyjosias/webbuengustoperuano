@@ -99,7 +99,7 @@
 
                     <p> Hora inicio atención del Restaurante:&nbsp;  
                             <?php foreach($consulta as $row) { ?>
-                                <?php echo $row['direcsucursal'] ?>
+                                <?php echo $row['horaatencioninicio'] ?>
                             <?php } ?>
                     </p>
                     <p>Nueva Hora: <input value="<?php echo $row['horaatencioninicio'] ?>" type="time" name = 'horai-actualizada'></p>
