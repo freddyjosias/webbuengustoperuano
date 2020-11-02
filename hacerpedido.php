@@ -119,7 +119,7 @@
 
                                     <div class="productos-carta">
                                         <div><h3><?php echo $row2['stock'] . ' &nbsp; &nbsp; | &nbsp; &nbsp;' .$row2['nomproducto'] ?></h3></div>
-                                        <div><a class="carrito" href="?view=<?php echo $_GET['view'] ?>&anadir=<?php echo $row2['idproducto'] ?>"><i class="fas fa-cart-plus"></i></a> &nbsp; &nbsp; &nbsp; | &nbsp; &nbsp; &nbsp; S/. <?php echo $row2['precio'] ?></div>
+                                        <div><a class="carritos" href="?view=<?php echo $_GET['view'] ?>&anadir=<?php echo $row2['idproducto'] ?>"><i class="fas fa-cart-plus"></i></a> &nbsp; &nbsp; &nbsp; | &nbsp; &nbsp; &nbsp; S/. <?php echo $row2['precio'] ?></div>
                                     </div>
 
                             <?php }
