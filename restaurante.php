@@ -16,8 +16,6 @@
         header('Location: index.php');
     }
 
-    
-    
     if($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         $resultados = $conexion -> prepare('UPDATE sucursal SET nomsucursal = ?, telefono = ?, correosucursal = ?, direcsucursal = ? WHERE idsucursal = ?');
@@ -28,7 +26,6 @@
     $consulta = $conexion -> prepare('SELECT * FROM sucursal WHERE idsucursal = ?');
     $consulta -> execute(array($_SESSION['sucursal']));
     $consulta = $consulta -> fetchAll(PDO::FETCH_ASSOC);
-
 
 ?>
 
