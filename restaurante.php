@@ -20,8 +20,8 @@
     
     if($_SERVER['REQUEST_METHOD'] == 'POST') {
 
-        $resultados = $conexion -> prepare('UPDATE sucursal SET nomsucursal = ?, telefono = ?, correosucursal = ?, direcsucursal = ? WHERE idsucursal = ?');
-        $resultados -> execute(array($_POST['res-actualizada'], $_POST['tele-actualizada'], $_POST['email-actualizada'], $_POST['dire-actualizada'], $_SESSION['sucursal']));
+        $resultados = $conexion -> prepare('UPDATE sucursal SET nomsucursal = ?, telefono = ?, correosucursal = ?, direcsucursal = ?, horaatencioninicio = ?, horaatencioncierre = ? WHERE idsucursal = ?');
+        $resultados -> execute(array($_POST['res-actualizada'], $_POST['tele-actualizada'], $_POST['email-actualizada'], $_POST['dire-actualizada'], $_POST['horai-actualizada'], $_POST['horac-actualizada'], $_SESSION['sucursal']));
 
     }
 
@@ -99,6 +99,20 @@
                             <?php } ?>
                     </p>
                     <p>Nueva Dirección: <input value="<?php echo $row['direcsucursal'] ?>" type="text" name = 'dire-actualizada'></p>
+
+                    <p> Hora inicio atención del Restaurante:&nbsp;  
+                            <?php foreach($consulta as $row) { ?>
+                                <?php echo $row['direcsucursal'] ?>
+                            <?php } ?>
+                    </p>
+                    <p>Nueva Hora: <input value="<?php echo $row['horaatencioninicio'] ?>" type="time" name = 'horai-actualizada'></p>
+
+                    <p> Hora cierre atención del Restaurante:&nbsp;  
+                            <?php foreach($consulta as $row) { ?>
+                                <?php echo $row['horaatencioncierre'] ?>
+                            <?php } ?>
+                    </p>
+                    <p>Nueva Hora: <input value="<?php echo $row['horaatencioncierre'] ?>" type="time" name = 'horac-actualizada'></p>
                     
                     <input type="submit" value="Actualizar">
 
