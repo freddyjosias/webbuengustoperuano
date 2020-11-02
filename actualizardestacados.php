@@ -4,6 +4,10 @@
 
     session_start();
 
+    if (!isset($_SESSION['sucursal'])) {
+        header('Location: index.php');
+    }
+
     if($_SERVER["REQUEST_METHOD"] == "POST") {
 
         //Plato destacado 1:
@@ -16,7 +20,7 @@
              
         } 
         
-        if(isset($_FILES['imagendestacada1']['name']) && $_POST['descripcion1']==""){
+        if(isset($_FILES['imagendestacada1']['name']) && !isset($_POST['descripcion1'])){
             $ruta2 = 'img/'.$_FILES['imagendestacada1']['name']; 
             move_uploaded_file($_FILES['imagendestacada1']['tmp_name'], $ruta2);
 
@@ -39,7 +43,7 @@
             $resultado4 = $query4->execute(array($ruta4,$_POST['descripcion2'] , $_SESSION['sucursal']));  
         } 
 
-        if(isset($_FILES['imagendestacada2']['name']) && $_POST['descripcion2']==""){
+        if(isset($_FILES['imagendestacada2']['name']) && !isset(&& $_POST['descripcion2'])){
             $ruta5 = 'img/'.$_FILES['imagendestacada2']['name']; 
             move_uploaded_file($_FILES['imagendestacada2']['tmp_name'], $ruta5);
 
