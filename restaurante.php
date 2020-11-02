@@ -68,7 +68,7 @@
             </nav>
             <div class='formulario-panel'>
 
-                <h1>Nombre Restaurante</h1>
+                <h1>Información Restaurante</h1>
 
                 <form action="" class='form-panel' method = "post">
 
