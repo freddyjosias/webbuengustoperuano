@@ -20,8 +20,8 @@
     
     if($_SERVER['REQUEST_METHOD'] == 'POST') {
 
-        $resultados = $conexion -> prepare('UPDATE sucursal SET nomsucursal = ? WHERE idsucursal = ?');
-        $resultados -> execute(array($_POST['res-actualizada'], $_SESSION['sucursal']));
+        $resultados = $conexion -> prepare('UPDATE sucursal SET nomsucursal = ?, telefono = ?, correosucursal = ?, direcsucursal = ? WHERE idsucursal = ?');
+        $resultados -> execute(array($_POST['res-actualizada'], $_POST['tele-actualizada'], $_POST['email-actualizada'], $_POST['dire-actualizada'], $_SESSION['sucursal']));
 
     }
 
@@ -51,7 +51,7 @@
             <nav>
                 <ul>
                     <li><a href="panel.php">Inicio</a></li>
-                    <li><a href="nombrerestaurante.php">Nombre Restaurante</a></li>
+                    <li><a href="restaurante.php">Restaurante</a></li>
                     <li><a href="actualizarbanner.php">Actualizar Banner</a></li>
                     <li><a href="actualizartextobienvenida.php">Actualizar Texto de Bienvenida</a></li>
                     <li><a href="actualizarimagenbienvenida.php">Actualizar Imagen de Bienvenida</a></li>
@@ -77,9 +77,30 @@
                                 <?php echo $row['nomsucursal'] ?>
                             <?php } ?>
                     </p>
-                    <p>Nuevo nombre: <input type="text" name = 'res-actualizada'></p>
+                    <p>Nuevo nombre: <input value="<?php echo $row['nomsucursal'] ?>" type="text" name = 'res-actualizada'></p>
+
+                    <p> Telefono Restaurante:&nbsp;  
+                            <?php foreach($consulta as $row) { ?>
+                                <?php echo $row['telefono'] ?>
+                            <?php } ?>
+                    </p>
+                    <p>Nuevo Telefono: <input value="<?php echo $row['telefono'] ?>" type="text" name = 'tele-actualizada'></p>
+
+                    <p> Correo Restaurante:&nbsp;  
+                            <?php foreach($consulta as $row) { ?>
+                                <?php echo $row['correosucursal'] ?>
+                            <?php } ?>
+                    </p>
+                    <p>Nuevo Correo: <input value="<?php echo $row['correosucursal'] ?>" type="text" name = 'email-actualizada'></p>
+
+                    <p> Dirección Restaurante:&nbsp;  
+                            <?php foreach($consulta as $row) { ?>
+                                <?php echo $row['direcsucursal'] ?>
+                            <?php } ?>
+                    </p>
+                    <p>Nueva Dirección: <input value="<?php echo $row['direcsucursal'] ?>" type="text" name = 'dire-actualizada'></p>
                     
-                    <input type="submit" value="Actualizar Nombre">
+                    <input type="submit" value="Actualizar">
 
                 </form>
 

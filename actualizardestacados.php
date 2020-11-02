@@ -108,7 +108,7 @@
             <nav>
                 <ul>
                     <li><a href="panel.php">Inicio</a></li>
-                    <li><a href="nombrerestaurante.php">Nombre Restaurante</a></li>
+                    <li><a href="restaurante.php">Restaurante</a></li>
                     <li><a href="actualizartextobienvenida.php">Actualizar Texto de Bienvenida</a></li>
                     <li><a href="actualizarimagenbienvenida.php">Actualizar Imagen de Bienvenida</a></li>
                     <li><a href="actualizardestacados.php">Actualizar Platos Destacados</a></li>
