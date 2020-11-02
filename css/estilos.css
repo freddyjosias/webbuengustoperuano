@@ -619,6 +619,10 @@ input[type="submit"]:active{
 
 }
 
+.cerrar-sesion .admin{
+    right: 13rem;
+}
+
 .box-login{
     width: 350px;
     padding: 40px;
@@ -870,6 +874,10 @@ input[type="submit"]:active{
 @media (max-width: 910px){
     .cerrar-sesion img {
     margin-top: 0.5rem;
+    }
+
+    .cerrar-sesion .admin{
+        right: 7rem;
     }
 }
 
