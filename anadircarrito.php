@@ -77,7 +77,11 @@ $consultaVerificarRestaurante = 'SELECT * FROM sucursal WHERE idsucursal = ?';
                 <li><a href="bienvenida.php?view=<?php echo $idRestaurante ?>">Bienvenida</a></li>
                 <li><a href="hacerpedido.php?view=<?php echo $idRestaurante ?>">Pedidos</a></li>
                 <li><a href="nosotros.php?view=<?php echo $idRestaurante ?> ">Nosotros</a></li>
-                <li><a href="panel.php?view=<?php echo $idRestaurante ?> ">Panel</a></li>
+                <?php if ($_SESSION['profile'] == 2 && isset($_SESSION['sucursal'])) { ?>
+                        <?php if ($_SESSION['sucursal'] == $_GET['view']) { ?>
+                            <li><a href="panel.php">Panel</a></li>
+                        <?php } ?> 
+                <?php } ?> 
                   
             </ul>
         </nav>
