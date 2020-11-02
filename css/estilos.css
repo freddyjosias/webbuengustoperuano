@@ -1101,7 +1101,7 @@ input[type="submit"]:active{
 }
 
 @media (max-width: 352px){
-.panel-control > nav a {
+    .panel-control > nav a {
     font-size: 5.5px;
     }
 }
@@ -1124,7 +1124,40 @@ input[type="submit"]:active{
     }
 }
 
+    @media (max-width: 1200px){ 
+    button, input, optgroup, select, textarea{
+        width: 80%;
+        }
+    }
+    
+    @media (max-width: 1200px){ 
+        .form-panel input {
+             width: 40%;
+             font-size: 15px;
+        }
+    
+    
+    @media (max-width: 835px){ 
+        .form-panel input {
+             font-size: 10px;
+        }
+    }
+    
+    @media (max-width: 585px){ 
+        .form-panel input {
+            width: 50%;
+             font-size: 8px;
+        }
+    }
+    
+    @media (max-width: 385px){ 
+        .form-panel input {
+             font-size: 6px;
+        }
+    }
+}
 /*END RESPONSIVE PANEL*/
 /*END RESPONSIVE PANEL*/
 /*END RESPONSIVE PANEL*/
+
 
