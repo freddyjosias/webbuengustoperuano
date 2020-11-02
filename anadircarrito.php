@@ -116,8 +116,7 @@ $consultaVerificarRestaurante = 'SELECT * FROM sucursal WHERE idsucursal = ?';
                                             <td>2</td>
                                             <td>10</td>
                                             <td>20</td>
-                                            <td><a href="">Eliminar 1</a></td>
-                                            <td><a href="">Eliminar Todo</a></td>
+                                            <td><a href="">Eliminar</a></td>
                                         </tr>
                                     </tbody>
                                 </table>   
