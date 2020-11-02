@@ -42,7 +42,7 @@
 <head>
 	<meta charset="utf-8">
 	<link href="https://fonts.googleapis.com/css2?family=Dosis:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <title>Quienes Somos - Restaurante 1</title>
+    <title>Actualziar Tipos de Pedido</title>
     <link rel="shorcut icon" href="img/favicon.ico">
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" type="text/css" href="css/estilos.css">
@@ -56,6 +56,7 @@
             <nav>
                 <ul>
                     <li><a href="panel.php">Inicio</a></li>
+                    <li><a href="actualizarbanner.php">Actualizar Banner</a></li>
                     <li><a href="actualizartextobienvenida.php">Actualizar Texto de Bienvenida</a></li>
                     <li><a href="actualizarimagenbienvenida.php">Actualizar Imagen de Bienvenida</a></li>
                     <li><a href="actualizardestacados.php">Actualizar Platos Destacados</a></li>
