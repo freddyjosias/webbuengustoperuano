@@ -1100,6 +1100,12 @@ input[type="submit"]:active{
     }
 }
 
+@media (max-width: 352px){
+.panel-control > nav a {
+    font-size: 5.5px;
+    }
+}
+
 @media (max-width: 650px){ 
     .formulario-panel h1{
         font-size: 20px;
