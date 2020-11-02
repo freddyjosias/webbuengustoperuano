@@ -30,7 +30,7 @@
                     <img src="img/logo-white.png" class="contenido-header-inicio-img">
                 </div>
                 <div class="cerrar-sesion">
-                <?php if ($_SESSION['profile'] = 3) { ?>
+                <?php if ($_SESSION['profile'] == 3) { ?>
                     <a href="paneladmin/index.php"><img src="img/admin.png" class="admin"></a>
                 <?php } ?>
                     <a href="logout.php"><img src="img/cerrar-sesion.png"></a>
