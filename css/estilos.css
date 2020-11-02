@@ -767,6 +767,12 @@ input[type="submit"]:active{
         display: none;
     }
 
+    .carrito-compras{
+        width: 15px;
+        height: 15px;
+        padding-top: 13px;
+    }
+
 }
 
 /*START RESPONSIVE BIENVENIDA*/
