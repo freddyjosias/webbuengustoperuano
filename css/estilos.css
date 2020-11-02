@@ -716,6 +716,10 @@ input[type="submit"]:active{
         margin: 0;
     }
 
+    .panel-control{
+        width: 100%;
+    }
+
 }
 
 @media (max-width: 950px) {
@@ -727,6 +731,11 @@ input[type="submit"]:active{
     .contenedor-general {
         width: 98%;
     }
+
+    .panel-control{
+        width: 100%;
+    }
+
 
 }
 
@@ -796,6 +805,9 @@ input[type="submit"]:active{
     .destacados-bienvenida > div {
         margin: 1rem auto;
         width: 80%;
+    }
+    .panel-control{
+        width: 100%;
     }
 }
 
