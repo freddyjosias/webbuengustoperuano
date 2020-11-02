@@ -78,7 +78,7 @@
 
             <div class='container p-5'>
                 
-                <h1 class='h3 text-center font-weight-bold'>ELIMINAR ENCARGADO</h1>
+                <h1 class='h3 text-center font-weight-bold'>ELIMINAR RESTAURANTE</h1>
 
                 <table class="table mt-4">
                     <thead class='thead-light'>
