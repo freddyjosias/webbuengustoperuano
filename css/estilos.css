@@ -778,8 +778,8 @@ input[type="submit"]:active{
     
     .logo-icono img{
         /*display: none;*/
-        width: 45px;
-        height: 45px;
+        width: 40px;
+        height: 40px;
     }
 
     .carrito-compras{
