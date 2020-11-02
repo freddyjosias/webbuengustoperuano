@@ -129,7 +129,7 @@
     
         ?>
 
-            <form method='post' class="box-login col-3">
+            <form method='post' class="box-login">
                 <h1 class='mt-0'>Iniciar sesión</h1>
                 <input type="text" placeholder="&#128272; Correo" name="usuario" required>
                 <input type="password" placeholder="&#128272; Contraseña" name="clave" required>

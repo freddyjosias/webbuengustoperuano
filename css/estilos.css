@@ -620,9 +620,10 @@ input[type="submit"]:active{
 }
 
 .box-login{
+    width: 350px;
     padding: 40px;
     position: absolute;
-    top: 40%;
+    top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     background: #191919;
