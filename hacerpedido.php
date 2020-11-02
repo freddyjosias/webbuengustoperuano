@@ -67,7 +67,6 @@
         <nav>
             <ul>
                 <li><a href="bienvenida.php?view=<?php echo $idRestaurante ?>">Bienvenida</a></li>
-                <li><a href="">Pedidos</a></li>
                 <li><a href="nosotros.php?view=<?php echo $idRestaurante ?>">Nosotros</a></li>
                     <?php if ($_SESSION['profile'] == 2 && isset($_SESSION['sucursal'])) { ?>
                         <?php if ($_SESSION['sucursal'] == $_GET['view']) { ?>
