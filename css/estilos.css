@@ -640,10 +640,10 @@ input[type="submit"]:active{
        font-weight: 500;
    }
    
-   .table tbody tr td{
+    .td-color {
        color: white;
        font-size: 1rem;
-   }
+    }
    
    .table tbody tr td a{
        background-color:white;

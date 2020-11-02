@@ -110,11 +110,11 @@ $consultaVerificarRestaurante = 'SELECT * FROM sucursal WHERE idsucursal = ?';
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            <td>Sandwich</td>
-                                            <td>2</td>
-                                            <td>10</td>
-                                            <td>20</td>
-                                            <td><a href="">Eliminar</a></td>
+                                            <td class="td-color">Sandwich</td>
+                                            <td class="td-color">2</td>
+                                            <td class="td-color">10</td>
+                                            <td class="td-color">20</td>
+                                            <td class="td-color"><a href="">Eliminar</a></td>
                                         </tr>
                                     </tbody>
                                 </table>   
