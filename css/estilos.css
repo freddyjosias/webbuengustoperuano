@@ -1124,36 +1124,66 @@ input[type="submit"]:active{
     }
 }
 
-    @media (max-width: 1200px){ 
+@media (max-width: 1200px){ 
     button, input, optgroup, select, textarea{
-        width: 80%;
+    width: 80%;
         }
+}
+    
+@media (max-width: 1200px){ 
+    .form-panel input {
+     width: 40%;
+    font-size: 15px;
     }
+}
     
-    @media (max-width: 1200px){ 
-        .form-panel input {
-             width: 40%;
-             font-size: 15px;
+    
+@media (max-width: 835px){ 
+    .form-panel input {
+    font-size: 10px;
         }
+}
     
-    
-    @media (max-width: 835px){ 
-        .form-panel input {
-             font-size: 10px;
-        }
+@media (max-width: 585px){ 
+    .form-panel input {
+    width: 50%;
+    font-size: 8px;
     }
+}
     
-    @media (max-width: 585px){ 
-        .form-panel input {
-            width: 50%;
-             font-size: 8px;
-        }
+@media (max-width: 385px){ 
+    .form-panel input {
+    font-size: 6px;
     }
-    
-    @media (max-width: 385px){ 
-        .form-panel input {
-             font-size: 6px;
-        }
+}
+
+@media (max-width: 450px){
+    .h-25r{
+        height: 17rem;
+    }
+}
+
+@media (max-width: 380px){
+    .h-25r{
+        height: 13rem;
+    }
+}
+
+@media (max-width: 300px){
+    .h-25r{
+        height: 10rem;
+    }
+}
+
+@media (max-width: 225px){
+    .h-25r{
+        height: 9rem;
+    }
+}
+
+@media (max-width: 185px){
+    .h-25r{
+        height: 7rem;
     }
 }
 /*END RESPONSIVE PANEL*/
