@@ -48,18 +48,12 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-        <title>Bienvenida | <?php echo $nombresucursal ?></title>
+        <title>Pedidos | <?php echo $nombresucursal ?></title>
         <link rel="shorcut icon" href="img/favicon.ico">
         <link rel="stylesheet" href="css/normalize.css">
 	    <link rel="stylesheet" type="text/css" href="css/estilos.css">
-        <link rel="stylesheet" href="css/pedidosresponsivo.css">
 </head>
 <body>
-    <script type="text/javascript">
-        window.onload = function() {
-            document.getElementById("op1").style.background="#969696";
-    }
-    </script>
 
     <div class='logo-icono'>
         <a href="index.php"><img src="img/logo-icono.png" alt=""></a>
