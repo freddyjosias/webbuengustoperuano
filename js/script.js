@@ -75,7 +75,11 @@ $(function() {
 
     //Menu
 
-    var altura = $('.header-restaurante').height();
+    if ($('.nav-restaurant').height() == 0) {
+        var altura = $('.header-restaurante').height() - $('.navbar-restaurant').height();
+    } else {
+        var altura = $('.header-restaurante').height() - $('.nav-restaurant').height();
+    }
 	
 	$(window).on('scroll', function(){
 		if ( $(window).scrollTop() > altura ){
@@ -83,6 +87,22 @@ $(function() {
 		} else {
 			$('.header-restaurante nav').removeClass('menu-fixed');
 		}
+    });
+
+    $(window).resize(function () {
+        if ($('.nav-restaurant').height() == 0) {
+            var altura = $('.header-restaurante').height() - $('.navbar-restaurant').height();
+        } else {
+            var altura = $('.header-restaurante').height() - $('.nav-restaurant').height();
+        }
+        
+        $(window).on('scroll', function(){
+            if ( $(window).scrollTop() > altura ){
+                $('.header-restaurante nav').addClass('menu-fixed');
+            } else {
+                $('.header-restaurante nav').removeClass('menu-fixed');
+            }
+        });
     });
     
     console.log($('.opciones-categoria option'));
