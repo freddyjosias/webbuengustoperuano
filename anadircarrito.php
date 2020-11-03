@@ -62,6 +62,12 @@ $consultaVerificarRestaurante = 'SELECT * FROM sucursal WHERE idsucursal = ?';
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
     
 <body>
+<script type="text/javascript">
+        window.onload = function() {
+            document.getElementById("op3") .style.background="#969696";
+    }
+    </script>
+
     <div class='logo-icono'>
         <a href="index.php"><img src="img/logo-icono.png" alt=""></a>
     </div>
@@ -72,15 +78,15 @@ $consultaVerificarRestaurante = 'SELECT * FROM sucursal WHERE idsucursal = ?';
         </div>
         <nav>
             <ul>
-                <li><a href="bienvenida.php?view=<?php echo $idRestaurante ?>">Bienvenida</a></li>
-                <li><a href="hacerpedido.php?view=<?php echo $idRestaurante ?>">Pedidos</a></li>
-                <li><a href="nosotros.php?view=<?php echo $idRestaurante ?> ">Nosotros</a></li>
+                <li><a href="bienvenida.php?view=<?php echo $idRestaurante ?>"id="op0">Bienvenida</a></li>
+                <li><a href="hacerpedido.php?view=<?php echo $idRestaurante ?>"id="op1">Pedidos</a></li>
+                <li><a href="nosotros.php?view=<?php echo $idRestaurante ?> "id="op2">Nosotros</a></li>
                 <?php if ($_SESSION['profile'] == 2 && isset($_SESSION['sucursal'])) { ?>
                         <?php if ($_SESSION['sucursal'] == $_GET['view']) { ?>
                             <li><a href="panel.php">Panel</a></li>
                         <?php } ?> 
                 <?php } ?> 
-                  
+                <li><a href="anadircarrito.php?view=<?php echo $idRestaurante ?>" id="op3"><img src="img/carrito.png" class="carrito-compras"></a></li>  
             </ul>
         </nav>
     </header>

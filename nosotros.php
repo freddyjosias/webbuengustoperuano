@@ -63,6 +63,11 @@
 
 </head>
 <body>
+    <script type="text/javascript">
+        window.onload = function() {
+            document.getElementById("op2") .style.background="#969696";
+    }
+    </script>
 
     <div class='logo-icono'>
         <a href="index.php"><img src="img/logo-icono.png" alt=""></a>
@@ -74,14 +79,15 @@
         </div>
         <nav>
             <ul>
-                <li><a href="bienvenida.php?view=<?php echo $idRestaurante ?>">Bienvenida</a></li>
-                <li><a href="hacerpedido.php?view=<?php echo $idRestaurante ?>">Pedidos</a></li>
+                <li><a href="bienvenida.php?view=<?php echo $idRestaurante ?>" id="op0">Bienvenida</a></li>
+                <li><a href="hacerpedido.php?view=<?php echo $idRestaurante ?>"id="op1">Pedidos</a></li>
+                <li><a href="nosotros.php?view=<?php echo $idRestaurante ?>"id="op2">Nosotros</a></li>
                     <?php if ($_SESSION['profile'] == 2 && isset($_SESSION['sucursal'])) { ?>
                         <?php if ($_SESSION['sucursal'] == $_GET['view']) { ?>
                             <li><a href="panel.php">Panel</a></li>
                         <?php } ?> 
                     <?php } ?> 
-                <li><a href="anadircarrito.php?view=<?php echo $idRestaurante ?>"><img src="img/carrito.png" class="carrito-compras"></a></li>  
+                <li><a href="anadircarrito.php?view=<?php echo $idRestaurante ?>" id="op4"><img src="img/carrito.png" class="carrito-compras"></a></li>  
             </ul>
         </nav>
 	</header>
