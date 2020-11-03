@@ -290,6 +290,8 @@ input[type="submit"]:active{
 
 .navbar-restaurant {
     background-color: var(--principal-color);
+    max-height: 100vh;
+    overflow: auto;
 }
 
 .navbar-restaurant-list {
