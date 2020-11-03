@@ -61,6 +61,7 @@
     <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/bootstrap.add.css">
     <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="fontawesome/css/all.min.css">
     <link rel="stylesheet" type="text/css" href="css/estilos.css">
 </head>
 <body>
@@ -162,7 +163,6 @@
 
     <script src="js/jquery-3.5.1.min.js"></script>
     <script src="bootstrap/js/bootstrap.min.js"></script>
-    <script src="https://kit.fontawesome.com/4580061bb3.js" crossorigin="anonymous"></script>
     <script src="js/script.js"></script>
 </body>
 </html>

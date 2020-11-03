@@ -57,13 +57,16 @@ $consultaVerificarRestaurante = 'SELECT * FROM sucursal WHERE idsucursal = ?';
     <link rel="shorcut icon" href="img/favicon.ico">
     <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <title>Carrito | <?php echo $nombreRestaurante ?></title>
+    <link rel="shorcut icon" href="img/logo-icono.png">
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap.add.css">
     <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="fontawesome/css/all.min.css">
     <link rel="stylesheet" type="text/css" href="css/estilos.css">
-    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
     
 <body>
 
-    <div class='logo-icono'>
+    <div class='logo-icono d-none d-md-block'>
         <a href="index.php"><img src="img/logo-icono.png" alt=""></a>
     </div>
 
@@ -71,11 +74,9 @@ $consultaVerificarRestaurante = 'SELECT * FROM sucursal WHERE idsucursal = ?';
         <div>
             <?php echo "<img src='".$bannerSucursal."' >" ?>
         </div>
-        <nav>
-            <ul>
-                <?php require 'menu/menurestaurants.php'; ?>
-            </ul>
-        </nav>
+        
+        <?php require 'menu/menurestaurants.php'; ?>
+
     </header>
         <main class="contenedor-carrito">
                 <div class="bgp">
@@ -135,7 +136,8 @@ $consultaVerificarRestaurante = 'SELECT * FROM sucursal WHERE idsucursal = ?';
                     </div>
                 </footer>
 
-        <script src="js/jquery-3.5.1.min.js"></script>
+    <script src="js/jquery-3.5.1.min.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
     <script src="js/script.js"></script>
 </body>
 </html>
