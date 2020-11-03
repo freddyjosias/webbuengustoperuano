@@ -10,7 +10,7 @@
                     <?php } ?> 
                 <?php } ?> 
             <li>
-                <a href="carrito.php?view=<?php echo $idRestaurante ?>" class="op3" class='h-100 align-items-center'>
+                <a href="carrito.php?view=<?php echo $idRestaurante ?>" class='op3 h-100 align-items-center'>
                     <i class="fas fa-shopping-cart"> </i>
                 </a>
             </li>
