@@ -46,17 +46,17 @@
     bottom: 0rem;
     right: 0rem;
     height: 10rem;
-    width: 10rem;
+    width: 20rem;
     overflow: hidden;
 }
 
 .draw-two .container { 
     background-color: var(--principal-hover);
     border: 1rem solid var(--principal-color);
-    bottom: -10rem;
+    bottom: -8rem;
     right: -10rem;
-    width: 30rem;
-    height: 20rem;
+    width: 25rem;
+    height: 15rem;
     position: absolute;
 
     border-radius: 50%;
