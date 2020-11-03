@@ -99,19 +99,18 @@ $(function() {
     var objectMenu ;
 
     if (urlMenu == 'hacerpedido.php') {
-        objectMenu = $('#op1');
+        objectMenu = $('.op1');
     } else if( urlMenu == 'bienvenida.php') {
-        objectMenu = $('#op0');
+        objectMenu = $('.op0');
     } else if( urlMenu == 'nosotros.php') {
-        objectMenu = $('#op2');
+        objectMenu = $('.op2');
     } else if( urlMenu == 'carrito.php') {
-        objectMenu = $('#op3');
+        objectMenu = $('.op3');
     }
 
     if (objectMenu != undefined) {
-        objectMenu.css('background-color', '#969696');
-        objectMenu.css('border-left', '1px solid white');
-        objectMenu.css('border-right', '1px solid white');
+        objectMenu.parent().css('background-color', '#969696');
+        objectMenu.parent().css('border', '1px solid white');
     }
     
 

@@ -49,25 +49,25 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@400;500;600;700;800&display=swap" rel="stylesheet">
         <title>Pedidos | <?php echo $nombresucursal ?></title>
-        <link rel="shorcut icon" href="img/favicon.ico">
+        <link rel="shorcut icon" href="img/logo-icono.png">
+        <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/bootstrap.add.css">
         <link rel="stylesheet" href="css/normalize.css">
 	    <link rel="stylesheet" type="text/css" href="css/estilos.css">
 </head>
 <body>
 
-    <div class='logo-icono'>
+    <div class='logo-icono d-none d-md-block'>
         <a href="index.php"><img src="img/logo-icono.png" alt=""></a>
     </div>
 
     <header class="header-restaurante">
         <div>
-            <?php echo "<img src='".$bannerSucursal."' >" ?>
+            <?php echo "<img class='' src='".$bannerSucursal."' >" ?>
         </div>
-        <nav>
-            <ul>
-                <?php require 'menu/menurestaurants.php'; ?>
-            </ul>
-        </nav>
+                
+        <?php require 'menu/menurestaurants.php'; ?>
+
 	</header>
 	
     <main class= "carta">
@@ -135,6 +135,7 @@
     <img src="img/ir-arriba.png" class="ir-arriba">
 
     <script src="js/jquery-3.5.1.min.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
     <script src="https://kit.fontawesome.com/4580061bb3.js" crossorigin="anonymous"></script>
     <script src="js/script.js"></script>
 </body>
