@@ -453,7 +453,7 @@ input[type="submit"]:active{
 
 .panel-control > nav {
     width: 20%;
-    background-color: rgb(116, 116, 116);
+    background-color: #212F3D;
     color: white;
 }
 
