@@ -1,3 +1,67 @@
+:root {
+    --principal-color: #212F3D;
+    --principal-hover: #212f3de8;
+}
+
+
+/* LOGIN NEW */
+
+.container-login-new {
+    background-color: #f2f2f2;
+}
+
+.login-img-right {
+    background-color: var(--principal-color);
+}
+
+.login-img-right > img {
+    opacity: 0.3;
+}
+
+.container-login-text-right {
+    top: 0;
+}
+
+.login-text-right  img{
+    width: 3.5rem;
+}
+
+.color-header {
+    color: var(--principal-color);
+}
+
+.draw-one{
+    background-color: var(--principal-hover);
+    border: 1rem solid var(--principal-color);
+    top: -10rem;
+    left: -10rem;
+    width: 30rem;
+    height: 20rem;
+    position: absolute;
+    border-radius: 50%;
+}
+
+.draw-two {
+    position: absolute;
+    bottom: 0rem;
+    right: 0rem;
+    height: 10rem;
+    width: 10rem;
+    overflow: hidden;
+}
+
+.draw-two .container { 
+    background-color: var(--principal-hover);
+    border: 1rem solid var(--principal-color);
+    bottom: -10rem;
+    right: -10rem;
+    width: 30rem;
+    height: 20rem;
+    position: absolute;
+
+    border-radius: 50%;
+}
+
 /* START ESTILOS GENERALES */
 /* START ESTILOS GENERALES */
 /* START ESTILOS GENERALES */
@@ -7,6 +71,7 @@
     max-width: 75rem;
     margin: auto;
 }
+
 body{
     font-family: 'Dosis', sans-serif;
 }
