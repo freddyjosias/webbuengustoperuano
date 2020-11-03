@@ -1224,6 +1224,10 @@ input[type="submit"]:active{
         height: 65px;
     }
 
+    .cerrar-sesion {
+        width: 60%;
+    }
+
     .slider{
         height: 240px;
     }
@@ -1250,10 +1254,21 @@ input[type="submit"]:active{
     }
 }
 
-@media (max-width: 350px){
-    .contenido-header-inicio-img{
-        width: 180px;
+@media (max-width: 576px){
+
+    .contenedor-img{
+        width: 240px;
     }
+
+    .contenido-header-inicio-img{
+        width: auto;
+        height: 52px;
+        margin: 6px 0;
+    }
+
+}
+
+@media (max-width: 350px){
 
     .slider{
         height: 220px;

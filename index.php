@@ -16,8 +16,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shorcut icon" href="img/favicon.ico">
     <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="fontawesome/css/all.min.css">
     <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/bootstrap.add.css">
 	<link rel="stylesheet" type="text/css" href="css/estilos.css">
 </head>
 <body>
@@ -25,17 +27,26 @@
     <?php if (isset($_SESSION['idusuario'])) { ?>                        
         
         <header class="header-inicio">
+
             <div class="contenedor-general contenido-header-inicio">
+
                 <div class="contenedor-img">  
-                    <img src="img/logo-white.png" class="contenido-header-inicio-img">
+                    <img src="img/logo-white.png" class="contenido-header-inicio-img d-none d-sm-block">
+                    <img src="img/logo-inicial.png" class="contenido-header-inicio-img d-block d-sm-none">
                 </div>
-                <div class="cerrar-sesion">
-                <?php if ($_SESSION['profile'] == 3) { ?>
-                    <a href="paneladmin/index.php"><img src="img/admin.png" class="admin"></a>
-                <?php } ?>
-                    <a href="logout.php"><img src="img/cerrar-sesion.png"></a>
+
+                <div class="cerrar-sesion text-right">
+                    <div class="container h-100 align-items-center d-flex p-0">
+                        <?php if ($_SESSION['profile'] == 3) { ?>
+                            <a class='text-white h3 sm-h2 ml-auto mb-0' title='Panel de Administrador' href="paneladmin/index.php"><i class="fas fa-cogs"></i></a>
+                        <?php } ?>
+                        <a class='text-white h3 sm-h2 ml-3 ml-sm-4 mb-0' title='Información de la cuenta' href="#"><i class="fas fa-user"></i></i></a>
+                        <a class='text-white h3 sm-h2 ml-3 ml-sm-4 mb-0' title='Cerrar Sesión' href="logout.php"><i class="fas fa-sign-out-alt"></i></a>
+                    </div>
                 </div>
+
             </div>
+
         </header>
 
         <div class="slider contenedor-general">
