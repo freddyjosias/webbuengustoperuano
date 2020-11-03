@@ -38,9 +38,9 @@
                 <div class="cerrar-sesion text-right">
                     <div class="container h-100 align-items-center d-flex p-0">
                         <?php if ($_SESSION['profile'] == 3) { ?>
-                            <a class='text-white h3 sm-h2 ml-auto mb-0' title='Panel de Administrador' href="paneladmin/index.php"><i class="fas fa-cogs"></i></a>
+                            <a class='text-white h3 sm-h2 ml-auto mr-right mb-0' title='Panel de Administrador' href="paneladmin/index.php"><i class="fas fa-cogs"></i></a>
                         <?php } ?>
-                        <a class='text-white h3 sm-h2 ml-3 ml-sm-4 mb-0' title='Información de la cuenta' href="#"><i class="fas fa-user"></i></i></a>
+                        <a class='text-white h3 sm-h2 ml-auto ml-sm-4 mb-0' title='Información de la cuenta' href="#"><i class="fas fa-user"></i></i></a>
                         <a class='text-white h3 sm-h2 ml-3 ml-sm-4 mb-0' title='Cerrar Sesión' href="logout.php"><i class="fas fa-sign-out-alt"></i></a>
                     </div>
                 </div>
