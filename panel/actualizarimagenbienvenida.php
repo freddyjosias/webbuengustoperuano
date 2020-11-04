@@ -19,7 +19,7 @@
     if($_SERVER["REQUEST_METHOD"] == "POST"){
 
         $ruta = 'img/'.$_FILES['nuevaimagen']['name']; 
-        move_uploaded_file($_FILES['nuevaimagen']['tmp_name'], $ruta);
+        move_uploaded_file($_FILES['nuevaimagen']['tmp_name'], "../".$ruta);
 
         $query = $conexion->prepare("UPDATE sucursal SET imgbienvenida = ? WHERE idsucursal = ?");
         $resultado = $query->execute(array($ruta, $_SESSION['sucursal'])); 

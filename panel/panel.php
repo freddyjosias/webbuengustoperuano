@@ -1,7 +1,5 @@
 <?php
 
-    require '../conexion.php';
-
     session_start();
 
     if (!isset($_SESSION['sucursal'])) {
@@ -16,30 +14,18 @@
         header('Location: index.php');
     }
 
-    $consultaCategorias = $conexion -> prepare('SELECT idcategoriaproducto, descripcioncategoriaproducto FROM categoriaproductos WHERE idsucursal = ?');
-    $consultaCategorias -> execute(array($_SESSION['sucursal']));
-    $consultaCategorias = $consultaCategorias -> fetchAll(PDO::FETCH_ASSOC);
-
-    if($_SERVER['REQUEST_METHOD'] == 'POST') {
-
-        $resultados = $conexion -> prepare('UPDATE categoriaproductos SET descripcioncategoriaproducto = ? WHERE idcategoriaproducto = ?');
-        $resultados -> execute(array($_POST['cat-actualizada'], $_POST['categoria']));
-
-    }
-        
-       
-?> 
+?>
 
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="utf-8">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link href="https://fonts.googleapis.com/css2?family=Dosis:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <title>Actualizar Categoria</title>
+    <title>Panel</title>
     <link rel="shorcut icon" href="../img/favicon.ico">
     <link rel="stylesheet" href="../css/normalize.css">
     <link rel="stylesheet" type="text/css" href="../css/estilos.css">
-    <link rel="stylesheet" type="text/css" href="../css/responpanel.css">
 
 </head>
 <body>
@@ -65,25 +51,10 @@
                 </ul>
             </nav>
 
-            <div class='formulario-panel'>
-
-                <h1>Actualizar Categoria</h1>
-
-                <form action="" class='form-panel' method = "post">
-
-                    <p> Elegir Categoria:&nbsp;  
-                        <select name="categoria" id="">
-                            <?php foreach($consultaCategorias as $row) { ?>
-                                <option value="<?php echo $row['idcategoriaproducto'] ?>"> <?php echo $row['descripcioncategoriaproducto'] ?> </option>
-                            <?php } ?>
-                        </select>
-                    </p>
-                    <p>Nuevo nombre: <input type="text" name = 'cat-actualizada'></p>
-                    
-                    <input type="submit" value="Actualizar Categoria">
-
-                </form>
-
+            <div class='contenido-panel-home'>
+                <img src="../img/logo-icono.png">
+                <p>Bienvenido a su Panel de Control</p>
+                <a href="bienvenida.php?view=<?php echo $_SESSION['sucursal'] ?>">Ver mi Restaurante</a>
             </div>
 
         </div>
