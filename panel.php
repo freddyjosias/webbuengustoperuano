@@ -37,17 +37,17 @@
                     <li><a href="panel.php">Inicio</a></li>
                     <li><a href="panel/restaurante.php">Restaurante</a></li>
                     <li><a href="panel/actualizarbanner.php">Actualizar Banner</a></li>
-                    <li><a href="actualizartextobienvenida.php">Actualizar Texto de Bienvenida</a></li>
-                    <li><a href="actualizarimagenbienvenida.php">Actualizar Imagen de Bienvenida</a></li>
-                    <li><a href="actualizardestacados.php">Actualizar Platos Destacados</a></li>
-                    <li><a href="anadircategoria.php">Añadir Categoria</a></li>
-                    <li><a href="eliminarcategoria.php">Eliminar Categoria</a></li>
-                    <li><a href="actualizarcategoria.php">Actualizar Categoria</a></li>
-                    <li><a href="anadirproducto.php">Añadir Producto</a></li>
-                    <li><a href="eliminarproducto.php">Eliminar Producto</a></li>
-                    <li><a href="actualizarproducto.php">Actualizar Praducto</a></li>
-                    <li><a href="actualizarformaspago.php">Actualizar Formas de Pago</a></li>
-                    <li><a href="actualizartipospedido.php">Actualizar Tipos de pedido</a></li>
+                    <li><a href="panel/actualizartextobienvenida.php">Actualizar Texto de Bienvenida</a></li>
+                    <li><a href="panel/actualizarimagenbienvenida.php">Actualizar Imagen de Bienvenida</a></li>
+                    <li><a href="panel/actualizardestacados.php">Actualizar Platos Destacados</a></li>
+                    <li><a href="panel/anadircategoria.php">Añadir Categoria</a></li>
+                    <li><a href="panel/eliminarcategoria.php">Eliminar Categoria</a></li>
+                    <li><a href="panel/actualizarcategoria.php">Actualizar Categoria</a></li>
+                    <li><a href="panel/anadirproducto.php">Añadir Producto</a></li>
+                    <li><a href="panel/eliminarproducto.php">Eliminar Producto</a></li>
+                    <li><a href="panel/actualizarproducto.php">Actualizar Praducto</a></li>
+                    <li><a href="panel/actualizarformaspago.php">Actualizar Formas de Pago</a></li>
+                    <li><a href="panel/actualizartipospedido.php">Actualizar Tipos de pedido</a></li>
                 </ul>
             </nav>
 
