@@ -1174,8 +1174,11 @@ input[type="submit"]:active{
 /*STAR RESPONSIVE INDEX*/
 /*STAR RESPONSIVE INDEX*/
 
-
-
+@media (max-width: 600px){
+.contenido-carta > div h3 {
+        font-size: 13px;
+    }
+}
 
 @media (max-width: 910px){
     .cerrar-sesion img {
