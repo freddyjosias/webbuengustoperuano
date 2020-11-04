@@ -1,6 +1,6 @@
 <?php
 
-    require 'conexion.php';
+    require '../conexion.php';
 
     session_start();
 
@@ -36,9 +36,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link href="https://fonts.googleapis.com/css2?family=Dosis:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <title>Panel</title>
-    <link rel="shorcut icon" href="img/favicon.ico">
-    <link rel="stylesheet" href="css/normalize.css">
-    <link rel="stylesheet" type="text/css" href="css/estilos.css">
+    <link rel="shorcut icon" href="../img/favicon.ico">
+    <link rel="stylesheet" href="../css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="../css/estilos.css">
 
 </head>
 <body>
@@ -47,7 +47,7 @@
         <div class="contenedor-general panel-control">
             <nav>
                 <ul>
-                    <li><a href="panel.php">Inicio</a></li>
+                    <li><a href="../panel.php">Inicio</a></li>
                     <li><a href="restaurante.php">Restaurante</a></li>
                     <li><a href="actualizarbanner.php">Actualizar Banner</a></li>
                     <li><a href="actualizartextobienvenida.php">Actualizar Texto de Bienvenida</a></li>
