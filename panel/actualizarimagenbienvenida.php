@@ -82,7 +82,7 @@
                 </form>
 
                 <div class='text-center mt-5'>
-                    <?php echo "<img class='h-25r border border-dark' src='". $resultadosImg[0]['imgbienvenida'] ."' >" ?>
+                    <?php echo "<img class='h-25r border border-dark' src='../". $resultadosImg[0]['imgbienvenida'] ."' >" ?>
                 </div>
 
             </div>
