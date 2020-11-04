@@ -63,6 +63,17 @@
     margin: auto 5rem;
 }
 
+.no-select{
+    -moz-user-select: none; 
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none; 
+ }
+
+.out-line-none {
+    outline: none;
+}
+
 .rounded-left-15 {
     border-bottom-left-radius: 15px;
     border-top-left-radius: 15px;
