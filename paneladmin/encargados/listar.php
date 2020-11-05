@@ -44,10 +44,16 @@
                 require '../../menu/menupaneladmin.php';
             ?>
 
-            <div class='container p-5 main-panel m-0 mw-85 w-85'>
+            
+
+            <div class='container p-0 main-panel m-0 mw-85 w-85'>
+
+                <div class="line-top-panel row h-4r">
+                    
+                </div>
                 
-                <div class="row w-90 m-auto">
-                    <h1 class='h3 text-center font-weight-bold w-100'>ENCARGADOS</h1>
+                <div class="row w-80 m-auto">
+                    <h1 class='h3 text-center mt-5 font-weight-bold w-100'>ENCARGADOS</h1>
                     <div class="btn-color-princi ml-auto">
                         <a class="btn btn-primary bottom" href="agregar.php">Agregar</a>
                     </div>
