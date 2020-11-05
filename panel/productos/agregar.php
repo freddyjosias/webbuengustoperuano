@@ -39,7 +39,7 @@
 <head>
 	<meta charset="utf-8">
 	<link href="https://fonts.googleapis.com/css2?family=Dosis:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <title>Añadir Producto</title>
+    <title>Agregar Producto</title>
     <link rel="shorcut icon" href="../../img/favicon.ico">
     <link rel="stylesheet" href="../../css/normalize.css">
     <link rel="stylesheet" type="text/css" href="../../css/estilos.css">
@@ -54,7 +54,7 @@
 
         <?php require '../../menu/menupanel.php'; ?>
 
-            <div class='formulario-panel'>
+            <div class='formulario-panel container'>
 
                 <h1>Agregar Producto</h1>
 

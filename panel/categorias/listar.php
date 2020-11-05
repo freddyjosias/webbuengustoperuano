@@ -15,13 +15,11 @@
          header('Location: ../../index.php');
      }
 
-    $consultaProductos = $conexion -> prepare(
-        'SELECT p.idproducto, p.idcategoriaproducto, p.nomproducto, p.precio, p.stock, p.estado, c.idsucursal, c.descripcioncategoriaproducto, c.estado
-         FROM productos AS p INNER JOIN categoriaproductos AS c ON p.idcategoriaproducto = c.idcategoriaproducto
-         WHERE c.idsucursal = ? AND p.estado = 1 AND c.estado = 1'
+    $consultaCategorias = $conexion -> prepare(
+        'SELECT * FROM categoriaproductos WHERE idsucursal = ? AND estado = 1'
     );
-    $consultaProductos -> execute(array($_SESSION['sucursal']));
-    $consultaProductos = $consultaProductos -> fetchAll(PDO::FETCH_ASSOC);
+    $consultaCategorias -> execute(array($_SESSION['sucursal']));
+    $consultaCategorias = $consultaCategorias -> fetchAll(PDO::FETCH_ASSOC);
     
 ?>
 
@@ -30,7 +28,7 @@
 <head>
 	<meta charset="utf-8">
 	<link href="https://fonts.googleapis.com/css2?family=Dosis:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <title>Productos</title>
+    <title>Categorias</title>
     <link rel="shorcut icon" href="../../img/favicon.ico">
     <link rel="stylesheet" href="../../fontawesome/css/all.min.css">
     <link rel="stylesheet" href="../../css/normalize.css">
@@ -49,29 +47,23 @@
 
             <div class='formulario-panel container'>
                 <div class="contenido-listar">
-                    <h1>Lista de productos</h1>
+                    <h1>Lista de categorias</h1>
                     <div class="direccion-a">
                         <a class="btn btn-primary bottom" href="agregar.php">Agregar</a>
                     </div>
                     <table class="table mt-4">
                         <thead class='thead-light'>
                             <tr>                    
-                                <th class="th" scope="col">Categoria</th>
-                                <th class="th" scope="col">Producto</th>
-                                <th class="th" scope="col">Precio</th>
-                                <th class="th" scope="col">Stock</th>
+                                <th class="th" scope="col">Descripcion</th>
                                 <th class="th text-center" colspan="2">Más</th>
                             </tr>
                         </thead>
-                        <?php foreach($consultaProductos as $producto) {?>
+                        <?php foreach($consultaCategorias as $categoria) {?>
                             <tbody>
                                 <tr>
-                                    <td><?php echo $producto['descripcioncategoriaproducto'] ?></td>
-                                    <td><?php echo $producto['nomproducto'] ?></td>
-                                    <td><?php echo $producto['precio'] ?></td>
-                                    <td><?php echo $producto['stock'] ?></td>
-                                    <td class='text-center'><a href="actualizar.php?id=<?php echo $producto['idproducto']; ?>&categoria=<?php echo $producto['idcategoriaproducto']; ?>"><i class="far fa-edit"></i></a></td>
-                                    <td class='text-center'><a href="eliminar.php?id=<?php echo $producto['idproducto']; ?>&categoria=<?php echo $producto['idcategoriaproducto']; ?>"><i class="far fa-trash-alt"></i></a></td>
+                                    <td><?php echo $categoria['descripcioncategoriaproducto'] ?></td>
+                                    <td class='text-center'><a href="actualizar.php?id=<?php echo $categoria['idcategoriaproducto']; ?>"><i class="far fa-edit"></i></a></td>
+                                    <td class='text-center'><a href="eliminar.php?id=<?php echo $categoria['idcategoriaproducto']; ?>"><i class="far fa-trash-alt"></i></a></td>
                                 </tr>
                             </tbody>
                         <?php } ?>

@@ -1,19 +1,19 @@
 <?php
 
-    require '../conexion.php';
+    require '../../conexion.php';
 
     session_start();
 
     if (!isset($_SESSION['sucursal'])) {
-        header('Location: index.php');
+        header('Location: ../../index.php');
     }
 
     if (isset($_SESSION['idusuario'])) {
         if ($_SESSION['profile'] != 2) {
-            header('Location: index.php');
+            header('Location: ../../index.php');
         }
     } else {
-        header('Location: index.php');
+        header('Location: ../../index.php');
     }
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -21,6 +21,9 @@
         $resultados = $conexion -> prepare('INSERT INTO categoriaproductos(descripcioncategoriaproducto, idsucursal) VALUE(?, ?)');
         $resultados -> execute(array($_POST['nuevacategoria'], $_SESSION['sucursal']));
 
+        if ($resultados) {
+            header('Location: listar.php');
+        }
     }
 
 ?>
@@ -46,15 +49,15 @@
 
             <?php require '../../menu/menupanel.php'; ?>
 
-            <div class='formulario-panel'>
+            <div class='formulario-panel container'>
 
                 <h1>Añadir Categoria</h1>
 
-                <form action="" class='form-panel' method="post">
+                <form class='form-panel' method="post">
 
                     <p>Categoria Nueva: <input type="text" name='nuevacategoria'></p>  
 
-                    <input type="submit" value="Añadir Categoria">
+                    <input class="btn btn-secondary bottom" type="submit" value="Añadir Categoria">
 
                 </form>
 

@@ -24,7 +24,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link href="https://fonts.googleapis.com/css2?family=Dosis:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <title>Añadir Encargado</title>
+    <title>Lista de Encargados</title>
     <link rel="shorcut icon" href="../../img/logo-icono.png">
     <link rel="stylesheet" href="../../bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="../../fontawesome/css/all.min.css">
@@ -41,9 +41,7 @@
         <div class="container-fluid panel-control mw-1920p p-0">
             
             <?php
-
                 require '../../menu/menupaneladmin.php';
-
             ?>
 
             <div class='container p-5 main-panel m-0 mw-85 w-85'>
@@ -61,7 +59,7 @@
                             <th scope="col">Nombre</th>
                             <th scope="col">Correo</th>
                             <th scope="col">Restaurante</th>
-                            <th  class='text-center' scope="col">Más</th>
+                            <th class='text-center' scope="col">Más</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -78,8 +76,7 @@
                                 <td><?php echo $val['nombreusuario'] ?></td>
                                 <td><?php echo $val['emailusuario'] ?></td>
                                 <td><?php echo $val['nomsucursal'] ?></td>
-                                <!-- <td><a class="btn btn-danger" href="eliminar.php?id=<?php echo $val['idusuario'];?>&email=<?php echo $val['emailusuario'];?>">Eliminar</a></td> -->
-                                <td  class='text-center'><i class="far fa-trash-alt"></i></td>
+                                <td class='text-center'><a href="eliminar.php?id=<?php echo $val['idusuario'];?>&email=<?php echo $val['emailusuario'];?>"><i class="far fa-trash-alt"></i></a></td>
                             </tr>
                     <?php } ?>
 

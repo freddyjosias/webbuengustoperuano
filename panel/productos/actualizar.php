@@ -5,15 +5,15 @@
     session_start();
 
     if (!isset($_SESSION['sucursal'])) {
-        header('Location: index.php');
+        header('Location: ../../index.php');
     }
 
     if (isset($_SESSION['idusuario'])) {
         if ($_SESSION['profile'] != 2) {
-            header('Location: index.php');
+            header('Location: ../../index.php');
         }
     } else {
-        header('Location: index.php');
+        header('Location: ../../index.php');
     }
 
     $consultaCategorias = $conexion -> prepare('SELECT idcategoriaproducto, idsucursal, descripcioncategoriaproducto FROM categoriaproductos WHERE idsucursal = ?');
@@ -66,7 +66,7 @@
 
             <?php require '../../menu/menupanel.php'; ?>
 
-            <div class='formulario-panel'>
+            <div class='formulario-panel container'>
 
                 <h1>Actualizar Producto</h1>
 
