@@ -3,15 +3,15 @@
     session_start();
 
     if (!isset($_SESSION['sucursal'])) {
-        header('Location: index.php');
+        header('Location: ../index.php');
     }
 
     if (isset($_SESSION['idusuario'])) {
         if ($_SESSION['profile'] != 2) {
-            header('Location: index.php');
+            header('Location: ../index.php');
         }
     } else {
-        header('Location: index.php');
+        header('Location: ../index.php');
     }
 
 ?>

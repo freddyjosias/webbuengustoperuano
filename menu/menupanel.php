@@ -9,9 +9,7 @@
             <li><a href="anadircategoria.php">Añadir Categoria</a></li>
             <li><a href="eliminarcategoria.php">Eliminar Categoria</a></li>
             <li><a href="actualizarcategoria.php">Actualizar Categoria</a></li>
-            <li><a href="anadirproducto.php">Añadir Producto</a></li>
-            <li><a href="eliminarproducto.php">Eliminar Producto</a></li>
-            <li><a href="actualizarproducto.php">Actualizar Praducto</a></li>
+            <li><a href="productos/listar.php">Productos</a></li>
             <li><a href="actualizarformaspago.php">Actualizar Formas de Pago</a></li>
             <li><a href="actualizartipospedido.php">Actualizar Tipos de pedido</a></li>
         </ul>
