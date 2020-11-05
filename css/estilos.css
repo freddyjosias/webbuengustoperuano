@@ -545,6 +545,10 @@ body {
     border-top: 2px solid black;
 }
 
+.nav-panel-options li a:hover {
+    background-color: #969696;
+}
+
 .main-panel {
     background-color: #f2f2f2;
 }
