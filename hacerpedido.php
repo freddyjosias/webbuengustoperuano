@@ -37,8 +37,14 @@
                 $resultadosAnadir = $conexion -> prepare('SELECT idproducto FROM productos INNER JOIN categoriaproductos ON categoriaproductos.idcategoriaproducto = productos.idcategoriaproducto INNER JOIN sucursal ON sucursal.idsucursal = categoriaproductos.idsucursal WHERE sucursal.idsucursal = ? AND categoriaproductos.idsucursal = ? AND categoriaproductos.estado = 1 AND productos.estado = 1 AND productos.idproducto = ?');
                 $resultadosAnadir -> execute(array($_GET['view'], $_GET['view'], $_GET['anadir']));
                 $resultadosAnadir = $resultadosAnadir -> fetchAll(PDO::FETCH_ASSOC);
+
+                    $resultado2 = $conexion -> prepare('INSERT INTO shop_car(idusuario, idproducto, quantity) VALUE(?, ?, 1)');
+                    $resultado2 -> execute(array($_SESSION['idusuario'], $_GET['anadir']));
+                    $resultado2 = $resultado2 -> fetchAll(PDO::FETCH_ASSOC);
                 
             }
+
+        
 
 ?>
 

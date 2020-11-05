@@ -744,6 +744,10 @@ body {
 
 /* END PANEL DE CONTROL */
 
+.trcarrito > td{
+    color: white;
+}
+
 .slider {
     width: 100%;
     position: relative;

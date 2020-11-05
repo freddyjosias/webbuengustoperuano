@@ -44,7 +44,11 @@ $consultaVerificarRestaurante = 'SELECT * FROM sucursal WHERE idsucursal = ?';
         $consultaformaspago -> execute(array($_GET['view']));
         $consultaformaspago = $consultaformaspago -> fetchAll(PDO::FETCH_ASSOC);
 
-    
+        $consultaCar = $conexion -> prepare('SELECT * FROM shop_car AS s INNER JOIN productos AS p ON s.idproducto = p.idproducto WHERE s.idusuario = ?');
+        $consultaCar -> execute(array($_SESSION['idusuario']));
+        $consultaCar = $consultaCar -> fetchAll(PDO::FETCH_ASSOC);
+
+
 
 ?>
 
@@ -62,8 +66,7 @@ $consultaVerificarRestaurante = 'SELECT * FROM sucursal WHERE idsucursal = ?';
     <link rel="stylesheet" href="css/bootstrap.add.css">
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="fontawesome/css/all.min.css">
-    <link rel="stylesheet" type="text/css" href="css/estilos.css">
-    
+    <link rel="stylesheet" type="text/css" href="css/estilos.css">    
 <body>
 
     <div class='logo-icono d-none d-md-block'>
@@ -94,23 +97,25 @@ $consultaVerificarRestaurante = 'SELECT * FROM sucursal WHERE idsucursal = ?';
                                 <p>Productos elegidos:</p>
                                 <table class="table">
                                     <thead>
-                                        <tr>                    
+                                        <tr>                   
                                             <th>Producto</th>
                                             <th>Cantidad</th>
                                             <th>Precio Unit.</th>
                                             <th>Monto Total</th>
-                                            <th colspan="2">Opcion</th>
+                                            <th colspan="2">Opción</th>
                                         </tr>
                                     </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td class="td-color">Sandwich</td>
-                                            <td class="td-color">2</td>
-                                            <td class="td-color">10</td>
-                                            <td class="td-color">20</td>
-                                            <td class="td-color"><a href="">Eliminar</a></td>
-                                        </tr>
-                                    </tbody>
+                                    <?php foreach($consultaCar as $producto) {?>
+                                        <tbody>
+                                            <tr class="trcarrito">
+                                                    <td><?php echo $producto['nomproducto'] ?></td>
+                                                    <td>1</td>
+                                                    <td><?php echo $producto['precio'] ?></td>
+                                                    <td>1</td>
+                                                    <td class='text-center'><a href="eliminarcarrito.php?id=<?php echo $producto['idproducto']; ?>&view=<?php echo $_GET['view'] ?>"><i class="far fa-trash-alt"></i></a></td>
+                                            </tr>
+                                        </tbody>
+                                    <?php } ?>
                                 </table>   
                                 <p>Tipos de pedido:</p>
                                     <select name="tipopedido">
