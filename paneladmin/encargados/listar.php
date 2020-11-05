@@ -48,7 +48,7 @@
 
             <div class='container p-5 main-panel m-0 mw-85 w-85'>
                 
-                <h1 class='h3 text-center font-weight-bold'>LISTA DE ENCARGADOS</h1>
+                <h1 class='h3 text-center font-weight-bold'>ENCARGADOS</h1>
                 <div class="direccion-a">
                     <a class="btn btn-dark bottom" href="agregar.php">Agregar</a>
                 </div>
