@@ -107,12 +107,20 @@
     max-width: 1920px;
 }
 
+.mw-15 {
+    max-width: 15%;
+}
+
 .mw-80 {
     max-width: 80%;
 }
 
 .mw-85 {
     max-width: 85%;
+}
+
+.mw-90 {
+    max-width: 90%;
 }
 
 .no-select{
@@ -147,6 +155,22 @@
 .w-75r {
     width: 75rem;
     max-width: 75rem;
+}
+
+.w-15 {
+    width: 15%;
+}
+
+.w-80 {
+    width: 80%;
+}
+
+.w-70 {
+    width: 70%;
+}
+
+.w-90 {
+    width: 90%;
 }
 
 @media (min-width: 576px){

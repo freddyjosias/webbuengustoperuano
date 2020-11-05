@@ -1,5 +1,11 @@
 
-<div class="container w-25 nav-panel m-0 p-0">
+<div class="container mw-15 w-15 nav-panel m-0 p-0">
+
+    <div class="row w-100 m-0 p-0 d-flex justify-content-center my-4">
+
+        <img class='w-50' src="../../img/logo-icono.png" alt="">
+
+    </div>
 
     <nav>
         <ul class='fw-600 ls-13'>
