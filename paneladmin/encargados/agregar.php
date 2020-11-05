@@ -4,13 +4,13 @@
 
     if (isset($_SESSION['idusuario'])) {
         if ($_SESSION['profile'] != 3) {
-            header('Location: ../index.php');
+            header('Location: ../../index.php');
         }
     } else {
-        header('Location: ../index.php');
+        header('Location: ../../index.php');
     }
 
-    require '../conexion.php';
+    require '../../conexion.php';
 
     $resultadosR = $conexion -> prepare('SELECT idsucursal, nomsucursal FROM sucursal WHERE estado = 1');
     $resultadosR -> execute();
@@ -41,11 +41,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link href="https://fonts.googleapis.com/css2?family=Dosis:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <title>Añadir Encargado</title>
-    <link rel="shorcut icon" href="../img/favicon.ico">
-    <link rel="stylesheet" href="../fontawesome/css/all.min.css">
-    <link rel="stylesheet" href="../css/normalize.css">
-    <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="../css/estilos.css">
+    <link rel="shorcut icon" href="../../img/favicon.ico">
+    <link rel="stylesheet" href="../../fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="../../css/normalize.css">
+    <link rel="stylesheet" href="../../bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../../css/estilos.css">
 
 </head>
 <body>
@@ -54,13 +54,9 @@
         <div class="contenedor-general panel-control">
             <nav>
                 <ul>
-                    <li><a href="../">Regresar</a></li>
-                    <li><a href="listarencargados.php">Listar Encargados</a></li>
-                    <li><a href="anadirencargado.php">Añadir Encargado</a></li>
-                    <li><a href="eliminarencargado.php">Eliminar Encargado</a></li>
-                    <li><a href="listarrestaurantes.php">Listar Restaurantes</a></li>
-                    <li><a href="anadirrestaurante.php">Añadir Restaurante</a></li>
-                    <li><a href="eliminarrestaurante.php">Eliminar Restaurante</a></li>
+                    <li><a href="../../">Regresar</a></li>
+                    <li><a href="listar.php">Encargados</a></li>
+                    <li><a href="../restaurantes/listar.php">Restaurantes</a></li>
                 </ul>
             </nav>
 
@@ -107,7 +103,7 @@
                     </div>
                     
                     <div class='form-group d-flex'>
-                        <button class='btn btn-primary ml-auto mt-3'>Añandir</button>
+                        <button class='btn btn-primary ml-auto mt-3'>Añadir</button>
                     </div>
 
                 </form>

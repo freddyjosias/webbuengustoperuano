@@ -4,15 +4,15 @@
 
     if (isset($_SESSION['idusuario'])) {
         if ($_SESSION['profile'] != 3) {
-            header('Location: ../index.php');
+            header('Location: ../../index.php');
         }
     } else {
-        header('Location: ../index.php');
+        header('Location: ../../index.php');
     }
 
-    require '../conexion.php';
+    require '../../conexion.php';
 
-    $resultadosRes = $conexion -> prepare('SELECT nomsucursal, correosucursal, telefono FROM sucursal');
+    $resultadosRes = $conexion -> prepare('SELECT idsucursal, nomsucursal, correosucursal, telefono FROM sucursal WHERE estado = 1');
     $resultadosRes -> execute();
     $resultadosRes = $resultadosRes -> fetchAll(PDO::FETCH_ASSOC);
 
@@ -25,10 +25,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link href="https://fonts.googleapis.com/css2?family=Dosis:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <title>Listar Restaurantes</title>
-    <link rel="shorcut icon" href="../img/favicon.ico">
-    <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../css/normalize.css">
-    <link rel="stylesheet" type="text/css" href="../css/estilos.css">
+    <link rel="shorcut icon" href="../../img/favicon.ico">
+    <link rel="stylesheet" href="../../bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="../../css/estilos.css">
+    <link rel="stylesheet" type="text/css" href="../../css/formularios.css">
 
 </head>
 <body>
@@ -37,19 +38,19 @@
         <div class="contenedor-general panel-control">
             <nav>
                 <ul>
-                    <li><a href="../">Regresar</a></li>
-                    <li><a href="listarencargados.php">Listar Encargados</a></li>
-                    <li><a href="anadirencargado.php">Añadir Encargado</a></li>
-                    <li><a href="eliminarencargado.php">Eliminar Encargado</a></li>
-                    <li><a href="listarrestaurantes.php">Listar Restaurantes</a></li>
-                    <li><a href="anadirrestaurante.php">Añadir Restaurante</a></li>
-                    <li><a href="eliminarrestaurante.php">Eliminar Restaurante</a></li>
+                    <li><a href="../../">Regresar</a></li>
+                    <li><a href="../encargados/listar.php">Encargados</a></li>
+                    <li><a href="listar.php">Restaurantes</a></li>
                 </ul>
             </nav>
 
             <div class='container p-5'>
                 
                 <h1 class='h3 text-center font-weight-bold'>LISTAR RESTAURANTES</h1>
+
+                <div class="direccion-a">
+                    <a class="btn btn-dark bottom" href="agregar.php">Agregar</a>
+                </div>
 
                 <table class="table mt-4">
                     <thead class='thead-light'>
@@ -58,6 +59,7 @@
                         <th scope="col">Nombre</th>
                         <th scope="col">Correo</th>
                         <th scope="col">Teléfono</th>
+                        <th scope="col">Operaciones</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -71,6 +73,7 @@
                                 <td><?php echo $val['nomsucursal'] ?></td>
                                 <td><?php echo $val['correosucursal'] ?></td>
                                 <td><?php echo $val['telefono'] ?></td>
+                                <td><a class="btn btn-danger" href="eliminar.php?id=<?php echo $val['idsucursal'];?>">Eliminar</a></td>
                             </tr>
                     <?php } ?>
 
