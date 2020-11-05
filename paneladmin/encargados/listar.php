@@ -48,19 +48,20 @@
 
             <div class='container p-5 main-panel m-0 mw-85 w-85'>
                 
-                <h1 class='h3 text-center font-weight-bold'>ENCARGADOS</h1>
-                <div class="direccion-a">
-                    <a class="btn btn-dark bottom" href="agregar.php">Agregar</a>
-                </div>
+                <div class="row w-90 m-auto">
+                    <h1 class='h3 text-center font-weight-bold w-100'>ENCARGADOS</h1>
+                    <div class="btn-color-princi ml-auto">
+                        <a class="btn btn-primary bottom" href="agregar.php">Agregar</a>
+                    </div>
 
-                <table class="table mt-4">
+                    <table class="table mt-4">
                     <thead class='thead-light'>
                         <tr>
-                            <th scope="col">N°</th>
+                            <th scope="col" class='text-center'>N°</th>
                             <th scope="col">Nombre</th>
                             <th scope="col">Correo</th>
                             <th scope="col">Restaurante</th>
-                            <th scope="col">Operaciones</th>
+                            <th  class='text-center' scope="col">Más</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -73,16 +74,19 @@
                             $cont++;
                     ?>
                             <tr>
-                                <th scope="row"><?php echo $cont ?></th>
+                                <th scope="row" class='text-center'><?php echo $cont ?></th>
                                 <td><?php echo $val['nombreusuario'] ?></td>
                                 <td><?php echo $val['emailusuario'] ?></td>
                                 <td><?php echo $val['nomsucursal'] ?></td>
-                                <td><a class="btn btn-danger" href="eliminar.php?id=<?php echo $val['idusuario'];?>&email=<?php echo $val['emailusuario'];?>">Eliminar</a></td>
+                                <!-- <td><a class="btn btn-danger" href="eliminar.php?id=<?php echo $val['idusuario'];?>&email=<?php echo $val['emailusuario'];?>">Eliminar</a></td> -->
+                                <td  class='text-center'><i class="far fa-trash-alt"></i></td>
                             </tr>
                     <?php } ?>
 
                     </tbody>
-                </table>
+                    </table>
+                </div>
+                
 
             </div>
 
