@@ -52,10 +52,10 @@
                 
                 <h1 class='h3 text-center font-weight-bold'>LISTAR ENCARGADOS</h1>
 
-                <table class="table mt-4">
+                <table class="table table-striped mt-4">
                     <thead class='thead-light'>
                         <tr>
-                        <th scope="col">N°</th>
+                        <th scope="col" class='text-center'>N°</th>
                         <th scope="col">Nombre</th>
                         <th scope="col">Correo</th>
                         <th scope="col">Restaurante</th>
@@ -70,12 +70,13 @@
                         }
                         $cont++;
                     ?>
-                            <tr>
-                                <th scope="row"><?php echo $cont ?></th>
-                                <td><?php echo $val['nombreusuario'] ?></td>
-                                <td><?php echo $val['emailusuario'] ?></td>
-                                <td><?php echo $val['nomsucursal'] ?></td>
-                            </tr>
+                        <tr>
+                            <th scope="row" class='text-center'><?php echo $cont ?></th>
+                            <td><?php echo $val['nombreusuario'] ?></td>
+                            <td><?php echo $val['emailusuario'] ?></td>
+                            <td><?php echo $val['nomsucursal'] ?></td>
+                        </tr>
+
                     <?php } ?>
 
                     </tbody>
