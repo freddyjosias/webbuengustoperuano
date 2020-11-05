@@ -83,7 +83,13 @@
     border-radius: 5px;
 }
 
+.ls-13 {
+    letter-spacing: 1.3px;
+}
 
+.ls-15 {
+    letter-spacing: 1.5px;
+}
 
 .mb-6r {
     margin-bottom: 6rem;
@@ -95,6 +101,18 @@
 
 .mx-5r {
     margin: auto 5rem;
+}
+
+.mw-1920p {
+    max-width: 1920px;
+}
+
+.mw-80 {
+    max-width: 80%;
+}
+
+.mw-85 {
+    max-width: 85%;
 }
 
 .no-select{

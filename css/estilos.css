@@ -506,48 +506,46 @@ body {
     min-height: 100vh;
 }
 
-.panel-control nav ul li {
+.nav-panel {
+    background-color: #212F3D;
+}
+
+.nav-panel nav ul li {
     text-decoration: none;
     margin: 1rem;
 }
 
-.panel-control nav ul li:hover {
+.nav-panel nav ul li:hover {
     cursor: pointer;
 }
 
-.panel-control>nav {
-    width: 20%;
-    background-color: #212F3D;
+.nav-panel>nav {
     color: white;
 }
 
-.panel-control>nav ul {
+.nav-panel>nav ul {
     padding: 0;
     margin: 0;
 }
 
-.panel-control>nav ul li {
+.nav-panel>nav ul li {
     list-style: none;
     margin: 0;
     display: flex;
 }
 
-.panel-control>nav a {
+.nav-panel>nav a {
     color: white;
     text-decoration: none;
-    border-bottom: 2px solid black;
-    border-right: 2px solid black;
-    border-left: 2px solid black;
     padding: 1rem 1rem;
     width: 100%;
 }
 
-.panel-control>nav ul li:first-child a {
+.nav-panel>nav ul li:first-child a {
     border-top: 2px solid black;
 }
 
-.panel-control>div {
-    width: 80%;
+.main-panel {
     background-color: #f2f2f2;
 }
 

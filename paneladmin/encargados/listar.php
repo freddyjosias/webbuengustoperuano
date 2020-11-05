@@ -27,24 +27,26 @@
     <title>Añadir Encargado</title>
     <link rel="shorcut icon" href="../../img/favicon.ico">
     <link rel="stylesheet" href="../../bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="../../css/bootstrap.add.css">
     <link rel="stylesheet" href="../../css/normalize.css">
     <link rel="stylesheet" type="text/css" href="../../css/estilos.css">
     <link rel="stylesheet" type="text/css" href="../../css/formularios.css">
 
 </head>
+
 <body>
 
     <main>
-        <div class="contenedor-general panel-control">
-            <nav>
-                <ul>
-                    <li><a href="../../">Regresar</a></li>
-                    <li><a href="listar.php">Encargados</a></li>
-                    <li><a href="../restaurantes/listar.php">Restaurantes</a></li>
-                </ul>
-            </nav>
+        <div class="container-fluid panel-control mw-1920p p-0">
+            
+            <?php
 
-            <div class='container p-5'>
+                require '../../menu/menupaneladmin.php';
+
+            ?>
+
+            <div class='container p-5 main-panel m-0 mw-85'>
                 
                 <h1 class='h3 text-center font-weight-bold'>LISTA DE ENCARGADOS</h1>
                 <div class="direccion-a">
