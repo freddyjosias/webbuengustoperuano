@@ -2,16 +2,40 @@
     --color-dark: #343a40;
 }
 
+.bottom-0 {
+    bottom: 0;
+}
+
+.fs-18 {
+    font-size: 18px;
+}
+
+.fs-19 {
+    font-size: 19px;
+}
+
+.fs-22 {
+    font-size: 22px;
+}
+
+.fs-25 {
+    font-size: 25px;
+}
+
+.fs-30 {
+    font-size: 30px;
+}
+
+.fs-35 {
+    font-size: 35px;
+}
+
 .h2 {
     font-size: 2rem;
 }
 
 .h3 {
     font-size: 1.75rem;
-}
-
-.fs-18 {
-    font-size: 18px;
 }
 
 .fw-700 {
@@ -28,6 +52,14 @@
 
 .fw-400 {
     font-weight: 400;
+}
+
+.h-2r {
+    height: 2rem;
+}
+
+.h-3r {
+    height: 3rem;
 }
 
 .h-15r {
@@ -50,6 +82,8 @@
     border: 1px solid var(--color-dark);
     border-radius: 5px;
 }
+
+
 
 .mb-6r {
     margin-bottom: 6rem;

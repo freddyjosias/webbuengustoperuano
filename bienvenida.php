@@ -89,15 +89,15 @@
 
             <div>
                 <?php echo "<img src='".$imagenSucursal."' >" ?>
-                <h1>Bienvenidos:</h1>
+                <h2 class='fw-600'>Bienvenidos:</h2>
                 
-                <p><?php echo $textoBienvenida ?></p>
+                <p class='fs-19'><?php echo $textoBienvenida ?></p>
                 <?php echo "<img src='".$imagenSucursal."' >" ?>
                 
             </div>
             
             <div>
-                <h1>Destacados:</h1>
+                <h2 class='fw-600'>Destacados:</h2>
                 <div class="destacados-bienvenida">
                     <div>
                         <?php echo "<img src='".$imgdestacado1."' >" ?>
@@ -123,6 +123,25 @@
     </footer>
 
     <img src="img/ir-arriba.png" class="ir-arriba">
+
+    <div class="submenu-bottom container-fluid position-fixed bottom-0 d-block d-lg-none border border-light border-bottom-0 border-right-0 border-left-0">
+
+        <div class="row text-center h-100">
+
+            <div class="col-6 fs-22 h-100 d-flex border-right">
+                <a href="index.php" class='text-white h-100 w-100 pt-1'><i class="fas fa-home"></i></a>
+            </div>
+
+            <div class="col-6 text-white fs-35">
+
+                <div class="go-up h-100 d-flex top-0 justify-content-center w-100" role='button'>
+                    <i class="fas fa-angle-up"></i>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
 
     <script src="js/jquery-3.5.1.min.js"></script>
     <script src="bootstrap/js/bootstrap.min.js"></script>

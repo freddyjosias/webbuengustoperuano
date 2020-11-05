@@ -105,9 +105,7 @@ $(function() {
         });
     });
     
-    console.log($('.opciones-categoria option'));
     $('.opciones-categoria option').click(function () {
-        console.log('Jery');
     })
 
     if (window.history.replaceState) { 

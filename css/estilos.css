@@ -117,43 +117,6 @@ body {
 }
 
 
-/* 
-.slider{
-	margin: auto;
-    overflow: hidden;
-    height: 21rem;
-}
-
-.slider ul{
-	padding: 0;
-	display: flex;
-	width: 400%;
-	animation: cambio 15s infinite;
-}
-
-.slider li{
-	list-style: none;
-	width: 50%;
-}
-
-.slider img{
-    width: 100%;
-    border-radius: 50px;
-    height: 20rem;
-}
-
-@keyframes cambio{
-	0%{margin-left: 0;}
-	20%{margin-left: 0;}
-	25%{margin-left: -100%;}
-	45%{margin-left: -100%;}
-	50%{margin-left: -200%;}
-	70%{margin-left: -200%;}
-	75%{margin-left: -300%;}
-	100%{margin-left: -300%;}
-
-} */
-
 .view-restaurants>h1 {
     font-weight: 700;
 }
@@ -226,61 +189,6 @@ body {
 
 
 /* END INDEX */
-
-
-/* START LOGIN */
-
-
-/* START LOGIN */
-
-
-/* START LOGIN */
-
-
-/* form {
-	margin: auto;
-	width: 50%;
-	max-width: 400px;
-	background: #F3F3F3;
-	padding: 20px;	
-	border: 2px solid rgba(0,0,0,0.2);
-	
-}
-
-input {
-	padding: 20px;
-	margin: 20px 0;
-	font-size: 15px;
-	display: block;
-	width: 90%;
-}
-
-input[type="submit"]{
-	border: 0;
-	color: brown;
-    margin: auto;
-	background: linear-gradient(#FFDA63, #FFB940);
-	cursor: pointer;
-	border-radius: 50rem;
-	margin-bottom: 3;
-}
-input[type="submit"]:hover{
-	opacity: 1;
-
-}
-input[type="submit"]:active{
-	transform: scale(0.95);
-} */
-
-
-/* END LOGIN */
-
-
-/* END LOGIN */
-
-
-/* END LOGIN */
-
 
 /* START MENU */
 
@@ -524,8 +432,8 @@ input[type="submit"]:active{
 
 .bienvenida-page>div>img {
     width: 40rem;
-    height: 22rem;
-    margin: 4.5rem 0 1rem 2rem;
+    height: 20rem;
+    margin: 3.5rem 0 0rem 2rem;
 }
 
 .bienvenida-page>div>img:first-child {
@@ -536,19 +444,18 @@ input[type="submit"]:active{
     display: none;
 }
 
-.bienvenida-page h1 {
-    font-size: 35px;
-    text-transform: uppercase;
-}
-
 .bienvenida-page>div>p {
-    font-size: 20px;
     text-align: justify;
     min-height: 22rem;
+    margin: 0;
 }
 
-.bienvenida-page>div {
-    margin: 3rem 0;
+.bienvenida-page>div:first-child {
+    margin: 0rem 0 0rem 0;
+}
+
+.bienvenida-page>div:last-child {
+    margin: 1rem 0 3rem 0;
 }
 
 .destacados-bienvenida {
@@ -557,7 +464,7 @@ input[type="submit"]:active{
 }
 
 .destacados-bienvenida div {
-    width: 31%;
+    width: 32%;
     background-color: #212F3D;
     border-radius: 15px;
 }
@@ -985,6 +892,15 @@ input[type="submit"]:active{
     background: #c72f2f;
 }
 
+@media (max-width: 1200px) {
+
+    .bienvenida-page>div>img:first-child {
+        width: 30rem;
+        height: 17rem;
+    }
+
+}
+
 @media (max-width: 1100px) {
     .contenedor-general {
         width: 95%;
@@ -995,21 +911,44 @@ input[type="submit"]:active{
     .productos-carta {
         width: 90%;
     }
-    .bienvenida-page>div>img:first-child {
-        display: none;
-    }
-    .bienvenida-page>div {
-        margin-top: 1rem;
-    }
-    .bienvenida-page>div>img:last-child {
-        display: initial;
-        width: 100%;
-        height: 20rem;
-        margin: 0;
-    }
+
     .panel-control {
         width: 100%;
     }
+}
+
+@media (max-width: 991px) {
+    
+    .bienvenida-page>div>img:first-child {
+        display: none;
+    }
+
+    .bienvenida-page>div {
+        margin-top: 1rem;
+    }
+
+    .bienvenida-page>div>img:last-child {
+        display: initial;
+        width: 100%;
+        height: auto;
+        max-height: 28rem;
+        margin: 0;
+    }
+    
+    .bienvenida-page>div>p {
+        min-height: auto;
+        margin-bottom: 0.5rem;
+    }
+
+    .submenu-bottom {
+        background-color: var(--principal-color);
+        height: 2.5rem;
+    }
+
+    .footer-inicio {
+        margin-bottom: 2.5rem;
+    }
+
 }
 
 @media (max-width: 950px) {
@@ -1017,9 +956,7 @@ input[type="submit"]:active{
         height: 20vh;
         min-height: 5rem;
     }
-    .contenedor-general {
-        width: 98%;
-    }
+
     .panel-control {
         width: 100%;
     }
@@ -1147,9 +1084,7 @@ input[type="submit"]:active{
 /*START RESPONSIVE BIENVENIDA*/
 
 @media (max-width: 900px) {
-    .contenedor-general {
-        width: 90%;
-    }
+    
     .bienvenida-page {
         width: 100%;
     }
@@ -1159,22 +1094,20 @@ input[type="submit"]:active{
         align-items: center;
     }
     .destacados-bienvenida>div {
-        margin: 1rem auto;
-        width: 80%;
+        margin: 0.5rem auto;
+        width: 50%;
     }
+
+    .bienvenida-page>div:last-child {
+        margin: 1rem 0 1.5rem 0;
+    }    
+
     .panel-control {
         width: 100%;
     }
 }
 
-@media (max-width: 500px) {
-    .destacados-bienvenida h3 {
-        font-size: 1rem;
-    }
-    .destacados-bienvenida>div {
-        width: 100%;
-    }
-}
+
 
 
 /*END RESPONSIVE BIENVENIDA*/
@@ -1212,74 +1145,6 @@ input[type="submit"]:active{
         font-size: 1rem;
     }
 }
-
-
-/*END RESPONSIVE NOSOTROS*/
-
-
-/*END RESPONSIVE NOSOTROS*/
-
-
-/*END RESPONSIVE NOSOTROS*/
-
-
-/*START RESPONSIVE USUARIO*/
-
-
-/*START RESPONSIVE USUARIO*/
-
-
-/*START RESPONSIVE USUARIO*/
-
-@media (max-width: 655px) {
-    .contenedor-general {
-        width: 90%;
-    }
-    .bienvenida-page {
-        width: 100%;
-    }
-    .box-usuariox {
-        width: auto;
-        flex-direction: column;
-        align-items: center;
-    }
-    .form-centro h1 {
-        font-size: 20px;
-    }
-    .botonguardar input[type="submit"] {
-        width: 40%;
-        font-size: 10px;
-    }
-}
-
-@media (max-width: 375px) {
-    .botonguardar input[type="submit"] {
-        width: 50%;
-        font-size: 8px;
-        text-align: center;
-    }
-    .conetener-img {
-        width: 10%;
-    }
-}
-
-
-/*END RESPONSIVE USUARIO*/
-
-
-/*END RESPONSIVE USUARIO*/
-
-
-/*END RESPONSIVE USUARIO*/
-
-
-/*STAR RESPONSIVE INDEX*/
-
-
-/*STAR RESPONSIVE INDEX*/
-
-
-/*STAR RESPONSIVE INDEX*/
 
 @media (max-width: 600px) {
     .contenido-carta>div h3 {
@@ -1319,6 +1184,11 @@ input[type="submit"]:active{
     .presentacion-restaurantes {
         display: block;
     }
+    
+    .destacados-bienvenida>div {
+        width: 60%;
+    }
+
 }
 
 @media (max-width: 680px) {
@@ -1346,6 +1216,53 @@ input[type="submit"]:active{
     .contenido-header-inicio-img {
         width: 240px;
         height: 60px;
+    }
+}
+
+@media (max-width: 655px) {
+    .contenedor-general {
+        width: 90%;
+    }
+    .bienvenida-page {
+        width: 100%;
+    }
+    .box-usuariox {
+        width: auto;
+        flex-direction: column;
+        align-items: center;
+    }
+    .form-centro h1 {
+        font-size: 20px;
+    }
+    .botonguardar input[type="submit"] {
+        width: 40%;
+        font-size: 10px;
+    }
+
+    .destacados-bienvenida>div {
+        width: 70%;
+    }
+
+}
+
+@media (max-width: 530px) {
+    .destacados-bienvenida h3 {
+        font-size: 1rem;
+    }
+    .destacados-bienvenida>div {
+        width: 100%;
+    }
+
+}
+
+@media (max-width: 375px) {
+    .botonguardar input[type="submit"] {
+        width: 50%;
+        font-size: 8px;
+        text-align: center;
+    }
+    .conetener-img {
+        width: 10%;
     }
 }
 
@@ -1676,7 +1593,6 @@ input[type="submit"]:active{
 }
 
 
-/*responsive añadir carrito*/
 
 @media (max-width: 700px) {
     .table thead tr th {
@@ -1695,6 +1611,7 @@ input[type="submit"]:active{
         padding: .3rem 0.5rem;
     }
 }
+
 
 @media (max-width: 650px) {
     .carrito form input[type="submit"] {
