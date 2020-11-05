@@ -62,7 +62,7 @@
         <div class="contenedor-general panel-control">
             <nav>
                 <ul>
-                    <li><a href="panel.php">Inicio</a></li>
+                    <li><a href="../panel.php">Inicio</a></li>
                     <li><a href="restaurante.php">Restaurante</a></li>
                     <li><a href="actualizarbanner.php">Actualizar Banner</a></li>
                     <li><a href="actualizartextobienvenida.php">Actualizar Texto de Bienvenida</a></li>
