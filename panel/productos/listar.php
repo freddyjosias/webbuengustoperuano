@@ -32,6 +32,7 @@
 	<link href="https://fonts.googleapis.com/css2?family=Dosis:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <title>Actualizar Categoria</title>
     <link rel="shorcut icon" href="../../img/favicon.ico">
+    <link rel="stylesheet" href="../../fontawesome/css/all.min.css">
     <link rel="stylesheet" href="../../css/normalize.css">
     <link rel="stylesheet" type="text/css" href="../../css/estilos.css">
     <link rel="stylesheet" type="text/css" href="../../css/responpanel.css">
@@ -57,7 +58,7 @@
                                 <th class="th">Producto</th>
                                 <th class="th">Precio</th>
                                 <th class="th">Stock</th>
-                                <th class="th" colspan="2">Operaciones</th>
+                                <th class="th" colspan="2">Más</th>
                             </tr>
                         </thead>
                         <?php foreach($consultaProductos as $producto) {?>
@@ -67,8 +68,10 @@
                                     <td><?php echo $producto['nomproducto'] ?></td>
                                     <td><?php echo $producto['precio'] ?></td>
                                     <td><?php echo $producto['stock'] ?></td>
-                                    <td><a class="btn btn-success bottom" href="actualizar.php?id=<?php echo $producto['idproducto']; ?>&categoria=<?php echo $producto['idcategoriaproducto']; ?>">Actualizar</a></td>
-                                    <td><a class="btn btn-danger bottom" href="eliminar.php?id=<?php echo $producto['idproducto']; ?>&categoria=<?php echo $producto['idcategoriaproducto']; ?>">Eliminar</a></td>
+                                    <!-- <td><a class="btn btn-success bottom" href="actualizar.php?id=<?php echo $producto['idproducto']; ?>&categoria=<?php echo $producto['idcategoriaproducto']; ?>">Actualizar</a></td>
+                                    <td><a class="btn btn-danger bottom" href="eliminar.php?id=<?php echo $producto['idproducto']; ?>&categoria=<?php echo $producto['idcategoriaproducto']; ?>">Eliminar</a></td> -->
+                                    <td><i class="far fa-edit"></i></td>
+                                    <td><i class="far fa-trash-alt"></i></td>
                                 </tr>
                             </tbody>
                         <?php } ?>
