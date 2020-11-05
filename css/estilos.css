@@ -501,6 +501,10 @@ body {
 
 /* START PANEL DE CONTROL */
 
+.line-top-panel {
+    background-color: var(--principal-color);
+}
+
 .panel-control {
     display: flex;
     min-height: 100vh;
