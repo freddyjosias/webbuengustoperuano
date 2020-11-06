@@ -44,7 +44,9 @@
 
             ?>
 
+
             <div class='container p-5 main-panel m-0 mw-85 w-85'>
+
                 
                 <div class="row w-90 m-auto">
                     <h1 class='h3 text-center font-weight-bold w-100'>LISTAR RESTAURANTES</h1>

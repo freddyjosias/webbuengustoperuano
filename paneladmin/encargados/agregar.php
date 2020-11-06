@@ -37,32 +37,38 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8">
+<meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link href="https://fonts.googleapis.com/css2?family=Dosis:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <title>Añadir Encargado</title>
-    <link rel="shorcut icon" href="../../img/favicon.ico">
-    <link rel="stylesheet" href="../../fontawesome/css/all.min.css">
-    <link rel="stylesheet" href="../../css/normalize.css">
+    <link rel="shorcut icon" href="../../img/logo-icono.png">
     <link rel="stylesheet" href="../../bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="../../css/bootstrap.add.css">
+    <link rel="stylesheet" href="../../css/normalize.css">
     <link rel="stylesheet" type="text/css" href="../../css/estilos.css">
+    <link rel="stylesheet" type="text/css" href="../../css/formularios.css">
 
 </head>
 <body>
 
     <main>
-        <div class="contenedor-general panel-control">
-            <nav>
-                <ul>
-                    <li><a href="../../">Regresar</a></li>
-                    <li><a href="listar.php">Encargados</a></li>
-                    <li><a href="../restaurantes/listar.php">Restaurantes</a></li>
-                </ul>
-            </nav>
+    <div class="container-fluid panel-control mw-1920p p-0">
+            
+            <?php
+                require '../../menu/menupaneladmin.php';
+            ?>
 
-            <div class='container p-5'>
+            
+
+            <div class='container p-0 main-panel m-0 mw-85 w-85'>
+
+                <div class="line-top-panel row h-4r">
+                    
+                </div>
                 
-                <h1 class='h3 text-center font-weight-bold'>AÑADIR ENCARGADO</h1>
+                <div class="row w-80 m-auto">
+                <h1 class='h3 text-center mt-5 font-weight-bold w-100'>AÑADIR ENCARGADO</h1>
 
                 
                 <?php 
@@ -84,7 +90,7 @@
                     }
                 ?>
 
-                <form class='mt-4' method='post'>
+                <form class='text-center w-100 mt-4' method='post'>
                     <div class="form-group">
                         <label for="exampleFormControlInput1">Ingrese el email del nuevo encargado:</label>
                         <input type="email" name='email' class="form-control" id="exampleFormControlInput1" placeholder="name@example.com" required>
@@ -109,6 +115,8 @@
                 </form>
 
             </div>
+
+        </div>
 
         </div>
     </main>
