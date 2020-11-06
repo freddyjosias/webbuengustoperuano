@@ -58,7 +58,7 @@ $consultaVerificarRestaurante = 'SELECT * FROM sucursal WHERE idsucursal = ?';
 	<title>El Buen Gusto Peruano</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shorcut icon" href="img/favicon.ico">
+    <link rel="shorcut icon" href="img/faviconn.ico">
     <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <title>Carrito | <?php echo $nombreRestaurante ?></title>
     <link rel="shorcut icon" href="img/logo-icono.png">
