@@ -44,7 +44,7 @@ $consultaVerificarRestaurante = 'SELECT * FROM sucursal WHERE idsucursal = ?';
         $consultaformaspago -> execute(array($_GET['view']));
         $consultaformaspago = $consultaformaspago -> fetchAll(PDO::FETCH_ASSOC);
 
-        $consultaCar = $conexion -> prepare('SELECT * FROM shop_car AS s INNER JOIN productos AS p ON s.idproducto = p.idproducto WHERE s.idusuario = ?');
+        $consultaCar = $conexion -> prepare('SELECT * FROM shop_car AS s INNER JOIN productos AS p ON s.idproducto = p.idproducto WHERE s.idusuario = ? AND p.estado = 1');
         $consultaCar -> execute(array($_SESSION['idusuario']));
         $consultaCar = $consultaCar -> fetchAll(PDO::FETCH_ASSOC);
 
