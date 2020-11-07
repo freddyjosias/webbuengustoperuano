@@ -81,7 +81,7 @@
 
         <div class= "contenedor-general">
 
-            <h1>MENÚ - CARTA</h1>
+            <h1 class='h2 fw-700 ls-13'>MENÚ - CARTA</h1>
 
 			<div class="contenido-carta">	
 
@@ -90,6 +90,7 @@
                 $resultados = $conexion -> prepare($consultaCategoria);
                 $resultados -> execute(array($idRestaurante));
                 $resultados = $resultados -> fetchAll(PDO::FETCH_ASSOC);
+                
                 foreach($resultados as $row) {
 
                     $consultaProductoCategoria = 'SELECT * FROM productos WHERE idcategoriaproducto = ? AND estado = 1';
@@ -107,18 +108,39 @@
                     }
                     
                     if (count($resultados2) > 0 && $productosOK == 1) {?>
-                    
-                        <h2><?php echo $row['descripcioncategoriaproducto'] ?></h2>
 
-                        <div>
+                        <div class="categories-view container d-flex text-white m-0 p-0">
+
+                            <h2 class='fw-500 ls-13 m-0 px-4 py-1'><?php echo $row['descripcioncategoriaproducto'] ?></h2>
+
+                        </div>
+
+                        <div class='list-products'>
 
                             <?php foreach($resultados2 as $row2) {
                                 
                                 if ($row2['stock'] > 0) {?>
 
                                     <div class="productos-carta">
-                                        <div><h3><?php echo $row2['stock'] . ' &nbsp; &nbsp; | &nbsp; &nbsp;' .$row2['nomproducto'] ?></h3></div>
-                                        <div><a class="carritos" href="?view=<?php echo $_GET['view'] ?>&anadir=<?php echo $row2['idproducto'] ?>"><i class="fas fa-cart-plus"></i></a> &nbsp; &nbsp; &nbsp; | &nbsp; &nbsp; &nbsp; S/. <?php echo $row2['precio'] ?></div>
+
+                                        <div>
+
+                                            <h3><?php echo $row2['stock'] . ' &nbsp; &nbsp; | &nbsp; &nbsp;' .$row2['nomproducto'] ?></h3>
+
+                                        </div>
+
+                                        <div>
+
+                                            <a class="carritos" href="?view=<?php echo $_GET['view'] ?>&anadir=<?php echo $row2['idproducto'] ?>">
+
+                                                <i class="fas fa-cart-plus"></i>
+
+                                            </a> 
+
+                                            &nbsp; &nbsp; &nbsp; | &nbsp; &nbsp; &nbsp; S/. <?php echo $row2['precio'] ?>
+
+                                        </div>
+
                                     </div>
 
                             <?php }
