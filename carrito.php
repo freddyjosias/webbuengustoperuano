@@ -81,7 +81,11 @@ $consultaVerificarRestaurante = 'SELECT * FROM sucursal WHERE idsucursal = ?';
         <?php require 'menu/menurestaurants.php'; ?>
 
     </header>
+    <main class="carro">
         <main class="contenedor-carrito">
+  
+                <section class="carrito-carrito"> 
+
                 <div class="bgp">
                     <h1>BUEN GUSTO PERUANO</h1>
                 </div>
@@ -90,8 +94,7 @@ $consultaVerificarRestaurante = 'SELECT * FROM sucursal WHERE idsucursal = ?';
                             <li>Antes de hacer algun cambio, deberas actualizar tus datos. <a href="usuario.php">Actualizar Datos</a></li>			
                         </ul>
                 </div>
-  
-                <section class="carrito-carrito"> 
+
                     <div class="carrito">
                         <form action="" method="post">
                                 <p>Productos elegidos:</p>
@@ -135,6 +138,7 @@ $consultaVerificarRestaurante = 'SELECT * FROM sucursal WHERE idsucursal = ?';
                     </div> 
                 </section>
         </main>
+    </main>
                 <footer class="footer-inicio">
                     <div class= "contenedor-general">
                         <div>© 2020 El Buen Gusto Peruano SAC. Todos los derechos reservados</div>
