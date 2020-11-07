@@ -158,7 +158,7 @@
                                                 </div>
 
                                                 <div class="col-6 m-0 pl-0 pr-3 form-group">
-                                                    <input type="number" name='addquantity' class="no-arrow-numer form-control p-1 text-center fw-600" id="exampleInputPassword1" value='1' min='1' max='<?php echo $row2['stock'] ?>'> 
+                                                    <input type="number" name='addquantity' class="no-arrow-numer form-control p-1 text-center fw-600" id="exampleInputPassword1" value='1' min='1' max='<?php echo $row2['stock'] ?>' required> 
                                                 </div>
 
                                             </form>
