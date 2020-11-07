@@ -116,6 +116,7 @@
 
         </div>
     </main>
+    
     <footer class="footer-inicio footer-inicio-margin">
         <div class= "contenedor-general">
             <div>© 2020 Restaurante 1 SAC. Todos los derechos reservados</div>

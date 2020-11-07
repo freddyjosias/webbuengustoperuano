@@ -121,23 +121,63 @@
                                 
                                 if ($row2['stock'] > 0) {?>
 
-                                    <div class="productos-carta">
+                                    <div class="row productos-carta fw-600">
 
-                                        <div>
+                                        <div class="col-1 m-0 p-0">
 
-                                            <h3><?php echo $row2['stock'] . ' &nbsp; &nbsp; | &nbsp; &nbsp;' .$row2['nomproducto'] ?></h3>
+                                            <div class="row  m-0 p-0 h-100 align-items-center">
+
+                                                <div class="col-11 m-0 p-0 text-center ">
+                                                    <?php echo $row2['stock'] ?>
+                                                </div>
+
+                                                <div class="col-1 m-0 h-100 p-0 border-3 border-secondary border-top-0 border-bottom-0 border-left-0 rounded">
+                                                    
+                                                </div>
+
+                                            </div>
 
                                         </div>
 
-                                        <div>
+                                        <div class="col-7 m-0 p-0">
 
-                                            <a class="carritos" href="?view=<?php echo $_GET['view'] ?>&anadir=<?php echo $row2['idproducto'] ?>">
+                                            <div class="col-12 h-100 d-flex align-items-center">
+                                                <?php echo $row2['nomproducto'] ?>
+                                            </div>
 
-                                                <i class="fas fa-cart-plus"></i>
+                                        </div>
 
-                                            </a> 
+                                        <div class="col-2 m-0 p-0 align-items-center">
 
-                                            &nbsp; &nbsp; &nbsp; | &nbsp; &nbsp; &nbsp; S/. <?php echo $row2['precio'] ?>
+                                            <form class='d-flex'>
+
+                                                <div class="col-6 m-0 p-0">
+                                                    <button type="submit" class=" btn btn-primary">
+                                                        <i class="fas fa-cart-plus"></i>
+                                                    </button>
+                                                </div>
+
+                                                <div class="col-6 m-0 pl-0 pr-3 form-group">
+                                                    <input type="number" class="no-arrow-numer form-control p-1 text-center fw-600" id="exampleInputPassword1" value='1'>
+                                                </div>
+
+                                            </form>
+
+                                        </div>
+
+                                        <div class="col-2 m-0 p-0">
+
+                                            <div class="row m-0 p-0 h-100 align-items-center">
+
+                                                <div class="col-1 h-100 my-0 ml-0 p-0 border-3 border-secondary border-top-0 border-bottom-0 border-right-0">
+                                                    
+                                                </div>
+
+                                                <div class="col-11 m-0 p-0 text-center">
+                                                    S/. <?php echo $row2['precio'] ?>
+                                                </div>
+
+                                            </div>
 
                                         </div>
 
@@ -161,7 +201,28 @@
         </div>
     </footer>
 
-    <img src="img/ir-arriba.png" class="ir-arriba">
+    <div class="function-go-up ir-arriba">
+        <i class="fas fa-angle-up"></i>
+    </div>
+
+    <div class="submenu-bottom container-fluid position-fixed bottom-0 d-block d-lg-none border border-light border-bottom-0 border-right-0 border-left-0">
+
+        <div class="row text-center h-100">
+
+            <div class="col-6 fs-22 h-100 d-flex border-right">
+                <a href="index.php" class='text-white h-100 w-100 pt-1'><i class="fas fa-home"></i></a>
+            </div>
+
+            <div class="col-6 text-white fs-35">
+
+                <div class="function-go-up go-up h-100 d-flex top-0 justify-content-center w-100" role='button'>
+                    <i class="fas fa-angle-up"></i>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
 
     <script src="js/jquery-3.5.1.min.js"></script>
     <script src="bootstrap/js/bootstrap.min.js"></script>

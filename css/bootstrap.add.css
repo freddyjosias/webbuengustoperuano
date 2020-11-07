@@ -2,6 +2,24 @@
     --color-dark: #343a40;
 }
 
+.btn-skyblue {
+    background-color: skyblue;
+}
+
+.btn-skyblue:hover {
+    background-color: rgb(87, 165, 195);
+}
+
+.border-3 {
+    border-width: 3px;
+    border-style: solid;
+}
+
+.border-5 {
+    border-width: 5px;
+    border-style: solid;
+}
+
 .bottom-0 {
     bottom: 0;
 }
@@ -85,6 +103,16 @@
 .hr-solid-dark {
     border: 1px solid var(--color-dark);
     border-radius: 5px;
+}
+
+.no-arrow-numer::-webkit-inner-spin-button, 
+.no-arrow-numer::-webkit-outer-spin-button { 
+    -webkit-appearance: none; 
+    margin: 0; 
+}
+
+.no-arrow-numer { 
+    -moz-appearance:textfield; 
 }
 
 .ls-13 {

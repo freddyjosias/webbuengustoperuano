@@ -392,19 +392,13 @@ body {
 }
 
 .productos-carta {
-    margin: 1rem auto 2rem auto;
-}
-
-.productos-carta {
-    width: 80%;
+    width: 85%;
     background-color: rgb(220, 255, 217);
     border-radius: 5px;
     border: 1px solid green;
     margin: 1rem auto;
-    display: flex;
-    justify-content: space-between;
     font-size: 19px;
-    padding: 1rem;
+    padding: 0.5rem;
 }
 
 .contenido-carta>div h3 {
