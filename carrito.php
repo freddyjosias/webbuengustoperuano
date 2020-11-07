@@ -112,9 +112,13 @@ $consultaVerificarRestaurante = 'SELECT * FROM sucursal WHERE idsucursal = ?';
                                         <tbody>
                                             <tr class="trcarrito">
                                                     <td><?php echo $producto['nomproducto'] ?></td>
-                                                    <td>1</td>
+                                                    <td><?php echo $producto['quantity'] ?></td>
                                                     <td><?php echo $producto['precio'] ?></td>
-                                                    <td>1</td>
+                                                    <td><?php if($producto['quantity'] == 1) {
+                                                        echo $producto['precio']; ?>
+                                                        <?php } else {
+                                                            echo $Nproducto = $producto['precio']*$producto['quantity']; } ?>
+                                                    </td>
                                                     <td class='text-center'><a href="eliminarcarrito.php?id=<?php echo $producto['idproducto']; ?>&view=<?php echo $_GET['view'] ?>"><i class="far fa-trash-alt"></i></a></td>
                                             </tr>
                                         </tbody>

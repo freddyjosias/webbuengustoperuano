@@ -38,9 +38,11 @@
                 $resultadosAnadir -> execute(array($_GET['view'], $_GET['view'], $_GET['anadir']));
                 $resultadosAnadir = $resultadosAnadir -> fetchAll(PDO::FETCH_ASSOC);
 
-                    $resultado2 = $conexion -> prepare('INSERT INTO shop_car(idusuario, idproducto, quantity) VALUE(?, ?, 1)');
-                    $resultado2 -> execute(array($_SESSION['idusuario'], $_GET['anadir']));
-                    $resultado2 = $resultado2 -> fetchAll(PDO::FETCH_ASSOC);
+                if($_SERVER["REQUEST_METHOD"] == "POST"){
+                        $resultado2 = $conexion -> prepare('INSERT INTO shop_car(idusuario, idproducto, quantity) VALUE(?, ?, ?)');
+                        $resultado2 -> execute(array($_SESSION['idusuario'], $_GET['anadir'], $_POST['addquantity']));
+                        $resultado2 = $resultado2 -> fetchAll(PDO::FETCH_ASSOC);
+                }
                 
             }
 
@@ -149,7 +151,7 @@
 
                                         <div class="col-2 m-0 p-0 align-items-center">
 
-                                            <form class='d-flex' method='post' action='hacerpedido.php?view=<?php echo $_GET['view']?> '>
+                                            <form class='d-flex' method='post' action='hacerpedido.php?view=<?php echo $_GET['view']?>&anadir=<?php echo $row2['idproducto'] ?>'>
 
                                                 <div class="col-6 m-0 p-0">
                                                     <button type="submit" class=" btn btn-primary">
