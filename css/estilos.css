@@ -369,7 +369,6 @@ body {
     text-align: center;
     padding: 1.5rem 0 1rem 0;
     text-decoration-line: underline;
-    font-size: 35px;
 }
 
 .contenido-carta {
@@ -377,12 +376,22 @@ body {
     margin: auto;
 }
 
-.contenido-carta h2 {
-    font-size: 30px;
-    margin: 0;
+.categories-view {
+    border-bottom: 2px solid var(--principal-hover);
 }
 
-.contenido-carta>div {
+.categories-view h2 {
+    background-color: var(--principal-hover);
+    border-top-left-radius: 7px;
+    border-top-right-radius: 7px;
+    font-size: 22px;
+}
+
+.list-products {
+    margin-bottom: 2rem;
+}
+
+.productos-carta {
     margin: 1rem auto 2rem auto;
 }
 
