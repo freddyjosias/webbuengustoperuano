@@ -575,10 +575,10 @@ body {
 
 .contenido-panel-home a {
     background-color: white;
-    color: brown;
+    color: #212F3D;
     padding: 1rem 2rem;
     text-decoration: none;
-    border: 1px solid brown;
+    border: 1px solid #212F3D;
     font-size: 20px;
     border-radius: 30px;
     font-weight: 700;

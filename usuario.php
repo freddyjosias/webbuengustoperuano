@@ -53,7 +53,7 @@
     <title>El Buen Gusto Peruano</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shorcut icon" href="img/faviconn.ico">
+    <link rel="shorcut icon" href="img/favicon.png">
     <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" type="text/css" href="css/estilos.css">
