@@ -1,5 +1,5 @@
 <div class="container-fluid p-0 d-none d-md-block">
-    <nav class='nav-restaurant'>
+    <nav class='nav-restaurant z-index-7'>
         <ul>
             <li><a href="bienvenida.php?view=<?php echo $idRestaurante ?>" class="op0 h-100">Bienvenida</a></li>
             <li><a href="hacerpedido.php?view=<?php echo $idRestaurante ?>" class="op1 h-100">Pedidos</a></li>

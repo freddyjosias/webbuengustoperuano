@@ -77,10 +77,14 @@ $(function() {
     });
 
     //Menu
+    var marignWelcomePage = 0;
+    
+    if ($('.bienvenida-page').length > 0) {    
+        marignWelcomePage = $('.bienvenida-page').css('margin-top');
+    }
 
-    var marignWelcomePage = $('.bienvenida-page').css('margin-top');
     var heightNavRestaurant;
-
+    
     if ($('.nav-restaurant').height() <= 0) 
     {
         heightNavRestaurant = $('.navbar-restaurant').height();
@@ -90,8 +94,8 @@ $(function() {
         heightNavRestaurant = $('.nav-restaurant').height();
     }
 
-    var altura = $('.header-restaurante').height() - heightNavRestaurant;
-
+    var altura = $('.header-restaurante').height();
+    
     function fixedMenu(){
         
         $(window).on('scroll', function(){
@@ -111,14 +115,30 @@ $(function() {
             {
 
                 $('.header-restaurante nav').addClass('menu-fixed');
-                $('.bienvenida-page').css('margin-top', parseInt(marignWelcomePage) + parseInt(heightNavRestaurant))
+
+                if ($('.bienvenida-page').length > 0) { 
+                    console.log(marignWelcomePage);
+                    $('.bienvenida-page').css('margin-top', parseInt(marignWelcomePage) + parseInt(heightNavRestaurant))
+
+                } else if ($('.carta').length > 0) {
+
+                    $('.carta').css('margin-top',heightNavRestaurant)
+
+                }
+
 
             }
             else 
             {
 
                 $('.header-restaurante nav').removeClass('menu-fixed');
-                $('.bienvenida-page').css('margin-top', marignWelcomePage)
+                
+                if ($('.bienvenida-page').length > 0) {    
+                    $('.bienvenida-page').css('margin-top', 32);
+                    marignWelcomePage = $('.bienvenida-page').css('margin-top');
+                } else if($('.carta').length > 0) {
+                    $('.carta').css('margin-top', 0);
+                }
 
                 if ($('.nav-restaurant').height() <= 0) 
                 {

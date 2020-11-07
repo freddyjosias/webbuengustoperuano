@@ -149,7 +149,7 @@
 
                                         <div class="col-2 m-0 p-0 align-items-center">
 
-                                            <form class='d-flex'>
+                                            <form class='d-flex' method='post' action='hacerpedido.php?view=<?php echo $_GET['view']?> '>
 
                                                 <div class="col-6 m-0 p-0">
                                                     <button type="submit" class=" btn btn-primary">
@@ -158,7 +158,7 @@
                                                 </div>
 
                                                 <div class="col-6 m-0 pl-0 pr-3 form-group">
-                                                    <input type="number" class="no-arrow-numer form-control p-1 text-center fw-600" id="exampleInputPassword1" value='1'>
+                                                    <input type="number" name='addquantity' class="no-arrow-numer form-control p-1 text-center fw-600" id="exampleInputPassword1" value='1' min='1' max='<?php echo $row2['stock'] ?>'> 
                                                 </div>
 
                                             </form>
