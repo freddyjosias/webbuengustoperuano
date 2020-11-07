@@ -807,13 +807,27 @@ body {
 
 .ir-arriba {
     display: none;
-    width: 50px;
-    height: 50px;
-    padding: 2rem;
     cursor: pointer;
     position: fixed;
     bottom: 20px;
     right: 20px;
+    padding: 0;
+    margin: 0;
+    border-radius: 50%;
+    background-color: white;
+    border: 1px solid var(--principal-hover);
+}
+
+.ir-arriba i {
+    padding: 0rem 0.7rem 0.2rem 0.7rem;
+    font-size: 3.5rem;
+    color: var(--principal-hover);
+    opacity: 0.8;
+}
+
+
+.ir-arriba i:hover {
+    opacity: 1;
 }
 
 .cerrar-sesion {
@@ -994,6 +1008,25 @@ body {
 /*START RESPONSIVE BIENVENIDA*/
 
 
+@media (max-width: 1400px) 
+{
+
+    .ir-arriba 
+    {
+        bottom: 15px;
+        right: 15px;
+    }
+    
+    .ir-arriba i 
+    {
+        padding: 0rem 0.6rem 0rem 0.6rem;
+        font-size: 2.8rem;
+        color: var(--principal-hover);
+        opacity: 0.8;
+    }
+
+}
+
 
 @media (max-width: 1200px) {
     button,
@@ -1045,6 +1078,10 @@ body {
 }
 
 @media (max-width: 991px) {
+
+    .ir-arriba {
+        display: none !important;
+    }
     
     .bienvenida-page>div>img:first-child {
         display: none;
@@ -1072,7 +1109,7 @@ body {
         height: 2.5rem;
     }
 
-    .footer-inicio {
+    .footer-inicio-margin {
         margin-bottom: 2.5rem;
     }
 

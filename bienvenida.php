@@ -63,7 +63,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@400;500;600;700;800&display=swap" rel="stylesheet">
         <title>Bienvenida | <?php echo $nombreRestaurante ?></title>
-        <link rel="shorcut icon" href="img/favicon.png">
+        <link rel="shorcut icon" href="img/logo-icono.png">
         <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
         <link rel="stylesheet" href="css/bootstrap.add.css">
         <link rel="stylesheet" href="css/normalize.css">
@@ -116,13 +116,15 @@
 
         </div>
     </main>
-    <footer class="footer-inicio">
+    <footer class="footer-inicio footer-inicio-margin">
         <div class= "contenedor-general">
             <div>© 2020 Restaurante 1 SAC. Todos los derechos reservados</div>
         </div>
     </footer>
 
-    <img src="img/ir-arriba.png" class="ir-arriba">
+    <div class="function-go-up ir-arriba">
+        <i class="fas fa-angle-up"></i>
+    </div>
 
     <div class="submenu-bottom container-fluid position-fixed bottom-0 d-block d-lg-none border border-light border-bottom-0 border-right-0 border-left-0">
 
@@ -134,7 +136,7 @@
 
             <div class="col-6 text-white fs-35">
 
-                <div class="go-up h-100 d-flex top-0 justify-content-center w-100" role='button'>
+                <div class="function-go-up go-up h-100 d-flex top-0 justify-content-center w-100" role='button'>
                     <i class="fas fa-angle-up"></i>
                 </div>
 
