@@ -31,9 +31,9 @@
             <div class="contenedor-general contenido-header-inicio row">
 
                 <div class="contenedor-img col-6 m-0 px-0 py-3 h-4r d-flex">
-                    <img src="img/logo-icon-512-color.png" class="mh-100 d-none d-sm-block">
-                    <img src="img/logo-text-1024-white.png" class="mh-100 ml-3 d-none d-sm-block">
-                    <img src="img/logo-inicial.png" class="contenido-header-inicio-img d-block d-sm-none">
+                    <img src="img/logo-icon-512-color.png" class="h-100">
+                    <img src="img/logo-text-1024-white.png" class="h-100 ml-3 d-none d-sm-block">
+                    <img src="img/logo-text-1024-white-min.png" class="h-100 ml-3 d-block d-sm-none">
                 </div>
 
                 <div class="cerrar-sesion text-right col-6 m-0 p-0 ">
