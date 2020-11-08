@@ -117,8 +117,8 @@ $consultaVerificarRestaurante = 'SELECT * FROM sucursal WHERE idsucursal = ?';
                                                     <td><?php if($producto['quantity'] == 1) {
                                                         echo $producto['precio']; ?>
                                                         <?php } else {
-                                                            $producto['quantity'] = floatval($producto['quantity']);
-                                                            echo $Nproducto = $producto['precio']*$producto['quantity']; } ?>
+                                                            $Nproducto = $producto['precio']*$producto['quantity'];  
+                                                            echo number_format($Nproducto, 2, '.', ''); } ?>
                                                     </td>
                                                     <td class='text-center'><a href="eliminarcarrito.php?id=<?php echo $producto['idproducto']; ?>&view=<?php echo $_GET['view'] ?>"><i class="far fa-trash-alt"></i></a></td>
                                             </tr>
