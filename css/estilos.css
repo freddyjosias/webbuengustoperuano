@@ -744,6 +744,15 @@ body {
     color: white;
 }
 
+.letra-panel > tr > th > p{
+    color: black;
+}
+
+.destacado-panel > img {
+    width: 12rem;
+    height: 12rem;
+}
+
 
 /*end añadir carrito*/
 
