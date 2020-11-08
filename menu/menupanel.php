@@ -5,7 +5,7 @@
                 <li><a class='pl-5' href="panel.php">Inicio</a></li>
                 <li><a class='pl-5' href="restaurante.php">Información Restaurante</a></li>
                 <li><a class='pl-5' href="actualizarbanner.php">Actualizar Banner</a></li>
-                <li><a class='pl-5' href="actualizartextobienvenida.php">Actualizar Texto de Bienvenida</a></li>
+                <li><a class='pl-5' href="bienvenida/bienvenida.php">Bienvenida</a></li>
                 <li><a class='pl-5' href="actualizarimagenbienvenida.php">Actualizar Imagen de Bienvenida</a></li>
                 <li><a class='pl-5' href="destacados/listar.php">Platos Destacados</a></li>
                 <li><a class='pl-5' href="categorias/listar.php">Categorias</a></li>
