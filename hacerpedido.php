@@ -33,16 +33,14 @@
             header('Location: index.php');
         } else {
             
-            if (isset($_GET['anadir'])) {
+            if($_SERVER["REQUEST_METHOD"] == "POST"){
                 $resultadosAnadir = $conexion -> prepare('SELECT idproducto FROM productos INNER JOIN categoriaproductos ON categoriaproductos.idcategoriaproducto = productos.idcategoriaproducto INNER JOIN sucursal ON sucursal.idsucursal = categoriaproductos.idsucursal WHERE sucursal.idsucursal = ? AND categoriaproductos.idsucursal = ? AND categoriaproductos.estado = 1 AND productos.estado = 1 AND productos.idproducto = ?');
-                $resultadosAnadir -> execute(array($_GET['view'], $_GET['view'], $_GET['anadir']));
+                $resultadosAnadir -> execute(array($_GET['view'], $_GET['view'], $_POST['']));
                 $resultadosAnadir = $resultadosAnadir -> fetchAll(PDO::FETCH_ASSOC);
 
-                if($_SERVER["REQUEST_METHOD"] == "POST"){
-                        $resultado2 = $conexion -> prepare('INSERT INTO shop_car(idusuario, idproducto, quantity) VALUE(?, ?, ?)');
-                        $resultado2 -> execute(array($_SESSION['idusuario'], $_GET['anadir'], $_POST['addquantity']));
-                        $resultado2 = $resultado2 -> fetchAll(PDO::FETCH_ASSOC);
-                }
+                $resultado2 = $conexion -> prepare('INSERT INTO shop_car(idusuario, idproducto, quantity) VALUE(?, ?, ?)');
+                $resultado2 -> execute(array($_SESSION['idusuario'], $_POST[''], $_POST['addquantity']));
+                $resultado2 = $resultado2 -> fetchAll(PDO::FETCH_ASSOC);
                 
             }
 
@@ -151,7 +149,7 @@
 
                                         <div class="col-5 col-md-2 m-0 p-0 align-items-center">
 
-                                            <form class='d-flex h-100 align-items-center' method='post' action='hacerpedido.php?view=<?php echo $_GET['view']?> '>
+                                            <form class='d-flex h-100 align-items-center' method='post' action='hacerpedido.php?view=<?php echo $_GET['view']?>'>
 
                                                 <div class="col-6 m-0 p-0">
                                                     <button type="submit" class=" btn btn-primary">
