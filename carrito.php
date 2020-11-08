@@ -58,7 +58,7 @@ $consultaVerificarRestaurante = 'SELECT * FROM sucursal WHERE idsucursal = ?';
 	<title>El Buen Gusto Peruano</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shorcut icon" href="img/faviconn.ico">
+    <link rel="shorcut icon" href="img/favicon.png">
     <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <title>Carrito | <?php echo $nombreRestaurante ?></title>
     <link rel="shorcut icon" href="img/logo-icono.png">
@@ -113,11 +113,12 @@ $consultaVerificarRestaurante = 'SELECT * FROM sucursal WHERE idsucursal = ?';
                                             <tr class="trcarrito">
                                                     <td><?php echo $producto['nomproducto'] ?></td>
                                                     <td><?php echo $producto['quantity'] ?></td>
-                                                    <td><?php echo $producto['precio'] ?></td>
-                                                    <td><?php if($producto['quantity'] == 1) {
+                                                    <td>S/.<?php echo $producto['precio'] ?></td>
+                                                    <td>S/.<?php if($producto['quantity'] == 1) {
                                                         echo $producto['precio']; ?>
                                                         <?php } else {
-                                                            echo $Nproducto = $producto['precio']*$producto['quantity']; } ?>
+                                                            $Nproducto = $producto['precio']*$producto['quantity'];  
+                                                            echo number_format($Nproducto, 2, '.', ' '); } ?>
                                                     </td>
                                                     <td class='text-center'><a href="eliminarcarrito.php?id=<?php echo $producto['idproducto']; ?>&view=<?php echo $_GET['view'] ?>"><i class="far fa-trash-alt"></i></a></td>
                                             </tr>
