@@ -96,7 +96,7 @@
                 </div>
                 
                 <div class="telefono">
-                    <h2 class='h5 text-uppercase fw-600 '>Telefono</h2>
+                    <h2 class='h5 text-uppercase fw-600 '>Teléfono</h2>
                     <ul>
                         <li><p class='my-1'><?php echo $telefonoRestaurante; ?></p></li>
                     </ul>
@@ -112,7 +112,7 @@
                 </div>
 
                 <div class="correoelectronico">
-                    <h2 class='h5 text-uppercase fw-600 '>Correo electronico</h2>
+                    <h2 class='h5 text-uppercase fw-600 '>Correo electrónico</h2>
                     <ul>
                         <li><p class='my-1'><?php echo $correoRestaurante; ?></p></li>
                     </ul>
@@ -121,7 +121,7 @@
             
             <div class="div">
                 <div class="formadepago">
-                    <h2 class='h5 text-uppercase fw-600 '>Tipos de envio</h2>
+                    <h2 class='h5 text-uppercase fw-600 '>Tipos de envió</h2>
                     <ul>
                         <?php $resultados = $conexion -> prepare($consultaFormaPago);
                         $resultados -> execute();
