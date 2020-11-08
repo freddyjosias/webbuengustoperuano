@@ -113,8 +113,8 @@ $consultaVerificarRestaurante = 'SELECT * FROM sucursal WHERE idsucursal = ?';
                                             <tr class="trcarrito">
                                                     <td><?php echo $producto['nomproducto'] ?></td>
                                                     <td><?php echo $producto['quantity'] ?></td>
-                                                    <td><?php echo $producto['precio'] ?></td>
-                                                    <td><?php if($producto['quantity'] == 1) {
+                                                    <td>S/.<?php echo $producto['precio'] ?></td>
+                                                    <td>S/.<?php if($producto['quantity'] == 1) {
                                                         echo $producto['precio']; ?>
                                                         <?php } else {
                                                             $Nproducto = $producto['precio']*$producto['quantity'];  
