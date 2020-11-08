@@ -73,7 +73,7 @@
 <body>
 
     <div class='logo-icono d-none d-md-block'>
-        <a href="index.php"><img src="img/logo-icono.png" alt=""></a>
+        <a href="index.php"><img src="img/logo-icon-512-color.png" alt=""></a>
     </div>
 
     <header class="header-restaurante">
