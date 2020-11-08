@@ -243,7 +243,6 @@ body {
 
 .navbar-restaurant-list {
     border-top: 1px solid white;
-    border-bottom: 1px solid white;
 }
 
 .navbar-restaurant-list li:hover {
@@ -397,7 +396,6 @@ body {
     border-radius: 5px;
     border: 1px solid green;
     margin: 1rem auto;
-    font-size: 19px;
     padding: 0.5rem;
 }
 
@@ -1074,6 +1072,7 @@ body {
     .contenido-carta {
         width: 95%;
     }
+
     .productos-carta {
         width: 90%;
     }
@@ -1096,6 +1095,10 @@ body {
 }
 
 @media (max-width: 991px) {
+
+    .productos-carta {
+        width: 100%;
+    }
 
     .ir-arriba {
         display: none !important;

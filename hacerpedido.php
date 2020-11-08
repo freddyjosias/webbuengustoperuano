@@ -109,7 +109,7 @@
                     
                     if (count($resultados2) > 0 && $productosOK == 1) {?>
 
-                        <div class="categories-view container d-flex text-white m-0 p-0">
+                        <div class="categories-view w-100 mw-100 container d-flex text-white m-0 p-0">
 
                             <h2 class='fw-500 ls-13 m-0 px-4 py-1'><?php echo $row['descripcioncategoriaproducto'] ?></h2>
 
@@ -121,9 +121,9 @@
                                 
                                 if ($row2['stock'] > 0) {?>
 
-                                    <div class="row productos-carta fw-600">
+                                    <div class="row productos-carta fs-19  fw-600">
 
-                                        <div class="col-1 m-0 p-0">
+                                        <div class="col-2 col-md-1 mx-0 p-0 my-2 my-md-0">
 
                                             <div class="row  m-0 p-0 h-100 align-items-center">
 
@@ -131,7 +131,7 @@
                                                     <?php echo $row2['stock'] ?>
                                                 </div>
 
-                                                <div class="col-1 m-0 h-100 p-0 border-3 border-secondary border-top-0 border-bottom-0 border-left-0 rounded">
+                                                <div class="col-1  m-0 h-100 p-0 border-3 border-secondary border-top-0 border-bottom-0 border-left-0 rounded">
                                                     
                                                 </div>
 
@@ -139,7 +139,7 @@
 
                                         </div>
 
-                                        <div class="col-7 m-0 p-0">
+                                        <div class="col-10 col-md-7 m-0 p-0">
 
                                             <div class="col-12 h-100 d-flex align-items-center">
                                                 <?php echo $row2['nomproducto'] ?>
@@ -147,9 +147,9 @@
 
                                         </div>
 
-                                        <div class="col-2 m-0 p-0 align-items-center">
+                                        <div class="col-5 col-md-2 m-0 p-0 align-items-center">
 
-                                            <form class='d-flex' method='post' action='hacerpedido.php?view=<?php echo $_GET['view']?> '>
+                                            <form class='d-flex h-100 align-items-center' method='post' action='hacerpedido.php?view=<?php echo $_GET['view']?> '>
 
                                                 <div class="col-6 m-0 p-0">
                                                     <button type="submit" class=" btn btn-primary">
@@ -157,7 +157,7 @@
                                                     </button>
                                                 </div>
 
-                                                <div class="col-6 m-0 pl-0 pr-3 form-group">
+                                                <div class="col-6 m-0 pl-0 pr-3 pr-md-2 pr-lg-3 form-group">
                                                     <input type="number" name='addquantity' class="no-arrow-numer form-control p-1 text-center fw-600" id="exampleInputPassword1" value='1' min='1' max='<?php echo $row2['stock'] ?>' required> 
                                                 </div>
 
@@ -165,15 +165,15 @@
 
                                         </div>
 
-                                        <div class="col-2 m-0 p-0">
+                                        <div class="col-7 col-md-2 mx-0 my-2 my-md-0 p-0">
 
                                             <div class="row m-0 p-0 h-100 align-items-center">
 
-                                                <div class="col-1 h-100 my-0 ml-0 p-0 border-3 border-secondary border-top-0 border-bottom-0 border-right-0">
+                                                <div class="col-1 d-none d-md-block h-100 my-0 ml-0 p-0 border-3 border-secondary border-top-0 border-bottom-0 border-right-0">
                                                     
                                                 </div>
 
-                                                <div class="col-11 m-0 p-0 text-center">
+                                                <div class="col-12 col-md-11 m-0 p-0 text-md-center text-right">
                                                     S/. <?php echo $row2['precio'] ?>
                                                 </div>
 
