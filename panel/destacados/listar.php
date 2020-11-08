@@ -84,7 +84,7 @@ if (isset($_SESSION['idusuario'])) {
                                 <th scope="row" class='text-center'>3</th>
                                 <td class="destacado-panel"><img src="../../<?php echo $val['imgdestacado3'] ?>" alt=""></td>
                                 <td><?php echo $val['platodestacado3'] ?></td>
-                                <td class='text-center'><a href="actualizar3.php; ?>"><i class="far fa-edit"></i></a></td>
+                                <td class='text-center'><a href="actualizar3.php"><i class="far fa-edit"></i></a></td>
                             <?php } ?>
                             </tr>
 

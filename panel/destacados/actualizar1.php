@@ -15,6 +15,7 @@
          header('Location: ../../index.php');
      }
 
+
      if($_SERVER["REQUEST_METHOD"] == "POST"){
 
         $ruta = 'img/'.$_FILES['nuevaimagen']['name']; 
@@ -25,9 +26,6 @@
         
     }
 
-    $resultadosImg = $conexion -> prepare('SELECT imgdestacado1 FROM sucursal WHERE idsucursal = ?');
-    $resultadosImg -> execute(array($_SESSION['sucursal']));
-    $resultadosImg = $resultadosImg -> fetch(PDO::FETCH_ASSOC);  
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         
@@ -38,7 +36,11 @@
 
     $resultadosText = $conexion -> prepare('SELECT platodestacado1 FROM sucursal WHERE idsucursal = ?');
     $resultadosText -> execute(array($_SESSION['sucursal']));
-    $resultadosText = $resultadosText -> fetch(PDO::FETCH_ASSOC);   
+    $resultadosText = $resultadosText -> fetch(PDO::FETCH_ASSOC); 
+
+    $resultadosImg = $conexion -> prepare('SELECT imgdestacado1 FROM sucursal WHERE idsucursal = ?');
+    $resultadosImg -> execute(array($_SESSION['sucursal']));
+    $resultadosImg = $resultadosImg -> fetch(PDO::FETCH_ASSOC);  
     
 ?>
 
@@ -79,7 +81,7 @@
 
                             <p class='fw-500'>Imagen: </p>
                         
-                            <input type="file" name="nuevaimagen"><br><br>
+                            <input type="file" name="nuevaimagen" value="<?php echo $resultadosImg['imgdestacado1'] ?>"><br><br>
 
                                 <div class='text-center mt-5 destacado-panel'>
                                     <?php echo "<img class='h-25r border border-dark' src='../../". $resultadosImg['imgdestacado1'] ."' >" ?>
