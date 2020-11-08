@@ -81,7 +81,7 @@
 
     <main class="contenedor-general">
 
-        <div class="introduccion-quienes-somos">
+        <div class="introduccion-quienes-somos pt-4 pb-3">
             <p> Situado en el centro de Tarapoto, ofrecemos a nuestros clientes la experiencia de disfrutar de los productos tipicos y autóctonos de la selva peruana. Proponemos platos tipicos dinámico sujeto a la disponibilidad de los productos, tan cambiante e impredecible como puedan ser las condiciones climatológicas y la temporada, es por eso que nuestra carta esta a disponibilidad de todos nuestros clientes.</p>
 		</div>
 		
@@ -89,57 +89,57 @@
             
             <div class="div">
                 <div class="horariodeatencion">
-                    <h2>Horario de atención</h2>
+                    <h2 class='h5 text-uppercase fw-600 '>Horario de atención</h2>
                     <ul>
-                        <li><p>Lunes a Domingo <?php echo $atencioninicioRestautante . ' - ' . $atencioncierreRestautante ?></p></li>
+                        <li><p class='my-1'>Lunes a Domingo <?php echo $atencioninicioRestautante . ' - ' . $atencioncierreRestautante ?></p></li>
                     </ul>
                 </div>
                 
                 <div class="telefono">
-                    <h2>Telefono</h2>
+                    <h2 class='h5 text-uppercase fw-600 '>Telefono</h2>
                     <ul>
-                        <li><p><?php echo $telefonoRestaurante; ?></p></li>
+                        <li><p class='my-1'><?php echo $telefonoRestaurante; ?></p></li>
                     </ul>
                 </div>
             </div>
             
             <div class="div">
                 <div class="ubicacion">
-                    <h2>Dirección</h2>
+                    <h2 class='h5 text-uppercase fw-600 '>Dirección</h2>
                     <ul>
-                        <li><p><?php echo $ubicacionRestaurante;?></p></li>
+                        <li><p class='my-1'><?php echo $ubicacionRestaurante;?></p></li>
                     </ul>
                 </div>
 
                 <div class="correoelectronico">
-                    <h2>Correo electronico</h2>
+                    <h2 class='h5 text-uppercase fw-600 '>Correo electronico</h2>
                     <ul>
-                        <li><p><?php echo $correoRestaurante; ?></p></li>
+                        <li><p class='my-1'><?php echo $correoRestaurante; ?></p></li>
                     </ul>
                 </div>
             </div>
             
             <div class="div">
                 <div class="formadepago">
-                    <h2>Tipos de envio</h2>
+                    <h2 class='h5 text-uppercase fw-600 '>Tipos de envio</h2>
                     <ul>
                         <?php $resultados = $conexion -> prepare($consultaFormaPago);
                         $resultados -> execute();
                         $resultados = $resultados -> fetchAll(PDO::FETCH_ASSOC);
                         foreach($resultados as $row) {?>
-                            <li><p><?php echo $row['descripciontipospedido'] ?></p></li>
+                            <li><p class='my-1'><?php echo $row['descripciontipospedido'] ?></p></li>
                         <?php } ?>
                 </ul>
                 </div>
 
                 <div class="gastosdeenvio">
-                    <h2>Forma de pagos</h2>
+                    <h2 class='h5 text-uppercase fw-600 '>Forma de pagos</h2>
                     <ul>
                         <?php $resultados = $conexion -> prepare($consultaTipoPago);
                         $resultados -> execute(array($_GET['view']));
                         $resultados = $resultados -> fetchAll(PDO::FETCH_ASSOC);
                         foreach($resultados as $row) {?>
-                            <li><p><?php echo $row['descripcionformaspago'] ?></p></li>
+                            <li><p class='my-1'><?php echo $row['descripcionformaspago'] ?></p></li>
                         <?php } ?>
                     </ul>
                 </div>
@@ -148,18 +148,40 @@
         </div>
 
         <div class="mapa-quienes-somos">    
-            <h3>Nos Encontramos Aquí</h3>
+            <h3 class='mt-3 mb-4'>Nos Encontramos Aquí</h3>
             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d9428.608432958468!2d-76.36468223737711!3d-6.49107291844111!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x91ba0c062708ad1d%3A0x470eec16e5498700!2sPlaza%20de%20Armas%20de%20Tarapoto!5e0!3m2!1ses-419!2spe!4v1600025859915!5m2!1ses-419!2spe"  style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
         </div>	
                     
     </main>
+    
     <footer class="footer-inicio">
-        <div class="contenedor-general">
-            <div>© 2020 <?php echo $nombresucursal ?>. Todos los derechos reservados</div>
+        <div class='contenedor-general'>
+            <div>© 2020 Restaurante 1 SAC. Todos los derechos reservados</div>
         </div>
     </footer>
 
-    <img src="img/ir-arriba.png" class="ir-arriba">
+    <div class="function-go-up ir-arriba">
+        <i class="fas fa-angle-up"></i>
+    </div>
+
+    <div class="submenu-bottom container-fluid position-fixed bottom-0 d-block d-lg-none border border-light border-bottom-0 border-right-0 border-left-0">
+
+        <div class="row text-center h-100">
+
+            <div class="col-6 fs-22 h-100 d-flex border-right">
+                <a href="index.php" class='text-white h-100 w-100 pt-1'><i class="fas fa-home"></i></a>
+            </div>
+
+            <div class="col-6 text-white fs-35">
+
+                <div class="function-go-up go-up h-100 d-flex top-0 justify-content-center w-100" role='button'>
+                    <i class="fas fa-angle-up"></i>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
 
     <script src="js/jquery-3.5.1.min.js"></script>
     <script src="bootstrap/js/bootstrap.min.js"></script>
