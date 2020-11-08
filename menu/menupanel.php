@@ -7,7 +7,7 @@
                 <li><a class='pl-5' href="actualizarbanner.php">Actualizar Banner</a></li>
                 <li><a class='pl-5' href="actualizartextobienvenida.php">Actualizar Texto de Bienvenida</a></li>
                 <li><a class='pl-5' href="actualizarimagenbienvenida.php">Actualizar Imagen de Bienvenida</a></li>
-                <li><a class='pl-5' href="actualizardestacados.php">Actualizar Platos Destacados</a></li>
+                <li><a class='pl-5' href="destacados/listar.php">Platos Destacados</a></li>
                 <li><a class='pl-5' href="categorias/listar.php">Categorias</a></li>
                 <li><a class='pl-5' href="productos/listar.php">Productos</a></li>
                 <li><a class='pl-5' href="actualizarformaspago.php">Actualizar Formas de Pago</a></li>
