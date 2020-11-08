@@ -14,7 +14,7 @@
 	<title>El Buen Gusto Peruano</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shorcut icon" href="img/favicon.png">
+    <link rel="shorcut icon" href="img/logo-icon-512-color.png">
     <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="fontawesome/css/all.min.css">
     <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
@@ -28,14 +28,14 @@
         
         <header class="header-inicio">
 
-            <div class="contenedor-general contenido-header-inicio">
+            <div class="contenedor-general contenido-header-inicio row">
 
-                <div class="contenedor-img">  
-                    <img src="img/logo-white.png" class="contenido-header-inicio-img d-none d-sm-block">
+                <div class="contenedor-img col-6">  
+                    <img src="img/logo-icon-512-color.png" class="contenido-header-inicio-img d-none h-100 w-25 d-sm-block">
                     <img src="img/logo-inicial.png" class="contenido-header-inicio-img d-block d-sm-none">
                 </div>
 
-                <div class="cerrar-sesion text-right">
+                <div class="cerrar-sesion text-right col-6">
                     <div class="container h-100 align-items-center d-flex p-0">
                         <?php if ($_SESSION['profile'] == 3) { ?>
                             <a class='text-white h3 sm-h2 ml-auto mb-0' title='Panel de Administrador' href="paneladmin/index.php"><i class="fas fa-cogs"></i></a>
