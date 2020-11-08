@@ -221,6 +221,30 @@
     z-index: 7;
 }
 
+@media (min-width: 992px){
+
+    .pr-lg-3 {
+        padding-right: 1rem;
+    }
+
+}
+
+@media (min-width: 762px){
+
+    .fs-md-18 {
+        font-size: 18px;
+    }
+
+    .fs-md-19 {
+        font-size: 19px;
+    }
+
+    .pr-md-2 {
+        padding-right: .5rem;
+    }
+
+}
+
 @media (min-width: 576px){
 
     .sm-h2 {

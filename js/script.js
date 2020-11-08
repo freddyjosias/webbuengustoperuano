@@ -190,7 +190,6 @@ $(function() {
         objectMenu.parent().css('background-color', '#969696');
         objectMenu.parent().css('border', '1px solid white');
     }
-    
 
 });
 

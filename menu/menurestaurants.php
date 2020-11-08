@@ -18,7 +18,7 @@
     </nav>
 </div>
 
-<nav class="navbar-restaurant navbar navbar-expand-lg navbar-light d-block d-md-none p-0 border border-white border-top-0 broder-right-0 border-left-0">
+<nav class="navbar-restaurant z-index-7 navbar navbar-expand-lg navbar-light d-block d-md-none p-0 border border-white border-top-0 broder-right-0 border-left-0">
     <div class="contenedor-general">
         <div class="container w-100 d-flex p-0 m-0 mw-100">
 
