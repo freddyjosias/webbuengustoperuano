@@ -26,16 +26,17 @@
 
     <?php if (isset($_SESSION['idusuario'])) { ?>                        
         
-        <header class="header-inicio">
+        <header class="header-inicio ">
 
             <div class="contenedor-general contenido-header-inicio row">
 
-                <div class="contenedor-img col-6">  
-                    <img src="img/logo-icon-512-color.png" class="contenido-header-inicio-img d-none h-100 w-25 d-sm-block">
+                <div class="contenedor-img col-6 m-0 px-0 py-3 h-4r d-flex">
+                    <img src="img/logo-icon-512-color.png" class="mh-100 d-none d-sm-block">
+                    <img src="img/logo-text-1024-white.png" class="mh-100 ml-3 d-none d-sm-block">
                     <img src="img/logo-inicial.png" class="contenido-header-inicio-img d-block d-sm-none">
                 </div>
 
-                <div class="cerrar-sesion text-right col-6">
+                <div class="cerrar-sesion text-right col-6 m-0 p-0 ">
                     <div class="container h-100 align-items-center d-flex p-0">
                         <?php if ($_SESSION['profile'] == 3) { ?>
                             <a class='text-white h3 sm-h2 ml-auto mb-0' title='Panel de Administrador' href="paneladmin/index.php"><i class="fas fa-cogs"></i></a>

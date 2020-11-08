@@ -112,10 +112,6 @@ body {
     background-position: center center;
 }
 
-.contenido-header-inicio-img {
-    width: 50%;
-}
-
 
 .view-restaurants>h1 {
     font-weight: 700;
@@ -954,10 +950,6 @@ body {
 .contenedor-img {
     background-size: cover;
     background-position: center center;
-}
-
-.contenido-header-inicio-img {
-    width: 50%;
 }
 
 .box-usuariox {
