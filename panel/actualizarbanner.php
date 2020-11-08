@@ -38,7 +38,7 @@
 	<meta charset="utf-8">
 	<link href="https://fonts.googleapis.com/css2?family=Dosis:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <title>Actualizar Banner</title>
-    <link rel="shorcut icon" href="../img/favicon.png">
+    <link rel="shorcut icon" href="../img/logo-icon-512-color.png">
     <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/bootstrap.add.css">
     <link rel="stylesheet" href="../css/normalize.css">

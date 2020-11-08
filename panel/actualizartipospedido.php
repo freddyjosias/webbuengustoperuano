@@ -51,7 +51,7 @@
 	<meta charset="utf-8">
 	<link href="https://fonts.googleapis.com/css2?family=Dosis:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <title>Actualziar Tipos de Pedido</title>
-    <link rel="shorcut icon" href="../img/favicon.png">
+    <link rel="shorcut icon" href="../img/logo-icon-512-color.png">
     <link rel="stylesheet" href="../css/normalize.css">
     <link rel="stylesheet" type="text/css" href="../css/estilos.css">
     <link rel="stylesheet" type="text/css" href="../css/responpanel.css">
