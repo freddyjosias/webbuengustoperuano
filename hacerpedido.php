@@ -161,6 +161,8 @@
                                                     <input type="number" name='addquantity' class="no-arrow-numer form-control p-1 text-center fw-600" id="exampleInputPassword1" value='1' min='1' max='<?php echo $row2['stock'] ?>' required> 
                                                 </div>
 
+                                                <input type="text" class='d-none' name='addid' value='<?php echo $row2['idproducto'] ?>'>
+
                                             </form>
 
                                         </div>
