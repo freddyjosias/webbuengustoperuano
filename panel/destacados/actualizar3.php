@@ -1,6 +1,7 @@
 <?php   
      require '../../conexion.php';
-
+     header('Cache-Control: no cache');
+     session_cache_limiter('private_no_expire');
      session_start();
  
      if (!isset($_SESSION['sucursal'])) {
@@ -79,7 +80,7 @@
 
                             <p class='fw-500'>Imagen: </p>
                         
-                            <input type="file" name="nuevaimagen"><br><br>
+                            <input type="file" name="nuevaimagen" required><br><br>
 
                                 <div class='text-center mt-5 destacado-panel'>
                                     <?php echo "<img class='h-25r border border-dark' src='../../". $resultadosImg['imgdestacado3'] ."' >" ?>
@@ -91,6 +92,7 @@
                                 <textarea style= "resize: vertical" name="nuevotexto" id="" cols="100" rows="5"><?php echo $resultadosText['platodestacado3'] ?></textarea><br><br>
 
                                 <input type="submit" value="Actualizar">
+                                <button><a href="listar.php">Volver</a></button>
 
                         </form>
 
