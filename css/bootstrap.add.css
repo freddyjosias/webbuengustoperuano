@@ -2,85 +2,105 @@
     --color-dark: #343a40;
 }
 
-.btn-skyblue {
+.btn-skyblue 
+{
     background-color: skyblue;
 }
 
-.btn-skyblue:hover {
+.btn-skyblue:hover 
+{
     background-color: rgb(87, 165, 195);
 }
 
-.border-3 {
+.border-3 
+{
     border-width: 3px;
     border-style: solid;
 }
 
-.border-5 {
+.border-5 
+{
     border-width: 5px;
     border-style: solid;
 }
 
-.bottom-0 {
+.bottom-0 
+{
     bottom: 0;
 }
 
-.col-f1 {
+.col-f1 
+{
     width: 2%;
 }
 
-.col-f46 {
+.col-f46 
+{
     width: 92%;
 }
 
-.fs-15 {
+.fs-15 
+{
     font-size: 15px;
 }
 
-.fs-16 {
+.fs-16 
+{
     font-size: 16px;
 }
 
-.fs-18 {
+.fs-18 
+{
     font-size: 18px;
 }
 
-.fs-19 {
+.fs-19 
+{
     font-size: 19px;
 }
 
-.fs-22 {
+.fs-22 
+{
     font-size: 22px;
 }
 
-.fs-25 {
+.fs-25 
+{
     font-size: 25px;
 }
 
-.fs-30 {
+.fs-30 
+{
     font-size: 30px;
 }
 
-.fs-35 {
+.fs-35 
+{
     font-size: 35px;
 }
 
-.h2 {
+.h2 
+{
     font-size: 2rem;
 }
 
-.h3 {
+.h3 
+{
     font-size: 1.75rem;
 }
 
-.fw-700 {
+.fw-700 
+{
     font-weight: 700;
 }
 
-.fw-600 {
+.fw-600 
+{
     font-weight: 600;
 }
 
-.fw-600imp {
+.fw-600imp 
+{
     font-weight: 600 !important;
 }
 
@@ -126,16 +146,19 @@
 }
 
 .no-arrow-numer::-webkit-inner-spin-button, 
-.no-arrow-numer::-webkit-outer-spin-button { 
+.no-arrow-numer::-webkit-outer-spin-button 
+{ 
     -webkit-appearance: none; 
     margin: 0; 
 }
 
-.no-arrow-numer { 
+.no-arrow-numer 
+{ 
     -moz-appearance:textfield; 
 }
 
-.ls-13 {
+.ls-13 
+{
     letter-spacing: 1.3px;
 }
 
