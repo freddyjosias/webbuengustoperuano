@@ -112,7 +112,6 @@ body {
     background-position: center center;
 }
 
-
 .view-restaurants>h1 {
     font-weight: 700;
 }
@@ -185,6 +184,7 @@ body {
 
 
 /* END INDEX */
+
 
 /* START MENU */
 
@@ -507,6 +507,10 @@ body {
     min-height: 100vh;
 }
 
+.text-decoration:hover {
+    text-decoration: none;
+}
+
 .nav-panel {
     background-color: #212F3D;
 }
@@ -624,7 +628,6 @@ body {
     padding-bottom: 2rem;
 }
 
-
 .bgp {
     text-align: center;
 }
@@ -658,7 +661,7 @@ body {
 }
 
 .carrito {
-    width: 70%;
+    width: 90%;
     font-size: 2rem;
     margin: 1rem auto;
     margin-bottom: 2.5rem;
@@ -744,16 +747,16 @@ body {
     color: white;
 }
 
-.letra-panel > tr > th > p{
+.letra-panel>tr>th>p {
     color: black;
 }
 
-.destacado-panel > img {
+.destacado-panel>img {
     width: 12rem;
     height: 12rem;
 }
 
-.banner-panel > img {
+.banner-panel>img {
     width: 50rem;
     height: 10rem;
 }
@@ -770,7 +773,7 @@ body {
 
 /* END PANEL DE CONTROL */
 
-.trcarrito > td{
+.trcarrito>td {
     color: white;
 }
 
@@ -850,7 +853,6 @@ body {
     color: var(--principal-hover);
     opacity: 0.8;
 }
-
 
 .ir-arriba i:hover {
     opacity: 1;
@@ -943,7 +945,6 @@ body {
 }
 
 
-
 /*START USUARIO*/
 
 
@@ -1029,26 +1030,18 @@ body {
 
 /*START RESPONSIVE BIENVENIDA*/
 
-
-@media (max-width: 1400px) 
-{
-
-    .ir-arriba 
-    {
+@media (max-width: 1400px) {
+    .ir-arriba {
         bottom: 15px;
         right: 15px;
     }
-    
-    .ir-arriba i 
-    {
+    .ir-arriba i {
         padding: 0rem 0.6rem 0rem 0.6rem;
         font-size: 2.8rem;
         color: var(--principal-hover);
         opacity: 0.8;
     }
-
 }
-
 
 @media (max-width: 1200px) {
     button,
@@ -1058,18 +1051,15 @@ body {
     textarea {
         width: 80%;
     }
-
     .form-panel input {
         width: 40%;
         font-size: 15px;
     }
-
     .bienvenida-page>div>img:first-child {
         width: 30rem;
         height: 17rem;
     }
 }
-
 
 @media (max-width: 1100px) {
     .contenedor-general {
@@ -1078,11 +1068,9 @@ body {
     .contenido-carta {
         width: 95%;
     }
-
     .productos-carta {
         width: 90%;
     }
-
     .panel-control {
         width: 100%;
     }
@@ -1101,23 +1089,18 @@ body {
 }
 
 @media (max-width: 991px) {
-
     .productos-carta {
         width: 100%;
     }
-
     .ir-arriba {
         display: none !important;
     }
-    
     .bienvenida-page>div>img:first-child {
         display: none;
     }
-
     .bienvenida-page>div {
         margin-top: 1rem;
     }
-
     .bienvenida-page>div>img:last-child {
         display: initial;
         width: 100%;
@@ -1125,21 +1108,17 @@ body {
         max-height: 28rem;
         margin: 0;
     }
-    
     .bienvenida-page>div>p {
         min-height: auto;
         margin-bottom: 0.5rem;
     }
-
     .submenu-bottom {
         background-color: var(--principal-color);
         height: 2.5rem;
     }
-
     .footer-inicio-margin {
         margin-bottom: 2.5rem;
     }
-
 }
 
 @media (max-width: 950px) {
@@ -1147,7 +1126,6 @@ body {
         height: 20vh;
         min-height: 5rem;
     }
-
     .panel-control {
         width: 100%;
     }
@@ -1169,7 +1147,6 @@ body {
 }
 
 @media (max-width: 900px) {
-    
     .bienvenida-page {
         width: 100%;
     }
@@ -1182,15 +1159,12 @@ body {
         margin: 0.5rem auto;
         width: 50%;
     }
-
     .bienvenida-page>div:last-child {
         margin: 1rem 0 1.5rem 0;
-    }    
-
+    }
     .panel-control {
         width: 100%;
     }
-
     .ir-arriba {
         right: -20px;
     }
@@ -1219,7 +1193,6 @@ body {
     }
 }
 
-
 @media (max-width: 830px) {
     .bienvenida-page>div>img:last-child {
         height: 15rem;
@@ -1228,7 +1201,6 @@ body {
         height: 13rem;
     }
 }
-
 
 @media screen and (max-width: 800px) {
     .div {
@@ -1254,23 +1226,18 @@ body {
     .presentacion-restaurantes {
         display: block;
     }
-    
     .destacados-bienvenida>div {
         width: 60%;
     }
-
     .introduccion-quienes-somos>p {
         font-size: 17px;
     }
-
     .contenido-main-somos>div>div {
         width: 100%;
     }
-
     .panel-control>nav a {
         font-size: 12px;
     }
-
     .h-24r {
         height: 11rem;
     }
@@ -1358,24 +1325,21 @@ body {
         width: 40%;
         font-size: 10px;
     }
-
     .destacados-bienvenida>div {
         width: 70%;
     }
-
 }
 
 @media (max-width: 650px) {
     .formulario-panel h1 {
         font-size: 20px;
     }
-
     .form-panel p {
         font-size: 10px;
     }
     .form-panel input {
         font-size: 10px;
-        }
+    }
     .carrito form input[type="submit"] {
         width: 25%;
         font-size: 8px;
@@ -1398,12 +1362,12 @@ body {
     .form-panel input {
         width: 50%;
         font-size: 8px;
-        }
     }
+}
 
- @media (max-width: 576px) {
+@media (max-width: 576px) {
     .contenedor-img {
-         width: 240px;
+        width: 240px;
     }
     .contenido-header-inicio-img {
         width: auto;
@@ -1432,6 +1396,7 @@ body {
         height: 17rem;
     }
 }
+
 @media (max-width: 440px) {
     .h-24r {
         height: 6rem;
@@ -1451,8 +1416,8 @@ body {
 @media (max-width: 385px) {
     .form-panel input {
         font-size: 6px;
-        }
     }
+}
 
 @media (max-width: 380px) {
     .h-25r {
@@ -1509,7 +1474,6 @@ body {
     .h-25r {
         height: 10rem;
     }
-
     .slider {
         height: 180px;
     }
@@ -1572,7 +1536,6 @@ body {
         margin-top: 170px;
         font-size: 1rem;
     }
-
     .contenido-panel-home a {
         font-size: 8px;
     }
@@ -1587,14 +1550,14 @@ body {
 @media (max-width: 185px) {
     .h-25r {
         height: 7rem;
-        }
     }
+}
 
 @media (max-width: 180px) {
     .contenido-panel-home a {
-         font-size: 5px;
-        }
+        font-size: 5px;
     }
+}
 
 
 /*END RESPONSIVE PANEL*/

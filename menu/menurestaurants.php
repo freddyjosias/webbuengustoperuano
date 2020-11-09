@@ -6,7 +6,7 @@
             <li><a href="nosotros.php?view=<?php echo $idRestaurante ?>" class="op2 h-100">Nosotros</a></li>
                 <?php if ($_SESSION['profile'] == 2 && isset($_SESSION['sucursal'])) { ?>
                     <?php if ($_SESSION['sucursal'] == $_GET['view']) { ?>
-                        <li><a href="panel/panel.php" class='h-100'>Panel</a></li>
+                        <li><a href="panel/inicio/panel.php" class='h-100'>Panel</a></li>
                     <?php } ?> 
                 <?php } ?> 
             <li>
@@ -23,7 +23,7 @@
         <div class="container w-100 d-flex p-0 m-0 mw-100">
 
             <div class='logo-icono d-block d-md-none position-static'>
-                <a href="index.php"><img src="img/logo-icono.png" alt=""></a>
+                <a href="index.php"><img src="img/logo-icon-512-color.png" alt=""></a>
             </div>
 
             <div class='h-100 align-items-center'>

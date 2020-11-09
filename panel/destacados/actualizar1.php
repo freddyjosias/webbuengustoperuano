@@ -72,11 +72,11 @@
                 <div class="line-top-panel row h-4r">
                     
                 </div>
+
+                <h1 class='h3 text-center mt-5 font-weight-bold w-100'>Actualizar Plato Destacado</h1>
                 
                 <div class="row w-80 m-auto">
                     <div class='formulario-panel'>
-
-                        <h1 class='font-weight-bold'>Actualizar Plato Destacado</h1>
 
                         <form action="" class='form-panel' method="post" enctype="multipart/form-data">
 

@@ -105,7 +105,7 @@ $consultaVerificarRestaurante = 'SELECT * FROM sucursal WHERE idsucursal = ?';
                                             <th>Producto</th>
                                             <th>Cantidad</th>
                                             <th>Precio Unit.</th>
-                                            <th>Monto Total</th>
+                                            <th>Precio Total</th>
                                             <th colspan="2">Opción</th>
                                         </tr>
                                     </thead>
@@ -125,6 +125,15 @@ $consultaVerificarRestaurante = 'SELECT * FROM sucursal WHERE idsucursal = ?';
                                             </tr>
                                         </tbody>
                                     <?php } ?>
+                                    <thead>
+                                        <tr>                   
+                                            <th style="visibility: hidden"> Prueba</th>
+                                            <th style="visibility: hidden">Prueva</th>
+                                            <th>Monto Total</th>
+                                            <th>Monto Total</th>
+                                        </tr>
+                                        
+                                    </thead>
                                 </table>   
                                 <p>Tipos de pedido:</p>
                                     <select name="tipopedido">

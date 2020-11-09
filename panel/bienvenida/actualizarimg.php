@@ -78,6 +78,7 @@
                                 </div>
                             
                             <input type="submit" value="Actualizar">
+                            <button><a href="bienvenida.php">Volver</a></button>
 
                         </form>
                     </div>
