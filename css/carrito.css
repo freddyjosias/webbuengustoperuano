@@ -1,3 +1,150 @@
+<<<<<<< HEAD
 .direccion-tipos {
     margin: 0 2rem;
 }
+=======
+@media (max-width: 920px) {
+    .carrito  {
+        width: 90%;
+    }
+}
+
+@media (max-width: 530px) {
+    .carrito  {
+        width: 100%;
+    }
+}
+
+@media (max-width: 430px) {
+    .carrito  {
+        width: 100%;
+    }
+}
+
+@media (max-width: 360px) {
+    .carrito  {
+        width: 100%;
+    }
+}
+
+@media (max-width: 380px) {
+    .carrito  {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 920px) {
+    .carrito thead tr th {
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 500px) {
+    .carrito thead tr th {
+        font-size: 10px;
+    }
+}
+
+@media (max-width: 345px) {
+    .carrito thead tr th {
+        font-size: 8px;
+    }
+}
+
+@media (max-width: 920px) {
+    .carrito form select {
+        font-size: 10px;
+    }
+}
+
+@media (max-width: 920px) {
+    .carrito form input[type="submit"] {
+        font-size: 10px;
+    }
+}
+
+@media (max-width: 700px) {
+    .carrito form select {
+        width: 30%;
+    }
+}
+
+@media (max-width: 700px) {
+    .carrito form input[type="submit"] {
+        width: 30%;
+    }
+}
+
+@media (max-width: 630px) {
+    .carrito form select {
+        width: 40%;
+    }
+}
+
+@media (max-width: 630px) {
+    .carrito form input[type="submit"] {
+        width: 40%;
+    }
+}
+
+@media (max-width: 320px) {
+    .carrito form select {
+        width: 50%;
+    }
+}
+
+@media (max-width: 320px) {
+    .carrito form input[type="submit"] {
+        width: 50%;
+    }
+}
+
+@media (max-width: 650px) {
+    .bgp h1  {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 650px) {
+    .text-carrito ul li{
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 1222px) {
+    .table tbody tr td {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 1050px) {
+    .table tbody tr td {
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 450px) {
+    .table tbody tr td {
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 430px) {
+    .table tbody tr td {
+        font-size: 10px;
+    }
+}
+
+@media (max-width: 767px) {
+    .carrito-carrito {
+        padding-top: 0;
+    }
+}
+
+@media (max-width: 360px) {
+    .table {
+        margin-right: 5rem;
+    }
+}
+
+>>>>>>> 1125ca29ca619930f9f5f233c4a79d23192b7143

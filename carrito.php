@@ -66,8 +66,12 @@ $consultaVerificarRestaurante = 'SELECT * FROM sucursal WHERE idsucursal = ?';
     <link rel="stylesheet" href="css/bootstrap.add.css">
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="fontawesome/css/all.min.css">
+<<<<<<< HEAD
     <link rel="stylesheet" href="css/estilos.css">
     <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
+=======
+    <link rel="stylesheet" type="text/css" href="css/estilos.css">
+>>>>>>> 1125ca29ca619930f9f5f233c4a79d23192b7143
     <link rel="stylesheet" href="css/carrito.css">
 <body>
 
