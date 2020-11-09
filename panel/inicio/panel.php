@@ -41,7 +41,7 @@
             <div class='contenido-panel-home container p-0 main-panel m-0 mw-85 w-85'>
                 <img class="mt-5" src="../../img/logo-icon-512-color.png">
                 <p>Bienvenido a su Panel de Control</p>
-                <a href="../../bienvenida.php?view=<?php echo $_SESSION['sucursal'] ?>">Ver mi Restaurante</a>
+                <a class="text-decoration" href="../../bienvenida.php?view=<?php echo $_SESSION['sucursal'] ?>">Ver mi Restaurante</a>
             </div>
 
         </div>
