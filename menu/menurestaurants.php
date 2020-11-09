@@ -23,7 +23,7 @@
         <div class="container w-100 d-flex p-0 m-0 mw-100">
 
             <div class='logo-icono d-block d-md-none position-static'>
-                <a href="index.php"><img src="img/logo-icono.png" alt=""></a>
+                <a href="index.php"><img src="img/logo-icon-512-color.png" alt=""></a>
             </div>
 
             <div class='h-100 align-items-center'>
