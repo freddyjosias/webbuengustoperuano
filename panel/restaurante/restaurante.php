@@ -61,57 +61,57 @@
                 <table class="table">
 
                         <thead class='thead-light'>
-                            <th class='mt-3 font-weight-bold th' scope="col"> Nombre Restaurante:&nbsp;  
+                            <th class='mt-3 font-weight-bold th text-center' scope="col"> Nombre Restaurante:&nbsp;  
                                     <?php foreach($consulta as $row) { ?>
                                         <?php echo $row['nomsucursal'] ?>
                                     <?php } ?>
                             </th>
                         </thead>
                         <tbody>
-                        <td>Nuevo nombre: <input value="<?php echo $row['nomsucursal'] ?>" type="text" name = 'res-actualizada'></td>
+                        <td>Nuevo nombre: <input value="<?php echo $row['nomsucursal'] ?>" type="text" name = 'res-actualizada' class='text-center'></td>
                         </tbody>
                         <thead class='thead-light'>
-                            <th class='mt-3 font-weight-bold th'> Telefono Restaurante:&nbsp;  
+                            <th class='mt-3 font-weight-bold th text-center'> Telefono Restaurante:&nbsp;  
                                     <?php foreach($consulta as $row) { ?>
                                         <?php echo $row['telefono'] ?>
                                     <?php } ?>
                             </th>
                         </thead>
                         <tbody>
-                        <td>Nuevo Telefono: <input value="<?php echo $row['telefono'] ?>" type="text" name = 'tele-actualizada'></td>
+                        <td>Nuevo Telefono: <input value="<?php echo $row['telefono'] ?>" type="text" name = 'tele-actualizada' class='text-center'></td>
                         </tbody>
                         <thead class='thead-light'>
-                        <th class='mt-3 font-weight-bold th'> Correo Restaurante:&nbsp;  
+                        <th class='mt-3 font-weight-bold th text-center'> Correo Restaurante:&nbsp;  
                                 <?php foreach($consulta as $row) { ?>
                                     <?php echo $row['correosucursal'] ?>
                                 <?php } ?>
                         </th>
                         </thead>
-                        <td>Nuevo Correo: <input value="<?php echo $row['correosucursal'] ?>" type="text" name = 'email-actualizada'></td>
+                        <td>Nuevo Correo: <input value="<?php echo $row['correosucursal'] ?>" type="text" name = 'email-actualizada' class='text-center'></td>
                         <thead class='thead-light'>
-                        <th class='mt-3 font-weight-bold th'> Dirección Restaurante:&nbsp;  
+                        <th class='mt-3 font-weight-bold th text-center'> Dirección Restaurante:&nbsp;  
                                 <?php foreach($consulta as $row) { ?>
                                     <?php echo $row['direcsucursal'] ?>
                                 <?php } ?>
                         </th>
                         </thead>
-                        <td>Nueva Dirección: <input value="<?php echo $row['direcsucursal'] ?>" type="text" name = 'dire-actualizada'></td>
+                        <td>Nueva Dirección: <input value="<?php echo $row['direcsucursal'] ?>" type="text" name = 'dire-actualizada' class='text-center'></td>
                         <thead class='thead-light'>
-                        <th class='mt-3 font-weight-bold th'> Hora inicio atención del Restaurante:&nbsp;  
+                        <th class='mt-3 font-weight-bold th text-center'> Hora inicio atención del Restaurante:&nbsp;  
                                 <?php foreach($consulta as $row) { ?>
                                     <?php echo $row['horaatencioninicio'] ?>
                                 <?php } ?>
                         </th>
                         </thead>
-                        <td>Nueva Hora: <input value="<?php echo $row['horaatencioninicio'] ?>" type="time" name = 'horai-actualizada'></td>
+                        <td>Nueva Hora: <input value="<?php echo $row['horaatencioninicio'] ?>" type="time" name = 'horai-actualizada' class='text-center'></td>
                         <thead class='thead-light'>
-                        <th class='mt-3 font-weight-bold th'> Hora cierre atención del Restaurante:&nbsp;  
+                        <th class='mt-3 font-weight-bold th text-center'> Hora cierre atención del Restaurante:&nbsp;  
                                 <?php foreach($consulta as $row) { ?>
                                     <?php echo $row['horaatencioncierre'] ?>
                                 <?php } ?>
                         </th>
                         </thead>
-                        <td>Nueva Hora: <input value="<?php echo $row['horaatencioncierre'] ?>" type="time" name = 'horac-actualizada'></td>
+                        <td>Nueva Hora: <input value="<?php echo $row['horaatencioncierre'] ?>" type="time" name = 'horac-actualizada' class='text-center'></td>
 
                 </table>
 
