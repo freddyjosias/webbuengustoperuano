@@ -64,7 +64,7 @@
 
 @media (max-width: 700px) {
     .carrito form select {
-        width: 30%;
+        width: 100%;
     }
 }
 
@@ -76,19 +76,19 @@
 
 @media (max-width: 630px) {
     .carrito form select {
-        width: 40%;
+        width: 100%;
     }
 }
 
 @media (max-width: 630px) {
     .carrito form input[type="submit"] {
-        width: 40%;
+        width: 50%;
     }
 }
 
 @media (max-width: 320px) {
     .carrito form select {
-        width: 50%;
+        width: 100%;
     }
 }
 
