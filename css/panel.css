@@ -15,76 +15,41 @@
         }
     }
 
-    @media (max-width: 1000px) {
+    @media (max-width: 300px) {
+        .contenido-panel-home p  {
+            font-size: 18px;        
+        }
+    }
+
+    @media (max-width: 800px) {
         .contenido-panel-home img {
-            width: 10rem;
+            width: 60%;
             
         }
     }
 
     @media (max-width: 800px) {
         .contenido-panel-home{
-            padding-left: 8rem;  
-        }
-    }
-
-    @media (max-width: 800px) {
-        .contenido-panel-home p{
-            font-size: 18px; 
-        }
-    }
-
-    @media (max-width: 800px) {
-        .contenido-panel-home a{
-            font-size: 10px; 
+            padding-left: 4rem;  
         }
     }
 
     @media (max-width: 700px) {
         .contenido-panel-home{
-            padding-left: 5rem;  
+            padding-left: 2rem;  
         }
     }
 
-    @media (max-width: 700px) {
-        .contenido-panel-home p{
-            font-size: 12px; 
+
+    @media (max-width: 600px) {
+        .contenido-panel-home{
+            padding-left: 2rem;  
         }
     }
 
-    @media (max-width: 650px) {
-        .contenido-panel-home a{
-            font-size: 8px; 
-        }
-    }   
-
-    @media (max-width: 560px) {
-        .contenido-panel-home p{
-            font-size: 8px; 
-        }
-    }
-
-    @media (max-width: 560px) {
-        .contenido-panel-home img {
-            width: 6rem;
-            
-        }
-    }
-
-    @media (max-width: 560px) {
-        .contenido-panel-home a{
-            font-size: 6px; 
-        }
-    }
     @media (max-width: 500px) {
         .contenido-panel-home{
-            padding-left: 3rem;  
-        }
-    }
-
-    @media (max-width: 400px) {
-        .contenido-panel-home{
-            padding-left: 1rem;  
+            padding-left: 0rem;  
         }
     }
 }
@@ -92,12 +57,12 @@
 
 @media (max-width: 700px) {
     .nav-panel > nav a{
-        font-size: 10px;  
+        font-size: 15px;  
     }
 }   
 
 @media (max-width: 400px) {
     .nav-panel > nav a{
-        font-size: 8px;  
+        font-size: 10px;  
     }
 }

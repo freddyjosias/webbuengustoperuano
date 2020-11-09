@@ -1343,9 +1343,6 @@ body {
 }
 
 @media (max-width: 655px) {
-    .contenedor-general {
-        width: 90%;
-    }
     .bienvenida-page {
         width: 100%;
     }
