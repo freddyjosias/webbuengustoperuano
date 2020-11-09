@@ -48,7 +48,7 @@
 
             <div class='container p-0 main-panel m-0 mw-85 w-85'>
                 <div class="contenido-listar">
-                    <h1 class='h3 text-center mt-5 font-weight-bold w-100'>Lista de categorias</h1>
+                    <h1 class='h3 text-center mt-5 font-weight-bold w-100'>LISTA DE CATEGORÍAS</h1>
                     <div class="direccion-a">
                         <a class="btn btn-primary bottom" href="agregar.php">Agregar</a>
                     </div>

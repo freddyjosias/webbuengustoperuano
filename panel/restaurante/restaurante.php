@@ -54,7 +54,7 @@
             
             <div class='formulario-panel container p-0 main-panel m-0 mw-85 w-85'>
 
-                <h1 class='h3 text-center mt-5 font-weight-bold w-100'>Información Restaurante</h1>
+                <h1 class='h3 text-center mt-5 font-weight-bold w-100'>INFORMACIÓN DE RESTAURANTE</h1>
 
                 <form action="" class='form-panel mt-5' method = "post">
 
