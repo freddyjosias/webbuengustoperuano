@@ -58,49 +58,64 @@
 
                 <form action="" class='form-panel mt-5' method = "post">
 
-                    <p> Nombre Restaurante:&nbsp;  
-                            <?php foreach($consulta as $row) { ?>
-                                <?php echo $row['nomsucursal'] ?>
-                            <?php } ?>
-                    </p>
-                    <p>Nuevo nombre: <input value="<?php echo $row['nomsucursal'] ?>" type="text" name = 'res-actualizada'></p>
+                <table class="table">
 
-                    <p> Telefono Restaurante:&nbsp;  
-                            <?php foreach($consulta as $row) { ?>
-                                <?php echo $row['telefono'] ?>
-                            <?php } ?>
-                    </p>
-                    <p>Nuevo Telefono: <input value="<?php echo $row['telefono'] ?>" type="text" name = 'tele-actualizada'></p>
+                        <thead class='thead-light'>
+                            <th class='mt-3 font-weight-bold th' scope="col"> Nombre Restaurante:&nbsp;  
+                                    <?php foreach($consulta as $row) { ?>
+                                        <?php echo $row['nomsucursal'] ?>
+                                    <?php } ?>
+                            </th>
+                        </thead>
+                        <tbody>
+                        <td>Nuevo nombre: <input value="<?php echo $row['nomsucursal'] ?>" type="text" name = 'res-actualizada'></td>
+                        </tbody>
+                        <thead class='thead-light'>
+                            <th class='mt-3 font-weight-bold th'> Telefono Restaurante:&nbsp;  
+                                    <?php foreach($consulta as $row) { ?>
+                                        <?php echo $row['telefono'] ?>
+                                    <?php } ?>
+                            </th>
+                        </thead>
+                        <tbody>
+                        <td>Nuevo Telefono: <input value="<?php echo $row['telefono'] ?>" type="text" name = 'tele-actualizada'></td>
+                        </tbody>
+                        <thead class='thead-light'>
+                        <th class='mt-3 font-weight-bold th'> Correo Restaurante:&nbsp;  
+                                <?php foreach($consulta as $row) { ?>
+                                    <?php echo $row['correosucursal'] ?>
+                                <?php } ?>
+                        </th>
+                        </thead>
+                        <td>Nuevo Correo: <input value="<?php echo $row['correosucursal'] ?>" type="text" name = 'email-actualizada'></td>
+                        <thead class='thead-light'>
+                        <th class='mt-3 font-weight-bold th'> Dirección Restaurante:&nbsp;  
+                                <?php foreach($consulta as $row) { ?>
+                                    <?php echo $row['direcsucursal'] ?>
+                                <?php } ?>
+                        </th>
+                        </thead>
+                        <td>Nueva Dirección: <input value="<?php echo $row['direcsucursal'] ?>" type="text" name = 'dire-actualizada'></td>
+                        <thead class='thead-light'>
+                        <th class='mt-3 font-weight-bold th'> Hora inicio atención del Restaurante:&nbsp;  
+                                <?php foreach($consulta as $row) { ?>
+                                    <?php echo $row['horaatencioninicio'] ?>
+                                <?php } ?>
+                        </th>
+                        </thead>
+                        <td>Nueva Hora: <input value="<?php echo $row['horaatencioninicio'] ?>" type="time" name = 'horai-actualizada'></td>
+                        <thead class='thead-light'>
+                        <th class='mt-3 font-weight-bold th'> Hora cierre atención del Restaurante:&nbsp;  
+                                <?php foreach($consulta as $row) { ?>
+                                    <?php echo $row['horaatencioncierre'] ?>
+                                <?php } ?>
+                        </th>
+                        </thead>
+                        <td>Nueva Hora: <input value="<?php echo $row['horaatencioncierre'] ?>" type="time" name = 'horac-actualizada'></td>
 
-                    <p> Correo Restaurante:&nbsp;  
-                            <?php foreach($consulta as $row) { ?>
-                                <?php echo $row['correosucursal'] ?>
-                            <?php } ?>
-                    </p>
-                    <p>Nuevo Correo: <input value="<?php echo $row['correosucursal'] ?>" type="text" name = 'email-actualizada'></p>
+                </table>
 
-                    <p> Dirección Restaurante:&nbsp;  
-                            <?php foreach($consulta as $row) { ?>
-                                <?php echo $row['direcsucursal'] ?>
-                            <?php } ?>
-                    </p>
-                    <p>Nueva Dirección: <input value="<?php echo $row['direcsucursal'] ?>" type="text" name = 'dire-actualizada'></p>
-
-                    <p> Hora inicio atención del Restaurante:&nbsp;  
-                            <?php foreach($consulta as $row) { ?>
-                                <?php echo $row['horaatencioninicio'] ?>
-                            <?php } ?>
-                    </p>
-                    <p>Nueva Hora: <input value="<?php echo $row['horaatencioninicio'] ?>" type="time" name = 'horai-actualizada'></p>
-
-                    <p> Hora cierre atención del Restaurante:&nbsp;  
-                            <?php foreach($consulta as $row) { ?>
-                                <?php echo $row['horaatencioncierre'] ?>
-                            <?php } ?>
-                    </p>
-                    <p>Nueva Hora: <input value="<?php echo $row['horaatencioncierre'] ?>" type="time" name = 'horac-actualizada'></p>
-                    
-                    <input type="submit" value="Actualizar">
+                <input type="submit" value="Actualizar">
 
                 </form>
 
