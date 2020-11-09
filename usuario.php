@@ -92,6 +92,7 @@
                     
                     <div class="botonguardar">
                         <input type="submit" value="Guardar">
+                        <button><a href="index.php">Volver</a></button>
                     </div>       
                     </form>
 
