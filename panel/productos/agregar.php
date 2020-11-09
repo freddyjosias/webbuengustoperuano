@@ -50,15 +50,15 @@
 <body>
 
     <main>
-        <div class="contenedor-general panel-control">
+        <div class="container-fluid panel-control mw-1920p p-0">
 
         <?php require '../../menu/menupanel.php'; ?>
 
-            <div class='formulario-panel container'>
+            <div class='formulario-panel container p-0 main-panel m-0 mw-85 w-85'>
 
-                <h1>Agregar Producto</h1>
+                <h1 class='h3 text-center mt-5 font-weight-bold w-100'>Agregar Producto</h1>
 
-                <form class='form-panel' method = "post">
+                <form class='form-panel mt-5' method = "post">
                     <p>Categoria: 
                         <select name="categoria">            
                             <?php foreach($consultaCategorias as $row) { ?>
