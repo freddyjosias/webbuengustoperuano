@@ -38,7 +38,7 @@
                     
             </nav>
             <div class='contenido-panel-home'>
-                <img src="../img/logo-icono-new.png">
+                <img src="../img/logo-icon-512-color.png">
                 <p>Bienvenido a su Panel de Control</p>
                 <a href="../bienvenida.php?view=<?php echo $_SESSION['sucursal'] ?>">Ver mi Restaurante</a>
             </div>
