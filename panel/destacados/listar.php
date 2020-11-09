@@ -1,7 +1,8 @@
 <?php
 
 require '../../conexion.php';
-
+header('Cache-Control: no cache');
+session_cache_limiter('private_no_expire');
 session_start();
 
 if (!isset($_SESSION['sucursal'])) {
@@ -28,7 +29,7 @@ if (isset($_SESSION['idusuario'])) {
 	<meta charset="utf-8">
 	<link href="https://fonts.googleapis.com/css2?family=Dosis:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <title>Destacados</title>
-    <link rel="shorcut icon" href="../../img/favicon.png">
+    <link rel="shorcut icon" href="../../img/logo-icon-512-color.png">
     <link rel="stylesheet" href="../../fontawesome/css/all.min.css">
     <link rel="stylesheet" href="../../css/normalize.css">
     <link rel="stylesheet" type="text/css" href="../../css/estilos.css">
@@ -84,7 +85,7 @@ if (isset($_SESSION['idusuario'])) {
                                 <th scope="row" class='text-center'>3</th>
                                 <td class="destacado-panel"><img src="../../<?php echo $val['imgdestacado3'] ?>" alt=""></td>
                                 <td><?php echo $val['platodestacado3'] ?></td>
-                                <td class='text-center'><a href="actualizar3.php; ?>"><i class="far fa-edit"></i></a></td>
+                                <td class='text-center'><a href="actualizar3.php"><i class="far fa-edit"></i></a></td>
                             <?php } ?>
                             </tr>
 

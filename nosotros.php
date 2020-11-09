@@ -57,7 +57,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link href="https://fonts.googleapis.com/css2?family=Dosis:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <title>Nosotros | <?php echo $nombresucursal ?></title>
-    <link rel="shorcut icon" href="img/faviconn.ico">
+    <link rel="shorcut icon" href="img/logo-icon-512-color.png">
     <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/bootstrap.add.css">
     <link rel="stylesheet" href="css/normalize.css">
@@ -67,7 +67,7 @@
 <body>
 
     <div class='logo-icono d-none d-md-block'>
-        <a href="index.php"><img src="img/logo-icono.png" alt=""></a>
+        <a href="index.php"><img src="img/logo-icon-512-color.png" alt=""></a>
     </div>
 
     <header class="header-restaurante">
@@ -96,7 +96,7 @@
                 </div>
                 
                 <div class="telefono">
-                    <h2 class='h5 text-uppercase fw-600 '>Telefono</h2>
+                    <h2 class='h5 text-uppercase fw-600 '>Teléfono</h2>
                     <ul>
                         <li><p class='my-1'><?php echo $telefonoRestaurante; ?></p></li>
                     </ul>
@@ -112,7 +112,7 @@
                 </div>
 
                 <div class="correoelectronico">
-                    <h2 class='h5 text-uppercase fw-600 '>Correo electronico</h2>
+                    <h2 class='h5 text-uppercase fw-600 '>Correo electrónico</h2>
                     <ul>
                         <li><p class='my-1'><?php echo $correoRestaurante; ?></p></li>
                     </ul>
@@ -121,7 +121,7 @@
             
             <div class="div">
                 <div class="formadepago">
-                    <h2 class='h5 text-uppercase fw-600 '>Tipos de envio</h2>
+                    <h2 class='h5 text-uppercase fw-600 '>Tipos de envió</h2>
                     <ul>
                         <?php $resultados = $conexion -> prepare($consultaFormaPago);
                         $resultados -> execute();

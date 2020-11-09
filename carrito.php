@@ -58,7 +58,7 @@ $consultaVerificarRestaurante = 'SELECT * FROM sucursal WHERE idsucursal = ?';
 	<title>El Buen Gusto Peruano</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shorcut icon" href="img/favicon.png">
+    <link rel="shorcut icon" href="img/logo-icon-512-color.png">
     <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <title>Carrito | <?php echo $nombreRestaurante ?></title>
     <link rel="shorcut icon" href="img/logo-icono.png">
@@ -66,11 +66,14 @@ $consultaVerificarRestaurante = 'SELECT * FROM sucursal WHERE idsucursal = ?';
     <link rel="stylesheet" href="css/bootstrap.add.css">
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="fontawesome/css/all.min.css">
-    <link rel="stylesheet" type="text/css" href="css/estilos.css">    
+    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="css/estilos.css">
+    <link rel="stylesheet" href="css/carrito.css">
 <body>
 
     <div class='logo-icono d-none d-md-block'>
-        <a href="index.php"><img src="img/logo-icono.png" alt=""></a>
+        <a href="index.php"><img src="img/logo-icon-512-color.png" alt=""></a>
     </div>
 
     <header class="header-restaurante">
@@ -104,7 +107,7 @@ $consultaVerificarRestaurante = 'SELECT * FROM sucursal WHERE idsucursal = ?';
                                             <th>Producto</th>
                                             <th>Cantidad</th>
                                             <th>Precio Unit.</th>
-                                            <th>Monto Total</th>
+                                            <th>Precio Total</th>
                                             <th colspan="2">Opción</th>
                                         </tr>
                                     </thead>
@@ -124,19 +127,34 @@ $consultaVerificarRestaurante = 'SELECT * FROM sucursal WHERE idsucursal = ?';
                                             </tr>
                                         </tbody>
                                     <?php } ?>
-                                </table>   
-                                <p>Tipos de pedido:</p>
-                                    <select name="tipopedido">
-                                        <?php foreach ($consultatipospedidos as $tipopedido) { ?>
-                                            <option value="<?php echo $tipopedido['idtipospedido'] ?>"><?php echo $tipopedido['descripciontipospedido'] ?></option>
-                                        <?php }  ?>
-                                    </select>
-                                <p>Forma de Pago:</p>
-                                    <select name="formapago">
-                                        <?php foreach ($consultaformaspago as $formaspago) { ?>
-                                            <option value="<?php echo $formaspago['idformaspago'] ?>"><?php echo $formaspago['descripcionformaspago'] ?></option>
-                                        <?php }  ?>
-                                    </select>
+                                    <thead>
+                                        <tr>                   
+                                            <th style="visibility: hidden"> Prueba</th>
+                                            <th style="visibility: hidden">Prueva</th>
+                                            <th>Monto Total</th>
+                                            <th>Monto Total</th>
+                                        </tr>
+                                        
+                                    </thead>
+                                </table>
+                                <div class="contenedor-pedidos">
+                                    <div class="btn-group-vertical direccion-tipos">
+                                        <p>Tipos de pedido:</p>
+                                            <select name="tipopedido">
+                                                <?php foreach ($consultatipospedidos as $tipopedido) { ?>
+                                                    <option value="<?php echo $tipopedido['idtipospedido'] ?>"><?php echo $tipopedido['descripciontipospedido'] ?></option>
+                                                <?php }  ?>
+                                            </select>
+                                    </div>
+                                    <div class="btn-group-vertical direccion-tipos">
+                                        <p>Forma de Pago:</p>
+                                            <select name="formapago">
+                                                <?php foreach ($consultaformaspago as $formaspago) { ?>
+                                                    <option value="<?php echo $formaspago['idformaspago'] ?>"><?php echo $formaspago['descripcionformaspago'] ?></option>
+                                                <?php }  ?>
+                                            </select>
+                                    </div>
+                                </div>   
                                 <p>Pedido con la seguridad que nos caracteriza.</p>
                             <input type="submit" name="" value="Realizar Pedido">
                         </form>

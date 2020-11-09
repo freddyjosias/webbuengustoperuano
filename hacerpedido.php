@@ -57,7 +57,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@400;500;600;700;800&display=swap" rel="stylesheet">
         <title>Pedidos | <?php echo $nombresucursal ?></title>
-        <link rel="shorcut icon" href="img/faviconn.ico">
+        <link rel="shorcut icon" href="img/logo-icon-512-color.png">
         <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
         <link rel="stylesheet" href="css/bootstrap.add.css">
         <link rel="stylesheet" href="css/normalize.css">
@@ -67,7 +67,7 @@
 <body>
 
     <div class='logo-icono d-none d-md-block'>
-        <a href="index.php"><img src="img/logo-icono.png" alt=""></a>
+        <a href="index.php"><img src="img/logo-icon-512-color.png" alt=""></a>
     </div>
 
     <header class="header-restaurante">

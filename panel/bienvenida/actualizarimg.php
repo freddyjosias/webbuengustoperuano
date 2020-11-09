@@ -22,26 +22,15 @@
         $ruta = 'img/'.$_FILES['nuevaimagen']['name']; 
         move_uploaded_file($_FILES['nuevaimagen']['tmp_name'], "../../".$ruta);
 
-        $query = $conexion->prepare("UPDATE sucursal SET imgdestacado1 = ? WHERE idsucursal = ?");
+        $query = $conexion->prepare("UPDATE sucursal SET imgbienvenida = ? WHERE idsucursal = ?");
         $resultado = $query->execute(array($ruta, $_SESSION['sucursal'])); 
         
     }
 
-
-    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-        
-        $resultados = $conexion -> prepare('UPDATE sucursal SET platodestacado1 = ? WHERE idsucursal = ?');
-        $resultados -> execute(array($_POST['nuevotexto'], $_SESSION['sucursal']));
-
-    }
-
-    $resultadosText = $conexion -> prepare('SELECT platodestacado1 FROM sucursal WHERE idsucursal = ?');
-    $resultadosText -> execute(array($_SESSION['sucursal']));
-    $resultadosText = $resultadosText -> fetch(PDO::FETCH_ASSOC); 
-
-    $resultadosImg = $conexion -> prepare('SELECT imgdestacado1 FROM sucursal WHERE idsucursal = ?');
+    $resultadosImg = $conexion -> prepare('SELECT imgbienvenida FROM sucursal WHERE idsucursal = ?');
     $resultadosImg -> execute(array($_SESSION['sucursal']));
     $resultadosImg = $resultadosImg -> fetch(PDO::FETCH_ASSOC);  
+ 
     
 ?>
 
@@ -50,7 +39,7 @@
 <head>
 	<meta charset="utf-8">
 	<link href="https://fonts.googleapis.com/css2?family=Dosis:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <title>Actualizar Destacado</title>
+    <title>Bienvenida</title>
     <link rel="shorcut icon" href="../../img/logo-icon-512-color.png">
     <link rel="stylesheet" href="../../fontawesome/css/all.min.css">
     <link rel="stylesheet" href="../../css/normalize.css">
@@ -72,41 +61,34 @@
                 <div class="line-top-panel row h-4r">
                     
                 </div>
-
-                <h1 class='h3 text-center mt-5 font-weight-bold w-100'>Actualizar Plato Destacado</h1>
                 
                 <div class="row w-80 m-auto">
-                    <div class='formulario-panel'>
+                    <div class='formulario-panel container'>
+
+                        <h1 class='font-weight-bold mt-4'>Actualizar Bienvenida</h1>
 
                         <form action="" class='form-panel' method="post" enctype="multipart/form-data">
 
                             <p class='fw-500'>Imagen: </p>
                         
-                            <input type="file" name="nuevaimagen" value="<?php $resultadosImg['imgdestacado1'] ?>" required><br><br>
+                            <input type="file" name="nuevaimagen" required><br><br>
 
                                 <div class='text-center mt-5 destacado-panel'>
-                                    <?php echo "<img class='h-25r border border-dark' src='../../". $resultadosImg['imgdestacado1'] ."' >" ?>
+                                    <?php echo "<img class='h-25r border border-dark' src='../../". $resultadosImg['imgbienvenida'] ."' >" ?>
                                 </div>
-                        
-
-                            <p>Texto: </p>
-
-                                <textarea style= "resize: vertical" name="nuevotexto" id="" cols="100" rows="5"><?php echo $resultadosText['platodestacado1'] ?></textarea><br><br>
-
-                                <input type="submit" value="Actualizar">
-                                <button><a href="listar.php">Volver</a></button>
+                            
+                            <input type="submit" value="Actualizar">
+                            <button><a href="bienvenida.php">Volver</a></button>
 
                         </form>
-
                     </div>
 
                 </div>
-                
 
             </div>
 
-
         </div>
+
     </main>
 
 </body>

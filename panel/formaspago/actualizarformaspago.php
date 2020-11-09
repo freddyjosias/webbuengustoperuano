@@ -1,19 +1,20 @@
 <?php
 
-    require '../conexion.php';
-
+    require '../../conexion.php';
+    header('Cache-Control: no cache');
+    session_cache_limiter('private_no_expire');
     session_start();
     
     if (!isset($_SESSION['sucursal'])) {
-        header('Location: index.php');
+        header('Location: ../../index.php');
     }
 
     if (isset($_SESSION['idusuario'])) {
         if ($_SESSION['profile'] != 2) {
-            header('Location: index.php');
+            header('Location: ../../index.php');
         }
     } else {
-        header('Location: index.php');
+        header('Location: ../../index.php');
     }
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -51,32 +52,35 @@
 	<meta charset="utf-8">
 	<link href="https://fonts.googleapis.com/css2?family=Dosis:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <title>Actualizar Formas de Pago</title>
-    <link rel="shorcut icon" href="../img/favicon.png">
-    <link rel="stylesheet" href="../css/normalize.css">
-    <link rel="stylesheet" type="text/css" href="../css/estilos.css">
-    <link rel="stylesheet" type="text/css" href="../css/responpanel.css">
+    <link rel="shorcut icon" href="../../img/logo-icon-512-color.png">
+    <link rel="stylesheet" href="../../fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="../../css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="../../css/estilos.css">
+    <link rel="stylesheet" type="text/css" href="../../css/responpanel.css">
+    <link rel="stylesheet" type="text/css" href="../../css/formularios.css">
+    <link rel="stylesheet" type="text/css" href="../../bootstrap/css/bootstrap.css">
 
 </head>
 <body>
 
     <main>
-        <div class="contenedor-general panel-control">
+        <div class="container-fluid panel-control mw-1920p p-0">
 
-            <?php require '../menu/menupanel.php'; ?>
+            <?php require '../../menu/menupanel.php'; ?>
 
-            <div class='formulario-panel'>
+            <div class='formulario-panel container p-0 main-panel m-0 mw-85 w-85'>
 
-                <h1>Actualizar Formas de Pago</h1>
+            <h1 class='h3 text-center mt-5 font-weight-bold w-100'>Actualizar Formas de Pago</h1>
 
                 <form action="" class='form-panel' method="post">
                 <?php foreach($resultado1 as $row) { ?>
                     <?php
                         if($row['disponibilidadformaspago'] == 1 ){?>
-                            <p>Efectivo</p>
+                            <p class='h3 mt-5 font-weight-bold w-100'>Efectivo</p>
                             <p><input type="radio" id="" name="forma1" value="1"checked> Habilitar</p>
                             <p><input type="radio" id="" name="forma1" value="0"> Desabilitar</p><?php
                         }else{?>
-                            <p>Efectivo</p>
+                            <p class='h3 mt-5 font-weight-bold w-100'>Efectivo</p>
                             <p><input type="radio" id="" name="forma1" value="1"> Habilitar</p>
                             <p><input type="radio" id="" name="forma1" value="0"checked> Desabilitar</p><?php
                         }?>
@@ -84,11 +88,11 @@
                 <?php foreach($resultado2 as $row) { ?>
                     <?php
                         if($row['disponibilidadformaspago'] == 1 ){?>
-                            <p>Online</p>
+                            <p class='h3 mt-5 font-weight-bold w-100'>Online</p>
                             <p><input type="radio" id="" name="forma2" value="1"checked> Habilitar</p>
                             <p><input type="radio" id="" name="forma2" value="0"> Desabilitar</p><?php
                         }else{?>
-                            <p>Online</p>
+                            <p class='h3 mt-5 font-weight-bold w-100'>Online</p>
                             <p><input type="radio" id="" name="forma2" value="1"> Habilitar</p>
                             <p><input type="radio" id="" name="forma2" value="0"checked> Desabilitar</p><?php
                         }?>
@@ -96,11 +100,11 @@
                 <?php foreach($resultado3 as $row) { ?>
                     <?php
                         if($row['disponibilidadformaspago'] == 1 ){?>
-                            <p>POS</p>
+                            <p class='h3 mt-5 font-weight-bold w-100'>POS</p>
                             <p><input type="radio" id="" name="forma3" value="1"checked> Habilitar</p>
                             <p><input type="radio" id="" name="forma3" value="0"> Desabilitar</p><?php
                         }else{?>
-                            <p>POS</p>
+                            <p class='h3 mt-5 font-weight-bold w-100'>POS</p>
                             <p><input type="radio" id="" name="forma3" value="1"> Habilitar</p>
                             <p><input type="radio" id="" name="forma3" value="0"checked> Desabilitar</p><?php
                         }?>

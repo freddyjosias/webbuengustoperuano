@@ -1,8 +1,9 @@
 <?php 
 
-    require '../../conexion.php';
-
-    session_start();
+     require '../../conexion.php';
+     header('Cache-Control: no cache');
+     session_cache_limiter('private_no_expire');
+     session_start();
     
     if (!isset($_SESSION['sucursal'])) {
         header('Location: index.php');
@@ -40,7 +41,7 @@
 	<meta charset="utf-8">
 	<link href="https://fonts.googleapis.com/css2?family=Dosis:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <title>Agregar Producto</title>
-    <link rel="shorcut icon" href="../../img/favicon.png">
+    <link rel="shorcut icon" href="../../img/logo-icon-512-color.png">
     <link rel="stylesheet" href="../../css/normalize.css">
     <link rel="stylesheet" type="text/css" href="../../css/estilos.css">
     <link rel="stylesheet" type="text/css" href="../../css/responpanel.css">
@@ -50,15 +51,15 @@
 <body>
 
     <main>
-        <div class="contenedor-general panel-control">
+        <div class="container-fluid panel-control mw-1920p p-0">
 
         <?php require '../../menu/menupanel.php'; ?>
 
-            <div class='formulario-panel container'>
+            <div class='formulario-panel container p-0 main-panel m-0 mw-85 w-85'>
 
-                <h1>Agregar Producto</h1>
+                <h1 class='h3 text-center mt-5 font-weight-bold w-100'>Agregar Producto</h1>
 
-                <form class='form-panel' method = "post">
+                <form class='form-panel mt-5' method = "post">
                     <p>Categoria: 
                         <select name="categoria">            
                             <?php foreach($consultaCategorias as $row) { ?>

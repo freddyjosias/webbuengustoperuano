@@ -1,6 +1,7 @@
 <?php   
      require '../../conexion.php';
-
+     header('Cache-Control: no cache');
+     session_cache_limiter('private_no_expire');
      session_start();
  
      if (!isset($_SESSION['sucursal'])) {
@@ -48,7 +49,7 @@
 	<meta charset="utf-8">
 	<link href="https://fonts.googleapis.com/css2?family=Dosis:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <title>Actualizar Destacado</title>
-    <link rel="shorcut icon" href="../../img/favicon.png">
+    <link rel="shorcut icon" href="../../img/logo-icon-512-color.png">
     <link rel="stylesheet" href="../../fontawesome/css/all.min.css">
     <link rel="stylesheet" href="../../css/normalize.css">
     <link rel="stylesheet" type="text/css" href="../../css/estilos.css">
@@ -69,17 +70,17 @@
                 <div class="line-top-panel row h-4r">
                     
                 </div>
+
+                <h1 class='h3 text-center mt-5 font-weight-bold w-100'>Actualizar Plato Destacado</h1>
                 
                 <div class="row w-80 m-auto">
                     <div class='formulario-panel'>
-
-                        <h1 class='font-weight-bold'>Actualizar Plato Destacado</h1>
 
                         <form action="" class='form-panel' method="post" enctype="multipart/form-data">
 
                             <p class='fw-500'>Imagen: </p>
                         
-                            <input type="file" name="nuevaimagen"><br><br>
+                            <input type="file" name="nuevaimagen" required><br><br>
 
                                 <div class='text-center mt-5 destacado-panel'>
                                     <?php echo "<img class='h-25r border border-dark' src='../../". $resultadosImg['imgdestacado3'] ."' >" ?>
@@ -88,9 +89,10 @@
 
                             <p>Texto: </p>
 
-                                <textarea style= "resize: vertical" name="nuevotexto" id="" cols="100" rows="10"><?php echo $resultadosText['platodestacado3'] ?></textarea><br><br>
+                                <textarea style= "resize: vertical" name="nuevotexto" id="" cols="100" rows="5"><?php echo $resultadosText['platodestacado3'] ?></textarea><br><br>
 
                                 <input type="submit" value="Actualizar">
+                                <button><a href="listar.php">Volver</a></button>
 
                         </form>
 

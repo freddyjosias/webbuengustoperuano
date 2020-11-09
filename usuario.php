@@ -50,24 +50,27 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>El Buen Gusto Peruano</title>
+	<title>El Buen Gusto Peruano</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shorcut icon" href="img/favicon.png">
+    <link rel="shorcut icon" href="img/logo-icon-512-color.png">
     <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/normalize.css">
-    <link rel="stylesheet" type="text/css" href="css/estilos.css">
-    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
-
+    <link rel="stylesheet" href="css/bootstrap.add.css">
+	<link rel="stylesheet" type="text/css" href="css/estilos.css">
 </head>
 <body>
                             
                 <header class="header-inicio">
-                    <div class="contenedor-general contenido-header-inicio">
+                    <div class="contenedor-general contenido-header-inicio row">
 
-                        <div class="contenedor-img">  
-                            <a href="anadircarrito.php"><img src="img/logo-white.png" class="contenido-header-inicio-img"></a>
-                        </div>
+                    <div class="contenedor-img col-6 m-0 px-0 py-3 h-4r d-flex">
+                        <img src="img/logo-icon-512-color.png" class="h-100">
+                        <img src="img/logo-text-1024-white.png" class="h-100 ml-3 d-none d-sm-block">
+                        <img src="img/logo-text-1024-white-min.png" class="h-100 ml-3 d-block d-sm-none">
+                    </div>
 
                     </div>
                 </header>
@@ -76,20 +79,20 @@
                     
                     <div class="form-centro">
 
-                        <h1>ACTUALIZA TUS DATOS</h1>
+                        <h1>DATOS DEL USUSARIO</h1>
                     <form action="" class='form-panel' method = "post">
 
                     <?php foreach($consultaUsuario as $row) { ?>
                         <p>Nombres &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="nombre" value ="<?php echo $row['nombreusuario'] ?>"></p>
                         <p>Apellidos &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="apellido" value ="<?php echo $row['apellidousuario'] ?>"></p>
-                        <p>Contraseña &nbsp;&nbsp;<input type="text" name="clave" value ="<?php echo $row['contrasena'] ?>"></p>
                         <p>Telefono &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="number" name="telefono" value ="<?php echo $row['telefonousuario'] ?>"></p>
-                        <p>Dirección &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="Text" name="direccion" value ="<?php echo $row['direccionusuario'] ?>"></p>
+                        <p>Dirección &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="Text" name="direccion" value ="<?php echo $row['direccionusuario'] ?>"required></p>
                         <p>DNI &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="number" name="dni" value ="<?php echo $row['dniusuario'] ?>"></p>    
                     <?php } ?>
                     
                     <div class="botonguardar">
                         <input type="submit" value="Guardar">
+                        <button><a href="index.php">Volver</a></button>
                     </div>       
                     </form>
 
