@@ -26,6 +26,7 @@
     <link rel="shorcut icon" href="../img/logo-icon-512-color.png">
     <link rel="stylesheet" href="../css/normalize.css">
     <link rel="stylesheet" type="text/css" href="../css/estilos.css">
+    <link rel="stylesheet" href="../css/panel.css">
 
 </head>
 <body>
