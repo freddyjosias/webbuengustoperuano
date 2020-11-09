@@ -90,17 +90,19 @@ $consultaVerificarRestaurante = 'SELECT * FROM sucursal WHERE idsucursal = ?';
                 <section class="carrito-carrito"> 
 
                 <div class="bgp">
-                    <h1>BUEN GUSTO PERUANO</h1>
+
+                    <h1 class='h2 text-uppercase  fw-600imp'> <?php echo $nombresucursal ?> - Carrito </h1>
+
                 </div>
+
                 <div class="text-carrito">
                         <ul>
-                            <li>Antes de hacer algun cambio, deberas actualizar tus datos. <a href="usuario.php">Actualizar Datos</a></li>			
+                            <li>Antes de hacer algún pedido, deberás actualizar tus datos. <a href="usuario.php">Actualizar Datos</a></li>			
                         </ul>
                 </div>
 
                     <div class="carrito">
                         <form action="" method="post">
-                                <p>Productos elegidos:</p>
                                 <table class="table">
                                     <thead>
                                         <tr>                   
@@ -108,7 +110,7 @@ $consultaVerificarRestaurante = 'SELECT * FROM sucursal WHERE idsucursal = ?';
                                             <th>Cantidad</th>
                                             <th>Precio Unit.</th>
                                             <th>Precio Total</th>
-                                            <th colspan="2">Opción</th>
+                                            <th>Más</th>
                                         </tr>
                                     </thead>
                                     <?php foreach($consultaCar as $producto) {?>
@@ -116,8 +118,8 @@ $consultaVerificarRestaurante = 'SELECT * FROM sucursal WHERE idsucursal = ?';
                                             <tr class="trcarrito">
                                                     <td><?php echo $producto['nomproducto'] ?></td>
                                                     <td><?php echo $producto['quantity'] ?></td>
-                                                    <td>S/.<?php echo $producto['precio'] ?></td>
-                                                    <td>S/.<?php if($producto['quantity'] == 1) {
+                                                    <td>S/. <?php echo $producto['precio'] ?></td>
+                                                    <td>S/. <?php if($producto['quantity'] == 1) {
                                                         echo $producto['precio']; ?>
                                                         <?php } else {
                                                             $Nproducto = $producto['precio']*$producto['quantity'];  

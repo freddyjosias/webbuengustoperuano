@@ -662,14 +662,9 @@ body {
 
 .carrito {
     width: 90%;
-    font-size: 2rem;
+    font-size: 18px;
     margin: 1rem auto;
     margin-bottom: 2.5rem;
-    padding: auto;
-    border: 3px solid #0B1442;
-    border-radius: 20px;
-    padding: 2rem;
-    background-color: #212F3D;
 }
 
 .carrito form select {
@@ -701,39 +696,30 @@ body {
 
 .carrito form input[type="submit"]:hover {
     background-color: #1C6F23;
-    color: white;
     cursor: pointer;
 }
 
 .carrito p {
-    color: white;
     font-size: 20px;
 }
 
-.carrito i {
-    color: white;
-}
-
-.table {
+.carrito .table {
     width: 100%;
     margin: 2rem auto;
 }
 
-.table thead tr th {
+.carrito .table thead tr th {
     background: linear-gradient(180deg, var(--black2) 0%, var(--black1) 100%);
-    color: white;
     padding: .5rem;
-    font-size: 22px;
+    font-size: 20px;
     font-weight: 500;
 }
 
-.td-color {
-    color: white;
+.carrito .td-color {
     font-size: 1rem;
 }
 
-.table tbody tr td .td-color {
-    background-color: white;
+.carrito .table tbody tr td .td-color {
     text-decoration: none;
     color: black;
     font-size: 16px;
@@ -742,9 +728,8 @@ body {
     font-weight: 580;
 }
 
-.table tbody tr td .td-color:hover {
+.carrito .table tbody tr td .td-color:hover {
     background-color: #1C6F23;
-    color: white;
 }
 
 .letra-panel>tr>th>p {
@@ -772,10 +757,6 @@ body {
 
 
 /* END PANEL DE CONTROL */
-
-.trcarrito>td {
-    color: white;
-}
 
 .slider {
     width: 100%;
