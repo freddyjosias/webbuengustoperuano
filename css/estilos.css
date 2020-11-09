@@ -753,6 +753,11 @@ body {
     height: 12rem;
 }
 
+.banner-panel > img {
+    width: 50rem;
+    height: 10rem;
+}
+
 
 /*end añadir carrito*/
 

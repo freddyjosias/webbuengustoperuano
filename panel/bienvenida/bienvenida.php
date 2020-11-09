@@ -35,6 +35,16 @@
 
     }
 
+    if($_SERVER["REQUEST_METHOD"] == "POST"){
+
+        $ruta = 'img/'.$_FILES['nuevobanner']['name']; 
+        move_uploaded_file($_FILES['nuevobanner']['tmp_name'], "../../".$ruta);
+
+        $query = $conexion->prepare("UPDATE sucursal SET banner = ? WHERE idsucursal = ?");
+        $resultado = $query->execute(array($ruta, $_SESSION['sucursal'])); 
+        
+    }
+
     $resultadosText = $conexion -> prepare('SELECT textobienvenida FROM sucursal WHERE idsucursal = ?');
     $resultadosText -> execute(array($_SESSION['sucursal']));
     $resultadosText = $resultadosText -> fetch(PDO::FETCH_ASSOC); 
@@ -42,6 +52,10 @@
     $resultadosImg = $conexion -> prepare('SELECT imgbienvenida FROM sucursal WHERE idsucursal = ?');
     $resultadosImg -> execute(array($_SESSION['sucursal']));
     $resultadosImg = $resultadosImg -> fetch(PDO::FETCH_ASSOC);  
+
+    $resultadosBanner= $conexion -> prepare('SELECT banner FROM sucursal WHERE idsucursal = ?');
+    $resultadosBanner -> execute(array($_SESSION['sucursal']));
+    $resultadosBanner = $resultadosBanner -> fetch(PDO::FETCH_ASSOC);   
     
 ?>
 
@@ -63,47 +77,64 @@
 <body>
 
     <main>
-        <div class="container-fluid panel-control mw-1920p p-0">
+        <div class="contenedor-general panel-control">
 
             <?php require '../../menu/menupanel.php'; ?>
 
-            <div class='container p-0 main-panel m-0 mw-85 w-85'>
+            <div class='formulario-panel container'>
+                <div class="contenido-listar">
+                    <h1>Bienvenida</h1>
+                        <table class="table mt-4">
+                            <thead class='thead-light'>
+                                <tr>                    
+                                    <th class="th" scope="col">Imagen</th>
+                                    <th class="th text-center" colspan="1">Actualizar</th>
+                                </tr>
+                            </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>  
+                                            <div class='text-center mt-5 destacado-panel'>
+                                                <?php echo "<img class='h-25r border border-dark' src='../../". $resultadosImg['imgbienvenida'] ."' >" ?>
+                                            </div>
+                                        </td>
+                                        <td class='text-center'><a href="actualizarimg.php"><i class="far fa-edit"></i></a></td>
+                                    </tr>
+                                </tbody>
+                            <thead class='thead-light'>
+                                <tr>                    
+                                    <th class="th" scope="col">Descripcion</th>
+                                    <th class="th text-center" colspan="1"></th>
+                                </tr>
+                            </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><?php echo $resultadosText['textobienvenida'] ?></td>
+                                        <td class='text-center'><a href="actualizartexto.php"><i class="far fa-edit"></i></a></td>
+                                    </tr>
+                                </tbody>
+                            <thead class='thead-light'>
+                                <tr>                    
+                                    <th class="th" scope="col">Banner</th>
+                                    <th class="th text-center" colspan="1"></th>
+                                </tr>
+                            </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <div class='text-center mt-5 banner-panel'>
+                                                <?php echo "<img class='h-24r border border-dark' src='../../". $resultadosBanner['banner'] ."' >" ?>
+                                            </div>
+                                        </td>
+                                        <td class='text-center'><a href="actualizarbanner.php"><i class="far fa-edit"></i></a></td>
+                                    </tr>
+                                </tbody>
+                        </table>
 
-                <div class="line-top-panel row h-4r">
-                    
                 </div>
-                
-                <div class="row w-80 m-auto">
-                    <div class='formulario-panel'>
 
-                        <h1 class='font-weight-bold'>Actualizar Bienvenida</h1>
-
-                        <form action="" class='form-panel' method="post" enctype="multipart/form-data">
-
-                            <p class='fw-500'>Imagen: </p>
-                        
-                            <input type="file" name="nuevaimagen" value="<?php echo $resultadosImg['imagenbienvenida'] ?>" required><br><br>
-
-                                <div class='text-center mt-5 destacado-panel'>
-                                    <?php echo "<img class='h-25r border border-dark' src='../../". $resultadosImg['imgbienvenida'] ."' >" ?>
-                                </div>
-                        
-
-                            <p>Texto: </p>
-
-                                <textarea style= "resize: vertical" name="nuevotexto" id="" cols="100" rows="10"><?php echo $resultadosText['textobienvenida'] ?></textarea><br><br>
-
-                                <input type="submit" value="Actualizar">
-
-                        </form>
-
-                    </div>
-
-                </div>
-                
 
             </div>
-
 
         </div>
     </main>
