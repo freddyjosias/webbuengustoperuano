@@ -79,7 +79,7 @@
                     
                     <div class="form-centro">
 
-                        <h1>ACTUALIZA TUS DATOS</h1>
+                        <h1>DATOS DEL USUSARIO</h1>
                     <form action="" class='form-panel' method = "post">
 
                     <?php foreach($consultaUsuario as $row) { ?>
