@@ -66,7 +66,7 @@
                                     die;
 
                                 }
-                                header('Location: index.php');
+                                header('Location: home.php');
                                 die;
                                 break;
                             }
