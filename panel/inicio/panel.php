@@ -29,6 +29,7 @@
     <link rel="stylesheet" type="text/css" href="../../css/responpanel.css">
     <link rel="stylesheet" type="text/css" href="../../css/formularios.css">
     <link rel="stylesheet" type="text/css" href="../../bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="../../css/panel.css">
 
 </head>
 <body>
