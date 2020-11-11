@@ -33,24 +33,20 @@
 }
 
 @media (max-width: 920px) {
-    .carrito thead tr th {
+    .carrito-carrito .carrito thead tr th {
+        font-size: 60%;
+    }
+}
+
+
+
+@media (max-width: 920px) {
+    .carrito form select {
         font-size: 15px;
     }
 }
 
-@media (max-width: 500px) {
-    .carrito thead tr th {
-        font-size: 10px;
-    }
-}
-
-@media (max-width: 345px) {
-    .carrito thead tr th {
-        font-size: 8px;
-    }
-}
-
-@media (max-width: 920px) {
+@media (max-width: 650px) {
     .carrito form select {
         font-size: 10px;
     }
@@ -144,4 +140,10 @@
     .table {
         margin-right: 5rem;
     }
+}
+
+@media (max-width: 320px) {
+.bgp h1{
+    font-size: 20px ;
+}
 }
