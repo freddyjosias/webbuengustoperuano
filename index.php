@@ -4,6 +4,10 @@
 
     require 'conexion.php';
 
+    if (!isset($_SESSION['idusuario'])) {
+        header('Location: login.php');
+    }
+
     $consultaRestaurantes = 'SELECT idsucursal, nomsucursal, imgbienvenida FROM sucursal WHERE estado = 1';
 
 ?>
@@ -23,9 +27,7 @@
 	<link rel="stylesheet" type="text/css" href="css/estilos.css">
 </head>
 <body>
-
-    <?php if (isset($_SESSION['idusuario'])) { ?>                        
-        
+                            
         <header class="header-inicio ">
 
             <div class="contenedor-general contenido-header-inicio row">
@@ -94,75 +96,11 @@
 
             </div>
         </section>
-
         <footer class="footer-inicio">
             <div class= "contenedor-general">
                 <div>© 2020 El Buen Gusto Peruano SAC. Todos los derechos reservados</div>
             </div>
         </footer>
-
-    <?php } else { 
-        
-        if (isset($_POST['login'])) {
-            if (strlen($_POST['usuario']) > 0 && strlen($_POST['clave']) > 0) {
-                $usuario = $_POST['usuario'];
-                $clave = $_POST['clave'];
-                $consultaUsuario = 'SELECT * FROM usuario WHERE estado = 1 OR estado = 2';
-                $datosErroneos = 1;
-                $resultados = $conexion -> prepare($consultaUsuario);
-                $resultados -> execute();
-                $resultados = $resultados -> fetchAll(PDO::FETCH_ASSOC);
-
-                foreach($resultados as $row) { 
-                    if ($row['emailusuario'] == $usuario && $row['contrasena'] == $clave) {
-                        $datosErroneos = 0;
-                        $_SESSION['idusuario'] = $row['idusuario'];
-                        $_SESSION['email'] = $row['emailusuario'];
-                        $_SESSION['nombreusuario'] = $row['nombreusuario'];
-                        $_SESSION['apellidousuario'] = $row['apellidousuario'];
-                        $_SESSION['profile'] = $row['id_profile']; 
-                        if ($row['id_profile'] == 2) {
-
-                            $resultadosR = $conexion -> prepare('SELECT idsucursal FROM access WHERE idusuario = ?');
-                            $resultadosR -> execute(array($row['idusuario']));
-                            $resultadosR = $resultadosR -> fetchAll(PDO::FETCH_ASSOC);
-                            $_SESSION['sucursal'] = $resultadosR[0]['idsucursal'];
-
-                            header('Location: nosotros.php?view=' . $resultadosR[0]['idsucursal']);
-                            die;
-
-                        }
-                        header('Location: index.php');
-                        die;
-                        break;
-                    }
-                }
-                
-
-            }
-        }
-    
-        ?>
-
-            <form method='post' class="box-login">
-                <h1 class='mt-0'>Iniciar sesión</h1>
-                <input type="text" placeholder="&#128272; Correo" name="usuario" required>
-                <input type="password" placeholder="&#128272; Contraseña" name="clave" required>
-                <input type="submit" value="Ingresar" name="login">
-                <?php
-                    if (isset($datosErroneos)) {
-                        ?>
-                            <div class="alert alert-danger text-center" role='alert'>
-                                Datos incorrectos &nbsp; <i class="far fa-times-circle"></i>
-                            </div>
-                        <?php
-                    }
-                ?>
-            </form>
-        
-        <?php 
-
-    } ?>
     <script src="js/jquery-3.5.1.min.js"></script>
     <script src="js/script.js"></script>
 </body>

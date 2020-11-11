@@ -856,38 +856,17 @@ body {
     right: 23rem;
 }
 
-.box-login {
-    width: 350px;
-    padding: 40px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: #191919;
-    border-radius: 28px;
-}
-
-.box-login p {
-    color: white;
-}
-
-.box-login h1 {
-    color: white;
-    text-transform: uppercase;
-    text-align: center;
-}
-
 .box-login input[type="text"],
 .box-login input[type="password"] {
     background: none;
     display: block;
-    margin: 20px auto;
+    margin: 10px auto;
     text-align: center;
     border: 2px solid #3498db;
-    padding: 14px 10px;
+    padding: 10px 10px;
     width: 200px;
     outline: none;
-    color: white;
+    color:black;
     border-radius: 24px;
     transition: 0.25s;
 }
@@ -904,9 +883,9 @@ body {
     margin: 20px auto;
     text-align: center;
     border: 2px solid #2ecc71;
-    padding: 14px 40px;
+    padding: 10px 40px;
     outline: none;
-    color: white;
+    color: black;
     border-radius: 24px;
     transition: 0.25s;
 }
