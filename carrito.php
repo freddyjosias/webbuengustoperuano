@@ -132,12 +132,17 @@ $consultaVerificarRestaurante = 'SELECT * FROM sucursal WHERE idsucursal = ?';
                                     <thead>
                                         <tr>                   
                                             <th style="visibility: hidden"> Prueba</th>
-                                            <th style="visibility: hidden">Prueva</th>
-                                            <th>Monto Total</th>
+                                            <th style="visibility: hidden">Prueba</th>
+                                            <th style="visibility: hidden">Prueba</th>
                                             <th>Monto Total</th>
                                         </tr>
-                                        
                                     </thead>
+                                    <tbody>
+                                    <td style="visibility: hidden"></td>
+                                    <td style="visibility: hidden"></td>
+                                    <td style="visibility: hidden"></td>
+                                    <td>S/.</td>
+                                    </tbody>
                                 </table>
                                 <div class="contenedor-pedidos">
                                     <div class="btn-group-vertical direccion-tipos">
