@@ -1,5 +1,5 @@
 <?php 
 
-require 'home.php';
+require_once 'home.php';
 
  ?>

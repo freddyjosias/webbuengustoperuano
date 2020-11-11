@@ -29,7 +29,7 @@
     {
         
         ?>
-                <a href="<?php echo $client -> createAuthUrl() ?>">Google</a>
+                <a href="<?php echo $client -> createAuthUrl() ?>" class="btn btn-primary fw-600 mx-5r w-10r">Google</a>
             
 
         <?php
