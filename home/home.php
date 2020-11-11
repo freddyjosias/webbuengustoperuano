@@ -1,11 +1,8 @@
 <?php
 
-    session_start();
-
-    require 'conexion.php';
-
-    if (!isset($_SESSION['idusuario'])) {
-        header('Location: login.php');
+    if (!isset($_SESSION['idusuario'])) 
+    {
+        header('Location: ../');
     }
 
     $consultaRestaurantes = 'SELECT idsucursal, nomsucursal, imgbienvenida FROM sucursal WHERE estado = 1';
@@ -15,7 +12,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>El Buen Gusto Peruano</title>
+	<title>Buen Gusto Peruano</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shorcut icon" href="img/logo-icon-512-color.png">
@@ -44,7 +41,7 @@
                             <a class='text-white h3 sm-h2 ml-auto mb-0' title='Panel de Administrador' href="paneladmin/index.php"><i class="fas fa-cogs"></i></a>
                         <?php } ?>
                         <a class='text-white h3 <?php echo ($_SESSION['profile'] == 3) ? 'ml-3 ml-sm-4' : 'ml-auto' ?> sm-h2  mb-0' title='Información de la cuenta' href="usuario.php"><i class="fas fa-user"></i></i></a>
-                        <a class='text-white h3 sm-h2 ml-3 ml-sm-4 mb-0' title='Cerrar Sesión' href="logout.php"><i class="fas fa-sign-out-alt"></i></a>
+                        <a class='text-white h3 sm-h2 ml-3 ml-sm-4 mb-0' title='Cerrar Sesión' href="home/logout.php"><i class="fas fa-sign-out-alt"></i></a>
                     </div>
                 </div>
 

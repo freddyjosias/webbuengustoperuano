@@ -1,6 +1,9 @@
 <?php
 
-    session_start();
+    if (!isset($_SESSION)) 
+    {
+        header('Location: ../');
+    }
 
     require 'conexion.php';
 
@@ -18,7 +21,7 @@
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/bootstrap.add.css">
 	<link rel="stylesheet" type="text/css" href="css/estilos.css">
-    <title>Web Buen Gusto Peruano</title>
+    <title>Buen Gusto Peruano</title>
 </head>
 <body>
 
@@ -35,57 +38,25 @@
     <div class="container-fluid container-login-new">
         <div class="container w-75r">
             <div class="row align-items-center vh-100 justify-content-center">
-                <?php 
-                
-                if (isset($_POST['login'])) {
-                    if (strlen($_POST['usuario']) > 0 && strlen($_POST['clave']) > 0) {
-                        $usuario = $_POST['usuario'];
-                        $clave = $_POST['clave'];
-                        $consultaUsuario = 'SELECT * FROM usuario WHERE estado = 1 OR estado = 2';
-                        $datosErroneos = 1;
-                        $resultados = $conexion -> prepare($consultaUsuario);
-                        $resultados -> execute();
-                        $resultados = $resultados -> fetchAll(PDO::FETCH_ASSOC);
-
-                        foreach($resultados as $row) { 
-                            if ($row['emailusuario'] == $usuario && $row['contrasena'] == $clave) {
-                                $datosErroneos = 0;
-                                $_SESSION['idusuario'] = $row['idusuario'];
-                                $_SESSION['email'] = $row['emailusuario'];
-                                $_SESSION['nombreusuario'] = $row['nombreusuario'];
-                                $_SESSION['apellidousuario'] = $row['apellidousuario'];
-                                $_SESSION['profile'] = $row['id_profile']; 
-                                if ($row['id_profile'] == 2) {
-
-                                    $resultadosR = $conexion -> prepare('SELECT idsucursal FROM access WHERE idusuario = ?');
-                                    $resultadosR -> execute(array($row['idusuario']));
-                                    $resultadosR = $resultadosR -> fetchAll(PDO::FETCH_ASSOC);
-                                    $_SESSION['sucursal'] = $resultadosR[0]['idsucursal'];
-
-                                    header('Location: nosotros.php?view=' . $resultadosR[0]['idsucursal']);
-                                    die;
-
-                                }
-                                header('Location: index.php');
-                                die;
-                                break;
-                            }
-                        }
-                        
-
-                    }
-                }
-            
-                ?>
 
                 <div class="col-5 bg-white rounded-left-15 text-center h-30r mb-6r px-3 py-5 shadow-lg">
+                
                     <h4 class="mt-1 text-muted">Bienvenido a</h3>
                     <h1 class="fw-600 mt-0 color-header">BUEN GUSTO PERUANO</h1>
                     <h6 class="text-muted fw-400 mx-5 mt-4 fs-18">Ingresa y podrás acceder a muchos restaurantes con los platillos más deliciosos de la región</h6>
-                    <form method='post' class="box-login mt-3">
-                        <input type="text" placeholder="Correo" name="usuario" required>
-                        <input type="password" placeholder="Contraseña" name="clave" required>
-                        <input type="submit" value="Ingresar" name="login">
+
+                    <form method='post' action='home/loginuri.php'>
+
+                        <div class="form-group row justify-content-center">
+                            <label for="exampleInputEmail1" class='col-9 px-0 text-left'>Correo:</label>
+                            <input type="email" name='useremail' class="col-9 form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required>
+                        </div>
+
+                        <div class="form-group row justify-content-center">
+                            <label for="exampleInputPassword1" class='col-9 px-0 text-left'>Contraseña:</label>
+                            <input type="password" class="col-9 form-control" id="exampleInputPassword1" name='userpassword' required>
+                        </div>
+
                         <?php
                             if (isset($datosErroneos)) {
                                 ?>
@@ -95,9 +66,15 @@
                                 <?php
                             }
                         ?>
+
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                        
                     </form>
+
                     <p class="mt-1r text-left ml-5 fw-500 fs-18">Continua con la siguiente <u> red social</u>:</p>
+                    
                     <?php require 'loginuri.php'?>
+
                 </div>
 
                 <div class="col-5 text-white rounded-right-15 h-30r mb-6r p-0 position-relative shadow-lg">
