@@ -2,7 +2,7 @@
 
     <nav class='nav-panel-options'>
             <ul class='fw-600 ls-13'>
-                <li><a class='pl-4' href="../inicio/panel.php">Inicio</a></li>
+                <li><a class='pl-4' href="../../"><i class="fas fa-home"></i> &nbsp; REGRESAR</a></li>
                 <li><a class='pl-4' href="../restaurante/restaurante.php">Información Restaurante</a></li>
                 <li><a class='pl-4' href="../bienvenida/bienvenida.php">Bienvenida</a></li>
                 <li><a class='pl-4' href="../destacados/listar.php">Platos Destacados</a></li>
