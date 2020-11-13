@@ -61,27 +61,10 @@
     $platosdestacados -> execute(array($_SESSION['sucursal']));
     $platosdestacados = $platosdestacados -> fetch(PDO::FETCH_ASSOC);  
 
-    $consultaVerificarRestaurante = 'SELECT * FROM sucursal WHERE estado = 1';
+    $resultadosEn = $conexion -> prepare('SELECT * FROM sucursal WHERE idsucursal = ?');
+    $resultadosEn -> execute(array($_SESSION['sucursal']));
+    $resultadosEn = $resultadosEn -> fetchAll(PDO::FETCH_ASSOC);
 
-        $platodescatado1;
-        $platodescatado2;
-        $platodescatado3;
-
-    $resultados = $conexion -> prepare($consultaVerificarRestaurante);
-    $resultados -> execute();
-    $resultados = $resultados -> fetchAll(PDO::FETCH_ASSOC);
-
-    foreach($resultados as $row) {
-     
-    
-            $platodescatado1 = $row['platodestacado1'];
-            $platodescatado2 = $row['platodestacado2'];
-            $platodescatado3 = $row['platodestacado3'];
-
-    }
-
-
-    
 ?>
 
 <!DOCTYPE html>
@@ -126,6 +109,7 @@
                                         <td class='text-center'><a href="actualizarimg.php"><i class="far fa-edit"></i></a></td>
                                     </tr>
                                 </tbody>
+
                             <thead class='thead-light'>
                                 <tr>                    
                                     <th class="th" scope="col">Descripcion</th>
@@ -138,12 +122,14 @@
                                         <td class='text-center'><a href="actualizartexto.php"><i class="far fa-edit"></i></a></td>
                                     </tr>
                                 </tbody>
+
                             <thead class='thead-light'>
                                 <tr>                    
                                     <th class="th" scope="col">Banner</th>
                                     <th class="th text-center" colspan="1"></th>
                                 </tr>
                             </thead>
+
                                 <tbody>
                                     <tr>
                                         <td>
@@ -154,31 +140,58 @@
                                         <td class='text-center'><a href="actualizarbanner.php"><i class="far fa-edit"></i></a></td>
                                     </tr>
                                 </tbody>
-
                                 <thead class='thead-light'>
-                                <tr>                    
-                                    <th class="th" scope="col">Platos Destacados</th>
-                                    <th class="th text-center" colspan="1"></th>
-                                </tr>
-                            </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>  
-                                            <div class='text-center mt-5 destacado-panel'>
-                                                
-                                                <?php echo "<img class='h-25r border border-dark' src='../../". $platosdestacados['imgdestacado1'] ."' >" ?>
-                                                <a href=""><i class="far fa-edit"></i></a>
-                                                <h3><?php echo $platodescatado1 ?><a href=""><i class="far fa-edit"></i></a></h3>
-                                                <?php echo "<img class='h-25r border border-dark' src='../../". $platosdestacados['imgdestacado2'] ."' >" ?>
-                                                <a href=""><i class="far fa-edit"></i></a>
-                                                <h3> <?php echo $platodescatado2 ?> <a href=""><i class="far fa-edit"></i></a></h3>
-                                                <?php echo "<img class='h-25r border border-dark' src='../../". $platosdestacados['imgdestacado3'] ."' >" ?>
-                                                <a href=""><i class="far fa-edit"></i></a>
-                                                <h3> <?php echo $platodescatado3 ?> <a href=""><i class="far fa-edit"></i></a></h3>
-                                            </div>
-                                        </td>
-                                        <td class='text-center'></td>
+                                    <tr>                    
+                                        <th class="th" scope="col">Descripcion</th>
+                                        <th class="th text-center" colspan="1"></th>
                                     </tr>
+                                </thead>
+                        
+                    <h1 class='h3 text-center mt-5 font-weight-bold w-100'></h1>
+
+                    <table class="table mt-4">
+                    <thead class='thead-light letra-panel'>
+                        <tr>
+                            <th scope="col" class='text-center'><p>N°</p></th>
+                            <th scope="col"><p>Imágen</p></th>
+                            <th class='text-center' scope="col"><p>Actualizar</p></th>
+                            <th scope="col"><p>Texto</p></th>
+                            <th class='text-center' scope="col"><p>Actualizar</p></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                            <tr>
+                            <?php foreach($resultadosEn as $val) { ?>
+                                <th scope="row" class='text-center'>1</th>
+                                <td class="destacado-panel"><img src="../../<?php echo $val['imgdestacado1'] ?>" alt=""></td>
+                                <td class='text-center'><a href="actualizar4.php"><i class="far fa-edit"></i></a></td>
+                                <td><?php echo $val['platodestacado1'] ?></td>
+                                <td class='text-center'><a href="actualizar1.php"><i class="far fa-edit"></i></a></td>
+                            <?php } ?>
+                            </tr>
+                            <tr>
+                            <?php foreach($resultadosEn as $val) { ?>
+                                <th scope="row" class='text-center'>2</th>
+                                <td class="destacado-panel"><img src="../../<?php echo $val['imgdestacado2'] ?>" alt=""></td>
+                                <td class='text-center'><a href="actualizar5.php"><i class="far fa-edit"></i></a></td>
+                                <td><?php echo $val['platodestacado2'] ?></td>
+                                <td class='text-center'><a href="actualizar2.php"><i class="far fa-edit"></i></a></td>                            
+                            <?php } ?>
+                            </tr>
+                            <tr>
+                            <?php foreach($resultadosEn as $val) { ?>
+                                <th scope="row" class='text-center'>3</th>
+                                <td class="destacado-panel"><img src="../../<?php echo $val['imgdestacado3'] ?>" alt=""></td>
+                                <td class='text-center'><a href="actualizar6.php"><i class="far fa-edit"></i></a></td>
+                                <td><?php echo $val['platodestacado3'] ?></td>
+                                <td class='text-center'><a href="actualizar3.php"><i class="far fa-edit"></i></a></td>
+                            <?php } ?>
+                            </tr>
+
+                    </tbody>
+                    </table>
+                </div>
+            
                                 </tbody>
                         </table>
 
