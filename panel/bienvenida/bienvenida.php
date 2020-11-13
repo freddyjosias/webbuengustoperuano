@@ -55,7 +55,12 @@
 
     $resultadosBanner= $conexion -> prepare('SELECT banner FROM sucursal WHERE idsucursal = ?');
     $resultadosBanner -> execute(array($_SESSION['sucursal']));
-    $resultadosBanner = $resultadosBanner -> fetch(PDO::FETCH_ASSOC);   
+    $resultadosBanner = $resultadosBanner -> fetch(PDO::FETCH_ASSOC);  
+    
+    $platosdestacados= $conexion -> prepare('SELECT imgdestacado1, imgdestacado2, imgdestacado3 FROM sucursal WHERE idsucursal = ?');
+    $platosdestacados -> execute(array($_SESSION['sucursal']));
+    $platosdestacados = $platosdestacados -> fetch(PDO::FETCH_ASSOC);  
+
     
 ?>
 
@@ -127,6 +132,25 @@
                                             </div>
                                         </td>
                                         <td class='text-center'><a href="actualizarbanner.php"><i class="far fa-edit"></i></a></td>
+                                    </tr>
+                                </tbody>
+
+                                <thead class='thead-light'>
+                                <tr>                    
+                                    <th class="th" scope="col">Platos Destacados</th>
+                                    <th class="th text-center" colspan="1"></th>
+                                </tr>
+                            </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>  
+                                            <div class='text-center mt-5 destacado-panel'>
+                                                <?php echo "<img class='h-25r border border-dark' src='../../". $platosdestacados['imgdestacado1'] ."' >" ?>
+                                                <?php echo "<img class='h-25r border border-dark' src='../../". $platosdestacados['imgdestacado2'] ."' >" ?>
+                                                <?php echo "<img class='h-25r border border-dark' src='../../". $platosdestacados['imgdestacado3'] ."' >" ?>
+                                            </div>
+                                        </td>
+                                        <td class='text-center'><a href="actualizarplatosdestacados.php"><i class="far fa-edit"></i></a></td>
                                     </tr>
                                 </tbody>
                         </table>
