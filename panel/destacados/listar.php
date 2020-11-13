@@ -59,9 +59,9 @@ if (isset($_SESSION['idusuario'])) {
                         <tr>
                             <th scope="col" class='text-center'><p>N°</p></th>
                             <th scope="col"><p>Imágen</p></th>
-                            <th class='text-center' scope="col"><p>Configurar Imagen</p></th>
+                            <th class='text-center' scope="col"><p>Configurar</p></th>
                             <th scope="col"><p>Texto</p></th>
-                            <th class='text-center' scope="col"><p>Configurar Texto</p></th>
+                            <th class='text-center' scope="col"><p>Configurar</p></th>
                         </tr>
                     </thead>
                     <tbody>
