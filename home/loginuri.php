@@ -146,7 +146,7 @@
     {
         
         ?>
-            <a href="<?php echo $client -> createAuthUrl() ?>" class="btn shadow btn-red text-white mt-2 fw-600 "><i class="fab fa-google"></i> Inicia sesión con Google</a>
+            <a href="<?php echo $client -> createAuthUrl() ?>" class="btn shadow btn-red text-white mt-2 fw-600 "><i class="fab fa-google"></i> &nbsp; Inicia sesión con Google</a>
 
         <?php
 
