@@ -4,11 +4,6 @@
      session_cache_limiter('private_no_expire');
      session_start();
 
-     $_SESSION['sucursal'] = 1;
-     $_SESSION['idusuario'] = 4;
-     $_SESSION['profile'] = 2;
-
-    var_dump($_SESSION) ; die;
      if (!isset($_SESSION['sucursal'])) {
          header('Location: ../../index.php');
      }
