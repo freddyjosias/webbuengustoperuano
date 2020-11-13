@@ -78,8 +78,8 @@
                                     <?php echo "<img class='h-25r border border-dark' src='../../". $resultadosImg['imgbienvenida'] ."' >" ?>
                                 </div>
                             
-                            <input class="btn btn-secondary bottom" type="submit" value="Actualizar">
-                            <button class="btn btn-secondary bottom"><a href="bienvenida.php">Volver</a></button>
+                            <input class="btn btn-secondary bottom mt-4" type="submit" value="Actualizar">
+                            <button class="btn btn-secondary bottom volver mt-4"><a href="bienvenida.php">Volver</a></button>
 
                         </form>
                     </div>

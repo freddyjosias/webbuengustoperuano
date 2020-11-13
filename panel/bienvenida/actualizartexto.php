@@ -67,8 +67,8 @@
 
                                 <textarea style= "resize: vertical" name="nuevotexto" id="" cols="100" rows="10"><?php echo $resultadosText['textobienvenida'] ?></textarea><br><br>
 
-                                <input class="btn btn-secondary bottom" type="submit" value="Actualizar">
-                                <button class="btn btn-secondary bottom"><a href="bienvenida.php">Volver</a></button>
+                                <input class="btn btn-secondary bottom mt-4" type="submit" value="Actualizar">
+                                <button class="btn btn-secondary bottom volver mt-4"><a href="bienvenida.php">Volver</a></button>
 
                         </form>
 

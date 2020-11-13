@@ -91,8 +91,8 @@
                     <?php } ?>
                     
                     <div class="botonguardar">
-                        <input type="submit" value="Guardar">
-                        <button><a href="index.php">Volver</a></button>
+                        <input class="mt-4" type="submit" value="Guardar">
+                        <button class="mt-4"><a href="index.php">Volver</a></button>
                     </div>       
                     </form>
 

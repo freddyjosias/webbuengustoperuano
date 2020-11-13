@@ -79,7 +79,7 @@
                             </div>
 
                             <input class="btn btn-secondary bottom mt-4" type="submit" value="Actualizar">
-                            <button class="btn btn-secondary bottom mt-4"><a href="bienvenida.php">Volver</a></button>
+                            <button class="btn btn-secondary bottom mt-4 volver"><a href="bienvenida.php">Volver</a></button>
 
                         </form>
                     </div>
