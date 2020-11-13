@@ -6,6 +6,7 @@
         if ($_SESSION['profile'] != 3) {
             header('Location: ../../index.php');
         }
+        
     } else {
         header('Location: ../../index.php');
     }
@@ -45,9 +46,12 @@
             ?>
 
 
-            <div class='container p-5 main-panel m-0 mw-85 w-85'>
+            <div class='container p-0 main-panel m-0 mw-85 w-85'>
 
-                
+                <div class="line-top-panel row h-4r">
+                    
+                </div>
+
                 <div class="row w-90 m-auto">
                     <h1 class='h3 text-center font-weight-bold w-100'>LISTAR RESTAURANTES</h1>
 

@@ -6,6 +6,7 @@
         if ($_SESSION['profile'] != 3) {
             header('Location: ../../index.php');
         }
+        
     } else {
         header('Location: ../../index.php');
     }
