@@ -69,10 +69,11 @@
 
                         <form action="" class='form-panel' method="post" enctype="multipart/form-data">
 
-                            <p class='fw-500'>Imagen: </p>
+                            <p class='fw-500'>Nueva Imagen: </p>
                         
                             <input type="file" name="nuevaimagen" required><br><br>
 
+                                <p class='fw-500'>Imagen actual: </p>
                                 <div class='text-center mt-5 destacado-panel'>
                                     <?php echo "<img class='h-25r border border-dark' src='../../". $resultadosImg['imgbienvenida'] ."' >" ?>
                                 </div>

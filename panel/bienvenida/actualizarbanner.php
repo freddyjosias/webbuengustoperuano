@@ -73,12 +73,13 @@
 
                             <input type="file" name="nuevobanner" required><br><br>
 
+                            <p class='fw-500'>Banner actual: </p>
                             <div class='text-center mt-5 banner-panel'>
                                 <?php echo "<img class='h-24r border border-dark' src='../../". $resultadosBanner['banner'] ."' >" ?>
                             </div>
 
-                            <input class="btn btn-secondary bottom" type="submit" value="Actualizar">
-                            <button class="btn btn-secondary bottom"><a href="bienvenida.php">Volver</a></button>
+                            <input class="btn btn-secondary bottom mt-4" type="submit" value="Actualizar">
+                            <button class="btn btn-secondary bottom mt-4"><a href="bienvenida.php">Volver</a></button>
 
                         </form>
                     </div>
