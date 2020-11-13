@@ -3,6 +3,22 @@
     if (!isset($_SESSION['idusuario'])) 
     {
         header('Location: ../');
+    } 
+    else 
+    {
+        $queryProfile = $conexion -> prepare("SELECT id_profile FROM detail_usuario_profile WHERE state = 1 AND idusuario = ? AND id_profile = 3");
+        $queryProfile -> execute(array($_SESSION['idusuario']));
+        $queryProfile = $queryProfile -> fetch(PDO::FETCH_ASSOC);
+
+        if (isset($queryProfile['id_profile'])) 
+        {
+            $profileAdmin = true;
+        } 
+        else
+        {
+            $profileAdmin = false;
+        }
+
     }
 
     $consultaRestaurantes = 'SELECT idsucursal, nomsucursal, imgbienvenida FROM sucursal WHERE estado = 1';
@@ -37,10 +53,10 @@
 
                 <div class="cerrar-sesion text-right col-6 m-0 p-0 ">
                     <div class="container h-100 align-items-center d-flex p-0">
-                        <?php if ($_SESSION['profile'] == 3) { ?>
+                        <?php if ($profileAdmin) { ?>
                             <a class='text-white h3 sm-h2 ml-auto mb-0' title='Panel de Administrador' href="paneladmin/index.php"><i class="fas fa-cogs"></i></a>
                         <?php } ?>
-                        <a class='text-white h3 <?php echo ($_SESSION['profile'] == 3) ? 'ml-3 ml-sm-4' : 'ml-auto' ?> sm-h2  mb-0' title='Información de la cuenta' href="usuario.php"><i class="fas fa-user"></i></i></a>
+                        <a class='text-white h3 <?php echo ($profileAdmin) ? 'ml-3 ml-sm-4' : 'ml-auto' ?> sm-h2  mb-0' title='Información de la cuenta' href="usuario.php"><i class="fas fa-user"></i></i></a>
                         <a class='text-white h3 sm-h2 ml-3 ml-sm-4 mb-0' title='Cerrar Sesión' href="home/logout.php"><i class="fas fa-sign-out-alt"></i></a>
                     </div>
                 </div>

@@ -8,6 +8,22 @@
     if (!isset($_SESSION['idusuario'])) {
         header('Location: index.php');
     } 
+    else 
+    {
+        $queryProfile = $conexion -> prepare("SELECT id_profile FROM detail_usuario_profile WHERE state = 1 AND idusuario = ? AND id_profile = 2");
+        $queryProfile -> execute(array($_SESSION['idusuario']));
+        $queryProfile = $queryProfile -> fetch(PDO::FETCH_ASSOC);
+
+        if (isset($queryProfile['id_profile'])) 
+        {
+            $profile = true;
+        } 
+        else
+        {
+            $profile = false;
+        }
+
+    }
 
     if (!isset($_GET['view'])) {
         header('Location: index.php');

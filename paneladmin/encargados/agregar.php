@@ -1,28 +1,43 @@
 <?php
 
     session_start();
+    
+    require '../../conexion.php';
 
     if (isset($_SESSION['idusuario'])) {
-        if ($_SESSION['profile'] != 3) {
+        
+        $queryProfile = $conexion -> prepare("SELECT id_profile FROM detail_usuario_profile WHERE state = 1 AND idusuario = ? AND id_profile = 3");
+        $queryProfile -> execute(array($_SESSION['idusuario']));
+        $queryProfile = $queryProfile -> fetch(PDO::FETCH_ASSOC);
+
+        if (isset($queryProfile['id_profile'])) 
+        {
+            $profileAdmin = true;
+        } 
+        else
+        {
+            $profileAdmin = false;
+        }
+
+        if (!$profileAdmin) {
             header('Location: ../../index.php');
         }
+
     } else {
         header('Location: ../../index.php');
     }
-
-    require '../../conexion.php';
 
     $resultadosR = $conexion -> prepare('SELECT idsucursal, nomsucursal FROM sucursal WHERE estado = 1');
     $resultadosR -> execute();
     $resultadosR = $resultadosR -> fetchAll(PDO::FETCH_ASSOC);
 
-    if (isset($_POST['email'])) {
+    if (isset($_POST['emailaddmanager'])) {
         
         $updateProfile = $conexion -> prepare('UPDATE usuario SET id_profile = 2 WHERE emailusuario = ?');
-        $updateProfile -> execute(array($_POST['email']));
+        $updateProfile -> execute(array($_POST['emailaddmanager']));
 
         $obtenerIdU = $conexion -> prepare('SELECT idusuario FROM usuario WHERE emailusuario = ?');
-        $obtenerIdU -> execute(array($_POST['email']));
+        $obtenerIdU -> execute(array($_POST['emailaddmanager']));
         $obtenerIdU = $obtenerIdU -> fetchAll(PDO::FETCH_ASSOC);
 
         $insertAccess = $conexion -> prepare('INSERT INTO access(idusuario, idsucursal) VALUES(?, ?)');

@@ -191,4 +191,22 @@ $(function() {
         objectMenu.parent().css('border', '1px solid white');
     }
 
+
+    // ADD MANAGER
+
+    $('.form-add-manager').hide();
+
+    $('.buttom-add-manager').click(function () {
+        $('.form-add-manager').slideDown();
+        $(this).hide();
+    })
+
+    $('.cancel-add-manager').click(function () {
+        $('.form-add-manager').slideUp();
+        setTimeout(() => {
+            $('.buttom-add-manager').show();
+        }, 200);
+    })
+
+
 });

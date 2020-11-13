@@ -110,6 +110,7 @@
                     $_SESSION['email'] = $gMail;
                     $_SESSION['nombreusuario'] = $gName;
                     $_SESSION['apellidousuario'] = $gLastName;
+                    header("Location: ../");
                 }
                 else
                 {

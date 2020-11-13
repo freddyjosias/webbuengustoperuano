@@ -1,5 +1,5 @@
 <?php
 
-    header('Location: encargados/listar.php');
+    header('Location: encargados.php');
 
 ?>
