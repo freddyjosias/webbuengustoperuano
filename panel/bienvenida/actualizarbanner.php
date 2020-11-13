@@ -77,8 +77,8 @@
                                 <?php echo "<img class='h-24r border border-dark' src='../../". $resultadosBanner['banner'] ."' >" ?>
                             </div>
 
-                            <input type="submit" value="Actualizar">
-                            <button><a href="bienvenida.php">Volver</a></button>
+                            <input class="btn btn-secondary bottom" type="submit" value="Actualizar">
+                            <button class="btn btn-secondary bottom"><a href="bienvenida.php">Volver</a></button>
 
                         </form>
                     </div>

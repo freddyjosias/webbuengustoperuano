@@ -93,7 +93,7 @@
 
                                 <textarea style= "resize: vertical" name="nuevotexto" id="" cols="100" rows="5"><?php echo $resultadosText['platodestacado1'] ?></textarea><br><br>
 
-                                <input type="submit" value="Actualizar">
+                                <input class="btn btn-secondary bottom" type="submit" value="Actualizar">
                                 <button><a href="listar.php">Volver</a></button>
 
                         </form>
