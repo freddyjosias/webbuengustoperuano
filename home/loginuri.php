@@ -1,14 +1,21 @@
 <?php
-        
+
+    require_once '../conexion.php';
+
     if (isset($_POST['useremail'])) {
-        if (strlen($_POST['usuario']) > 0 && strlen($_POST['clave']) > 0) {
-            $usuario = $_POST['usuario'];
-            $clave = $_POST['clave'];
+
+        if (strlen($_POST['useremail']) > 0 && strlen($_POST['userpassword']) > 0) {
+
+            session_start();
+            
+            $usuario = $_POST['useremail'];
+            $clave = $_POST['userpassword'];
             $consultaUsuario = 'SELECT * FROM usuario WHERE estado = 1 OR estado = 2';
             $datosErroneos = 1;
             $resultados = $conexion -> prepare($consultaUsuario);
             $resultados -> execute();
             $resultados = $resultados -> fetchAll(PDO::FETCH_ASSOC);
+            //var_dump($resultados); die;
 
             foreach($resultados as $row) { 
                 if ($row['emailusuario'] == $usuario && $row['contrasena'] == $clave) {
@@ -46,12 +53,12 @@
 
     if (file_exists('glogin/vendor/autoload.php')) 
     {
-        require 'glogin/vendor/autoload.php';
+        require_once 'glogin/vendor/autoload.php';
     } 
     elseif (file_exists('../glogin/vendor/autoload.php')) 
     {
-        require '../conexion.php';
-        require '../glogin/vendor/autoload.php';
+        require_once '../conexion.php';
+        require_once '../glogin/vendor/autoload.php';
     }
 
     $client = new Google_Client();
