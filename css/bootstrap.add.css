@@ -12,6 +12,16 @@
     background-color: rgb(87, 165, 195);
 }
 
+.btn-red 
+{
+    background-color: red;
+}
+
+.btn-red:hover 
+{
+    background-color: rgb(226, 0, 0);
+}
+
 .border-3 
 {
     border-width: 3px;
@@ -47,6 +57,11 @@
 .fs-16 
 {
     font-size: 16px;
+}
+
+.fs-17 
+{
+    font-size: 17px;
 }
 
 .fs-18 
@@ -140,6 +155,11 @@
     height: 30rem;
 }
 
+.h-31r 
+{
+    height: 31rem;
+}
+
 .hr-solid-dark {
     border: 1px solid var(--color-dark);
     border-radius: 5px;
@@ -207,6 +227,12 @@
 
 .out-line-none {
     outline: none;
+}
+
+.py-2r 
+{
+    padding-top: 2rem;
+    padding-bottom: 2rem;
 }
 
 .rounded-left-15 {

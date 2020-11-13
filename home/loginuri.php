@@ -1,21 +1,28 @@
 <?php
 
-    require_once '../conexion.php';
+    if (file_exists('../conexion.php')) {
+        require_once '../conexion.php';
+    }
 
     if (isset($_POST['useremail'])) {
 
         if (strlen($_POST['useremail']) > 0 && strlen($_POST['userpassword']) > 0) {
 
             session_start();
-            
-            $usuario = $_POST['useremail'];
-            $clave = $_POST['userpassword'];
+
+            $mail = $_POST['useremail'];
+            $password = $_POST['userpassword'];
+
+            $resultUser = $conexion -> prepare('SELECT idusuario, nombreusuario, apellidousuario, idprofile FROM access INNER JOIN usuario ON usuario.i WHERE estado = 1 AND emailusuario = ? AND contrasena = ?');
+            //$resultUser =
+
+            $resultados = $conexion -> prepare($consultaUsuario);
+
             $consultaUsuario = 'SELECT * FROM usuario WHERE estado = 1 OR estado = 2';
             $datosErroneos = 1;
             $resultados = $conexion -> prepare($consultaUsuario);
             $resultados -> execute();
             $resultados = $resultados -> fetchAll(PDO::FETCH_ASSOC);
-            //var_dump($resultados); die;
 
             foreach($resultados as $row) { 
                 if ($row['emailusuario'] == $usuario && $row['contrasena'] == $clave) {
@@ -32,16 +39,21 @@
                         $resultadosR = $resultadosR -> fetchAll(PDO::FETCH_ASSOC);
                         $_SESSION['sucursal'] = $resultadosR[0]['idsucursal'];
 
-                        header('Location: nosotros.php?view=' . $resultadosR[0]['idsucursal']);
+                        header('Location: ../nosotros.php?view=' . $resultadosR[0]['idsucursal']);
                         die;
 
                     }
-                    header('Location: index.php');
-                    die;
+                    
                     break;
                 }
             }
             
+            if ($datosErroneos) {
+                $_SESSION['invaliduser'] = true;
+            }
+
+            header('Location: ../');
+            die;
 
         }
     }
@@ -57,7 +69,6 @@
     } 
     elseif (file_exists('../glogin/vendor/autoload.php')) 
     {
-        require_once '../conexion.php';
         require_once '../glogin/vendor/autoload.php';
     }
 
@@ -72,14 +83,62 @@
     if (isset($_GET['code'])) 
     {
         $token =  $client->fetchAccessTokenWithAuthCode($_GET['code']);
+
+        session_start();
         
         if (!isset($token['error'])) {
 
             $client -> setAccessToken($token['access_token']);
             $authorization = new Google_Service_Oauth2($client);
             $account = $authorization -> userinfo -> get();
-            var_dump($account); die;
+            
+            $gMail = $account -> email;
+            $gName = $account -> givenName;
+            $gLastName = $account -> familyName;
+            $gId = $account -> id;
+            $gPhoto = $account -> picture;
 
+            $existUser = $conexion -> prepare('SELECT estado FROM usuario WHERE idusuario = ? AND emailusuario = ?');
+            $existUser -> execute(array($gId, $gMail));
+            $existUser = $existUser -> fetch(PDO::FETCH_ASSOC);
+            
+            if ($existUser) 
+            {
+                if ($existUser['estado'] == 1) 
+                {
+                    $_SESSION['idusuario'] = $gId;
+                    $_SESSION['email'] = $gMail;
+                    $_SESSION['nombreusuario'] = $gName;
+                    $_SESSION['apellidousuario'] = $gLastName;
+                }
+                else
+                {
+                    echo 'Usuario Eliminado';
+                }
+            } 
+            else 
+            {
+                $newUser = $conexion -> prepare("INSERT INTO usuario(idusuario, emailusuario, nombreusuario, apellidousuario, photo) VALUES(?, ?, ?, ?, ?)");
+                $newUser = $newUser -> execute(array($gId, $gMail, $gName, $gLastName, $gPhoto));
+                var_dump($account);
+                if($newUser)
+                {
+                    $_SESSION['idusuario'] = $gId;
+                    $_SESSION['email'] = $gMail;
+                    $_SESSION['nombreusuario'] = $gName;
+                    $_SESSION['apellidousuario'] = $gLastName;
+                    header("Location: ../");
+                }
+                else
+                {
+                    echo "Algo ha salido mal en el New User";
+                }
+            }
+
+        }
+        else
+        {
+            echo 'Algo ha salido mal';
         }
 
     } 
@@ -87,7 +146,7 @@
     {
         
         ?>
-            <a href="<?php echo $client -> createAuthUrl() ?>" class="btn btn-primary fw-600 mx-5r w-10r">Google</a>
+            <a href="<?php echo $client -> createAuthUrl() ?>" class="btn shadow btn-red text-white mt-2 fw-600 "><i class="fab fa-google"></i> Inicia sesión con Google</a>
 
         <?php
 
