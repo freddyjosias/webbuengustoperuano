@@ -17,16 +17,20 @@
      }
 
 
-    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-        
-        $resultados = $conexion -> prepare('UPDATE sucursal SET platodestacado3 = ? WHERE idsucursal = ?');
-        $resultados -> execute(array($_POST['nuevotexto'], $_SESSION['sucursal']));
+     if($_SERVER["REQUEST_METHOD"] == "POST"){
 
+        $ruta = 'img/'.$_FILES['nuevaimagen']['name']; 
+        move_uploaded_file($_FILES['nuevaimagen']['tmp_name'], "../../".$ruta);
+
+        $query = $conexion->prepare("UPDATE sucursal SET imgdestacado3 = ? WHERE idsucursal = ?");
+        $resultado = $query->execute(array($ruta, $_SESSION['sucursal'])); 
+        
     }
 
-    $resultadosText = $conexion -> prepare('SELECT platodestacado3 FROM sucursal WHERE idsucursal = ?');
-    $resultadosText -> execute(array($_SESSION['sucursal']));
-    $resultadosText = $resultadosText -> fetch(PDO::FETCH_ASSOC);   
+
+    $resultadosImg = $conexion -> prepare('SELECT imgdestacado3 FROM sucursal WHERE idsucursal = ?');
+    $resultadosImg -> execute(array($_SESSION['sucursal']));
+    $resultadosImg = $resultadosImg -> fetch(PDO::FETCH_ASSOC);  
     
 ?>
 
@@ -65,12 +69,16 @@
 
                         <form action="" class='form-panel' method="post" enctype="multipart/form-data">
 
-                            <p>Texto: </p>
+                            <p class='fw-500'>Imagen: </p>
+                        
+                            <input type="file" name="nuevaimagen" value="<?php $resultadosImg['imgdestacado3'] ?>" required><br><br>
 
-                                <textarea style= "resize: vertical" name="nuevotexto" id="" cols="100" rows="5"><?php echo $resultadosText['platodestacado3'] ?></textarea><br><br>
+                                <div class='text-center mt-5 destacado-panel'>
+                                    <?php echo "<img class='h-25r border border-dark' src='../../". $resultadosImg['imgdestacado3'] ."' >" ?>
+                                </div>
 
-                                <input class="btn btn-secondary bottom" type="submit" value="Actualizar">
-                                <button class="btn btn-secondary bottom volver"><a href="listar.php">Volver</a></button>
+                                <input class="btn btn-secondary bottom mt-5" type="submit" value="Actualizar">
+                                <button class="btn btn-secondary bottom volver mt-5"><a href="listar.php">Volver</a></button>
 
                         </form>
 

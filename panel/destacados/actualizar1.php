@@ -17,17 +17,6 @@
      }
 
 
-     if($_SERVER["REQUEST_METHOD"] == "POST"){
-
-        $ruta = 'img/'.$_FILES['nuevaimagen']['name']; 
-        move_uploaded_file($_FILES['nuevaimagen']['tmp_name'], "../../".$ruta);
-
-        $query = $conexion->prepare("UPDATE sucursal SET imgdestacado1 = ? WHERE idsucursal = ?");
-        $resultado = $query->execute(array($ruta, $_SESSION['sucursal'])); 
-        
-    }
-
-
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         
         $resultados = $conexion -> prepare('UPDATE sucursal SET platodestacado1 = ? WHERE idsucursal = ?');
@@ -39,9 +28,6 @@
     $resultadosText -> execute(array($_SESSION['sucursal']));
     $resultadosText = $resultadosText -> fetch(PDO::FETCH_ASSOC); 
 
-    $resultadosImg = $conexion -> prepare('SELECT imgdestacado1 FROM sucursal WHERE idsucursal = ?');
-    $resultadosImg -> execute(array($_SESSION['sucursal']));
-    $resultadosImg = $resultadosImg -> fetch(PDO::FETCH_ASSOC);  
     
 ?>
 
@@ -79,15 +65,6 @@
                     <div class='formulario-panel'>
 
                         <form action="" class='form-panel' method="post" enctype="multipart/form-data">
-
-                            <p class='fw-500'>Imagen: </p>
-                        
-                            <input type="file" name="nuevaimagen" value="<?php $resultadosImg['imgdestacado1'] ?>" required><br><br>
-
-                                <div class='text-center mt-5 destacado-panel'>
-                                    <?php echo "<img class='h-25r border border-dark' src='../../". $resultadosImg['imgdestacado1'] ."' >" ?>
-                                </div>
-                        
 
                             <p>Texto: </p>
 
