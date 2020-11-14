@@ -15,11 +15,11 @@
 
         if (isset($queryProfile['id_profile'])) 
         {
-            $profile = true;
+            $profileManager = true;
         } 
         else
         {
-            $profile = false;
+            $profileManager = false;
         }
 
     }
@@ -63,6 +63,18 @@
             $consultaFormaPago = 'SELECT descripciontipospedido FROM tipospedido INNER JOIN detalletipospedido ON tipospedido.idtipospedido = detalletipospedido.idtipospedido INNER JOIN sucursal ON sucursal.idsucursal = detalletipospedido.idsucursal WHERE disponibilidadtipospedido = 1 AND sucursal.idsucursal = ' . $_GET['view'];
 
             $consultaTipoPago = 'SELECT descripcionformaspago FROM formaspago INNER JOIN detalleformaspago ON formaspago.idformaspago = detalleformaspago.idformaspago INNER JOIN sucursal ON sucursal.idsucursal = detalleformaspago.idsucursal WHERE disponibilidadformaspago = 1 AND sucursal.idsucursal = ?';
+
+            if($profileManager == true)  {
+                $consultaManager = $conexion -> prepare("SELECT access_id FROM access WHERE state = 1 AND idusuario = ? AND idsucursal = ?");
+                $consultaManager -> execute(array($_SESSION['idusuario'], $_GET['view']));
+                $consultaManager = $consultaManager -> fetch(PDO::FETCH_ASSOC);
+  
+                  if($consultaManager == false){
+  
+                      $profileManager = false;
+                      
+                  }
+              }
 
 ?>
 

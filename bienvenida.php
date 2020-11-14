@@ -16,11 +16,11 @@
 
         if (isset($queryProfile['id_profile'])) 
         {
-            $profile = true;
+            $profileManager = true;
         } 
         else
         {
-            $profile = false;
+            $profileManager = false;
         }
 
     }
@@ -71,6 +71,17 @@
             header('Location: index.php');
         } else {
 
+          if($profileManager == true)  {
+              $consultaManager = $conexion -> prepare("SELECT access_id FROM access WHERE state = 1 AND idusuario = ? AND idsucursal = ?");
+              $consultaManager -> execute(array($_SESSION['idusuario'], $_GET['view']));
+              $consultaManager = $consultaManager -> fetch(PDO::FETCH_ASSOC);
+
+                if($consultaManager == false){
+
+                    $profileManager = false;
+                    
+                }
+            }
 ?>
 
 <!DOCTYPE html>
