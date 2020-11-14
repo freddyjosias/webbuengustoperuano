@@ -5,7 +5,7 @@
             <li><a href="hacerpedido.php?view=<?php echo $idRestaurante ?>" class="op1 h-100">Pedidos</a></li>
             <li><a href="nosotros.php?view=<?php echo $idRestaurante ?>" class="op2 h-100">Nosotros</a></li>
                 <?php if ($profileManager == true) { ?>
-                    <li><a href="panel/restaurante/restaurante.php" class='h-100'>Panel</a></li>
+                    <li><a href="panel/bienvenida/bienvenida.php?view=<?php echo $idRestaurante ?>" class='h-100'>Panel</a></li>
                 <?php } ?> 
             <li>
                 <a href="carrito.php?view=<?php echo $idRestaurante ?>" class='op3 h-100 align-items-center'>
@@ -46,7 +46,7 @@
                     <a class='text-white w-100 py-2 op2' href="nosotros.php?view=<?php echo $idRestaurante ?>" id="">Nosotros</a>
                 </li>
                 <?php if ($profileManager == true) { ?>
-                    <li class='d-flex'><a class='text-white w-100 py-2' href="panel/restaurante/restaurante.php">Panel</a></li>
+                    <li class='d-flex'><a class='text-white w-100 py-2' href="panel/bienvenida/bienvenida.php?view=<?php echo $idRestaurante ?>">Panel</a></li>
                 <?php } ?> 
                 <li class='d-flex'>
                     <a class='text-white w-100 py-2 op3' href="carrito.php?view=<?php echo $idRestaurante ?>" id="" class='h-100 align-items-center'>
