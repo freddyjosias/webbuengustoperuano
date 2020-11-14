@@ -107,9 +107,9 @@
                         </select>
                     </p>
 
-                    <p>Nuevo Producto: <input type="text" name="nuevo_producto" ></p>  
-                    <p>Precio: <input type="number" name="precio" step='0.01'></p>
-                    <p>Stock: <input type="number" name="stock"></p>
+                    <p>Nuevo Producto: <input type="text" name="nuevo_producto" required></p>  
+                    <p>Precio: <input type="number" name="precio" step='0.01' required></p>
+                    <p>Stock: <input type="number" name="stock" required></p>
                     
                     <input class="btn btn-secondary bottom" type="submit" value="Añadir Producto">
 
