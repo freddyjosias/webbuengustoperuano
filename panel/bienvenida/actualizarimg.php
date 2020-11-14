@@ -3,19 +3,46 @@
      header('Cache-Control: no cache');
      session_cache_limiter('private_no_expire');
      session_start();
- 
-     if (!isset($_SESSION['sucursal'])) {
-         header('Location: ../../index.php');
-     }
- 
-     if (isset($_SESSION['idusuario'])) {
-         if ($_SESSION['profile'] != 2) {
-             header('Location: ../../index.php');
-         }
-     } else {
-         header('Location: ../../index.php');
-     }
 
+     if (!isset($_SESSION['idusuario'])) 
+     {
+         header('Location: ../../index.php');
+     }
+     else 
+     {
+         $queryProfile = $conexion -> prepare("SELECT id_profile FROM detail_usuario_profile WHERE state = 1 AND idusuario = ? AND id_profile = 2");
+         $queryProfile -> execute(array($_SESSION['idusuario']));
+         $queryProfile = $queryProfile -> fetch(PDO::FETCH_ASSOC);
+ 
+         if (isset($queryProfile['id_profile'])) 
+         {
+             $profileManager = true;
+         } 
+         else
+         {
+             $profileManager = false;
+         }
+ 
+     }
+     
+     if (!isset($_GET['view'])) {
+         header('Location: ../../index.php');
+     } else {
+        $consultaVerificarRestaurante = 'SELECT * FROM sucursal WHERE estado = 1';
+
+        $idRestaurante;
+
+        $resultados = $conexion -> prepare($consultaVerificarRestaurante);
+        $resultados -> execute();
+        $resultados = $resultados -> fetchAll(PDO::FETCH_ASSOC);
+
+        foreach($resultados as $row) {
+            if ($row['idsucursal'] ==  $_GET['view']) {
+                $idRestaurante = $row['idsucursal'];
+            break;
+        }
+    }
+     
 
      if($_SERVER["REQUEST_METHOD"] == "POST"){
 
@@ -23,13 +50,25 @@
         move_uploaded_file($_FILES['nuevaimagen']['tmp_name'], "../../".$ruta);
 
         $query = $conexion->prepare("UPDATE sucursal SET imgbienvenida = ? WHERE idsucursal = ?");
-        $resultado = $query->execute(array($ruta, $_SESSION['sucursal'])); 
+        $resultado = $query->execute(array($ruta, $_GET['view'])); 
         
     }
 
     $resultadosImg = $conexion -> prepare('SELECT imgbienvenida FROM sucursal WHERE idsucursal = ?');
-    $resultadosImg -> execute(array($_SESSION['sucursal']));
+    $resultadosImg -> execute(array($_GET['view']));
     $resultadosImg = $resultadosImg -> fetch(PDO::FETCH_ASSOC);  
+
+    if($profileManager == true)  {
+        $consultaManager = $conexion -> prepare("SELECT access_id FROM access WHERE state = 1 AND idusuario = ? AND idsucursal = ?");
+        $consultaManager -> execute(array($_SESSION['idusuario'], $_GET['view']));
+        $consultaManager = $consultaManager -> fetch(PDO::FETCH_ASSOC);
+
+          if($consultaManager == false){
+
+              $profileManager = false;
+              
+          }
+      }
  
     
 ?>
@@ -79,7 +118,7 @@
                                 </div>
                             
                             <input class="btn btn-secondary bottom mt-4" type="submit" value="Actualizar">
-                            <button class="btn btn-secondary bottom volver mt-4"><a href="bienvenida.php">Volver</a></button>
+                            <button class="btn btn-secondary bottom volver mt-4"><a href="bienvenida.php?view=<?php echo $idRestaurante ?>">Volver</a></button>
 
                         </form>
                     </div>
@@ -94,3 +133,8 @@
 
 </body>
 </html>
+<?php
+
+    }
+
+?>

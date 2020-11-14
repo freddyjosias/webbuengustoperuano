@@ -5,22 +5,49 @@
     session_cache_limiter('private_no_expire');
     session_start();
 
-    if (!isset($_SESSION['sucursal'])) {
+    if (!isset($_SESSION['idusuario'])) 
+    {
         header('Location: ../../index.php');
     }
+    else 
+    {
+        $queryProfile = $conexion -> prepare("SELECT id_profile FROM detail_usuario_profile WHERE state = 1 AND idusuario = ? AND id_profile = 2");
+        $queryProfile -> execute(array($_SESSION['idusuario']));
+        $queryProfile = $queryProfile -> fetch(PDO::FETCH_ASSOC);
 
-    if (isset($_SESSION['idusuario'])) {
-        if ($_SESSION['profile'] != 2) {
-            header('Location: ../../index.php');
+        if (isset($queryProfile['id_profile'])) 
+        {
+            $profileManager = true;
+        } 
+        else
+        {
+            $profileManager = false;
         }
-    } else {
-        header('Location: ../../index.php');
+
     }
+    
+    if (!isset($_GET['view'])) {
+        header('Location: ../../index.php');
+    } else {
+       $consultaVerificarRestaurante = 'SELECT * FROM sucursal WHERE estado = 1';
+
+       $idRestaurante;
+
+       $resultados = $conexion -> prepare($consultaVerificarRestaurante);
+       $resultados -> execute();
+       $resultados = $resultados -> fetchAll(PDO::FETCH_ASSOC);
+
+       foreach($resultados as $row) {
+           if ($row['idsucursal'] ==  $_GET['view']) {
+               $idRestaurante = $row['idsucursal'];
+           break;
+       }
+   }
 
     if (isset($_GET['editarnombre'])){
         if($_SERVER['REQUEST_METHOD'] == 'POST'){
             $resultados = $conexion -> prepare('UPDATE sucursal SET nomsucursal = ? WHERE idsucursal = ?');
-            $resultados -> execute(array($_POST['res-actualizada'],$_SESSION['sucursal']));
+            $resultados -> execute(array($_POST['res-actualizada'],$_GET['view']));
 
             if($resultado){
                header('Location: restaurante.php'); 
@@ -31,7 +58,7 @@
     if (isset($_GET['editartelefono'])){
         if($_SERVER['REQUEST_METHOD'] == 'POST'){
             $resultados = $conexion -> prepare('UPDATE sucursal SET telefono = ? WHERE idsucursal = ?');
-            $resultados -> execute(array($_POST['tele-actualizada'],$_SESSION['sucursal']));
+            $resultados -> execute(array($_POST['tele-actualizada'],$_GET['view']));
 
             if($resultado){
                header('Location: restaurante.php'); 
@@ -42,7 +69,7 @@
     if (isset($_GET['editarcorreo'])){
         if($_SERVER['REQUEST_METHOD'] == 'POST'){
             $resultados = $conexion -> prepare('UPDATE sucursal SET correosucursal = ? WHERE idsucursal = ?');
-            $resultados -> execute(array($_POST['email-actualizada'],$_SESSION['sucursal']));
+            $resultados -> execute(array($_POST['email-actualizada'],$_GET['view']));
 
             if($resultado){
                header('Location: restaurante.php'); 
@@ -53,7 +80,7 @@
     if (isset($_GET['editardirec'])){
         if($_SERVER['REQUEST_METHOD'] == 'POST'){
             $resultados = $conexion -> prepare('UPDATE sucursal SET direcsucursal = ? WHERE idsucursal = ?');
-            $resultados -> execute(array($_POST['dire-actualizada'],$_SESSION['sucursal']));
+            $resultados -> execute(array($_POST['dire-actualizada'],$_GET['view']));
 
             if($resultado){
                header('Location: restaurante.php'); 
@@ -64,7 +91,7 @@
     if (isset($_GET['editarhorainicio'])){
         if($_SERVER['REQUEST_METHOD'] == 'POST'){
             $resultados = $conexion -> prepare('UPDATE sucursal SET horaatencioninicio = ? WHERE idsucursal = ?');
-            $resultados -> execute(array($_POST['horai-actualizada'],$_SESSION['sucursal']));
+            $resultados -> execute(array($_POST['horai-actualizada'],$_GET['view']));
 
             if($resultado){
                header('Location: restaurante.php'); 
@@ -75,7 +102,7 @@
     if (isset($_GET['editarhorafin'])){
         if($_SERVER['REQUEST_METHOD'] == 'POST'){
             $resultados = $conexion -> prepare('UPDATE sucursal SET horaatencioncierre = ? WHERE idsucursal = ?');
-            $resultados -> execute(array($_POST['horac-actualizada'],$_SESSION['sucursal']));
+            $resultados -> execute(array($_POST['horac-actualizada'],$_GET['view']));
 
             if($resultado){
                header('Location: restaurante.php'); 
@@ -87,17 +114,17 @@
         if($_SERVER['REQUEST_METHOD'] == 'POST'){
             if (isset($_POST['delivery'])) {
                 $tipo1 = $conexion -> prepare('UPDATE detalletipospedido SET disponibilidadtipospedido = ? WHERE idtipospedido = 1 AND idsucursal = ?');
-                $tipo1 -> execute(array($_POST['delivery'],$_SESSION['sucursal']));
+                $tipo1 -> execute(array($_POST['delivery'],$_GET['view']));
             }
     
             if (isset($_POST['recojo'])) {
                 $tipo2 = $conexion -> prepare('UPDATE detalletipospedido SET disponibilidadtipospedido = ? WHERE idtipospedido = 2 AND idsucursal = ?');
-                $tipo2 -> execute(array($_POST['recojo'],$_SESSION['sucursal']));
+                $tipo2 -> execute(array($_POST['recojo'],$_GET['view']));
             }
     
             if (isset($_POST['reserva'])) {
                 $tipo3 = $conexion -> prepare('UPDATE detalletipospedido SET disponibilidadtipospedido = ? WHERE idtipospedido = 3 AND idsucursal = ?');
-                $tipo3 -> execute(array($_POST['reserva'],$_SESSION['sucursal']));
+                $tipo3 -> execute(array($_POST['reserva'],$_GET['view']));
             }
 
             if($tipo1 || $tipo2 || $tipo3){
@@ -110,17 +137,17 @@
         if($_SERVER['REQUEST_METHOD'] == 'POST'){
             if (isset($_POST['forma1'])) {
                 $formapago1 = $conexion -> prepare('UPDATE detalleformaspago SET disponibilidadformaspago = ? WHERE idformaspago = 1 AND idsucursal = ?');
-                $formapago1 -> execute(array($_POST['forma1'], $_SESSION['sucursal']));
+                $formapago1 -> execute(array($_POST['forma1'], $_GET['view']));
             }
     
             if (isset($_POST['forma2'])) {
                 $formapago2 = $conexion -> prepare('UPDATE detalleformaspago SET disponibilidadformaspago = ? WHERE idformaspago = 2 AND idsucursal = ?');
-                $formapago2 -> execute(array($_POST['forma2'], $_SESSION['sucursal']));
+                $formapago2 -> execute(array($_POST['forma2'], $_GET['view']));
             }
     
             if (isset($_POST['forma3'])) {
                 $formapago3 = $conexion -> prepare('UPDATE detalleformaspago SET disponibilidadformaspago = ? WHERE idformaspago = 3 AND idsucursal = ?');
-                $formapago3 -> execute(array($_POST['forma3'], $_SESSION['sucursal']));
+                $formapago3 -> execute(array($_POST['forma3'], $_GET['view']));
             }
 
             if($formapago1 || $formapago2 || $formapago3){
@@ -130,26 +157,38 @@
     }
 
     $consulta = $conexion -> prepare('SELECT * FROM sucursal WHERE idsucursal = ?');
-    $consulta -> execute(array($_SESSION['sucursal']));
+    $consulta -> execute(array($_GET['view']));
     $consulta = $consulta -> fetch(PDO::FETCH_ASSOC);
 
     $resultados1 = $conexion -> prepare('SELECT disponibilidadtipospedido FROM detalletipospedido WHERE idtipospedido = 1 AND idsucursal = ?');
-    $resultados1 -> execute(array($_SESSION['sucursal']));
+    $resultados1 -> execute(array($_GET['view']));
 
     $resultados2 = $conexion -> prepare('SELECT disponibilidadtipospedido FROM detalletipospedido WHERE idtipospedido = 2 AND idsucursal = ?');
-    $resultados2 -> execute(array($_SESSION['sucursal']));
+    $resultados2 -> execute(array($_GET['view']));
 
     $resultados3 = $conexion -> prepare('SELECT disponibilidadtipospedido FROM detalletipospedido WHERE idtipospedido = 3 AND idsucursal = ?');
-    $resultados3 -> execute(array($_SESSION['sucursal']));
+    $resultados3 -> execute(array($_GET['view']));
 
     $resultado1 = $conexion -> prepare('SELECT disponibilidadformaspago FROM detalleformaspago WHERE idformaspago = 1 AND idsucursal = ?');
-    $resultado1 -> execute(array($_SESSION['sucursal']));
+    $resultado1 -> execute(array($_GET['view']));
 
     $resultado2 = $conexion -> prepare('SELECT disponibilidadformaspago FROM detalleformaspago WHERE idformaspago = 2 AND idsucursal = ?');
-    $resultado2 -> execute(array($_SESSION['sucursal']));
+    $resultado2 -> execute(array($_GET['view']));
 
     $resultado3 = $conexion -> prepare('SELECT disponibilidadformaspago FROM detalleformaspago WHERE idformaspago = 3 AND idsucursal = ?');
-    $resultado3 -> execute(array($_SESSION['sucursal']));
+    $resultado3 -> execute(array($_GET['view']));
+
+    if($profileManager == true)  {
+        $consultaManager = $conexion -> prepare("SELECT access_id FROM access WHERE state = 1 AND idusuario = ? AND idsucursal = ?");
+        $consultaManager -> execute(array($_SESSION['idusuario'], $_GET['view']));
+        $consultaManager = $consultaManager -> fetch(PDO::FETCH_ASSOC);
+
+          if($consultaManager == false){
+
+              $profileManager = false;
+              
+        }
+    }
 
 ?>
 
@@ -194,7 +233,7 @@
                                 <input type="submit" value="Editar" class="btn btn-primary">
                                 <a href="restaurante.php" class="btn btn-danger">Cancelar</a>
                             <?php } else { ?>
-                                <a href="restaurante.php?editarnombre=<?php echo $_SESSION['sucursal']; ?>"><i class="far fa-edit"></i></a>
+                                <a href="restaurante.php?editarnombre=<?php echo $_GET['view']; ?>"><i class="far fa-edit"></i></a>
                             <?php } ?>
                         </div>
                     </div>
@@ -212,7 +251,7 @@
                                 <input type="submit" value="Editar" class="btn btn-primary">
                                 <a href="restaurante.php" class="btn btn-danger">Cancelar</a>
                             <?php } else { ?>
-                                <a href="restaurante.php?editartelefono=<?php echo $_SESSION['sucursal']; ?>"><i class="far fa-edit"></i></a>
+                                <a href="restaurante.php?editartelefono=<?php echo $_GET['view']; ?>"><i class="far fa-edit"></i></a>
                             <?php } ?>
                         </div>
                     </div>
@@ -230,7 +269,7 @@
                                 <input type="submit" value="Editar" class="btn btn-primary">
                                 <a href="restaurante.php" class="btn btn-danger">Cancelar</a>
                             <?php } else { ?>
-                                <a href="restaurante.php?editarcorreo=<?php echo $_SESSION['sucursal']; ?>"><i class="far fa-edit"></i></a>
+                                <a href="restaurante.php?editarcorreo=<?php echo $_GET['view']; ?>"><i class="far fa-edit"></i></a>
                             <?php } ?>
                         </div>
                     </div>
@@ -248,7 +287,7 @@
                                 <input type="submit" value="Editar" class="btn btn-primary">
                                 <a href="restaurante.php" class="btn btn-danger">Cancelar</a>
                             <?php } else { ?>
-                                <a href="restaurante.php?editardirec=<?php echo $_SESSION['sucursal']; ?>"><i class="far fa-edit"></i></a>
+                                <a href="restaurante.php?editardirec=<?php echo $_GET['view']; ?>"><i class="far fa-edit"></i></a>
                             <?php } ?>
                         </div>
                     </div>
@@ -266,7 +305,7 @@
                                 <input type="submit" value="Editar" class="btn btn-primary">
                                 <a href="restaurante.php" class="btn btn-danger">Cancelar</a>
                             <?php } else { ?>
-                                <a href="restaurante.php?editarhorainicio=<?php echo $_SESSION['sucursal']; ?>"><i class="far fa-edit"></i></a>
+                                <a href="restaurante.php?editarhorainicio=<?php echo $_GET['view']; ?>"><i class="far fa-edit"></i></a>
                             <?php } ?>
                         </div>
                     </div>
@@ -284,7 +323,7 @@
                                 <input type="submit" value="Editar" class="btn btn-primary">
                                 <a href="restaurante.php" class="btn btn-danger">Cancelar</a>
                             <?php } else { ?>
-                                <a href="restaurante.php?editarhoracierre=<?php echo $_SESSION['sucursal']; ?>"><i class="far fa-edit"></i></a>
+                                <a href="restaurante.php?editarhoracierre=<?php echo $_GET['view']; ?>"><i class="far fa-edit"></i></a>
                             <?php } ?>
                         </div>
                     </div>
@@ -340,7 +379,7 @@
                                 <input type="submit" value="Editar" class="btn btn-primary">
                                 <a href="restaurante.php" class="btn btn-danger">Cancelar</a>
                             <?php } else { ?>
-                                <a href="restaurante.php?editartipoenvio=<?php echo $_SESSION['sucursal']; ?>"><i class="far fa-edit"></i></a>
+                                <a href="restaurante.php?editartipoenvio=<?php echo $_GET['view']; ?>"><i class="far fa-edit"></i></a>
                             <?php } ?>
                         </div>
                     </div>
@@ -396,7 +435,7 @@
                                 <input type="submit" value="Editar" class="btn btn-primary">
                                 <a href="restaurante.php" class="btn btn-danger">Cancelar</a>
                             <?php } else { ?>
-                                <a href="restaurante.php?editarformapago=<?php echo $_SESSION['sucursal']; ?>"><i class="far fa-edit"></i></a>
+                                <a href="restaurante.php?editarformapago=<?php echo $_GET['view']; ?>"><i class="far fa-edit"></i></a>
                             <?php } ?>
                         </div>
                     </div>
@@ -409,3 +448,8 @@
 
 </body>
 </html>
+<?php
+
+    }
+
+?>

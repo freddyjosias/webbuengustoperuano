@@ -26,7 +26,21 @@
      
      if (!isset($_GET['view'])) {
          header('Location: ../../index.php');
-     }
+     } else {
+        $consultaVerificarRestaurante = 'SELECT * FROM sucursal WHERE estado = 1';
+
+        $idRestaurante;
+
+        $resultados = $conexion -> prepare($consultaVerificarRestaurante);
+        $resultados -> execute();
+        $resultados = $resultados -> fetchAll(PDO::FETCH_ASSOC);
+
+        foreach($resultados as $row) {
+            if ($row['idsucursal'] ==  $_GET['view']) {
+                $idRestaurante = $row['idsucursal'];
+            break;
+        }
+    }
      
      if($_SERVER["REQUEST_METHOD"] == "POST"){
 
@@ -129,7 +143,7 @@
                                                 <?php echo "<img class='h-25r border border-dark' src='../../". $resultadosImg['imgbienvenida'] ."' >" ?>
                                             </div>
                                         </td>
-                                        <td class='text-center'><a href="actualizarimg.php"><i class="far fa-edit"></i></a></td>
+                                        <td class='text-center'><a href="actualizarimg.php?view=<?php echo $idRestaurante ?>"><i class="far fa-edit"></i></a></td>
                                     </tr>
                                 </tbody>
 
@@ -142,7 +156,7 @@
                                 <tbody>
                                     <tr>
                                         <td><?php echo $resultadosText['textobienvenida'] ?></td>
-                                        <td class='text-center'><a href="actualizartexto.php"><i class="far fa-edit"></i></a></td>
+                                        <td class='text-center'><a href="actualizartexto.php?view=<?php echo $idRestaurante ?>"><i class="far fa-edit"></i></a></td>
                                     </tr>
                                 </tbody>
 
@@ -160,7 +174,7 @@
                                                 <?php echo "<img class='h-24r border border-dark' src='../../". $resultadosBanner['banner'] ."' >" ?>
                                             </div>
                                         </td>
-                                        <td class='text-center'><a href="actualizarbanner.php"><i class="far fa-edit"></i></a></td>
+                                        <td class='text-center'><a href="actualizarbanner.php?view=<?php echo $idRestaurante ?>"><i class="far fa-edit"></i></a></td>
                                     </tr>
                                 </tbody>
                                 <thead class='thead-light'>
@@ -228,3 +242,8 @@
 
 </body>
 </html>
+<?php
+
+    }
+
+?>
