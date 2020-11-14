@@ -5,20 +5,48 @@
      session_cache_limiter('private_no_expire');
      session_start();
     
-    if (!isset($_SESSION['sucursal'])) {
-        header('Location: index.php');
+     if (!isset($_SESSION['idusuario'])) 
+     {
+         header('Location: ../../index.php');
+     }
+     else 
+     {
+         $queryProfile = $conexion -> prepare("SELECT id_profile FROM detail_usuario_profile WHERE state = 1 AND idusuario = ? AND id_profile = 2");
+         $queryProfile -> execute(array($_SESSION['idusuario']));
+         $queryProfile = $queryProfile -> fetch(PDO::FETCH_ASSOC);
+ 
+         if (isset($queryProfile['id_profile'])) 
+         {
+             $profileManager = true;
+         } 
+         else
+         {
+             $profileManager = false;
+         }
+ 
+     }
+     
+     if (!isset($_GET['view'])) {
+         header('Location: ../../index.php');
+     } else {
+        $consultaVerificarRestaurante = 'SELECT * FROM sucursal WHERE estado = 1';
+ 
+        $idRestaurante;
+ 
+        $resultados = $conexion -> prepare($consultaVerificarRestaurante);
+        $resultados -> execute();
+        $resultados = $resultados -> fetchAll(PDO::FETCH_ASSOC);
+ 
+        foreach($resultados as $row) {
+            if ($row['idsucursal'] ==  $_GET['view']) {
+                $idRestaurante = $row['idsucursal'];
+            break;
+        }
     }
 
-    if (isset($_SESSION['idusuario'])) {
-        if ($_SESSION['profile'] != 2) {
-            header('Location: index.php');
-        }
-    } else {
-        header('Location: index.php');
-    }
-    
+
     $consultaCategorias = $conexion -> prepare('SELECT idcategoriaproducto, idsucursal, descripcioncategoriaproducto FROM categoriaproductos WHERE idsucursal = ?');
-    $consultaCategorias -> execute(array($_SESSION['sucursal']));
+    $consultaCategorias -> execute(array($_GET['view']));
     $consultaCategorias = $consultaCategorias -> fetchAll(PDO::FETCH_ASSOC);
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -27,9 +55,20 @@
         $agregarproducto -> execute(array($_POST['categoria'], $_POST['nuevo_producto'], floatval($_POST['precio']), $_POST['stock']));
 
         if ($agregarproducto) {
-            header('Location: listar.php');
+            header("Location: listar.php?view=".$_GET['view']);
         }
 
+    }
+    if($profileManager == true)  {
+        $consultaManager = $conexion -> prepare("SELECT access_id FROM access WHERE state = 1 AND idusuario = ? AND idsucursal = ?");
+        $consultaManager -> execute(array($_SESSION['idusuario'], $_GET['view']));
+        $consultaManager = $consultaManager -> fetch(PDO::FETCH_ASSOC);
+
+          if($consultaManager == false){
+
+              $profileManager = false;
+              
+        }
     }
 
 
@@ -83,3 +122,8 @@
 
 </body>
 </html>
+<?php
+
+    }
+
+?>

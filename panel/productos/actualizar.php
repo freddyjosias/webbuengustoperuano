@@ -5,20 +5,47 @@
     session_cache_limiter('private_no_expire');
     session_start();
 
-    if (!isset($_SESSION['sucursal'])) {
+    if (!isset($_SESSION['idusuario'])) 
+    {
         header('Location: ../../index.php');
     }
+    else 
+    {
+        $queryProfile = $conexion -> prepare("SELECT id_profile FROM detail_usuario_profile WHERE state = 1 AND idusuario = ? AND id_profile = 2");
+        $queryProfile -> execute(array($_SESSION['idusuario']));
+        $queryProfile = $queryProfile -> fetch(PDO::FETCH_ASSOC);
 
-    if (isset($_SESSION['idusuario'])) {
-        if ($_SESSION['profile'] != 2) {
-            header('Location: ../../index.php');
+        if (isset($queryProfile['id_profile'])) 
+        {
+            $profileManager = true;
+        } 
+        else
+        {
+            $profileManager = false;
         }
-    } else {
-        header('Location: ../../index.php');
+
     }
+    
+    if (!isset($_GET['view'])) {
+        header('Location: ../../index.php');
+    } else {
+       $consultaVerificarRestaurante = 'SELECT * FROM sucursal WHERE estado = 1';
+
+       $idRestaurante;
+
+       $resultados = $conexion -> prepare($consultaVerificarRestaurante);
+       $resultados -> execute();
+       $resultados = $resultados -> fetchAll(PDO::FETCH_ASSOC);
+
+       foreach($resultados as $row) {
+           if ($row['idsucursal'] ==  $_GET['view']) {
+               $idRestaurante = $row['idsucursal'];
+           break;
+       }
+   }
 
     $consultaCategorias = $conexion -> prepare('SELECT idcategoriaproducto, idsucursal, descripcioncategoriaproducto FROM categoriaproductos WHERE idsucursal = ?');
-    $consultaCategorias -> execute(array($_SESSION['sucursal']));
+    $consultaCategorias -> execute(array($_GET['view']));
     $consultaCategorias = $consultaCategorias -> fetchAll(PDO::FETCH_ASSOC);
     
 
@@ -40,10 +67,23 @@
         $resultados -> execute(array($_POST['nuevonombre'],$_POST['nuevoprecio'],$_POST['nuevostock'], $_GET['id']));
 
         if ($resultados) {
-            header('Location: listar.php');
+            header("Location: listar.php?view=".$_GET['view']);
         }
 
     }
+
+    if($profileManager == true)  {
+        $consultaManager = $conexion -> prepare("SELECT access_id FROM access WHERE state = 1 AND idusuario = ? AND idsucursal = ?");
+        $consultaManager -> execute(array($_SESSION['idusuario'], $_GET['view']));
+        $consultaManager = $consultaManager -> fetch(PDO::FETCH_ASSOC);
+
+          if($consultaManager == false){
+
+              $profileManager = false;
+              
+        }
+    }
+
 ?>
 
 
@@ -90,13 +130,13 @@
                 <?php }  ?>                     
                 <?php if(isset($_GET['categoria']) && isset($_GET['id'])) { ?>         
                     <form action="" class='form-panel' method = "post">
-                        <p>Nuevo nombre: <input type="text" name="nuevonombre"></p>  
+                        <p>Nuevo nombre: <input value="<?php echo $consultaProductoA['nomproducto'] ?>" type="text" name="nuevonombre" required></p>  
                         
                         <p>Precio: <?php echo $consultaProductoA['precio'] ?></p>
-                        <p>Nuevo precio: <input type="number" name="nuevoprecio" step='0.01'></p>
+                        <p>Nuevo precio: <input value="<?php echo $consultaProductoA['precio'] ?>" type="number" name="nuevoprecio" step='0.01' required></p>
 
                         <p>Stock: <?php echo $consultaProductoA['stock'] ?></p>
-                        <p>Nuevo Stock: <input type="number" name="nuevostock"></p>
+                        <p>Nuevo Stock: <input value="<?php echo $consultaProductoA['stock'] ?>" type="number" name="nuevostock" required></p>
                         
                         <input class="btn btn-secondary bottom" type="submit" value="Actualizar Producto">
                     </form>
@@ -110,3 +150,8 @@
     <script src="../js/script.js"></script>
 </body>
 </html>
+<?php
+
+    }
+
+?>

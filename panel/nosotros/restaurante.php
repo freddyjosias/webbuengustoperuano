@@ -49,8 +49,8 @@
             $resultados = $conexion -> prepare('UPDATE sucursal SET nomsucursal = ? WHERE idsucursal = ?');
             $resultados -> execute(array($_POST['res-actualizada'],$_GET['view']));
 
-            if($resultado){
-               header('Location: restaurante.php'); 
+            if($resultados){
+               header("Location: restaurante.php?view=".$_GET['view']); 
             }
         }
     }
@@ -60,8 +60,8 @@
             $resultados = $conexion -> prepare('UPDATE sucursal SET telefono = ? WHERE idsucursal = ?');
             $resultados -> execute(array($_POST['tele-actualizada'],$_GET['view']));
 
-            if($resultado){
-               header('Location: restaurante.php'); 
+            if($resultados){
+                header("Location: restaurante.php?view=".$_GET['view']);  
             }
         }
     }
@@ -71,8 +71,8 @@
             $resultados = $conexion -> prepare('UPDATE sucursal SET correosucursal = ? WHERE idsucursal = ?');
             $resultados -> execute(array($_POST['email-actualizada'],$_GET['view']));
 
-            if($resultado){
-               header('Location: restaurante.php'); 
+            if($resultados){
+                header("Location: restaurante.php?view=".$_GET['view']);  
             }
         }
     }
@@ -82,8 +82,8 @@
             $resultados = $conexion -> prepare('UPDATE sucursal SET direcsucursal = ? WHERE idsucursal = ?');
             $resultados -> execute(array($_POST['dire-actualizada'],$_GET['view']));
 
-            if($resultado){
-               header('Location: restaurante.php'); 
+            if($resultados){
+                header("Location: restaurante.php?view=".$_GET['view']);  
             }
         }
     }
@@ -93,8 +93,8 @@
             $resultados = $conexion -> prepare('UPDATE sucursal SET horaatencioninicio = ? WHERE idsucursal = ?');
             $resultados -> execute(array($_POST['horai-actualizada'],$_GET['view']));
 
-            if($resultado){
-               header('Location: restaurante.php'); 
+            if($resultados){
+                header("Location: restaurante.php?view=".$_GET['view']);  
             }
         }
     }
@@ -104,8 +104,8 @@
             $resultados = $conexion -> prepare('UPDATE sucursal SET horaatencioncierre = ? WHERE idsucursal = ?');
             $resultados -> execute(array($_POST['horac-actualizada'],$_GET['view']));
 
-            if($resultado){
-               header('Location: restaurante.php'); 
+            if($resultados){
+                header("Location: restaurante.php?view=".$_GET['view']);  
             }
         }
     }
@@ -128,7 +128,7 @@
             }
 
             if($tipo1 || $tipo2 || $tipo3){
-               header('Location: restaurante.php'); 
+                header("Location: restaurante.php?view=".$_GET['view']);  
             }
         }
     }
@@ -151,7 +151,7 @@
             }
 
             if($formapago1 || $formapago2 || $formapago3){
-               header('Location: restaurante.php'); 
+                header("Location: restaurante.php?view=".$_GET['view']);  
             }
         }
     }
@@ -231,9 +231,9 @@
                         <div>
                             <?php if (isset($_GET['editarnombre'])) { ?>
                                 <input type="submit" value="Editar" class="btn btn-primary">
-                                <a href="restaurante.php" class="btn btn-danger">Cancelar</a>
+                                <a href="restaurante.php?view=<?php echo $idRestaurante ?>" class="btn btn-danger">Cancelar</a>
                             <?php } else { ?>
-                                <a href="restaurante.php?editarnombre=<?php echo $_GET['view']; ?>"><i class="far fa-edit"></i></a>
+                                <a href="restaurante.php?view=<?php echo $idRestaurante ?>&editarnombre=<?php echo $_GET['view']; ?>"><i class="far fa-edit"></i></a>
                             <?php } ?>
                         </div>
                     </div>
@@ -249,9 +249,9 @@
                         <div>
                             <?php if (isset($_GET['editartelefono'])) { ?>
                                 <input type="submit" value="Editar" class="btn btn-primary">
-                                <a href="restaurante.php" class="btn btn-danger">Cancelar</a>
+                                <a href="restaurante.php?view=<?php echo $idRestaurante ?>" class="btn btn-danger">Cancelar</a>
                             <?php } else { ?>
-                                <a href="restaurante.php?editartelefono=<?php echo $_GET['view']; ?>"><i class="far fa-edit"></i></a>
+                                <a href="restaurante.php?view=<?php echo $idRestaurante ?>&editartelefono=<?php echo $_GET['view']; ?>"><i class="far fa-edit"></i></a>
                             <?php } ?>
                         </div>
                     </div>
@@ -267,9 +267,9 @@
                         <div>
                             <?php if (isset($_GET['editarcorreo'])) { ?>
                                 <input type="submit" value="Editar" class="btn btn-primary">
-                                <a href="restaurante.php" class="btn btn-danger">Cancelar</a>
+                                <a href="restaurante.php?view=<?php echo $idRestaurante ?>" class="btn btn-danger">Cancelar</a>
                             <?php } else { ?>
-                                <a href="restaurante.php?editarcorreo=<?php echo $_GET['view']; ?>"><i class="far fa-edit"></i></a>
+                                <a href="restaurante.php?view=<?php echo $idRestaurante ?>&editarcorreo=<?php echo $_GET['view']; ?>"><i class="far fa-edit"></i></a>
                             <?php } ?>
                         </div>
                     </div>
@@ -285,9 +285,9 @@
                         <div>
                             <?php if (isset($_GET['editardirec'])) { ?>
                                 <input type="submit" value="Editar" class="btn btn-primary">
-                                <a href="restaurante.php" class="btn btn-danger">Cancelar</a>
+                                <a href="restaurante.php?view=<?php echo $idRestaurante ?>" class="btn btn-danger">Cancelar</a>
                             <?php } else { ?>
-                                <a href="restaurante.php?editardirec=<?php echo $_GET['view']; ?>"><i class="far fa-edit"></i></a>
+                                <a href="restaurante.php?view=<?php echo $idRestaurante ?>&editardirec=<?php echo $_GET['view']; ?>"><i class="far fa-edit"></i></a>
                             <?php } ?>
                         </div>
                     </div>
@@ -303,9 +303,9 @@
                         <div>
                             <?php if (isset($_GET['editarhorainicio'])) { ?>
                                 <input type="submit" value="Editar" class="btn btn-primary">
-                                <a href="restaurante.php" class="btn btn-danger">Cancelar</a>
+                                <a href="restaurante.php?view=<?php echo $idRestaurante ?>" class="btn btn-danger">Cancelar</a>
                             <?php } else { ?>
-                                <a href="restaurante.php?editarhorainicio=<?php echo $_GET['view']; ?>"><i class="far fa-edit"></i></a>
+                                <a href="restaurante.php?view=<?php echo $idRestaurante ?>&editarhorainicio=<?php echo $_GET['view']; ?>"><i class="far fa-edit"></i></a>
                             <?php } ?>
                         </div>
                     </div>
@@ -321,9 +321,9 @@
                         <div>
                             <?php if (isset($_GET['editarhoracierre'])) { ?>
                                 <input type="submit" value="Editar" class="btn btn-primary">
-                                <a href="restaurante.php" class="btn btn-danger">Cancelar</a>
+                                <a href="restaurante.php?view=<?php echo $idRestaurante ?>" class="btn btn-danger">Cancelar</a>
                             <?php } else { ?>
-                                <a href="restaurante.php?editarhoracierre=<?php echo $_GET['view']; ?>"><i class="far fa-edit"></i></a>
+                                <a href="restaurante.php?view=<?php echo $idRestaurante ?>&editarhoracierre=<?php echo $_GET['view']; ?>"><i class="far fa-edit"></i></a>
                             <?php } ?>
                         </div>
                     </div>
@@ -377,9 +377,9 @@
                         <div class="formulario-editar">
                             <?php if (isset($_GET['editartipoenvio'])) { ?>
                                 <input type="submit" value="Editar" class="btn btn-primary">
-                                <a href="restaurante.php" class="btn btn-danger">Cancelar</a>
+                                <a href="restaurante.php?view=<?php echo $idRestaurante ?>" class="btn btn-danger">Cancelar</a>
                             <?php } else { ?>
-                                <a href="restaurante.php?editartipoenvio=<?php echo $_GET['view']; ?>"><i class="far fa-edit"></i></a>
+                                <a href="restaurante.php?view=<?php echo $idRestaurante ?>&editartipoenvio=<?php echo $_GET['view']; ?>"><i class="far fa-edit"></i></a>
                             <?php } ?>
                         </div>
                     </div>
@@ -431,11 +431,11 @@
                             <?php } ?> 
                         </div>
                         <div class="formulario-editar">
-                            <?php if (isset($_GET['editartipoenvio'])) { ?>
+                            <?php if (isset($_GET['editarformapago'])) { ?>
                                 <input type="submit" value="Editar" class="btn btn-primary">
-                                <a href="restaurante.php" class="btn btn-danger">Cancelar</a>
+                                <a href="restaurante.php?view=<?php echo $idRestaurante ?>" class="btn btn-danger">Cancelar</a>
                             <?php } else { ?>
-                                <a href="restaurante.php?editarformapago=<?php echo $_GET['view']; ?>"><i class="far fa-edit"></i></a>
+                                <a href="restaurante.php?view=<?php echo $idRestaurante ?>&editarformapago=<?php echo $_GET['view']; ?>"><i class="far fa-edit"></i></a>
                             <?php } ?>
                         </div>
                     </div>
