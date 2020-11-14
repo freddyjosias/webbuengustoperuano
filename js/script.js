@@ -194,8 +194,6 @@ $(function() {
 
     // ADD MANAGER
 
-    $('.form-add-manager').hide();
-
     $('.buttom-add-manager').click(function () {
         $('.form-add-manager').slideDown();
         $(this).hide();
@@ -208,5 +206,6 @@ $(function() {
         }, 200);
     })
 
-
 });
+
+$('.form-add-manager').hide();

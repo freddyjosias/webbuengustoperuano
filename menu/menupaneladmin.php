@@ -10,9 +10,9 @@
     <nav class='nav-panel-options'>
         <ul class='fw-600 ls-13'>
             <li><a class='pl-5' href="../"><i class="fas fa-home"></i> &nbsp; REGRESAR</a></li>
-            <li><a class='pl-5' href="../encargados/listar.php"><i class="fas fa-columns"></i> &nbsp; ENCARGADOS</a></li>
-            <li><a class='pl-5' href="../restaurantes/listar.php"><i class="fas fa-columns"></i> &nbsp;RESTAURANTES</a></li>
-            <li><a class='pl-5' href="../administradores/listar.php"><i class="fas fa-columns"></i> &nbsp;ADMINISTRADORES</a></li>
+            <li><a class='pl-5' href="encargados.php"><i class="fas fa-columns"></i> &nbsp; ENCARGADOS</a></li>
+            <li><a class='pl-5' href="restaurantes.php"><i class="fas fa-columns"></i> &nbsp;RESTAURANTES</a></li>
+            <li><a class='pl-5' href="administradores.php"><i class="fas fa-columns"></i> &nbsp;ADMINISTRADORES</a></li>
         </ul>
     </nav>
 

@@ -33,6 +33,16 @@
 
     if (isset($_POST['emailaddmanager'])) {
         
+        $existUser = $conexion -> prepare('SELECT idusuario FROM usuario WHERE emailusuario = ?');
+        $existUser -> execute(array($_POST['emailaddmanager']));
+        $existUser = $existUser -> fetchAll(PDO::FETCH_ASSOC);
+
+        var_dump($_POST['emailaddmanager']); die;
+
+        $existManager = $conexion -> prepare('SELECT id_profile FROM detail_usuario_profile WHERE emailusuario = ?');
+        $existManager -> execute($_POST['emailaddmanager']);
+        $resultadosR = $resultadosR -> fetchAll(PDO::FETCH_ASSOC);
+
         $updateProfile = $conexion -> prepare('UPDATE usuario SET id_profile = 2 WHERE emailusuario = ?');
         $updateProfile -> execute(array($_POST['emailaddmanager']));
 

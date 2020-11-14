@@ -27,27 +27,127 @@
         header('Location: ../index.php');
     }
 
+    $errorAlert = 0;
+
     if (isset($_POST['emailaddmanager'])) {
+
+        $existUser = $conexion -> prepare('SELECT idusuario FROM usuario WHERE emailusuario = ? AND estado = 1');
+        $existUser -> execute(array($_POST['emailaddmanager']));
+        $existUser = $existUser -> fetch(PDO::FETCH_ASSOC);
+
+        if ($existUser) 
+        {
+            $existManager = $conexion -> prepare('SELECT state FROM detail_usuario_profile WHERE idusuario = ? AND id_profile = 2');
+            $existManager -> execute(array($existUser['idusuario']));
+            $existManager = $existManager -> fetch(PDO::FETCH_ASSOC);
+
+            $existRestaurant = $conexion -> prepare('SELECT idsucursal FROM sucursal WHERE idsucursal = ? AND estado = 1');
+            $existRestaurant -> execute(array($_POST['restaurant']));
+            $existRestaurant = $existRestaurant -> fetch(PDO::FETCH_ASSOC);
+
+            if ($existRestaurant) 
+            {
+                $existAccess = $conexion -> prepare('SELECT state FROM access WHERE idusuario = ? AND idsucursal = ?');
+                $existAccess -> execute(array($existUser['idusuario'], $existRestaurant['idsucursal']));
+                $existAccess = $existAccess -> fetch(PDO::FETCH_ASSOC);
         
-        $updateProfile = $conexion -> prepare('UPDATE usuario SET id_profile = 2 WHERE emailusuario = ?');
-        $updateProfile -> execute(array($_POST['emailaddmanager']));
+                if ($existManager) 
+                {
+                    if ($existAccess && $existManager['state'] == 1) 
+                    {
+                        if ($existAccess['state'] == 1) 
+                        {
+                            $errorAlert = 3;
+                        } 
+                        else 
+                        {
+                            $updateStateAccess = $conexion -> prepare('UPDATE access SET state = 1 WHERE idusuario = ? AND idsucursal = ?');
+                            $updateStateAccess -> execute(array($existUser['idusuario'], $existRestaurant['idsucursal']));
+                        }
+                    }
+                    else 
+                    {
+                        $updateStateManager = $conexion -> prepare('UPDATE detail_usuario_profile SET state = 1 WHERE idusuario = ? AND id_profile = 2');
+                        $updateStateManager -> execute(array($existUser['idusuario']));
 
-        $obtenerIdU = $conexion -> prepare('SELECT idusuario FROM usuario WHERE emailusuario = ?');
-        $obtenerIdU -> execute(array($_POST['emailaddmanager']));
-        $obtenerIdU = $obtenerIdU -> fetchAll(PDO::FETCH_ASSOC);
+                        $updateStateAccess = $conexion -> prepare('UPDATE access SET state = 1 WHERE idusuario = ? AND idsucursal = ?');
+                        $updateStateAccess -> execute(array($existUser['idusuario'], $existRestaurant['idsucursal']));
+                    }
 
-        $insertAccess = $conexion -> prepare('INSERT INTO access(idusuario, idsucursal) VALUES(?, ?)');
-        $insertAccess -> execute(array($obtenerIdU[0]['idusuario'], $_POST['restaurant']));
+                    if (!$existAccess) {
+                        
+                        $crateAccess = $conexion -> prepare('INSERT INTO access(idusuario, idsucursal) VALUES (?, ?)');
+                        $crateAccess -> execute(array($existUser['idusuario'], $existRestaurant['idsucursal']));
 
-        $insetadoExito = true;
+                    }
 
+                    if ($errorAlert == 0) 
+                    {
+                        $errorAlert = 10;
+                    }
+                    
+                } 
+                else 
+                {
+                    $crateManager = $conexion -> prepare('INSERT INTO detail_usuario_profile(idusuario, id_profile) VALUES (?, 2)');
+                    $crateManager -> execute(array($existUser['idusuario']));
+
+                    $crateAccess = $conexion -> prepare('INSERT INTO access(idusuario, idsucursal) VALUES (?, ?)');
+                    $crateAccess -> execute(array($existUser['idusuario'], $existRestaurant['idsucursal']));
+
+                    $errorAlert = 10;
+                }
+
+            }
+            else
+            {
+                $errorAlert = 2;
+            }
+            
+        }
+        else 
+        {
+            $errorAlert = 1;
+        }
+
+    }
+    
+    if (isset($_POST['iddeletemanager'])) 
+    {
+        $existDeleteAccess = $conexion -> prepare('SELECT access_id FROM access WHERE idusuario = ? AND idsucursal = ?');
+        $existDeleteAccess -> execute(array($_POST['iddeletemanager'], $_POST['idsucursal']));
+        $existDeleteAccess = $existDeleteAccess -> fetch(PDO::FETCH_ASSOC);
+        
+        if ($existDeleteAccess)
+        {
+            $updateStateAccess = $conexion -> prepare('UPDATE access SET state = 0 WHERE idusuario = ? AND idsucursal = ?');
+            $updateStateAccess -> execute(array($_POST['iddeletemanager'], $_POST['idsucursal']));
+
+            $countAccess = $conexion -> prepare('SELECT count(access_id) as count FROM access WHERE idusuario = ? AND state = 1');
+            $countAccess -> execute(array($_POST['iddeletemanager']));
+            $countAccess = $countAccess -> fetch(PDO::FETCH_ASSOC);
+
+            if ($countAccess['count'] == 0)
+            {
+                $updateStateManager = $conexion -> prepare('UPDATE detail_usuario_profile SET state = 0 WHERE idusuario = ? AND id_profile = 2');
+                $updateStateManager -> execute(array($_POST['iddeletemanager']));
+            }
+
+            $errorAlert = 11;
+
+        }
+        else
+        {
+            $errorAlert = 4;
+        }
+        
     }
 
     $resultadosR = $conexion -> prepare('SELECT idsucursal, nomsucursal FROM sucursal WHERE estado = 1');
     $resultadosR -> execute();
     $resultadosR = $resultadosR -> fetchAll(PDO::FETCH_ASSOC);
 
-    $resultadosEn = $conexion -> prepare('SELECT a.idusuario, u.nombreusuario, s.nomsucursal, u.emailusuario FROM access as a INNER JOIN usuario as u ON a.idusuario = u.idusuario INNER JOIN sucursal as s ON s.idsucursal = a.idsucursal WHERE id_profile = 2');
+    $resultadosEn = $conexion -> prepare('SELECT a.idusuario, u.nombreusuario, u.apellidousuario, s.nomsucursal, u.emailusuario, s.idsucursal FROM access as a INNER JOIN usuario as u ON a.idusuario = u.idusuario INNER JOIN detail_usuario_profile as m ON a.idusuario = m.idusuario INNER JOIN sucursal as s ON s.idsucursal = a.idsucursal WHERE a.state = 1 AND s.estado = 1 AND m.state = 1 AND m.id_profile = 2 AND u.estado = 1 ORDER BY s.nomsucursal, u.nombreusuario');
     $resultadosEn -> execute();
     $resultadosEn = $resultadosEn -> fetchAll(PDO::FETCH_ASSOC);
 
@@ -59,7 +159,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link href="https://fonts.googleapis.com/css2?family=Dosis:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <title>Lista de Encargados</title>
+    <title>Encargados</title>
     <link rel="shorcut icon" href="../img/logo-icon-512-color.png">
     <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="../fontawesome/css/all.min.css">
@@ -93,7 +193,7 @@
                         <form class='text-center w-100 mt-4' method='post'>
                             <div class="form-group">
                                 <label for="exampleFormControlInput1" class='d-flex'>Ingrese el email del nuevo encargado:</label>
-                                <input type="email" name='emailaddmanager' class="form-control" id="exampleFormControlInput1" placeholder="name@example.com" required>
+                                <input type="email" name='emailaddmanager' class="form-control" id="exampleFormControlInput1" placeholder="name@example.com" value='<?php echo ($errorAlert == 1) ? $_POST['emailaddmanager'] : '' ?>' required>
                             </div>
                             <div class="form-group">
                                 <label for="exampleFormControlSelect1" class='d-flex'>Seleccione de que restaurante sera encargado:</label>
@@ -122,13 +222,13 @@
                     </div>
 
                     <table class="table mt-4">
-                    <thead class='thead-light'>
+                    <thead class='thead-light fs-18'>
                         <tr>
                             <th scope="col" class='text-center'>N°</th>
-                            <th scope="col">Nombre</th>
-                            <th scope="col">Correo</th>
-                            <th scope="col">Restaurante</th>
-                            <th class='text-center' scope="col">Más</th>
+                            <th scope="col">NOMBRE</th>
+                            <th scope="col">CORREO</th>
+                            <th scope="col">RESTAURANTE</th>
+                            <th class='text-center' scope="col">MÁS</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -140,12 +240,29 @@
                             }
                             $cont++;
                     ?>
-                            <tr>
-                                <th scope="row" class='text-center'><?php echo $cont ?></th>
-                                <td><?php echo $val['nombreusuario'] ?></td>
-                                <td><?php echo $val['emailusuario'] ?></td>
-                                <td><?php echo $val['nomsucursal'] ?></td>
-                                <td class='text-center'><a href="eliminar.php?id=<?php echo $val['idusuario'];?>&email=<?php echo $val['emailusuario'];?>"><i class="far fa-trash-alt"></i></a></td>
+                            <tr class='fs-17 fw-500'>
+
+                                <th scope="row" class='text-center py-3'><?php echo $cont ?></th>
+                                <td class='py-3'><?php echo $val['nombreusuario'] . $val['apellidousuario'] ?></td>
+                                <td class='py-3'><?php echo $val['emailusuario'] ?></td>
+                                <td class='py-3'><?php echo $val['nomsucursal'] ?></td>
+
+                                <td class='text-center px-0 py-2'>
+
+                                    <form action="" method="post" class='m-0 p-0'>
+
+                                        <input type="text" name='iddeletemanager' value='<?php echo $val['idusuario'] ?>' class='d-none'>
+
+                                        <input type="text" name='idsucursal' value='<?php echo $val['idsucursal'] ?>' class='d-none'>
+
+                                        <button class='btn btn-danger'>
+                                            <i class="far fa-trash-alt "></i> &nbsp; Eliminar
+                                        </button>
+
+                                    </form>
+                                    
+                                </td>
+
                             </tr>
                     <?php } ?>
 
@@ -160,7 +277,117 @@
     </main>
 
     <script src="../js/jquery-3.5.1.min.js"></script>
+    <script src="../js/bootstrap.add.js"></script>
+    <script src="../sweetalert/sweetalert210.js"></script>
     <script src="../js/script.js"></script>
+
+    <?php
+        if ($errorAlert == 1) 
+        {
+            ?>
+
+            <script>
+
+                $('.form-add-manager').show();
+                $('.buttom-add-manager').hide();
+
+                Swal.fire
+                ({
+                    icon: 'error',
+                    title: 'El correo que ingresó no esta relacionado con ningún usuario'
+                })
+
+            </script>
+                
+            <?php
+        } 
+        else if ($errorAlert == 2) 
+        {
+            ?>
+
+            <script>
+
+                $('.form-add-manager').show();
+                $('.buttom-add-manager').hide();
+
+                Swal.fire
+                ({
+                    icon: 'error',
+                    title: 'El restaurante seleccionado no existe'
+                })
+
+            </script>
+                
+            <?php
+        } 
+        else if ($errorAlert == 3) 
+        {
+            ?>
+
+            <script>
+
+                $('.form-add-manager').show();
+                $('.buttom-add-manager').hide();
+
+                Swal.fire
+                ({
+                    icon: 'error',
+                    title: 'El usuario ingresadó ya es encargado del restaurante seleccionado'
+                })
+
+            </script>
+                
+            <?php
+        } 
+        else if ($errorAlert == 4) 
+        {
+            ?>
+
+            <script>
+
+                Swal.fire
+                ({
+                    icon: 'error',
+                    title: 'Al parecer este perfil ya ha sido removido'
+                })
+
+            </script>
+                
+            <?php
+        } 
+        else if ($errorAlert == 10) 
+        {
+            ?>
+
+            <script>
+
+                Swal.fire
+                ({
+                    icon: 'success',
+                    title: 'Se agregó correctamente el encargado'
+                })
+
+            </script>
+                
+            <?php
+        }
+        else if ($errorAlert == 11) 
+        {
+            ?>
+
+            <script>
+
+                Swal.fire
+                ({
+                    icon: 'success',
+                    title: 'Se eliminó correctamente el encargado'
+                })
+
+            </script>
+                
+            <?php
+        }
+    ?>
 
 </body>
 </html>
