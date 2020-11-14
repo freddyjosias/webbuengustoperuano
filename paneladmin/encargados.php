@@ -205,7 +205,7 @@
                 </div>
                 
                 <div class="row w-80 m-auto">
-                    <h1 class='h3 text-center mt-5 mb-3 font-weight-bold w-100'>ENCARGADOS</h1>
+                    <h1 class='h3 text-center mt-5 mb-3 font-weight-bold w-100 this-is-manager'>ENCARGADOS</h1>
 
                     <div class="col-12 form-add-manager">
                         

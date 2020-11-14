@@ -112,7 +112,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link href="https://fonts.googleapis.com/css2?family=Dosis:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <title>Lista de Administradores</title>
+    <title>Administradores</title>
     <link rel="shorcut icon" href="../img/logo-icon-512-color.png">
     <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="../fontawesome/css/all.min.css">
@@ -139,7 +139,7 @@
                 </div>
                 
                 <div class="row w-80 m-auto">
-                    <h1 class='h3 text-center mt-5 mb-3 font-weight-bold w-100'>ADMINISTRADORES</h1>
+                    <h1 class='h3 text-center mt-5 mb-3 font-weight-bold w-100 this-is-admin'>ADMINISTRADORES</h1>
 
                     <form class='text-center w-100 mt-0 form-add-admin' method='post'>
 

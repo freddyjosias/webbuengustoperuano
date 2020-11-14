@@ -216,6 +216,28 @@ $(function() {
         $('.button-add-admin').show();
     })
 
+    //MENU ADMIN
+
+    if ($('.this-is-manager').length > 1) {
+        $('.this-is-manager:first').css({
+            'background-color': '#969696',
+            'border': '1px solid white'
+        })
+    }
+
+    if ($('.this-is-restaurant').length > 1) {
+        $('.this-is-restaurant:first').css({
+            'background-color': '#969696',
+            'border': '1px solid white'
+        })
+    }
+
+    if ($('.this-is-admin').length > 1) {
+        $('.this-is-admin:first').css({
+            'background-color': '#969696',
+            'border': '1px solid white'
+        })
+    }
 });
 
 $('.form-add-manager').hide();

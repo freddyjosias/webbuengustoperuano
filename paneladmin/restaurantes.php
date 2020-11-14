@@ -154,7 +154,7 @@
                 </div>
 
                 <div class="row w-80 m-auto">
-                    <h1 class='h3 text-center mt-5 font-weight-bold w-100'>RESTAURANTES</h1>
+                    <h1 class='h3 text-center mt-5 font-weight-bold w-100 this-is-restaurant'>RESTAURANTES</h1>
 
                     <div class="btn-color-princi ml-auto">
                         <form action="" method="post">
