@@ -143,7 +143,7 @@
         }
 
     } 
-    else if($_SERVER['REQUEST_URI'] == "/webbuengustoperuano/")
+    else if($_SERVER['REQUEST_URI'] == "/webbuengustoperuano/" || $_SERVER['REQUEST_URI'] == "/webbuengustoperuano/index.php" )
     {
         
         ?>
