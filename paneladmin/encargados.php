@@ -31,7 +31,7 @@
 
     if (isset($_POST['emailaddmanager'])) {
 
-        $existUser = $conexion -> prepare('SELECT idusuario FROM usuario WHERE emailusuario = ? AND estado = 1');
+        $existUser = $conexion -> prepare('SELECT idusuario, nombreusuario, apellidousuario FROM usuario WHERE emailusuario = ? AND estado = 1');
         $existUser -> execute(array($_POST['emailaddmanager']));
         $existUser = $existUser -> fetch(PDO::FETCH_ASSOC);
 
@@ -41,7 +41,7 @@
             $existManager -> execute(array($existUser['idusuario']));
             $existManager = $existManager -> fetch(PDO::FETCH_ASSOC);
 
-            $existRestaurant = $conexion -> prepare('SELECT idsucursal FROM sucursal WHERE idsucursal = ? AND estado = 1');
+            $existRestaurant = $conexion -> prepare('SELECT idsucursal, nomsucursal FROM sucursal WHERE idsucursal = ? AND estado = 1');
             $existRestaurant -> execute(array($_POST['restaurant']));
             $existRestaurant = $existRestaurant -> fetch(PDO::FETCH_ASSOC);
 
@@ -131,6 +131,25 @@
             {
                 $updateStateManager = $conexion -> prepare('UPDATE detail_usuario_profile SET state = 0 WHERE idusuario = ? AND id_profile = 2');
                 $updateStateManager -> execute(array($_POST['iddeletemanager']));
+            }
+
+            $nameManager = $conexion -> prepare('SELECT nombreusuario, apellidousuario FROM usuario WHERE idusuario = ? AND estado = 1');
+            $nameManager -> execute(array($_POST['iddeletemanager']));
+            $nameManager = $nameManager -> fetch(PDO::FETCH_ASSOC);
+
+            if (!$nameManager) 
+            {
+                $nameManager['nombreusuario'] = '';
+                $nameManager['apellidousuario'] = '';
+            }
+
+            $nameRest = $conexion -> prepare('SELECT nomsucursal FROM sucursal WHERE idsucursal = ? AND estado = 1');
+            $nameRest -> execute(array($_POST['idsucursal']));
+            $nameRest = $nameRest -> fetch(PDO::FETCH_ASSOC);
+
+            if (!$nameRest) 
+            {
+                $nameRest['nomsucursal'] = '';
             }
 
             $errorAlert = 11;
@@ -243,7 +262,7 @@
                             <tr class='fs-17 fw-500'>
 
                                 <th scope="row" class='text-center py-3'><?php echo $cont ?></th>
-                                <td class='py-3'><?php echo $val['nombreusuario'] . $val['apellidousuario'] ?></td>
+                                <td class='py-3'><?php echo $val['nombreusuario'] . ' '. $val['apellidousuario'] ?></td>
                                 <td class='py-3'><?php echo $val['emailusuario'] ?></td>
                                 <td class='py-3'><?php echo $val['nomsucursal'] ?></td>
 
@@ -364,7 +383,8 @@
                 Swal.fire
                 ({
                     icon: 'success',
-                    title: 'Se agregó correctamente el encargado'
+                    title: 'Se agregó correctamente a <?php echo $existUser['nombreusuario'] . ' ' .  $existUser['apellidousuario'] ?> ',
+                    html: 'como encargado del restaurante <?php echo $existRestaurant['nomsucursal'] ?> ' 
                 })
 
             </script>
@@ -380,7 +400,8 @@
                 Swal.fire
                 ({
                     icon: 'success',
-                    title: 'Se eliminó correctamente el encargado'
+                    title: 'Se eliminó correctamente a <?php echo $nameManager['nombreusuario'] . ' ' .  $nameManager['apellidousuario'] ?> ',
+                    html: 'como encargado del restaurante <?php echo $nameRest['nomsucursal'] ?> '
                 })
 
             </script>

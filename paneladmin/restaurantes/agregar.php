@@ -48,7 +48,6 @@
         $createForms = $conexion -> prepare('INSERT INTO detalleformaspago(idformaspago, idsucursal) VALUES(?, ?)');
         $createForms -> execute(array(3, $idInseted["LAST_INSERT_ID()"]));
 
-
     }
 
 ?>
