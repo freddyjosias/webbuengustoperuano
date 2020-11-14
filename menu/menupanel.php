@@ -14,19 +14,19 @@
                 </li>
 
                 <li>
-                    <a class='pl-5' href="paginabienvenida.php?view=<?php echo $idRestaurante ?>"><i class="fas fa-columns"></i> &nbsp; PÁGINA BIENVENIDA</a>
+                    <a class='pl-5 this-is-welcome-page' href="paginabienvenida.php?view=<?php echo $idRestaurante ?>"><i class="fas fa-columns"></i> &nbsp; PÁGINA BIENVENIDA</a>
                 </li>
 
                 <li>
-                    <a class='pl-5' href="paginanosotros.php?view=<?php echo $idRestaurante ?>"><i class="fas fa-columns"></i> &nbsp; PÁGINA NOSOTROS</a>
+                    <a class='pl-5 this-is-about-us-page' href="paginanosotros.php?view=<?php echo $idRestaurante ?>"><i class="fas fa-columns"></i> &nbsp; PÁGINA NOSOTROS</a>
                 </li>
 
                 <li>
-                    <a class='pl-5' href="categorias.php?view=<?php echo $idRestaurante ?>"><i class="fas fa-columns"></i> &nbsp; CATEGORÍAS</a>
+                    <a class='pl-5 this-is-categories' href="categorias.php?view=<?php echo $idRestaurante ?>"><i class="fas fa-columns"></i> &nbsp; CATEGORÍAS</a>
                 </li>
 
                 <li>
-                    <a class='pl-5' href="productos.php?view=<?php echo $idRestaurante ?>"><i class="fas fa-columns"></i> &nbsp; PRODUCTOS</a>
+                    <a class='pl-5 this-is-products' href="productos.php?view=<?php echo $idRestaurante ?>"><i class="fas fa-columns"></i> &nbsp; PRODUCTOS</a>
                 </li>
 
             </ul>

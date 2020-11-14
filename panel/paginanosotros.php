@@ -1,8 +1,7 @@
 <?php
 
     require '../conexion.php';
-    header('Cache-Control: no cache');
-    session_cache_limiter('private_no_expire');
+    
     session_start();
 
     if (!isset($_SESSION['idusuario'])) 
@@ -220,7 +219,7 @@
                     <div class='text-white fw-700 fs-30 col-12'>ENCARGADO</div> 
                 </div>
 
-                <h1 class='h3 text-center mt-5 font-weight-bold w-100'>INFORMACIÓN DE RESTAURANTE</h1>
+                <h1 class='h3 text-center mt-5 font-weight-bold w-100 this-is-about-us-page'>PÁGINA DE NOSOTROS</h1>
 
                 <form action="" class='form-panel mt-5' method ="post">
                     <div class="formulario-restaurante">
@@ -448,6 +447,11 @@
 
         </div>
     </main>
+
+    <script src="../js/jquery-3.5.1.min.js"></script>
+    <script src="../js/bootstrap.add.js"></script>
+    <script src="../sweetalert/sweetalert210.js"></script>
+    <script src="../js/script.js"></script>
 
 </body>
 </html>

@@ -94,7 +94,7 @@
                 </div>
 
                 <div class="contenido-listar">
-                    <h1 class='h3 text-center mt-5 font-weight-bold w-100'>LISTA DE PRODUCTOS</h1>
+                    <h1 class='h3 text-center mt-5 font-weight-bold w-100 this-is-products'>PRODUCTOS</h1>
                     <div class="direccion-a">
                         <a class="btn btn-primary bottom" href="agregar.php?view=<?php echo $idRestaurante ?>">Agregar</a>
                     </div>
@@ -128,6 +128,11 @@
 
         </div>
     </main>
+
+    <script src="../js/jquery-3.5.1.min.js"></script>
+    <script src="../js/bootstrap.add.js"></script>
+    <script src="../sweetalert/sweetalert210.js"></script>
+    <script src="../js/script.js"></script>
 
 </body>
 </html>

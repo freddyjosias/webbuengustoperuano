@@ -238,6 +238,37 @@ $(function() {
             'border': '1px solid white'
         })
     }
+
+    //MENU MANAGER
+
+    if ($('.this-is-welcome-page').length > 1) {
+        $('.this-is-welcome-page:first').css({
+            'background-color': '#969696',
+            'border': '1px solid white'
+        })
+    }
+
+    if ($('.this-is-about-us-page').length > 1) {
+        $('.this-is-about-us-page:first').css({
+            'background-color': '#969696',
+            'border': '1px solid white'
+        })
+    }
+
+    if ($('.this-is-categories').length > 1) {
+        $('.this-is-categories:first').css({
+            'background-color': '#969696',
+            'border': '1px solid white'
+        })
+    }
+
+    if ($('.this-is-products').length > 1) {
+        $('.this-is-products:first').css({
+            'background-color': '#969696',
+            'border': '1px solid white'
+        })
+    } 
+
 });
 
 $('.form-add-manager').hide();

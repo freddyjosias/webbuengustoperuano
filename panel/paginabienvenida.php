@@ -133,7 +133,7 @@
                 </div>
 
                 <div class="contenido-listar">
-                    <h1 class='h3 text-center mt-5 font-weight-bold w-100'>BIENVENIDA</h1>
+                    <h1 class='h3 text-center mt-5 font-weight-bold w-100 this-is-welcome-page'>PÁGINA DE BIENVENIDA</h1>
                         <table class="table">
                             <thead class='thead-light'>
                                 <tr>                    
@@ -245,8 +245,14 @@
         </div>
     </main>
 
+    <script src="../js/jquery-3.5.1.min.js"></script>
+    <script src="../js/bootstrap.add.js"></script>
+    <script src="../sweetalert/sweetalert210.js"></script>
+    <script src="../js/script.js"></script>
+
 </body>
 </html>
+
 <?php
 
     }
