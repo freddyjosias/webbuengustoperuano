@@ -2,7 +2,7 @@
      require '../../conexion.php';
 
      session_start();
-
+    
      if (!isset($_SESSION['idusuario'])) 
      {
          header('Location: ../../index.php');
@@ -23,11 +23,11 @@
          }
  
      }
-
+     
      if (!isset($_GET['view'])) {
          header('Location: ../../index.php');
      }
-
+     
      if($_SERVER["REQUEST_METHOD"] == "POST"){
 
         $ruta = 'img/'.$_FILES['nuevaimagen']['name']; 
@@ -37,7 +37,7 @@
         $resultado = $query->execute(array($ruta, $_SESSION['sucursal'])); 
         
     }
-
+    
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         
@@ -45,7 +45,7 @@
         $resultados -> execute(array($_POST['nuevotexto'], $_SESSION['sucursal']));
 
     }
-
+    
     if($_SERVER["REQUEST_METHOD"] == "POST"){
 
         $ruta = 'img/'.$_FILES['nuevobanner']['name']; 
@@ -55,7 +55,7 @@
         $resultado = $query->execute(array($ruta, $_SESSION['sucursal'])); 
         
     }
-
+    
     $resultadosText = $conexion -> prepare('SELECT textobienvenida FROM sucursal WHERE idsucursal = ?');
     $resultadosText -> execute(array($_SESSION['sucursal']));
     $resultadosText = $resultadosText -> fetch(PDO::FETCH_ASSOC); 
