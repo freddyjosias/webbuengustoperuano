@@ -201,11 +201,22 @@ $(function() {
 
     $('.cancel-add-manager').click(function () {
         $('.form-add-manager').slideUp();
-        setTimeout(() => {
-            $('.buttom-add-manager').show();
-        }, 200);
+        $('.buttom-add-manager').show();
+    })
+
+    //ADD ADMIN
+
+    $('.button-add-admin').click(function () {
+        $('.form-add-admin').slideDown();
+        $(this).hide();
+    })
+
+    $('.cancel-add-admin').click(function () {
+        $('.form-add-admin').slideUp();
+        $('.button-add-admin').show();
     })
 
 });
 
 $('.form-add-manager').hide();
+$('.form-add-admin').hide();

@@ -200,16 +200,16 @@
 
             <div class='container p-0 main-panel m-0 mw-85 w-85'>
 
-                <div class="line-top-panel row h-4r p-0 m-0">
-                    
+                <div class="line-top-panel row h-4r m-0 p-0 align-items-center">
+                    <div class='text-white fw-700 fs-30 col-12'>ADMINISTRADOR</div> 
                 </div>
                 
                 <div class="row w-80 m-auto">
-                    <h1 class='h3 text-center mt-5 font-weight-bold w-100'>ENCARGADOS</h1>
+                    <h1 class='h3 text-center mt-5 mb-3 font-weight-bold w-100'>ENCARGADOS</h1>
 
                     <div class="col-12 form-add-manager">
                         
-                        <form class='text-center w-100 mt-4' method='post'>
+                        <form class='text-center w-100 mt-0' method='post'>
                             <div class="form-group">
                                 <label for="exampleFormControlInput1" class='d-flex'>Ingrese el email del nuevo encargado:</label>
                                 <input type="email" name='emailaddmanager' class="form-control" id="exampleFormControlInput1" placeholder="name@example.com" value='<?php echo ($errorAlert == 1) ? $_POST['emailaddmanager'] : '' ?>' required>
@@ -237,7 +237,7 @@
                     </div>
 
                     <div class="btn-color-princi ml-auto">
-                        <a class="buttom-add-manager btn btn-primary bottom">Agregar</a>
+                        <a class="buttom-add-manager btn btn-primary bottom fw-600">Agregar Encargado</a>
                     </div>
 
                     <table class="table mt-4">
