@@ -84,7 +84,9 @@
                                     <img src="img/logo-icon-512-color.png" alt="" class="">
                                 </div>
                                 <h1 class="w-100 mt-2">Buen Gusto Peruano</h1>
-                                <h6 class="mx-5r">Ingresa y podrás acceder a muchos restaurantes con los platillos más deliciosos de la región.</h6>
+                                <h6 class="mx-5r">El mayor secreto del éxito es lograr probar lo que más te gusta y permitir que la comida haga su lucha en tu interior. 
+                                Ingresa y podrás acceder a una cadena de restaurantes con los platillos más deliciosos e agradables de la región San Martín, 
+                                AQUI PODRAS COMER COMO ES CASA, PERO NO TENDRAS QUE LAVAR LA VAJILLA.</h6>
                             </div>
                         </div>
                     </div>
