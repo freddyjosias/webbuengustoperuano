@@ -34,7 +34,7 @@
         move_uploaded_file($_FILES['nuevaimagen']['tmp_name'], "../../".$ruta);
 
         $query = $conexion->prepare("UPDATE sucursal SET imgbienvenida = ? WHERE idsucursal = ?");
-        $resultado = $query->execute(array($ruta, $_SESSION['sucursal'])); 
+        $resultado = $query->execute(array($ruta, $_GET['view'])); 
         
     }
     
@@ -42,7 +42,7 @@
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         
         $resultados = $conexion -> prepare('UPDATE sucursal SET textobienvenida = ? WHERE idsucursal = ?');
-        $resultados -> execute(array($_POST['nuevotexto'], $_SESSION['sucursal']));
+        $resultados -> execute(array($_POST['nuevotexto'], $_GET['view']));
 
     }
     
@@ -52,33 +52,29 @@
         move_uploaded_file($_FILES['nuevobanner']['tmp_name'], "../../".$ruta);
 
         $query = $conexion->prepare("UPDATE sucursal SET banner = ? WHERE idsucursal = ?");
-        $resultado = $query->execute(array($ruta, $_SESSION['sucursal'])); 
+        $resultado = $query->execute(array($ruta, $_GET['view'])); 
         
     }
     
     $resultadosText = $conexion -> prepare('SELECT textobienvenida FROM sucursal WHERE idsucursal = ?');
-    $resultadosText -> execute(array($_SESSION['sucursal']));
+    $resultadosText -> execute(array($_GET['view']));
     $resultadosText = $resultadosText -> fetch(PDO::FETCH_ASSOC); 
 
     $resultadosImg = $conexion -> prepare('SELECT imgbienvenida FROM sucursal WHERE idsucursal = ?');
-    $resultadosImg -> execute(array($_SESSION['sucursal']));
+    $resultadosImg -> execute(array($_GET['view']));
     $resultadosImg = $resultadosImg -> fetch(PDO::FETCH_ASSOC);  
 
     $resultadosBanner= $conexion -> prepare('SELECT banner FROM sucursal WHERE idsucursal = ?');
-    $resultadosBanner -> execute(array($_SESSION['sucursal']));
+    $resultadosBanner -> execute(array($_GET['view']));
     $resultadosBanner = $resultadosBanner -> fetch(PDO::FETCH_ASSOC);  
     
     $platosdestacados= $conexion -> prepare('SELECT imgdestacado1, imgdestacado2, imgdestacado3 FROM sucursal WHERE idsucursal = ?');
-    $platosdestacados -> execute(array($_SESSION['sucursal']));
+    $platosdestacados -> execute(array($_GET['view']));
     $platosdestacados = $platosdestacados -> fetch(PDO::FETCH_ASSOC);  
 
     $resultadosEn = $conexion -> prepare('SELECT * FROM sucursal WHERE idsucursal = ?');
-    $resultadosEn -> execute(array($_SESSION['sucursal']));
+    $resultadosEn -> execute(array($_GET['view']));
     $resultadosEn = $resultadosEn -> fetchAll(PDO::FETCH_ASSOC);
-
-    if (!isset($idRestaurante)) {
-        header('Location: index.php');
-    } else {
 
       if($profileManager == true)  {
           $consultaManager = $conexion -> prepare("SELECT access_id FROM access WHERE state = 1 AND idusuario = ? AND idsucursal = ?");
@@ -232,8 +228,3 @@
 
 </body>
 </html>
-<?php
-
-    }
-
-?>
