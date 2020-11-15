@@ -57,7 +57,7 @@
                             <a class='text-white h3 sm-h2 ml-auto mb-0' title='Panel de Administrador' href="paneladmin/index.php"><i class="fas fa-cogs"></i></a>
                         <?php } ?>
 
-                        <a class='text-white d-flex h3 <?php echo ($profileAdmin) ? 'ml-3 ml-sm-4' : 'ml-auto' ?> sm-h2  mb-0' title='Información de la cuenta' href="usuario.php">
+                        <a class='text-white d-flex h3 <?php echo ($profileAdmin) ? 'ml-3 ml-sm-4' : 'ml-auto' ?> sm-h2  mb-0' title='Información de la cuenta' href="cuenta/micuenta.php">
                             <img src="<?php echo $_SESSION['photo'] ?>" alt="" class='border rounded-circle photo-user-home'>
                         </a>
                         
