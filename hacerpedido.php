@@ -105,7 +105,7 @@
     </div>
 
     <div class='logo-icono right-2p d-none d-md-block'>
-        <a href="usuario.php"><img src="<?php echo $_SESSION['photo'] ?>" class='border rounded-circle' alt=""></a>
+        <a href="cuenta/micuenta.php"><img src="<?php echo $_SESSION['photo'] ?>" class='border rounded-circle' alt=""></a>
     </div>
 
     <header class="header-restaurante">

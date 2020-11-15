@@ -117,7 +117,7 @@ $consultaVerificarRestaurante = 'SELECT * FROM sucursal WHERE idsucursal = ?';
     </div>
 
     <div class='logo-icono right-2p d-none d-md-block'>
-        <a href="usuario.php"><img src="<?php echo $_SESSION['photo'] ?>" class='border rounded-circle' alt=""></a>
+        <a href="cuenta/index.php"><img src="<?php echo $_SESSION['photo'] ?>" class='border rounded-circle' alt=""></a>
     </div>
 
     <header class="header-restaurante">
@@ -141,7 +141,7 @@ $consultaVerificarRestaurante = 'SELECT * FROM sucursal WHERE idsucursal = ?';
 
                 <div class="text-carrito fw-500">
                         <ul>
-                            <li>Antes de hacer algún pedido, deberás actualizar tus datos &nbsp; <a href="cuenta/index.php" class="badge badge-info text-white">Actualizar Datos</a></li>			
+                            <li>Antes de hacer algún pedido, deberás actualizar tus datos &nbsp; <a href="cuenta/micuenta.php" class="badge badge-info text-white">Actualizar Datos</a></li>			
                         </ul>
                 </div>
 
