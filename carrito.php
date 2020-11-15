@@ -47,6 +47,8 @@ $consultaVerificarRestaurante = 'SELECT * FROM sucursal WHERE idsucursal = ?';
                 $nombresucursal = $row['nomsucursal'];
                 break;     
         }
+        
+        $cont = 0;
     
         $consultatipospedidos = $conexion -> prepare(
         "SELECT t.idtipospedido, t.descripciontipospedido, d.idsucursal 
@@ -67,6 +69,10 @@ $consultaVerificarRestaurante = 'SELECT * FROM sucursal WHERE idsucursal = ?';
         $consultaCar = $conexion -> prepare('SELECT * FROM shop_car AS s INNER JOIN productos AS p ON s.idproducto = p.idproducto WHERE s.idusuario = ? AND p.estado = 1');
         $consultaCar -> execute(array($_SESSION['idusuario']));
         $consultaCar = $consultaCar -> fetchAll(PDO::FETCH_ASSOC);
+
+        if ($consultaCar) {
+            $cont++;
+        }
 
         if (!isset($idRestaurante)) {
             header('Location: index.php');
@@ -147,7 +153,12 @@ $consultaVerificarRestaurante = 'SELECT * FROM sucursal WHERE idsucursal = ?';
                                             <th>Más</th>
                                         </tr>
                                     </thead>
-                                    <?php foreach($consultaCar as $producto) {?>
+                                    <?php
+                                    if($cont == 0){
+                                        echo 'No hay produdctos elegidos';
+                                    } else{
+
+                                    foreach($consultaCar as $producto) { ?>
                                         <tbody>
                                             <tr class="trcarrito">
                                                     <td><?php echo $producto['nomproducto'] ?></td>
@@ -161,12 +172,12 @@ $consultaVerificarRestaurante = 'SELECT * FROM sucursal WHERE idsucursal = ?';
                                                     </td>
                                                     <td class='text-center px-0 py-2'>
                                                     <a class="btn btn-danger" href="eliminarcarrito.php?id=<?php echo $producto['idproducto']; ?>&view=<?php echo $_GET['view'] ?>">
-                                                        <i class="far fa-trash-alt "></i> &nbsp; Eliminar 
+                                                        <?php $cont-- ?><i class="far fa-trash-alt "></i> &nbsp; Eliminar 
                                                     </a>
                                                     </td>
                                             </tr>
                                         </tbody>
-                                    <?php } ?>
+                                    <?php } } ?>
                                     <thead>
                                         <tr>                   
                                             <th style="visibility: hidden"> Prueba</th>
