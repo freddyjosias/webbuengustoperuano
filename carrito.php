@@ -207,7 +207,7 @@ $consultaVerificarRestaurante = 'SELECT * FROM sucursal WHERE idsucursal = ?';
                                 <div class="contenedor-pedidos">
                                     <div class="btn-group-vertical direccion-tipos">
                                         <p>Tipos de pedido:</p>
-                                            <select name="tipopedido">
+                                            <select class="carrtio-pedidopago" name="tipopedido">
                                                 <?php foreach ($consultatipospedidos as $tipopedido) { ?>
                                                     <option value="<?php echo $tipopedido['idtipospedido'] ?>"><?php echo $tipopedido['descripciontipospedido'] ?></option>
                                                 <?php }  ?>
@@ -215,7 +215,7 @@ $consultaVerificarRestaurante = 'SELECT * FROM sucursal WHERE idsucursal = ?';
                                     </div>
                                     <div class="btn-group-vertical direccion-tipos">
                                         <p>Forma de Pago:</p>
-                                            <select name="formapago">
+                                            <select class="carrtio-pedidopago" name="formapago">
                                                 <?php foreach ($consultaformaspago as $formaspago) { ?>
                                                     <option value="<?php echo $formaspago['idformaspago'] ?>"><?php echo $formaspago['descripcionformaspago'] ?></option>
                                                 <?php }  ?>
@@ -223,7 +223,7 @@ $consultaVerificarRestaurante = 'SELECT * FROM sucursal WHERE idsucursal = ?';
                                     </div>
                                 </div>   
                                 <p>Pedido con la seguridad que nos caracteriza.</p>
-                            <input type="submit" name="" value="Realizar Pedido">
+                            <input  type="submit" name="" value="Realizar Pedido">
                         </form>
                     </div> 
                 </section>
