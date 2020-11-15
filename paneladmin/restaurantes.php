@@ -34,7 +34,7 @@
         $nameR = 'Restaurante ' . rand(1000000, 9999999);
         $directionR = 'N/A';
         $phoneR = 'N/A';
-        $imgR = 'img/no-imagen.png';
+        $imgR = 'img/no.png';
         $textWelcomeR = 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Similique id quae velit architecto voluptatum officiis eos facere natus perspiciatis rem, quos officia sint itaque mollitia, repellat unde, temporibus odio soluta? Vero necessitatibus odit facilis facere similique debitis rerum, nemo voluptatum minima mollitia porro perspiciatis aut ullam tenetur dolore quae voluptates magnam optio. Dolorem commodi rerum numquam atque consequatur, veniam iste?';
         $textFoodR = 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Suscipit, voluptatum!';
         $timeR = '00:00:00';
