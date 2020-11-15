@@ -183,7 +183,7 @@ $consultaVerificarRestaurante = 'SELECT * FROM sucursal WHERE idsucursal = ?';
                                                     </td>
                                                     <td class='text-center px-0 py-2'>
                                                     <a class="btn btn-danger" href="eliminarcarrito.php?id=<?php echo $producto['idproducto']; ?>&view=<?php echo $_GET['view'] ?>">
-                                                        <?php $cont-- ?><i class="far fa-trash-alt "></i> &nbsp; Eliminar 
+                                                        <i class="far fa-trash-alt "></i> &nbsp; Eliminar 
                                                     </a>
                                                     </td>
                                             </tr>
