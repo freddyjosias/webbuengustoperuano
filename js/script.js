@@ -107,7 +107,7 @@ $(function() {
             } else 
             {
 
-                $('.logo-icono').css('top', 0);
+                $('.logo-icono').css('top', '1px');
 
             }
 

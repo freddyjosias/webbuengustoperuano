@@ -267,11 +267,23 @@ body {
 
 /* START QUIENES SOMOS */
 
+.photo-user-restaurant {
+    position: fixed;
+    z-index: 10;
+    top: 2px;
+    right: 2px;
+}
+
+.photo-user-restaurant img {
+    width: 3rem;
+    height: 3rem;
+}
+
 .logo-icono {
     position: fixed;
     z-index: 10;
-    top: 0;
-    left: 0;
+    top: 2px;
+    left: 2px;
 }
 
 .logo-icono img {
@@ -843,17 +855,9 @@ body {
     opacity: 1;
 }
 
-.cerrar-sesion {
-    width: 45%;
-}
-
-.cerrar-sesion img {
-    width: 44px;
-    height: 44px;
-    cursor: pointer;
-    position: absolute;
-    right: 18rem;
-    margin-top: 1.1rem;
+.photo-user-home {
+    width: 40px;
+    height: 40px;
 }
 
 .cerrar-sesion .admin {

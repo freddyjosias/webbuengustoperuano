@@ -110,6 +110,7 @@
                     $_SESSION['email'] = $gMail;
                     $_SESSION['nombreusuario'] = $gName;
                     $_SESSION['apellidousuario'] = $gLastName;
+                    $_SESSION['photo'] = $gPhoto;
                     header("Location: ../");
                 }
                 else
@@ -128,6 +129,7 @@
                     $_SESSION['email'] = $gMail;
                     $_SESSION['nombreusuario'] = $gName;
                     $_SESSION['apellidousuario'] = $gLastName;
+                    $_SESSION['photo'] = $gPhoto;
                     header("Location: ../");
                 }
                 else
