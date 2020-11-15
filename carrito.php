@@ -239,6 +239,21 @@ $consultaVerificarRestaurante = 'SELECT * FROM sucursal WHERE idsucursal = ?';
                         <div>© 2020 El Buen Gusto Peruano SAC. Todos los derechos reservados</div>
                     </div>
                 </footer>
+    <div class="function-go-up ir-arriba">
+        <i class="fas fa-angle-up"></i>
+    </div>
+    <div class="submenu-bottom container-fluid position-fixed bottom-0 d-block d-lg-none border border-light border-bottom-0 border-right-0 border-left-0">
+        <div class="row text-center h-100">
+            <div class="col-6 fs-22 h-100 d-flex border-right">
+                <a href="index.php" class='text-white h-100 w-100 pt-1'><i class="fas fa-home"></i></a>
+            </div>
+            <div class="col-6 text-white fs-35">
+                <div class="function-go-up go-up h-100 d-flex top-0 justify-content-center w-100" role='button'>
+                    <i class="fas fa-angle-up"></i>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <script src="js/jquery-3.5.1.min.js"></script>
     <script src="bootstrap/js/bootstrap.min.js"></script>
