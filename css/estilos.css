@@ -762,6 +762,10 @@ body {
 .car-no-item {
     width: 200px;
     height: 200px;
+    opacity: 0.4;
+}
+
+.no-item-font{
     opacity: 0.7;
 }
 
