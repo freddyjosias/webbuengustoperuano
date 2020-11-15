@@ -3,7 +3,7 @@
 
     <div class="row w-100 m-0 p-0 d-flex justify-content-center my-4">
 
-        <img class='w-50' src="img/logo-icon-512-color.png" alt="">
+        <img class='w-50' src="../img/logo-icon-512-color.png" alt="">
 
     </div>
 

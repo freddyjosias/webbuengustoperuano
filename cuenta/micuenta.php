@@ -1,8 +1,13 @@
 <?php
 
-    require 'conexion.php';
+    require '../conexion.php';
 
     session_start();
+
+    if (!isset($_SESSION['idusuario'])) 
+    {
+        header('Location: index.php');
+    }
 
     $errorAlert = 0;
 
@@ -47,10 +52,6 @@
 
 ?>
 
-
-                   
-
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -58,13 +59,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link href="https://fonts.googleapis.com/css2?family=Dosis:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <title>Mi Cuenta</title>
-    <link rel="shorcut icon" href="img/logo-icon-512-color.png">
-    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="fontawesome/css/all.min.css">
-    <link rel="stylesheet" href="css/bootstrap.add.css">
-    <link rel="stylesheet" href="css/normalize.css">
-    <link rel="stylesheet" type="text/css" href="css/estilos.css">
-    <link rel="stylesheet" type="text/css" href="css/formularios.css">
+    <link rel="shorcut icon" href="../img/logo-icon-512-color.png">
+    <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="../css/bootstrap.add.css">
+    <link rel="stylesheet" href="../css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="../css/estilos.css">
+    <link rel="stylesheet" type="text/css" href="../css/formularios.css">
 
 </head>
 
@@ -74,7 +75,7 @@
         <div class="container-fluid panel-control mw-1920p p-0">
             
             <?php
-                require 'menu/menuusuario.php';
+                require '../menu/menuusuario.php';
             ?>
 
             <div class='container p-0 main-panel m-0 mw-85 w-85'>
@@ -87,74 +88,80 @@
 
                     <h1 class='h3 text-center mt-5 mb-3 font-weight-bold w-100 this-is-my-dates'>MIS DATOS PERSONALES</h1>
 
-                    <form>
+                    <form class='w-100 fs-18'>
 
-                        <div class="form-row">
+                        <div class="row">
 
-                            <div class="form-group col-md-6">
-                                <label for="inputEmail4">Correo electrónico:</label>
+                            <div class="col-10">
 
-                                <fieldset disabled class='m-0 p-0'>
-                                    <input type="email" id="disabledTextInput" class="form-control" value='Hola'>
-                                </fieldset>
+                                <div class="form-row">
+
+                                    <div class="form-group col-md-6">
+                                        <label for="inputEmail4">Correo electrónico:</label>
+
+                                        <fieldset disabled class='m-0 p-0'>
+                                            <input type="email" id="disabledTextInput" class="form-control" value='Hola'>
+                                        </fieldset>
+
+                                    </div>
+
+                                    <div class="form-group col-md-6">
+                                        <label for="inputPassword4">Contraseña:</label>
+                                        <input type="password" class="form-control" id="inputPassword4">
+                                    </div>
+
+                                </div>
+
+                                <div class="form-row mt-2">
+
+                                    <div class="form-group col-md-6">
+                                        <label for="inputPassword4">Nombres:</label>
+                                        <input type="password" class="form-control" id="inputPassword4">
+                                    </div>
+
+                                    <div class="form-group col-md-6">
+                                        <label for="inputPassword4">Apellido:</label>
+                                        <input type="password" class="form-control" id="inputPassword4">
+                                    </div>
+
+                                </div>
 
                             </div>
 
-                            <div class="form-group col-md-6">
-                                <label for="inputPassword4">Contraseña:</label>
-                                <input type="password" class="form-control" id="inputPassword4">
-                            </div>
+                            <div class="col-2">
 
+                                <img src="<?php echo $_SESSION['photo'] ?>" class='w-100 p-4 h-100' alt="">
+
+                            </div>
+                            
                         </div>
 
                         <div class="form-row">
 
-                            <div class="form-group col-md-6">
-                                <label for="inputPassword4">Nombres:</label>
-                                <input type="password" class="form-control" id="inputPassword4">
-                            </div>
-
-                            <div class="form-group col-md-6">
-                                <label for="inputPassword4">Apellido:</label>
-                                <input type="password" class="form-control" id="inputPassword4">
-                            </div>
-
-                        </div>
-
-                        <div class="form-group">
-                            <label for="inputAddress">Dirección:</label>
-                            <input type="text" class="form-control" id="inputAddress" placeholder="Av. Lima #1202">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="inputAddress2">Referecia:</label>
-                            <input type="text" class="form-control" id="inputAddress2" placeholder="Departamento, barrio o piso">
-                        </div>
-                        <div class="form-row">
-                            <div class="form-group col-md-6">
-                            <label for="inputCity">City</label>
-                            <input type="text" class="form-control" id="inputCity">
-                            </div>
-                            <div class="form-group col-md-4">
-                            <label for="inputState">State</label>
-                            <select id="inputState" class="form-control">
-                                <option selected>Choose...</option>
-                                <option>...</option>
-                            </select>
-                            </div>
                             <div class="form-group col-md-2">
-                            <label for="inputZip">Zip</label>
-                            <input type="text" class="form-control" id="inputZip">
+                                <label for="inputAddress3">DNI:</label>
+                                <input type="text" class="form-control ls-20" id="inputAddress3" placeholder="88888888">
                             </div>
+
+                            <div class="form-group col-md-5">
+                                <label for="inputAddress">Dirección:</label>
+                                <input type="text" class="form-control" id="inputAddress" placeholder="Av. Lima #1202">
+                            </div>
+
+                            <div class="form-group col-md-5">
+                                <label for="inputAddress2">Referecia:</label>
+                                <input type="text" class="form-control" id="inputAddress2" placeholder="Departamento, barrio o piso">
+                            </div>
+
                         </div>
 
-                        <button type="submit" class="btn btn-primary">Guardar</button>
-                        <button type="submit" class="btn btn-primary">Cancelar</button>
+                        <button type="submit" class="btn btn-primary fw-600">Guardar</button>
+                        <button type="submit" class="btn btn-light ml-2">Cancelar</button>
 
                     </form>
 
 
-                    <form action="" class='form-panel' method = "post">
+                    <form action="" class='form-panel d-none' method = "post">
 
                     <?php foreach($consultaUsuario as $row) { ?>
                         <p>Nombres &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="nombre" value ="<?php echo $row['nombreusuario'] ?>"></p>
@@ -178,10 +185,10 @@
         </div>
     </main>
 
-    <script src="js/jquery-3.5.1.min.js"></script>
-    <script src="js/bootstrap.add.js"></script>
-    <script src="sweetalert/sweetalert210.js"></script>
-    <script src="js/script.js"></script>
+    <script src="../js/jquery-3.5.1.min.js"></script>
+    <script src="../js/bootstrap.add.js"></script>
+    <script src="../sweetalert/sweetalert210.js"></script>
+    <script src="../js/script.js"></script>
 
     <?php
         if ($errorAlert == 1) 

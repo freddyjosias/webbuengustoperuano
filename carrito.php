@@ -139,9 +139,9 @@ $consultaVerificarRestaurante = 'SELECT * FROM sucursal WHERE idsucursal = ?';
 
                 </div>
 
-                <div class="text-carrito">
+                <div class="text-carrito fw-500">
                         <ul>
-                            <li>Antes de hacer algún pedido, deberás actualizar tus datos. <a href="usuario.php"><button type="button" class="btn btn-info">Actualizar Datos</button></a></li>			
+                            <li>Antes de hacer algún pedido, deberás actualizar tus datos &nbsp; <a href="usuario.php" class="badge badge-info text-white">Actualizar Datos</a></li>			
                         </ul>
                 </div>
 

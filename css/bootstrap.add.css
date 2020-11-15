@@ -186,6 +186,10 @@
     letter-spacing: 1.5px;
 }
 
+.ls-20 {
+    letter-spacing: 2px;
+}
+
 .mb-6r {
     margin-bottom: 6rem;
 }
