@@ -1,8 +1,9 @@
 <?php
 
-    session_start();
-
     require '../conexion.php';
+    header('Cache-Control: no cache');
+    session_cache_limiter('private_no_expire');
+    session_start();
 
     if (isset($_SESSION['idusuario'])) {
 
@@ -120,6 +121,7 @@
     <link rel="stylesheet" href="../css/normalize.css">
     <link rel="stylesheet" type="text/css" href="../css/estilos.css">
     <link rel="stylesheet" type="text/css" href="../css/formularios.css">
+    <link rel="stylesheet" type="text/css" href="../css/responsivepanel.css">
 
 </head>
 
@@ -138,7 +140,7 @@
                     <div class='text-white fw-700 fs-30 col-12'>ADMINISTRADOR</div> 
                 </div>
                 
-                <div class="row w-80 m-auto">
+                <div class="row w-80 m-auto contenedor-panel-admin">
                     <h1 class='h3 text-center mt-5 mb-3 font-weight-bold w-100 this-is-admin'>ADMINISTRADORES</h1>
 
                     <form class='text-center w-100 mt-0 form-add-admin' method='post'>
@@ -198,7 +200,7 @@
 
                                         <input type="text" name='iddeleteadmin' value='<?php echo $val['idusuario'] ?>' class='d-none'>
 
-                                        <button class='btn btn-danger'>
+                                        <button class='btn btn-danger boton-eliminar'>
                                             <i class="far fa-trash-alt "></i> &nbsp; Eliminar
                                         </button>
 

@@ -134,6 +134,7 @@
     <link rel="stylesheet" href="../css/normalize.css">
     <link rel="stylesheet" type="text/css" href="../css/estilos.css">
     <link rel="stylesheet" type="text/css" href="../css/formularios.css">
+    <link rel="stylesheet" type="text/css" href="../css/responsivepanel.css">
 
 </head>
 <body>
@@ -152,7 +153,7 @@
                     <div class='text-white fw-700 fs-30 col-12'>ADMINISTRADOR</div> 
                 </div>
 
-                <div class="row w-80 m-auto">
+                <div class="row w-80 m-auto contenedor-panel-admin">
                     <h1 class='h3 text-center mt-5 font-weight-bold w-100 this-is-restaurant'>RESTAURANTES</h1>
 
                     <div class="btn-color-princi ml-auto">
@@ -193,7 +194,7 @@
 
                                             <input type="text" name='iddeletesucursal' value='<?php echo $val['idsucursal'] ?>' class='d-none'>
 
-                                            <button class='btn btn-danger'>
+                                            <button class='btn btn-danger boton-eliminar'>
                                                 <i class="far fa-trash-alt "></i> &nbsp; Eliminar
                                             </button>
 
