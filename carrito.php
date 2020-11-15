@@ -110,6 +110,10 @@ $consultaVerificarRestaurante = 'SELECT * FROM sucursal WHERE idsucursal = ?';
         <a href="index.php"><img src="img/logo-icon-512-color.png" alt=""></a>
     </div>
 
+    <div class='logo-icono right-2p d-none d-md-block'>
+        <a href="usuario.php"><img src="<?php echo $_SESSION['photo'] ?>" class='border rounded-circle' alt=""></a>
+    </div>
+
     <header class="header-restaurante">
         <div>
             <?php echo "<img src='".$bannerSucursal."' >" ?>

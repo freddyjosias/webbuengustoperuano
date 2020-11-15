@@ -24,6 +24,10 @@
                 <a href="index.php"><img src="img/logo-icon-512-color.png" alt=""></a>
             </div>
 
+            <div class='logo-icono mr-auto ml-3 d-block d-md-none position-static'>
+                <a href="usuario.php"><img src="<?php echo $_SESSION['photo'] ?>" class='border rounded-circle' alt=""></a>
+            </div>
+
             <div class='h-100 align-items-center'>
                 <div class="container m-0 p-0">
                     <p class="navbar-toggler w-auto no-select p-0 m-0" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
