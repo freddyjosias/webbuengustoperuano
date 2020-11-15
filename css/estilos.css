@@ -762,6 +762,7 @@ body {
 .car-no-item {
     width: 200px;
     height: 200px;
+    opacity: 0.7;
 }
 
 /*end añadir carrito*/

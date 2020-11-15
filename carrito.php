@@ -141,7 +141,7 @@ $consultaVerificarRestaurante = 'SELECT * FROM sucursal WHERE idsucursal = ?';
 
                 <div class="text-carrito">
                         <ul>
-                            <li>Antes de hacer algún pedido, deberás actualizar tus datos. <a href="usuario.php">Actualizar Datos</a></li>			
+                            <li>Antes de hacer algún pedido, deberás actualizar tus datos. <a href="usuario.php"><button type="button" class="btn btn-secondary">Actualizar Datos</button></a></li>			
                         </ul>
                 </div>
 
@@ -164,8 +164,8 @@ $consultaVerificarRestaurante = 'SELECT * FROM sucursal WHERE idsucursal = ?';
                                     if($cont == 0){ ?>
                                     <tbody>
                                         <img class="car-no-item mt-4" src="img/car-no-item.png" alt="">
-                                        <h1>No hay productos en tu carrito</h1>
-                                        <a href="hacerpedido.php?view=<?php echo $idRestaurante ?>">Seguir comprando</a>
+                                        <h4>No hay productos en tu carrito</h4>
+                                        <a href="hacerpedido.php?view=<?php echo $idRestaurante ?>"><button type="button" class="btn btn-primary mt-3">Seguir Comprando</button></a>
                                     </tbody>
                                    <?php }  else{                                   
                                     foreach($consultaCar as $producto) { ?>
