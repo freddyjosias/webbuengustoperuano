@@ -163,7 +163,11 @@ $consultaVerificarRestaurante = 'SELECT * FROM sucursal WHERE idsucursal = ?';
                                                             $Nproducto = $producto['precio']*$producto['quantity'];  
                                                             echo number_format($Nproducto, 2, '.', ' '); } ?>
                                                     </td>
-                                                    <td class='text-center'><a href="eliminarcarrito.php?id=<?php echo $producto['idproducto']; ?>&view=<?php echo $_GET['view'] ?>"><i class="far fa-trash-alt"></i></a></td>
+                                                    <td class='text-center px-0 py-2'>
+                                                    <a class="btn btn-danger" href="eliminarcarrito.php?id=<?php echo $producto['idproducto']; ?>&view=<?php echo $_GET['view'] ?>">
+                                                        <i class="far fa-trash-alt "></i> &nbsp; Eliminar 
+                                                    </a>
+                                                    </td>
                                             </tr>
                                         </tbody>
                                     <?php } ?>
