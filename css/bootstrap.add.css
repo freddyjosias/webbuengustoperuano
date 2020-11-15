@@ -34,6 +34,10 @@
     border-style: solid;
 }
 
+.border-grey {
+    border-color: gray;
+}
+
 .bottom-0 
 {
     bottom: 0;
@@ -237,6 +241,10 @@
 {
     padding-top: 2rem;
     padding-bottom: 2rem;
+}
+
+.pt-2r {
+    padding-top: 2rem;
 }
 
 .right-0 {

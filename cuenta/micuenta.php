@@ -115,22 +115,23 @@
                                 <div class="form-row mt-2">
 
                                     <div class="form-group col-md-6">
-                                        <label for="inputPassword4">Nombres:</label>
-                                        <input type="password" class="form-control" id="inputPassword4">
+                                        <label for="inputPassword6">Nombres:</label>
+                                        <input type="password" class="form-control" id="inputPassword6" >
                                     </div>
 
                                     <div class="form-group col-md-6">
-                                        <label for="inputPassword4">Apellido:</label>
-                                        <input type="password" class="form-control" id="inputPassword4">
+                                        <label for="inputPassword7">Apellido:</label>
+                                        <input type="password" class="form-control" id="inputPassword7" >
                                     </div>
 
                                 </div>
 
                             </div>
 
-                            <div class="col-2">
-
-                                <img src="<?php echo $_SESSION['photo'] ?>" class='w-100 p-4 h-100' alt="">
+                            <div class="col-2 row">
+                                <div class='border-grey border-5 mt-2r mb-2 ml-4 p-2 w-auto h-auto d-flex' >
+                                    <img src="<?php echo $_SESSION['photo'] ?>" class='w-auto  h-auto border-grey border-3 p-1' alt="">
+                                </div>
 
                             </div>
                             
