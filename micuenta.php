@@ -84,9 +84,76 @@
                 </div>
                 
                 <div class="row w-80 m-auto">
+
                     <h1 class='h3 text-center mt-5 mb-3 font-weight-bold w-100 this-is-my-dates'>MIS DATOS PERSONALES</h1>
 
-                    <h1>DATOS DEL USUSARIO</h1>
+                    <form>
+
+                        <div class="form-row">
+
+                            <div class="form-group col-md-6">
+                                <label for="inputEmail4">Correo electrónico:</label>
+
+                                <fieldset disabled class='m-0 p-0'>
+                                    <input type="email" id="disabledTextInput" class="form-control" value='Hola'>
+                                </fieldset>
+
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                <label for="inputPassword4">Contraseña:</label>
+                                <input type="password" class="form-control" id="inputPassword4">
+                            </div>
+
+                        </div>
+
+                        <div class="form-row">
+
+                            <div class="form-group col-md-6">
+                                <label for="inputPassword4">Nombres:</label>
+                                <input type="password" class="form-control" id="inputPassword4">
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                <label for="inputPassword4">Apellido:</label>
+                                <input type="password" class="form-control" id="inputPassword4">
+                            </div>
+
+                        </div>
+
+                        <div class="form-group">
+                            <label for="inputAddress">Dirección:</label>
+                            <input type="text" class="form-control" id="inputAddress" placeholder="Av. Lima #1202">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="inputAddress2">Referecia:</label>
+                            <input type="text" class="form-control" id="inputAddress2" placeholder="Departamento, barrio o piso">
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                            <label for="inputCity">City</label>
+                            <input type="text" class="form-control" id="inputCity">
+                            </div>
+                            <div class="form-group col-md-4">
+                            <label for="inputState">State</label>
+                            <select id="inputState" class="form-control">
+                                <option selected>Choose...</option>
+                                <option>...</option>
+                            </select>
+                            </div>
+                            <div class="form-group col-md-2">
+                            <label for="inputZip">Zip</label>
+                            <input type="text" class="form-control" id="inputZip">
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">Guardar</button>
+                        <button type="submit" class="btn btn-primary">Cancelar</button>
+
+                    </form>
+
+
                     <form action="" class='form-panel' method = "post">
 
                     <?php foreach($consultaUsuario as $row) { ?>
