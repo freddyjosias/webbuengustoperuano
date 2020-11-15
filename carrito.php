@@ -158,10 +158,17 @@ $consultaVerificarRestaurante = 'SELECT * FROM sucursal WHERE idsucursal = ?';
                                         </tr>
                                     </thead>
                                     <?php
-                                    if($cont == 0){
-                                        echo 'No hay produdctos elegidos';
-                                    } else{
-
+                                    if($cont == 0){ ?>
+                                    <tbody>
+                                        <tr class="trcarrito">
+                                            <td>NO</td>
+                                            <td>TIENE</td>
+                                            <td>PRODUCTOS</td>
+                                            <td>ELEGIDOS</td>
+                                            <td>CTM</td>
+                                        </tr>
+                                    </tbody>
+                                   <?php }  else{                                   
                                     foreach($consultaCar as $producto) { ?>
                                         <tbody>
                                             <tr class="trcarrito">
