@@ -269,6 +269,15 @@ $(function() {
         })
     } 
 
+    //MENU USUARIO
+
+    if ($('.this-is-my-dates').length > 1) {
+        $('.this-is-my-dates:first').css({
+            'background-color': '#969696',
+            'border': '1px solid white'
+        })
+    } 
+
 });
 
 $('.form-add-manager').hide();
