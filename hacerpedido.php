@@ -25,6 +25,7 @@
 
     }
 
+
     if (!isset($_GET['view'])) {
         header('Location: index.php');
     } else {
@@ -50,7 +51,9 @@
         if (!isset($idRestaurante)) {
             header('Location: index.php');
         } else {
-            
+
+            $errorAlert = 0;
+
             if(isset($_POST['addid'])){
                 $resultadosAnadir = $conexion -> prepare('SELECT idproducto FROM productos INNER JOIN categoriaproductos ON categoriaproductos.idcategoriaproducto = productos.idcategoriaproducto INNER JOIN sucursal ON sucursal.idsucursal = categoriaproductos.idsucursal WHERE sucursal.idsucursal = ? AND categoriaproductos.idsucursal = ? AND categoriaproductos.estado = 1 AND productos.estado = 1 AND productos.idproducto = ?');
                 $resultadosAnadir -> execute(array($_GET['view'], $_GET['view'], $_POST['addid']));
@@ -59,8 +62,12 @@
                 $resultado2 = $conexion -> prepare('INSERT INTO shop_car(idusuario, idproducto, quantity) VALUE(?, ?, ?)');
                 $resultado2 -> execute(array($_SESSION['idusuario'], $_POST['addid'], $_POST['addquantity']));
                 $resultado2 = $resultado2 -> fetchAll(PDO::FETCH_ASSOC);
-                
-            }
+
+                if ($resultadosAnadir) {
+                    $errorAlert = 1;
+                }
+            }        
+
             if($profileManager == true)  {
                 $consultaManager = $conexion -> prepare("SELECT access_id FROM access WHERE state = 1 AND idusuario = ? AND idsucursal = ?");
                 $consultaManager -> execute(array($_SESSION['idusuario'], $_GET['view']));
@@ -261,6 +268,7 @@
 
     <script src="js/jquery-3.5.1.min.js"></script>
     <script src="bootstrap/js/bootstrap.min.js"></script>
+    <script src="sweetalert/sweetalert210.js"></script>
     <script src="js/script.js"></script>
 </body>
 </html>
@@ -269,5 +277,20 @@
         }
 
     }
+    if ($errorAlert == 1) 
+        {
+            ?>
 
+            <script>
+
+                Swal.fire
+                ({
+                    icon: 'success',
+                    title: 'Su pedido fue correctamente añadido'
+                })
+
+            </script>
+                
+            <?php
+        }
 ?>
