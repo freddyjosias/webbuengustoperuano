@@ -223,7 +223,7 @@ $consultaVerificarRestaurante = 'SELECT * FROM sucursal WHERE idsucursal = ?';
                                     </div>
                                 </div>   
                                 <p>Pedido con la seguridad que nos caracteriza.</p>
-                                <button type="button" class="btn btn-outline-success">Realizar pedido</button>
+                                <button type="button" class="btn btn-outline-success">Realizar Pedido</button>
                         </form>
                     </div> 
                 </section>
