@@ -149,6 +149,8 @@ $consultaVerificarRestaurante = 'SELECT * FROM sucursal WHERE idsucursal = ?';
                         <form action="" method="post">
                                 <table class="table">
                                     <thead>
+                                    <?php
+                                    if($cont != 0){ ?>
                                         <tr>                   
                                             <th>Producto</th>
                                             <th>Cantidad</th>
@@ -156,17 +158,14 @@ $consultaVerificarRestaurante = 'SELECT * FROM sucursal WHERE idsucursal = ?';
                                             <th>Precio Total</th>
                                             <th>Más</th>
                                         </tr>
+                                    <?php } ?>
                                     </thead>
                                     <?php
                                     if($cont == 0){ ?>
                                     <tbody>
-                                        <tr class="trcarrito">
-                                            <td>NO</td>
-                                            <td>TIENE</td>
-                                            <td>PRODUCTOS</td>
-                                            <td>ELEGIDOS</td>
-                                            <td>CTM</td>
-                                        </tr>
+                                        <img class="car-no-item mt-4" src="img/car-no-item.png" alt="">
+                                        <h1>No hay productos en tu carrito</h1>
+                                        <a href="hacerpedido.php?view=<?php echo $idRestaurante ?>">Seguir comprando</a>
                                     </tbody>
                                    <?php }  else{                                   
                                     foreach($consultaCar as $producto) { ?>
@@ -189,6 +188,8 @@ $consultaVerificarRestaurante = 'SELECT * FROM sucursal WHERE idsucursal = ?';
                                             </tr>
                                         </tbody>
                                     <?php } } ?>
+                                    <?php
+                                    if($cont != 0){ ?>
                                     <thead>
                                         <tr>                   
                                             <th style="visibility: hidden"> Prueba</th>
@@ -203,7 +204,10 @@ $consultaVerificarRestaurante = 'SELECT * FROM sucursal WHERE idsucursal = ?';
                                     <td style="visibility: hidden"></td>
                                     <td>S/.</td>
                                     </tbody>
+                                    <?php } ?>
                                 </table>
+                                <?php
+                                if($cont != 0){ ?>
                                 <div class="contenedor-pedidos">
                                     <div class="btn-group-vertical direccion-tipos">
                                         <p>Tipos de pedido:</p>
@@ -224,6 +228,7 @@ $consultaVerificarRestaurante = 'SELECT * FROM sucursal WHERE idsucursal = ?';
                                 </div>   
                                 <p>Pedido con la seguridad que nos caracteriza.</p>
                                 <button type="button" class="btn btn-outline-primary">Realiza Pedido</button>
+                                <?php } ?>
                         </form>
                     </div> 
                 </section>
