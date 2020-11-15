@@ -146,7 +146,6 @@
 
             ?>
 
-
             <div class='container p-0 main-panel m-0 mw-85 w-85'>
 
                 <div class="line-top-panel row h-4r m-0 p-0 align-items-center">

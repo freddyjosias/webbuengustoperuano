@@ -235,6 +235,10 @@
     padding-bottom: 2rem;
 }
 
+.right-0 {
+    right: 0;
+}
+
 .rounded-left-15 {
     border-bottom-left-radius: 15px;
     border-top-left-radius: 15px;

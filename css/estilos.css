@@ -267,18 +267,6 @@ body {
 
 /* START QUIENES SOMOS */
 
-.photo-user-restaurant {
-    position: fixed;
-    z-index: 10;
-    top: 2px;
-    right: 2px;
-}
-
-.photo-user-restaurant img {
-    width: 3rem;
-    height: 3rem;
-}
-
 .logo-icono {
     position: fixed;
     z-index: 10;
@@ -289,6 +277,11 @@ body {
 .logo-icono img {
     width: 3.2rem;
     height: 3.2rem;
+}
+
+.right-2p {
+    right: 2px;
+    left: auto;
 }
 
 .introduccion-quienes-somos {
@@ -1242,7 +1235,7 @@ body {
 
 @media (max-width: 768px) {
     .logo-icono img {
-        margin: 0.3rem auto;
+        margin: 0.3rem 0;
         width: 35px;
         height: 35px;
     }
