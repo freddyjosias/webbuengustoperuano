@@ -278,12 +278,40 @@ $(function() {
         })
     } 
 
+    var countMenuPanel = 0;
     $('.button-show-menu-panel').click(function () 
     {
-        $('.container-menu-panel').css({
-            'transform': 'translate(0rem)',
-            'transition': 'transform .5s linear'
-        });    
+        if (countMenuPanel == 0) 
+        {
+            $('.container-menu-panel').css({
+                'transform': 'translate(0rem)',
+                'transition': 'transform .5s linear'
+            });
+            $('.container-button-menu').css({
+                'transform': 'translate(18rem)',
+                'transition': 'transform .5s linear'
+            });
+            countMenuPanel = 2;
+            setTimeout(() => {
+                countMenuPanel = 1;
+            }, 500);
+        } 
+        else if (countMenuPanel == 1) 
+        {
+            $('.container-menu-panel').css({
+                'transform': 'translate(-18rem)',
+                'transition': 'all .5s linear'
+            });
+            $('.container-button-menu').css({
+                'transform': 'translate(0rem)',
+                'transition': 'transform .5s linear'
+            });
+            countMenuPanel = 2;
+            setTimeout(() => {
+                countMenuPanel = 0;
+            }, 500);
+        }
+         
     })
 
     function showMenuPanel() 
@@ -291,8 +319,14 @@ $(function() {
         if (window.innerWidth < 1400) 
         {
             $('.container-menu-panel').css({
-                'transform': 'translate(-18rem)'
+                'transform': 'translate(-18rem)',
+                'transition': 'all .0s linear'
             });
+            $('.container-button-menu').css({
+                'transform': 'translate(0rem)',
+                'transition': 'transform .0s linear'
+            });
+            countMenuPanel = 0;
         } 
         else 
         {
