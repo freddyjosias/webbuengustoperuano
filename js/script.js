@@ -285,11 +285,11 @@ $(function() {
         {
             $('.container-menu-panel').css({
                 'transform': 'translate(0rem)',
-                'transition': 'transform .5s linear'
+                'transition': 'transform .3s linear'
             });
             $('.container-button-menu').css({
                 'transform': 'translate(18rem)',
-                'transition': 'transform .5s linear'
+                'transition': 'transform .3s linear'
             });
             countMenuPanel = 2;
             setTimeout(() => {
@@ -300,11 +300,11 @@ $(function() {
         {
             $('.container-menu-panel').css({
                 'transform': 'translate(-18rem)',
-                'transition': 'all .5s linear'
+                'transition': 'all .3s linear'
             });
             $('.container-button-menu').css({
                 'transform': 'translate(0rem)',
-                'transition': 'transform .5s linear'
+                'transition': 'transform .3s linear'
             });
             countMenuPanel = 2;
             setTimeout(() => {
