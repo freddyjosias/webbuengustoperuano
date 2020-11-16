@@ -99,7 +99,7 @@
             $gId = $account -> id;
             $gPhoto = $account -> picture;
 
-            $existUser = $conexion -> prepare('SELECT estado, photo FROM usuario WHERE idusuario = ? AND emailusuario = ?');
+            $existUser = $conexion -> prepare('SELECT estado FROM usuario WHERE idusuario = ? AND emailusuario = ?');
             $existUser -> execute(array($gId, $gMail));
             $existUser = $existUser -> fetch(PDO::FETCH_ASSOC);
             
