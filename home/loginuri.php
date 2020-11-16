@@ -25,13 +25,14 @@
             $resultados = $resultados -> fetchAll(PDO::FETCH_ASSOC);
 
             foreach($resultados as $row) { 
-                if ($row['emailusuario'] == $usuario && $row['contrasena'] == $clave) {
+                if ($row['emailusuario'] == $mail && $row['contrasena'] == $password) {
                     $datosErroneos = 0;
                     $_SESSION['idusuario'] = $row['idusuario'];
                     $_SESSION['email'] = $row['emailusuario'];
                     $_SESSION['nombreusuario'] = $row['nombreusuario'];
                     $_SESSION['apellidousuario'] = $row['apellidousuario'];
                     $_SESSION['profile'] = $row['id_profile']; 
+                    $_SESSION['photo'] = $row['photo'];
                     if ($row['id_profile'] == 2) {
 
                         $resultadosR = $conexion -> prepare('SELECT idsucursal FROM access WHERE idusuario = ?');
@@ -98,7 +99,7 @@
             $gId = $account -> id;
             $gPhoto = $account -> picture;
 
-            $existUser = $conexion -> prepare('SELECT estado FROM usuario WHERE idusuario = ? AND emailusuario = ?');
+            $existUser = $conexion -> prepare('SELECT estado, photo FROM usuario WHERE idusuario = ? AND emailusuario = ?');
             $existUser -> execute(array($gId, $gMail));
             $existUser = $existUser -> fetch(PDO::FETCH_ASSOC);
             
