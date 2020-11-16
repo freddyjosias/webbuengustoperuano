@@ -278,7 +278,45 @@ $(function() {
         })
     } 
 
+    $('.button-show-menu-panel').click(function () 
+    {
+        $('.container-menu-panel').css({
+            'transform': 'translate(0rem)',
+            'transition': 'transform .5s linear'
+        });    
+    })
+
+    function showMenuPanel() 
+    {
+        if (window.innerWidth < 1400) 
+        {
+            $('.container-menu-panel').css({
+                'transform': 'translate(-18rem)'
+            });
+        } 
+        else 
+        {
+            $('.container-menu-panel').css({
+                'transform': 'translate(0rem)'
+            });
+        }
+    }
+
+    showMenuPanel();
+
+    $(window).resize(function () 
+    {
+        showMenuPanel()
+    })
+
 });
+
+if (window.innerWidth < 1400) 
+{
+    $('.container-menu-panel').css({
+        'transform': 'translate(-18rem)'
+    });
+} 
 
 $('.form-add-manager').hide();
 $('.form-add-admin').hide();

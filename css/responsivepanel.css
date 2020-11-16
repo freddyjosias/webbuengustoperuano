@@ -1,58 +1,36 @@
 .nav-panel-options ul li a {
-    font-size: 13px;
+    font-size: 15px;
 }
 
-@media (max-width: 1125px) {
-    .img-panel-admin {
-        width: 35% !important;
-    }
-    .nav-panel-options ul li a {
-        font-size: 11px;
-    }
-    .contenedor-panel-admin {
-        width: 90%;
-    }
-    .contenedor-panel-admin h1 {
-        font-size: 24px;
-    }
-    .contenedor-panel-admin div a {
-        font-size: 15px;
-    }
-    .contenedor-panel-admin div form button {
-        font-size: 15px;
-    }
-    .contenedor-panel-admin table thead tr th {
-        font-size: 14px;
-    }
-    .contenedor-panel-admin table tbody tr td {
-        font-size: 14px;
-    }
+.container-menu-panel::-webkit-scrollbar {
+    width: 10px;   
 }
 
-@media (max-width: 996px) {
-    .nav-panel-options ul li a {
-        font-size: 8px;
-    }
-    .boton-eliminar {
-        font-size: 14px;
-    }
+.container-menu-panel::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 4px;
+    border: 1px solid grey;
 }
 
-@media (max-width: 892px) {
-    .menu-admin {
-        width: 20%;
-    }
-    .main-panel {
-        width: 80%;
-    }
-    .contenedor-panel-admin table tbody tr td {
-        padding-bottom: 0 !important;
-    }
+.container-menu-panel::-webkit-scrollbar-thumb:hover {
+    background: #b3b3b3;
+    box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.2);
 }
 
-@media (max-width: 800px) {
-    .boton-eliminar {
-        font-size: 10px;
-        text-align: center;
-    }
+.container-menu-panel::-webkit-scrollbar-thumb:active {
+    background-color: #999999;
+}
+
+.container-menu-panel::-webkit-scrollbar-track {
+    background: #e1e1e1;
+    border-radius: 4px;
+}
+
+.container-menu-panel::-webkit-scrollbar-track:hover,
+.container-menu-panel::-webkit-scrollbar-track:active {
+  background: #d4d4d4;
+}
+
+.translate-menu-panel-out {
+    transform: translate(-18rem);
 }
