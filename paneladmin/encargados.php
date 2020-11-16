@@ -202,7 +202,10 @@
             <div class='container p-0 main-panel ml-auto mr-0 my-0 mw-f19-85 mw-f18-84 mw-f17-83 mw-f16-82 mw-f15-81 mw-f14-80 mw-100'>
 
                 <div class="line-top-panel row h-4r m-0 p-0 align-items-center">
-                    <div class='text-white fw-700 fs-30 col-12'> <i class="fas fa-bars button-show-menu-panel d-f14-none d-inline"> &nbsp;</i>  ADMINISTRADOR</div> 
+                    <div class='container-button-menu text-white fw-700 fs-30 col-12 no-select'> 
+                        <i class="fas fa-bars button-show-menu-panel d-f14-none d-inline" role="button"> &nbsp;</i>  
+                        ADMINISTRADOR
+                    </div> 
                 </div>
                 
                 <div class="row w-f14-80 w-90 m-auto contenedor-panel-admin">
