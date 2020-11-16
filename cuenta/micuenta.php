@@ -44,11 +44,16 @@
             $resultados7 -> execute(array($_POST['dni'], $_SESSION['idusuario']));
         }
 
+        if (isset($_POST['referencia'])) {
+            $resultados7 = $conexion -> prepare('UPDATE usuario SET referenciausuario = ? WHERE idusuario = ?');
+            $resultados7 -> execute(array($_POST['referencia'], $_SESSION['idusuario']));
+        }
+
     }
 
     $consultaUsuario = $conexion -> prepare('SELECT * FROM usuario WHERE idusuario = ?');
     $consultaUsuario -> execute(array($_SESSION['idusuario']));
-    $consultaUsuario = $consultaUsuario -> fetchAll(PDO::FETCH_ASSOC);
+    $consultaUsuario = $consultaUsuario -> fetch(PDO::FETCH_ASSOC);
 
 ?>
 
@@ -88,7 +93,7 @@
 
                     <h1 class='h3 text-center mt-5 mb-3 font-weight-bold w-100 this-is-my-dates'>MIS DATOS PERSONALES</h1>
 
-                    <form class='w-100 fs-18'>
+                    <form class='w-100 fs-18' method="post">
 
                         <div class="row">
 
@@ -100,14 +105,14 @@
                                         <label for="inputEmail4">Correo electrónico:</label>
 
                                         <fieldset disabled class='m-0 p-0'>
-                                            <input type="email" id="disabledTextInput" class="form-control" value='Hola'>
+                                            <input type="email" id="disabledTextInput" class="form-control" value="<?php echo $consultaUsuario['emailusuario'] ?>">
                                         </fieldset>
 
                                     </div>
 
                                     <div class="form-group col-md-6">
                                         <label for="inputPassword4">Contraseña:</label>
-                                        <input type="password" class="form-control" id="inputPassword4">
+                                        <input type="password" class="form-control" id="inputPassword4" value="<?php echo $consultaUsuario['contrasena'] ?>" name="clave" required>
                                     </div>
 
                                 </div>
@@ -116,12 +121,12 @@
 
                                     <div class="form-group col-md-6">
                                         <label for="inputPassword6">Nombres:</label>
-                                        <input type="password" class="form-control" id="inputPassword6" >
+                                        <input type="text" class="form-control" id="inputPassword6" value="<?php echo $consultaUsuario['nombreusuario'] ?>" name="nombre">
                                     </div>
 
                                     <div class="form-group col-md-6">
                                         <label for="inputPassword7">Apellido:</label>
-                                        <input type="password" class="form-control" id="inputPassword7" >
+                                        <input type="text" class="form-control" id="inputPassword7" value="<?php echo $consultaUsuario['apellidousuario'] ?>" name="apellido">
                                     </div>
 
                                 </div>
@@ -141,23 +146,28 @@
 
                             <div class="form-group col-md-2">
                                 <label for="inputAddress3">DNI:</label>
-                                <input type="text" class="form-control ls-20" id="inputAddress3" placeholder="88888888">
+                                <input type="text" class="form-control ls-20" id="inputAddress3" placeholder="88888888" value="<?php echo $consultaUsuario['dniusuario'] ?>" name="dni">
                             </div>
 
                             <div class="form-group col-md-5">
                                 <label for="inputAddress">Dirección:</label>
-                                <input type="text" class="form-control" id="inputAddress" placeholder="Av. Lima #1202">
+                                <input type="text" class="form-control" id="inputAddress" placeholder="Av. Lima #1202" value="<?php echo $consultaUsuario['direccionusuario'] ?>" name="direccion">
                             </div>
 
                             <div class="form-group col-md-5">
                                 <label for="inputAddress2">Referecia:</label>
-                                <input type="text" class="form-control" id="inputAddress2" placeholder="Departamento, barrio o piso">
+                                <input type="text" class="form-control" id="inputAddress2" placeholder="Departamento, barrio o piso"  value="<?php echo $consultaUsuario['referenciausuario'] ?>" name="referencia">
+                            </div>
+
+                            <div class="form-group col-md-2">
+                                <label for="inputAddress2">Teléfono:</label>
+                                <input type="text" class="form-control" id="inputAddress2" placeholder="987 654 321"  value="<?php echo $consultaUsuario['telefonousuario'] ?>" name="telefono">
                             </div>
 
                         </div>
 
                         <button type="submit" class="btn btn-primary fw-600">Guardar</button>
-                        <button type="submit" class="btn btn-light ml-2">Cancelar</button>
+                        <button href="" class="btn btn-light ml-2">Cancelar</button>
 
                     </form>
 
