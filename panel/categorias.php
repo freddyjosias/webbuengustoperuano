@@ -84,7 +84,7 @@
 
             <?php require '../menu/menupanel.php'; ?>
 
-            <div class='container p-0 main-panel ml-auto mr-0 my-0 mw-f19-85 mw-f18-84 mw-f17-83 mw-f16-82 mw-f15-81 mw-f14-80 mw-100'>
+            <div class='container p-0 main-panel ml-auto mr-0 my-0 mw-f19-85 mw-f18-84 mw-f17-83 mw-f16-82 mw-f15-81 mw-f14-80 mw-100 z-index-auto'>
 
                 <div class="line-top-panel row h-4r m-0 py-0 px-4 justify-content-between align-items-center">
                     <div class='container-button-menu text-white fw-700 fs-30  no-select'> 

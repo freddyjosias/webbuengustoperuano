@@ -1,5 +1,4 @@
-
-<div class="container mw-15 w-15 nav-panel m-0 p-0">
+<div class="container-menu-panel container position-fixed overflow-auto h-100 w-f19-15 w-f18-16 w-f17-17 w-f16-18 w-f15-19 w-f14-20 w-18r nav-panel m-0 p-0  menu-admin z-index-7">
 
     <div class="row w-100 m-0 p-0 d-flex justify-content-center my-4">
 
