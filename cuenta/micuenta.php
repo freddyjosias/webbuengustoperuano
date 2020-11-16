@@ -83,13 +83,16 @@
                 require '../menu/menuusuario.php';
             ?>
 
-            <div class='container p-0 main-panel m-0 mw-85 w-85'>
+            <div class='container p-0 main-panel ml-auto mr-0 my-0 mw-f19-85 mw-f18-84 mw-f17-83 mw-f16-82 mw-f15-81 mw-f14-80 mw-100 z-index-auto'>
 
-                <div class="line-top-panel row h-4r m-0 p-0 align-items-center">
-                    <div class='text-white fw-700 fs-30 col-12'>MI CUENTA</div> 
+                <div class="line-top-panel row h-4r m-0 py-0 px-4 justify-content-between align-items-center">
+                    <div class='container-button-menu text-white fw-700 fs-30  no-select'> 
+                        <i class="fas fa-bars button-show-menu-panel d-f14-none d-inline" role="button"> &nbsp;</i>  
+                        MI CUENTA
+                    </div>
                 </div>
-                
-                <div class="row w-80 m-auto">
+
+                <div class="row w-f14-80 w-90 m-auto">
 
                     <h1 class='h3 text-center mt-5 mb-3 font-weight-bold w-100 this-is-my-dates'>MIS DATOS PERSONALES</h1>
 

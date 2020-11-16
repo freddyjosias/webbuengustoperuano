@@ -213,235 +213,242 @@
 
             <?php require '../menu/menupanel.php'; ?>
             
-            <div class='formulario-panel container p-0 main-panel m-0 mw-85 w-85'>
+            <div class='container p-0 main-panel ml-auto mr-0 my-0 mw-f19-85 mw-f18-84 mw-f17-83 mw-f16-82 mw-f15-81 mw-f14-80 mw-100 z-index-auto'>
 
-                <div class="line-top-panel row h-4r m-0 p-0 align-items-center">
-                    <div class='text-white fw-700 fs-30 col-12'>ENCARGADO</div> 
+                <div class="line-top-panel row h-4r m-0 py-0 px-4 justify-content-between align-items-center">
+                    <div class='container-button-menu text-white fw-700 fs-30  no-select'> 
+                        <i class="fas fa-bars button-show-menu-panel d-f14-none d-inline" role="button"> &nbsp;</i>  
+                        ENCARGADO
+                    </div>
                 </div>
 
-                <h1 class='h3 text-center mt-5 font-weight-bold w-100 this-is-about-us-page'>PÁGINA DE NOSOTROS</h1>
+                <div class="row w-f14-80 w-90 m-auto contenido-listar">
 
-                <form action="" class='form-panel mt-5' method ="post">
-                    <div class="formulario-restaurante">
-                        <div>
-                            <?php if (isset($_GET['editarnombre'])) { ?>
-                                <p>Nuevo nombre: <input value="<?php echo $consulta['nomsucursal']; ?>" type="text" name='res-actualizada' class='text-center'></p>
-                            <?php } else { ?>
-                                <p>Nombre: &nbsp;&nbsp; <?php echo $consulta['nomsucursal'] ?></p>
-                            <?php } ?>
-                        </div>
-                        <div>
-                            <?php if (isset($_GET['editarnombre'])) { ?>
-                                <input type="submit" value="Editar" class="btn btn-primary">
-                                <a href="restaurante.php?view=<?php echo $idRestaurante ?>" class="btn btn-danger">Cancelar</a>
-                            <?php } else { ?>
-                                <a href="restaurante.php?view=<?php echo $idRestaurante ?>&editarnombre=<?php echo $_GET['view']; ?>"><i class="far fa-edit"></i></a>
-                            <?php } ?>
-                        </div>
-                    </div>
+                    <h1 class='h3 text-center mt-5 font-weight-bold w-100 this-is-about-us-page'>PÁGINA DE NOSOTROS</h1>
 
-                    <div class="formulario-restaurante">
-                        <div>
-                            <?php if (isset($_GET['editartelefono'])) { ?>
-                                <p>Nuevo telefono: <input value="<?php echo $consulta['telefono']; ?>" type="text" name='tele-actualizada' class='text-center'></p>
-                            <?php } else { ?>
-                                <p>Telefono: &nbsp;&nbsp; <?php echo $consulta['telefono'] ?></p>
-                            <?php } ?>
+                    <form action="" class='form-panel mt-5' method ="post">
+                        <div class="formulario-restaurante">
+                            <div>
+                                <?php if (isset($_GET['editarnombre'])) { ?>
+                                    <p>Nuevo nombre: <input value="<?php echo $consulta['nomsucursal']; ?>" type="text" name='res-actualizada' class='text-center'></p>
+                                <?php } else { ?>
+                                    <p>Nombre: &nbsp;&nbsp; <?php echo $consulta['nomsucursal'] ?></p>
+                                <?php } ?>
+                            </div>
+                            <div>
+                                <?php if (isset($_GET['editarnombre'])) { ?>
+                                    <input type="submit" value="Editar" class="btn btn-primary">
+                                    <a href="restaurante.php?view=<?php echo $idRestaurante ?>" class="btn btn-danger">Cancelar</a>
+                                <?php } else { ?>
+                                    <a href="restaurante.php?view=<?php echo $idRestaurante ?>&editarnombre=<?php echo $_GET['view']; ?>"><i class="far fa-edit"></i></a>
+                                <?php } ?>
+                            </div>
                         </div>
-                        <div>
-                            <?php if (isset($_GET['editartelefono'])) { ?>
-                                <input type="submit" value="Editar" class="btn btn-primary">
-                                <a href="restaurante.php?view=<?php echo $idRestaurante ?>" class="btn btn-danger">Cancelar</a>
-                            <?php } else { ?>
-                                <a href="restaurante.php?view=<?php echo $idRestaurante ?>&editartelefono=<?php echo $_GET['view']; ?>"><i class="far fa-edit"></i></a>
-                            <?php } ?>
-                        </div>
-                    </div>
 
-                    <div class="formulario-restaurante">
-                        <div>
-                            <?php if (isset($_GET['editarcorreo'])) { ?>
-                                <p>Nuevo correo: <input value="<?php echo $consulta['correosucursal']; ?>" type="text" name='email-actualizada' class='text-center'></p>
-                            <?php } else { ?>
-                                <p>Correo: &nbsp;&nbsp; <?php echo $consulta['correosucursal'] ?></p>
-                            <?php } ?>
+                        <div class="formulario-restaurante">
+                            <div>
+                                <?php if (isset($_GET['editartelefono'])) { ?>
+                                    <p>Nuevo telefono: <input value="<?php echo $consulta['telefono']; ?>" type="text" name='tele-actualizada' class='text-center'></p>
+                                <?php } else { ?>
+                                    <p>Telefono: &nbsp;&nbsp; <?php echo $consulta['telefono'] ?></p>
+                                <?php } ?>
+                            </div>
+                            <div>
+                                <?php if (isset($_GET['editartelefono'])) { ?>
+                                    <input type="submit" value="Editar" class="btn btn-primary">
+                                    <a href="restaurante.php?view=<?php echo $idRestaurante ?>" class="btn btn-danger">Cancelar</a>
+                                <?php } else { ?>
+                                    <a href="restaurante.php?view=<?php echo $idRestaurante ?>&editartelefono=<?php echo $_GET['view']; ?>"><i class="far fa-edit"></i></a>
+                                <?php } ?>
+                            </div>
                         </div>
-                        <div>
-                            <?php if (isset($_GET['editarcorreo'])) { ?>
-                                <input type="submit" value="Editar" class="btn btn-primary">
-                                <a href="restaurante.php?view=<?php echo $idRestaurante ?>" class="btn btn-danger">Cancelar</a>
-                            <?php } else { ?>
-                                <a href="restaurante.php?view=<?php echo $idRestaurante ?>&editarcorreo=<?php echo $_GET['view']; ?>"><i class="far fa-edit"></i></a>
-                            <?php } ?>
-                        </div>
-                    </div>
-                    
-                    <div class="formulario-restaurante">
-                        <div>
-                            <?php if (isset($_GET['editardirec'])) { ?>
-                                <p>Nueva direccion: <input value="<?php echo $consulta['direcsucursal']; ?>" type="text" name='dire-actualizada' class='text-center'></p>
-                            <?php } else { ?>
-                                <p>Direccion: &nbsp;&nbsp; <?php echo $consulta['direcsucursal'] ?></p>
-                            <?php } ?>
-                        </div>
-                        <div>
-                            <?php if (isset($_GET['editardirec'])) { ?>
-                                <input type="submit" value="Editar" class="btn btn-primary">
-                                <a href="restaurante.php?view=<?php echo $idRestaurante ?>" class="btn btn-danger">Cancelar</a>
-                            <?php } else { ?>
-                                <a href="restaurante.php?view=<?php echo $idRestaurante ?>&editardirec=<?php echo $_GET['view']; ?>"><i class="far fa-edit"></i></a>
-                            <?php } ?>
-                        </div>
-                    </div>
 
-                    <div class="formulario-restaurante">
-                        <div>
-                            <?php if (isset($_GET['editarhorainicio'])) { ?>
-                                <p>Nueva hora de inicio de atención: <input value="<?php echo $consulta['horaatencioninicio'] ?>" type="time" name='horai-actualizada' class='text-center'></p>
-                            <?php } else { ?>
-                                <p>Hora inicio de atención: &nbsp;&nbsp; <?php echo $consulta['horaatencioninicio'] ?></p>
-                            <?php } ?>
+                        <div class="formulario-restaurante">
+                            <div>
+                                <?php if (isset($_GET['editarcorreo'])) { ?>
+                                    <p>Nuevo correo: <input value="<?php echo $consulta['correosucursal']; ?>" type="text" name='email-actualizada' class='text-center'></p>
+                                <?php } else { ?>
+                                    <p>Correo: &nbsp;&nbsp; <?php echo $consulta['correosucursal'] ?></p>
+                                <?php } ?>
+                            </div>
+                            <div>
+                                <?php if (isset($_GET['editarcorreo'])) { ?>
+                                    <input type="submit" value="Editar" class="btn btn-primary">
+                                    <a href="restaurante.php?view=<?php echo $idRestaurante ?>" class="btn btn-danger">Cancelar</a>
+                                <?php } else { ?>
+                                    <a href="restaurante.php?view=<?php echo $idRestaurante ?>&editarcorreo=<?php echo $_GET['view']; ?>"><i class="far fa-edit"></i></a>
+                                <?php } ?>
+                            </div>
                         </div>
-                        <div>
-                            <?php if (isset($_GET['editarhorainicio'])) { ?>
-                                <input type="submit" value="Editar" class="btn btn-primary">
-                                <a href="restaurante.php?view=<?php echo $idRestaurante ?>" class="btn btn-danger">Cancelar</a>
-                            <?php } else { ?>
-                                <a href="restaurante.php?view=<?php echo $idRestaurante ?>&editarhorainicio=<?php echo $_GET['view']; ?>"><i class="far fa-edit"></i></a>
-                            <?php } ?>
+                        
+                        <div class="formulario-restaurante">
+                            <div>
+                                <?php if (isset($_GET['editardirec'])) { ?>
+                                    <p>Nueva direccion: <input value="<?php echo $consulta['direcsucursal']; ?>" type="text" name='dire-actualizada' class='text-center'></p>
+                                <?php } else { ?>
+                                    <p>Direccion: &nbsp;&nbsp; <?php echo $consulta['direcsucursal'] ?></p>
+                                <?php } ?>
+                            </div>
+                            <div>
+                                <?php if (isset($_GET['editardirec'])) { ?>
+                                    <input type="submit" value="Editar" class="btn btn-primary">
+                                    <a href="restaurante.php?view=<?php echo $idRestaurante ?>" class="btn btn-danger">Cancelar</a>
+                                <?php } else { ?>
+                                    <a href="restaurante.php?view=<?php echo $idRestaurante ?>&editardirec=<?php echo $_GET['view']; ?>"><i class="far fa-edit"></i></a>
+                                <?php } ?>
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="formulario-restaurante">
-                        <div>
-                            <?php if (isset($_GET['editarhoracierre'])) { ?>
-                                <p>Nueva hora de cierre de atención: <input value="<?php echo $consulta['horaatencioncierre'] ?>" type="time" name = 'horac-actualizada' class='text-center'></p>
-                            <?php } else { ?>
-                                <p>Hora cierre de atención: &nbsp;&nbsp; <?php echo $consulta['horaatencioncierre'] ?></p>
-                            <?php } ?>
+                        <div class="formulario-restaurante">
+                            <div>
+                                <?php if (isset($_GET['editarhorainicio'])) { ?>
+                                    <p>Nueva hora de inicio de atención: <input value="<?php echo $consulta['horaatencioninicio'] ?>" type="time" name='horai-actualizada' class='text-center'></p>
+                                <?php } else { ?>
+                                    <p>Hora inicio de atención: &nbsp;&nbsp; <?php echo $consulta['horaatencioninicio'] ?></p>
+                                <?php } ?>
+                            </div>
+                            <div>
+                                <?php if (isset($_GET['editarhorainicio'])) { ?>
+                                    <input type="submit" value="Editar" class="btn btn-primary">
+                                    <a href="restaurante.php?view=<?php echo $idRestaurante ?>" class="btn btn-danger">Cancelar</a>
+                                <?php } else { ?>
+                                    <a href="restaurante.php?view=<?php echo $idRestaurante ?>&editarhorainicio=<?php echo $_GET['view']; ?>"><i class="far fa-edit"></i></a>
+                                <?php } ?>
+                            </div>
                         </div>
-                        <div>
-                            <?php if (isset($_GET['editarhoracierre'])) { ?>
-                                <input type="submit" value="Editar" class="btn btn-primary">
-                                <a href="restaurante.php?view=<?php echo $idRestaurante ?>" class="btn btn-danger">Cancelar</a>
-                            <?php } else { ?>
-                                <a href="restaurante.php?view=<?php echo $idRestaurante ?>&editarhoracierre=<?php echo $_GET['view']; ?>"><i class="far fa-edit"></i></a>
-                            <?php } ?>
-                        </div>
-                    </div>
 
-                    <div class="formulario-restaurante-te">
-                        <div class="formulario-tipoenvio">
-                            <p>Tipo de envio:</p>
+                        <div class="formulario-restaurante">
+                            <div>
+                                <?php if (isset($_GET['editarhoracierre'])) { ?>
+                                    <p>Nueva hora de cierre de atención: <input value="<?php echo $consulta['horaatencioncierre'] ?>" type="time" name = 'horac-actualizada' class='text-center'></p>
+                                <?php } else { ?>
+                                    <p>Hora cierre de atención: &nbsp;&nbsp; <?php echo $consulta['horaatencioncierre'] ?></p>
+                                <?php } ?>
+                            </div>
+                            <div>
+                                <?php if (isset($_GET['editarhoracierre'])) { ?>
+                                    <input type="submit" value="Editar" class="btn btn-primary">
+                                    <a href="restaurante.php?view=<?php echo $idRestaurante ?>" class="btn btn-danger">Cancelar</a>
+                                <?php } else { ?>
+                                    <a href="restaurante.php?view=<?php echo $idRestaurante ?>&editarhoracierre=<?php echo $_GET['view']; ?>"><i class="far fa-edit"></i></a>
+                                <?php } ?>
+                            </div>
                         </div>
-                        <div class="formulario-tipoenvio">
-                            <?php foreach($resultados1 as $row) { ?>
+
+                        <div class="formulario-restaurante-te">
+                            <div class="formulario-tipoenvio">
+                                <p>Tipo de envio:</p>
+                            </div>
+                            <div class="formulario-tipoenvio">
+                                <?php foreach($resultados1 as $row) { ?>
+                                    <?php
+                                        if($row['disponibilidadtipospedido'] == 1 ){?>
+                                            <p class='h3 font-weight-bold w-100'>Delivery</p>
+                                            <p><input type="radio" id="" name="delivery" value="1"checked> Habilitar</p>
+                                            <p><input type="radio" id="" name="delivery" value="0"> Desabilitar</p><?php
+                                        }else{?>
+                                            <p class='h3 font-weight-bold w-100'>Delivery</p>
+                                            <p><input type="radio" id="" name="delivery" value="1"> Habilitar</p>
+                                            <p><input type="radio" id="" name="delivery" value="0"checked> Desabilitar</p><?php
+                                        }?>
+                                <?php } ?>
+                            </div>
+                            <div class="formulario-tipoenvio">
+                                <?php foreach($resultados2 as $row) { ?>
+                                    <?php
+                                        if($row['disponibilidadtipospedido'] == 1 ){?>
+                                            <p class='h3 font-weight-bold w-100'>Recojo</p>
+                                            <p><input type="radio" id="" name="recojo" value="1"checked> Habilitar</p>
+                                            <p><input type="radio" id="" name="recojo" value="0"> Desabilitar</p><?php
+                                        }else{?>
+                                            <p class='h3 font-weight-bold w-100'>Recojo</p>
+                                            <p><input type="radio" id="" name="recojo" value="1"> Habilitar</p>
+                                            <p><input type="radio" id="" name="recojo" value="0"checked> Desabilitar</p><?php
+                                        }?>
+                                <?php } ?>
+                            </div>
+                            <div class="formulario-tipoenvio">
+                            <?php foreach($resultados3 as $row) { ?>
                                 <?php
                                     if($row['disponibilidadtipospedido'] == 1 ){?>
-                                        <p class='h3 font-weight-bold w-100'>Delivery</p>
-                                        <p><input type="radio" id="" name="delivery" value="1"checked> Habilitar</p>
-                                        <p><input type="radio" id="" name="delivery" value="0"> Desabilitar</p><?php
+                                        <p class='h3 font-weight-bold w-100'>Reserva</p>
+                                        <p><input type="radio" id="" name="reserva" value="1"checked> Habilitar</p>
+                                        <p><input type="radio" id="" name="reserva" value="0"> Desabilitar</p><?php
                                     }else{?>
-                                        <p class='h3 font-weight-bold w-100'>Delivery</p>
-                                        <p><input type="radio" id="" name="delivery" value="1"> Habilitar</p>
-                                        <p><input type="radio" id="" name="delivery" value="0"checked> Desabilitar</p><?php
-                                    }?>
-                            <?php } ?>
-                        </div>
-                        <div class="formulario-tipoenvio">
-                            <?php foreach($resultados2 as $row) { ?>
-                                <?php
-                                    if($row['disponibilidadtipospedido'] == 1 ){?>
-                                        <p class='h3 font-weight-bold w-100'>Recojo</p>
-                                        <p><input type="radio" id="" name="recojo" value="1"checked> Habilitar</p>
-                                        <p><input type="radio" id="" name="recojo" value="0"> Desabilitar</p><?php
-                                    }else{?>
-                                        <p class='h3 font-weight-bold w-100'>Recojo</p>
-                                        <p><input type="radio" id="" name="recojo" value="1"> Habilitar</p>
-                                        <p><input type="radio" id="" name="recojo" value="0"checked> Desabilitar</p><?php
-                                    }?>
-                            <?php } ?>
-                        </div>
-                        <div class="formulario-tipoenvio">
-                        <?php foreach($resultados3 as $row) { ?>
-                            <?php
-                                if($row['disponibilidadtipospedido'] == 1 ){?>
-                                    <p class='h3 font-weight-bold w-100'>Reserva</p>
-                                    <p><input type="radio" id="" name="reserva" value="1"checked> Habilitar</p>
-                                    <p><input type="radio" id="" name="reserva" value="0"> Desabilitar</p><?php
-                                }else{?>
-                                    <p class='h3 font-weight-bold w-100'>Reserva</p>
-                                    <p><input type="radio" id="" name="reserva" value="1"> Habilitar</p>
-                                    <p><input type="radio" id="" name="reserva" value="0"checked> Desabilitar</p><?php
-                                }?>
-                        <?php } ?> 
-                        </div>
-                        <div class="formulario-editar">
-                            <?php if (isset($_GET['editartipoenvio'])) { ?>
-                                <input type="submit" value="Editar" class="btn btn-primary">
-                                <a href="restaurante.php?view=<?php echo $idRestaurante ?>" class="btn btn-danger">Cancelar</a>
-                            <?php } else { ?>
-                                <a href="restaurante.php?view=<?php echo $idRestaurante ?>&editartipoenvio=<?php echo $_GET['view']; ?>"><i class="far fa-edit"></i></a>
-                            <?php } ?>
-                        </div>
-                    </div>
-
-                    <div class="formulario-restaurante-te">
-                        <div class="formulario-tipoenvio">
-                            <p>Formas de pago:</p>
-                        </div>
-                        <div class="formulario-tipoenvio">
-                            <?php foreach($resultado1 as $row) { ?>
-                                <?php
-                                    if($row['disponibilidadformaspago'] == 1 ){?>
-                                        <p class='h3 mt-5 font-weight-bold w-100'>Efectivo</p>
-                                        <p><input type="radio" id="" name="forma1" value="1"checked> Habilitar</p>
-                                        <p><input type="radio" id="" name="forma1" value="0"> Desabilitar</p><?php
-                                    }else{?>
-                                        <p class='h3 mt-5 font-weight-bold w-100'>Efectivo</p>
-                                        <p><input type="radio" id="" name="forma1" value="1"> Habilitar</p>
-                                        <p><input type="radio" id="" name="forma1" value="0"checked> Desabilitar</p><?php
-                                    }?>
-                            <?php } ?>
-                        </div>
-                        <div class="formulario-tipoenvio">
-                            <?php foreach($resultado2 as $row) { ?>
-                                <?php
-                                    if($row['disponibilidadformaspago'] == 1 ){?>
-                                        <p class='h3 mt-5 font-weight-bold w-100'>Online</p>
-                                        <p><input type="radio" id="" name="forma2" value="1"checked> Habilitar</p>
-                                        <p><input type="radio" id="" name="forma2" value="0"> Desabilitar</p><?php
-                                    }else{?>
-                                        <p class='h3 mt-5 font-weight-bold w-100'>Online</p>
-                                        <p><input type="radio" id="" name="forma2" value="1"> Habilitar</p>
-                                        <p><input type="radio" id="" name="forma2" value="0"checked> Desabilitar</p><?php
-                                    }?>
-                            <?php } ?>
-                        </div>
-                        <div class="formulario-tipoenvio">
-                            <?php foreach($resultado3 as $row) { ?>
-                                <?php
-                                    if($row['disponibilidadformaspago'] == 1 ){?>
-                                        <p class='h3 mt-5 font-weight-bold w-100'>POS</p>
-                                        <p><input type="radio" id="" name="forma3" value="1"checked> Habilitar</p>
-                                        <p><input type="radio" id="" name="forma3" value="0"> Desabilitar</p><?php
-                                    }else{?>
-                                        <p class='h3 mt-5 font-weight-bold w-100'>POS</p>
-                                        <p><input type="radio" id="" name="forma3" value="1"> Habilitar</p>
-                                        <p><input type="radio" id="" name="forma3" value="0"checked> Desabilitar</p><?php
+                                        <p class='h3 font-weight-bold w-100'>Reserva</p>
+                                        <p><input type="radio" id="" name="reserva" value="1"> Habilitar</p>
+                                        <p><input type="radio" id="" name="reserva" value="0"checked> Desabilitar</p><?php
                                     }?>
                             <?php } ?> 
+                            </div>
+                            <div class="formulario-editar">
+                                <?php if (isset($_GET['editartipoenvio'])) { ?>
+                                    <input type="submit" value="Editar" class="btn btn-primary">
+                                    <a href="restaurante.php?view=<?php echo $idRestaurante ?>" class="btn btn-danger">Cancelar</a>
+                                <?php } else { ?>
+                                    <a href="restaurante.php?view=<?php echo $idRestaurante ?>&editartipoenvio=<?php echo $_GET['view']; ?>"><i class="far fa-edit"></i></a>
+                                <?php } ?>
+                            </div>
                         </div>
-                        <div class="formulario-editar">
-                            <?php if (isset($_GET['editarformapago'])) { ?>
-                                <input type="submit" value="Editar" class="btn btn-primary">
-                                <a href="restaurante.php?view=<?php echo $idRestaurante ?>" class="btn btn-danger">Cancelar</a>
-                            <?php } else { ?>
-                                <a href="restaurante.php?view=<?php echo $idRestaurante ?>&editarformapago=<?php echo $_GET['view']; ?>"><i class="far fa-edit"></i></a>
-                            <?php } ?>
+
+                        <div class="formulario-restaurante-te">
+                            <div class="formulario-tipoenvio">
+                                <p>Formas de pago:</p>
+                            </div>
+                            <div class="formulario-tipoenvio">
+                                <?php foreach($resultado1 as $row) { ?>
+                                    <?php
+                                        if($row['disponibilidadformaspago'] == 1 ){?>
+                                            <p class='h3 mt-5 font-weight-bold w-100'>Efectivo</p>
+                                            <p><input type="radio" id="" name="forma1" value="1"checked> Habilitar</p>
+                                            <p><input type="radio" id="" name="forma1" value="0"> Desabilitar</p><?php
+                                        }else{?>
+                                            <p class='h3 mt-5 font-weight-bold w-100'>Efectivo</p>
+                                            <p><input type="radio" id="" name="forma1" value="1"> Habilitar</p>
+                                            <p><input type="radio" id="" name="forma1" value="0"checked> Desabilitar</p><?php
+                                        }?>
+                                <?php } ?>
+                            </div>
+                            <div class="formulario-tipoenvio">
+                                <?php foreach($resultado2 as $row) { ?>
+                                    <?php
+                                        if($row['disponibilidadformaspago'] == 1 ){?>
+                                            <p class='h3 mt-5 font-weight-bold w-100'>Online</p>
+                                            <p><input type="radio" id="" name="forma2" value="1"checked> Habilitar</p>
+                                            <p><input type="radio" id="" name="forma2" value="0"> Desabilitar</p><?php
+                                        }else{?>
+                                            <p class='h3 mt-5 font-weight-bold w-100'>Online</p>
+                                            <p><input type="radio" id="" name="forma2" value="1"> Habilitar</p>
+                                            <p><input type="radio" id="" name="forma2" value="0"checked> Desabilitar</p><?php
+                                        }?>
+                                <?php } ?>
+                            </div>
+                            <div class="formulario-tipoenvio">
+                                <?php foreach($resultado3 as $row) { ?>
+                                    <?php
+                                        if($row['disponibilidadformaspago'] == 1 ){?>
+                                            <p class='h3 mt-5 font-weight-bold w-100'>POS</p>
+                                            <p><input type="radio" id="" name="forma3" value="1"checked> Habilitar</p>
+                                            <p><input type="radio" id="" name="forma3" value="0"> Desabilitar</p><?php
+                                        }else{?>
+                                            <p class='h3 mt-5 font-weight-bold w-100'>POS</p>
+                                            <p><input type="radio" id="" name="forma3" value="1"> Habilitar</p>
+                                            <p><input type="radio" id="" name="forma3" value="0"checked> Desabilitar</p><?php
+                                        }?>
+                                <?php } ?> 
+                            </div>
+                            <div class="formulario-editar">
+                                <?php if (isset($_GET['editarformapago'])) { ?>
+                                    <input type="submit" value="Editar" class="btn btn-primary">
+                                    <a href="restaurante.php?view=<?php echo $idRestaurante ?>" class="btn btn-danger">Cancelar</a>
+                                <?php } else { ?>
+                                    <a href="restaurante.php?view=<?php echo $idRestaurante ?>&editarformapago=<?php echo $_GET['view']; ?>"><i class="far fa-edit"></i></a>
+                                <?php } ?>
+                            </div>
                         </div>
-                    </div>
-                </form>
+                    </form>
+                
+                </div>  
 
             </div>
 
