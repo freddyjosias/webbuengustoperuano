@@ -289,7 +289,7 @@
                 Swal.fire
                 ({
                     icon: 'success',
-                    title: 'Su pedido fue correctamente añadido'
+                    title: 'Acaba de agregar <?php echo $_POST['addquantity']; ?> productos a su carrito'
                 })
 
             </script>
