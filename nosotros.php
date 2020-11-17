@@ -23,6 +23,7 @@
         }
 
     }
+    
 
     if (!isset($_GET['view'])) {
         header('Location: index.php');
@@ -91,6 +92,7 @@
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="fontawesome/css/all.min.css">
     <link rel="stylesheet" type="text/css" href="css/estilos.css">
+    <link rel="stylesheet" type="text/css" href="css/comentarios.css">
 </head>
 <body>
 
@@ -109,7 +111,18 @@
         
         <?php require 'menu/menurestaurants.php'; ?>
 
+        <div class="container-fluid p-0 d-none d-md-block">
+            <nav class="nav-restaurant z-index-7 mt-2r">
+                <ul>
+                    <li><a href="">Nosotros</a></li>
+                    <li><a href="comentarios.php?view=4">Comentarios</a></li>
+                </ul>
+            </nav>
+        </div>
+
 	</header>
+
+
 
     <main class="contenedor-general">
 

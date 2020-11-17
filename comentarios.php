@@ -123,7 +123,7 @@
         <div class="container-fluid p-0 d-none d-md-block">
             <nav class="nav-restaurant z-index-7 mt-2r">
                 <ul>
-                    <li><a href="">Nosotros</a></li>
+                    <li><a href="">Acerca de nosotros</a></li>
                     <li><a href="comentarios.php">Comentarios</a></li>
                 </ul>
             </nav>
@@ -156,7 +156,7 @@
                     </div>
 
                         <div class="btn-color-princi ml-auto">
-                            <a class="buttom-add-manager btn btn-primary bottom fw-600">Agregar Encargado</a>
+                            <a class="buttom-add-manager btn btn-primary bottom fw-600">Agregar Comentario</a>
                         </div>
 
                         <table class="table mt-4">
