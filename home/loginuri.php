@@ -46,6 +46,10 @@
             $resultUser = $conexion -> prepare('SELECT idusuario, nombreusuario, apellidousuario, photo, estado, contrasena FROM usuario WHERE emailusuario = ?');
             $resultUser -> execute(array($mail));
             $resultUser = $resultUser -> fetch(PDO::FETCH_ASSOC);
+
+            var_dump($resultUser); 
+            
+            die;
             
             if ($resultUser) 
             {
