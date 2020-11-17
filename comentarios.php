@@ -134,21 +134,19 @@
     <main>
          
                 <div class="row w-f14-80 w-90 m-auto contenedor-panel-admin">
-                    <h1 class='h3 text-center mt-5 mb-3 font-weight-bold w-100 this-is-manager'>ENCARGADOS</h1>
+                    <h1 class='h3 text-center mt-5 mb-3 font-weight-bold w-100 this-is-manager'>COMENTARIOS</h1>
 
                     <div class="col-12 form-add-manager">
                         
                         <form class='text-center w-100 mt-0' method='post'>
                                 <div class="form-group">
-                                    <label for="exampleFormControlInput1" class='d-flex'>Ingrese el email del nuevo encargado:</label>
-                                    <input type="email" name='emailaddmanager' class="form-control" id="exampleFormControlInput1" placeholder="name@example.com" value='<?php echo ($errorAlert == 1) ? $_POST['emailaddmanager'] : '' ?>' required>
+                                    <label for="exampleFormControlInput1" class='d-flex'>Escribe un comentario:</label>
                                 </div>
                                 <div class="form-group">
-                                    <label for="exampleFormControlSelect1" class='d-flex'>Escribir Texto:</label>
-                                    <textarea type="text" name="descripcion" name='' required></textarea>
-
-                                    </select>
+                                    <label for="exampleFormControlTextarea1"></label>
+                                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
                                 </div>
+
                             
                                 <div class='form-group d-flex'>
                                     <button type="button" class="cancel-add-manager btn btn-light ml-auto mt-3 mr-3">Cancelar</button>
@@ -172,35 +170,34 @@
     </main>
 
     
-    
-    <footer class="footer-inicio">
-        <div class='contenedor-general'>
-            <div>© 2020 Restaurante 1 SAC. Todos los derechos reservados</div>
-        </div>
-    </footer>
+                <footer class="footer-inicio">
+                    <div class='contenedor-general'>
+                        <div>© 2020 Restaurante 1 SAC. Todos los derechos reservados</div>
+                    </div>
+                </footer>
 
-    <div class="function-go-up ir-arriba">
-        <i class="fas fa-angle-up"></i>
-    </div>
-
-    <div class="submenu-bottom container-fluid position-fixed bottom-0 d-block d-lg-none border border-light border-bottom-0 border-right-0 border-left-0">
-
-        <div class="row text-center h-100">
-
-            <div class="col-6 fs-22 h-100 d-flex border-right">
-                <a href="index.php" class='text-white h-100 w-100 pt-1'><i class="fas fa-home"></i></a>
-            </div>
-
-            <div class="col-6 text-white fs-35">
-
-                <div class="function-go-up go-up h-100 d-flex top-0 justify-content-center w-100" role='button'>
+                <div class="function-go-up ir-arriba">
                     <i class="fas fa-angle-up"></i>
                 </div>
 
-            </div>
-        </div>
+                <div class="submenu-bottom container-fluid position-fixed bottom-0 d-block d-lg-none border border-light border-bottom-0 border-right-0 border-left-0">
 
-    </div>
+                    <div class="row text-center h-100">
+
+                        <div class="col-6 fs-22 h-100 d-flex border-right">
+                            <a href="index.php" class='text-white h-100 w-100 pt-1'><i class="fas fa-home"></i></a>
+                        </div>
+
+                        <div class="col-6 text-white fs-35">
+
+                            <div class="function-go-up go-up h-100 d-flex top-0 justify-content-center w-100" role='button'>
+                                <i class="fas fa-angle-up"></i>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
 
     <script src="js/jquery-3.5.1.min.js"></script>
     <script src="bootstrap/js/bootstrap.min.js"></script>
