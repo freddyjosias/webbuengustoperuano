@@ -23,6 +23,10 @@
 
     $consultaRestaurantes = 'SELECT idsucursal, nomsucursal, imgbienvenida FROM sucursal WHERE estado = 1';
 
+    if (isset($_POST['searchinput'])) {
+        header('Location: buscador/buscar.php?view='.$_POST['searchinput']);
+    }
+
 ?>
 
 <!DOCTYPE html>
