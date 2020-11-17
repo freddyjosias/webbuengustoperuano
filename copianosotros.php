@@ -27,7 +27,6 @@
 
     if (!isset($_GET['view'])) {
         header('Location: index.php');
-        
     } else {
 
         $consultaVerificarRestaurante = 'SELECT * FROM sucursal WHERE estado = 1';
@@ -78,14 +77,6 @@
                   }
               }
 
-              $resultadosR = $conexion -> prepare('SELECT idsucursal, nomsucursal FROM sucursal WHERE estado = 1');
-              $resultadosR -> execute();
-              $resultadosR = $resultadosR -> fetchAll(PDO::FETCH_ASSOC);
-          
-              $resultadosEn = $conexion -> prepare('SELECT a.idusuario, u.nombreusuario, u.apellidousuario, s.nomsucursal, u.emailusuario, s.idsucursal FROM access as a INNER JOIN usuario as u ON a.idusuario = u.idusuario INNER JOIN detail_usuario_profile as m ON a.idusuario = m.idusuario INNER JOIN sucursal as s ON s.idsucursal = a.idsucursal WHERE a.state = 1 AND s.estado = 1 AND m.state = 1 AND m.id_profile = 2 AND u.estado = 1 ORDER BY s.nomsucursal, u.nombreusuario');
-              $resultadosEn -> execute();
-              $resultadosEn = $resultadosEn -> fetchAll(PDO::FETCH_ASSOC);
-
 ?>
 
 <!DOCTYPE html>
@@ -94,7 +85,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link href="https://fonts.googleapis.com/css2?family=Dosis:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <title>Comentarios | <?php echo $nombresucursal ?></title>
+    <title>Nosotros | <?php echo $nombresucursal ?></title>
     <link rel="shorcut icon" href="img/logo-icon-512-color.png">
     <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/bootstrap.add.css">
@@ -124,68 +115,89 @@
             <nav class="nav-restaurant z-index-7 mt-2r">
                 <ul>
                     <li><a href="">Nosotros</a></li>
-                    <li><a href="comentarios.php">Comentarios</a></li>
+                    <li><a href="comentarios.php?view=1">Comentarios</a></li>
                 </ul>
             </nav>
         </div>
 
 	</header>
 
-    <main>
-        <div class="container-fluid panel-control mw-1920p p-0">
+
+
+    <main class="contenedor-general">
+
+        <div class="introduccion-quienes-somos pt-4 pb-3">
+            <p> Situado en el centro de Tarapoto, ofrecemos a nuestros clientes la experiencia de disfrutar de los productos tipicos y autóctonos de la selva peruana. Proponemos platos tipicos dinámico sujeto a la disponibilidad de los productos, tan cambiante e impredecible como puedan ser las condiciones climatológicas y la temporada, es por eso que nuestra carta esta a disponibilidad de todos nuestros clientes.</p>
+		</div>
+		
+		<div class="contenido-main-somos">
             
-
-            <div class='container p-0 main-panel ml-auto mr-0 my-0 mw-f19-85 mw-f18-84 mw-f17-83 mw-f16-82 mw-f15-81 mw-f14-80 mw-100 z-index-auto'>
-
-                
-                
-                <div class="row w-f14-80 w-90 m-auto contenedor-panel-admin">
-                    <h1 class='h3 text-center mt-5 mb-3 font-weight-bold w-100 this-is-manager'>ENCARGADOS</h1>
-
-                    <div class="col-12 form-add-manager">
-                        
-                        <form class='text-center w-100 mt-0' method='post'>
-                            <div class="form-group">
-                                <label for="exampleFormControlInput1" class='d-flex'>Ingrese el email del nuevo encargado:</label>
-                                <input type="email" name='emailaddmanager' class="form-control" id="exampleFormControlInput1" placeholder="name@example.com" value='<?php echo ($errorAlert == 1) ? $_POST['emailaddmanager'] : '' ?>' required>
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleFormControlSelect1" class='d-flex'>Escribir Texto:</label>
-                                <textarea type="text" name="descripcion" name='' required></textarea>
-
-                                </select>
-                            </div>
-                            
-                            <div class='form-group d-flex'>
-                                <button type="button" class="cancel-add-manager btn btn-light ml-auto mt-3 mr-3">Cancelar</button>
-                                <button class='btn btn-primary mt-3 px-4 fw-600'>Añadir</button>
-                            </div>
-
-                        </form>
-
-                    </div>
-
-                    <div class="btn-color-princi ml-auto">
-                        <a class="buttom-add-manager btn btn-primary bottom fw-600">Agregar Encargado</a>
-                    </div>
-
-                    <table class="table mt-4">
-                    <thead class='thead-light fs-18'>
-                        <tr>
-                            <th scope="col" class='text-center'>Comentarios Realizados:</th>
-
-                        </tr>
-                    </thead>
-                    </table>
+            <div class="div">
+                <div class="horariodeatencion">
+                    <h2 class='h5 text-uppercase fw-600 '>Horario de atención</h2>
+                    <ul>
+                        <li><p class='my-1'>Lunes a Domingo <?php echo $atencioninicioRestautante . ' - ' . $atencioncierreRestautante ?></p></li>
+                    </ul>
                 </div>
                 
-
+                <div class="telefono">
+                    <h2 class='h5 text-uppercase fw-600 '>Teléfono</h2>
+                    <ul>
+                        <li><p class='my-1'><?php echo $telefonoRestaurante; ?></p></li>
+                    </ul>
+                </div>
             </div>
+            
+            <div class="div">
+                <div class="ubicacion">
+                    <h2 class='h5 text-uppercase fw-600 '>Dirección</h2>
+                    <ul>
+                        <li><p class='my-1'><?php echo $ubicacionRestaurante;?></p></li>
+                    </ul>
+                </div>
 
+                <div class="correoelectronico">
+                    <h2 class='h5 text-uppercase fw-600 '>Correo electrónico</h2>
+                    <ul>
+                        <li><p class='my-1'><?php echo $correoRestaurante; ?></p></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="div">
+                <div class="formadepago">
+                    <h2 class='h5 text-uppercase fw-600 '>Tipos de envió</h2>
+                    <ul>
+                        <?php $resultados = $conexion -> prepare($consultaFormaPago);
+                        $resultados -> execute();
+                        $resultados = $resultados -> fetchAll(PDO::FETCH_ASSOC);
+                        foreach($resultados as $row) {?>
+                            <li><p class='my-1'><?php echo $row['descripciontipospedido'] ?></p></li>
+                        <?php } ?>
+                </ul>
+                </div>
+
+                <div class="gastosdeenvio">
+                    <h2 class='h5 text-uppercase fw-600 '>Forma de pagos</h2>
+                    <ul>
+                        <?php $resultados = $conexion -> prepare($consultaTipoPago);
+                        $resultados -> execute(array($_GET['view']));
+                        $resultados = $resultados -> fetchAll(PDO::FETCH_ASSOC);
+                        foreach($resultados as $row) {?>
+                            <li><p class='my-1'><?php echo $row['descripcionformaspago'] ?></p></li>
+                        <?php } ?>
+                    </ul>
+                </div>
+            </div>
+         
         </div>
-    </main>
 
-    
+        <div class="mapa-quienes-somos">    
+            <h3 class='mt-3 mb-4'>Nos Encontramos Aquí</h3>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d9428.608432958468!2d-76.36468223737711!3d-6.49107291844111!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x91ba0c062708ad1d%3A0x470eec16e5498700!2sPlaza%20de%20Armas%20de%20Tarapoto!5e0!3m2!1ses-419!2spe!4v1600025859915!5m2!1ses-419!2spe"  style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+        </div>	
+                    
+    </main>
     
     <footer class="footer-inicio">
         <div class='contenedor-general'>
