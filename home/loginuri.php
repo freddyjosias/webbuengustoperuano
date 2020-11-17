@@ -51,7 +51,7 @@
             {
                 if ($resultUser['estado'] == 1) 
                 {
-                    if (strlen($resultUser['contrasena']) > 0) 
+                    if (strlen($resultUser['contrasena']) < 1) 
                     {
                         if ($password == $resultUser['contrasena']) 
                         {
