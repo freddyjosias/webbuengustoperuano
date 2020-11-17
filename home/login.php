@@ -84,7 +84,7 @@
                                     <img src="img/logo-icon-512-color.png" alt="" class="">
                                 </div>
                                 <h1 class="w-100 mt-2">Buen Gusto Peruano</h1>
-                                <h6 class="mx-5r ls-13">El mayor secreto del éxito es lograr probar lo que más te gusta y permitir que la comida haga su lucha en tu interior. 
+                                <h6 class="mx-5r ls-13 fs-17">
                                 Ingresa y podrás acceder a una cadena de restaurantes con los platillos más deliciosos e agradables de la región San Martín.</h6>
                             </div>
                         </div>
@@ -100,21 +100,116 @@
     <script src="js/script.js"></script>
 
     <?php
-        if (isset($_SESSION['invaliduser'])) {
-            unset($_SESSION['invaliduser']);
-            ?>
+        if (isset($_SESSION['errorlogin'])) {
 
-            <script>
+            if ($_SESSION['errorlogin'] == 1024) 
+            {
+                unset($_SESSION['errorlogin']);
+                ?>
 
-                Swal.fire
-                ({
-                    icon: 'error',
-                    title: 'Usuario y contraseña incorrecta'
-                })
+                <script>
 
-            </script>
-                
-            <?php
+                    Swal.fire
+                    ({
+                        icon: 'error',
+                        title: 'No existe ninguna cuenta vinculada al correo ingresado',
+                        text: 'Si eres nuevo primero tienes que crearte una cuenta con Google'
+                    })
+
+                </script>
+                    
+                <?php
+            }
+            else if ($_SESSION['errorlogin'] == 1036) 
+            {
+                unset($_SESSION['errorlogin']);
+                ?>
+
+                <script>
+
+                    Swal.fire
+                    ({
+                        icon: 'warning',
+                        title: 'Su cuenta se encuentra deshabilitada',
+                        text: 'Inicie sesión  con Google para volver activarlo'
+                    })
+
+                </script>
+                    
+                <?php
+            }
+            else if ($_SESSION['errorlogin'] = 1048) 
+            {
+                unset($_SESSION['errorlogin']);
+                ?>
+
+                <script>
+
+                    Swal.fire
+                    ({
+                        icon: 'warning',
+                        title: 'Usted aun no establece una contraseña',
+                        text: 'Para iniciar sesión con correo y contraseña inicie sesión con Google y cree una contraseña para su cuenta'
+                    })
+
+                </script>
+                    
+                <?php
+            }
+            else if ($_SESSION['errorlogin'] = 1060) 
+            {
+                unset($_SESSION['errorlogin']);
+                ?>
+
+                <script>
+
+                    Swal.fire
+                    ({
+                        icon: 'error',
+                        title: 'Contraseña Incorrecta'
+                    })
+
+                </script>
+                    
+                <?php
+            }
+        }
+        else if(isset($_SESSION['enableaccount'][0]))
+        {   
+            $_SESSION['enableaccount'][1]++;
+
+            if ($_SESSION['enableaccount'][1] > 1) 
+            {
+                unset($_SESSION['enableaccount']);
+            }
+            else
+            {
+            
+                ?>
+
+                <script>
+
+                    Swal.fire
+                    ({
+                        icon: 'info',
+                        text: 'Tu cuenta actualmente se encienta deshabilitada',
+                        title: '¿Desea habilitar su cuenta?',
+                        showCancelButton: true,
+                        confirmButtonColor: '#3085d6',
+                        cancelButtonColor: '#d33',
+                        confirmButtonText: 'Si, habilítalo!',
+                        cancelButtonText: 'No'
+                    }).then((result) => {
+                        if (result.isConfirmed) 
+                        {
+                            location.href ="home/loginuri.php?enable=true";
+                        }
+                    })
+
+                </script>
+                    
+                <?php
+            }
         }
     ?>
 

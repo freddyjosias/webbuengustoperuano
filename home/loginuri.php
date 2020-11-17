@@ -1,65 +1,91 @@
 <?php
 
-    if (file_exists('../conexion.php')) {
+    if (file_exists('../conexion.php')) 
+    {
         require_once '../conexion.php';
-    }
 
+        session_start();
+
+        if (isset($_SESSION['enableaccount'][0])) 
+        {
+            $_SESSION['enableaccount'][1]++;
+
+            if ($_SESSION['enableaccount'][1] == 2 && isset($_GET['enable'])) 
+            {
+                $enableAccount = $conexion -> prepare('UPDATE usuario SET estado = 1 WHERE idusuario = ?');
+                $enableAccount -> execute(array($_SESSION['enableaccount'][0]));
+                
+                $loginUser = $conexion -> prepare('SELECT nombreusuario, apellidousuario, photo FROM usuario WHERE idusuario = ?');
+                $loginUser -> execute(array($_SESSION['enableaccount'][0]));
+                $loginUser = $loginUser -> fetch(PDO::FETCH_ASSOC);
+
+                $_SESSION['idusuario'] = $_SESSION['enableaccount'][0];
+                $_SESSION['nombreusuario'] = $loginUser['nombreusuario'];
+                $_SESSION['apellidousuario'] = $loginUser['apellidousuario'];
+                $_SESSION['photo'] = $loginUser['photo'];
+
+                unset($_SESSION['enableaccount']);
+                header("Location: ../");
+            }
+
+            if ($_SESSION['enableaccount'][1] > 1) 
+            {
+                unset($_SESSION['enableaccount']);
+            }
+        }
+
+    }
+    
     if (isset($_POST['useremail'])) {
 
         if (strlen($_POST['useremail']) > 0 && strlen($_POST['userpassword']) > 0) {
 
-            session_start();
-
             $mail = $_POST['useremail'];
             $password = $_POST['userpassword'];
 
-            $resultUser = $conexion -> prepare('SELECT idusuario, nombreusuario, apellidousuario, idprofile FROM access INNER JOIN usuario ON usuario.i WHERE estado = 1 AND emailusuario = ? AND contrasena = ?');
-            //$resultUser =
-
-            $resultados = $conexion -> prepare($consultaUsuario);
-
-            $consultaUsuario = 'SELECT * FROM usuario WHERE estado = 1 OR estado = 2';
-            $datosErroneos = 1;
-            $resultados = $conexion -> prepare($consultaUsuario);
-            $resultados -> execute();
-            $resultados = $resultados -> fetchAll(PDO::FETCH_ASSOC);
-
-            foreach($resultados as $row) { 
-                if ($row['emailusuario'] == $mail && $row['contrasena'] == $password) {
-                    $datosErroneos = 0;
-                    $_SESSION['idusuario'] = $row['idusuario'];
-                    $_SESSION['email'] = $row['emailusuario'];
-                    $_SESSION['nombreusuario'] = $row['nombreusuario'];
-                    $_SESSION['apellidousuario'] = $row['apellidousuario'];
-                    $_SESSION['profile'] = $row['id_profile']; 
-                    $_SESSION['photo'] = $row['photo'];
-                    if ($row['id_profile'] == 2) {
-
-                        $resultadosR = $conexion -> prepare('SELECT idsucursal FROM access WHERE idusuario = ?');
-                        $resultadosR -> execute(array($row['idusuario']));
-                        $resultadosR = $resultadosR -> fetchAll(PDO::FETCH_ASSOC);
-                        $_SESSION['sucursal'] = $resultadosR[0]['idsucursal'];
-
-                        header('Location: ../nosotros.php?view=' . $resultadosR[0]['idsucursal']);
-                        die;
-
+            $resultUser = $conexion -> prepare('SELECT idusuario, nombreusuario, apellidousuario, photo, estado, contrasena FROM usuario WHERE emailusuario = ?');
+            $resultUser -> execute(array($mail));
+            $resultUser = $resultUser -> fetch(PDO::FETCH_ASSOC);
+            
+            if ($resultUser) 
+            {
+                if ($resultUser['estado'] == 1) 
+                {
+                    if (strlen($resultUser['contrasena']) > 0) 
+                    {
+                        if ($password == $resultUser['contrasena']) 
+                        {
+                            $_SESSION['idusuario'] = $existUser['idusuario'];
+                            $_SESSION['nombreusuario'] = $existUser['nombreusuario'];
+                            $_SESSION['apellidousuario'] = $existUser['apellidousuario'];
+                            $_SESSION['photo'] = $existUser['photo'];
+                            header("Location: ../");
+                        }
+                        else
+                        {
+                            $_SESSION['errorlogin'] = 1060;
+                        }
+                        
+                    } 
+                    else
+                    {
+                        $_SESSION['errorlogin'] = 1048;
                     }
                     
-                    break;
                 }
+                else
+                {
+                    $_SESSION['errorlogin'] = 1036;
+                }
+            } 
+            else 
+            {
+                $_SESSION['errorlogin'] = 1024;
             }
-            
-            if ($datosErroneos) {
-                $_SESSION['invaliduser'] = true;
-            }
-
-            header('Location: ../');
-            die;
-
         }
     }
-
-    if ($_SERVER['REQUEST_URI'] == '/webbuengustoperuano/home/loginuri.php')
+    
+    if ($_SERVER['PHP_SELF'] == '/webbuengustoperuano/home/loginuri.php')
     {
         header('Location: ../');
     } 
@@ -84,8 +110,6 @@
     if (isset($_GET['code'])) 
     {
         $token =  $client->fetchAccessTokenWithAuthCode($_GET['code']);
-
-        session_start();
         
         if (!isset($token['error'])) {
 
@@ -94,12 +118,10 @@
             $account = $authorization -> userinfo -> get();
             
             $gMail = $account -> email;
-            $gName = $account -> givenName;
-            $gLastName = $account -> familyName;
             $gId = $account -> id;
-            $gPhoto = $account -> picture;
+            
 
-            $existUser = $conexion -> prepare('SELECT estado FROM usuario WHERE idusuario = ? AND emailusuario = ?');
+            $existUser = $conexion -> prepare('SELECT estado, nombreusuario, apellidousuario, photo FROM usuario WHERE idusuario = ? AND emailusuario = ?');
             $existUser -> execute(array($gId, $gMail));
             $existUser = $existUser -> fetch(PDO::FETCH_ASSOC);
             
@@ -108,26 +130,29 @@
                 if ($existUser['estado'] == 1) 
                 {
                     $_SESSION['idusuario'] = $gId;
-                    $_SESSION['email'] = $gMail;
-                    $_SESSION['nombreusuario'] = $gName;
-                    $_SESSION['apellidousuario'] = $gLastName;
-                    $_SESSION['photo'] = $gPhoto;
+                    $_SESSION['nombreusuario'] = $existUser['nombreusuario'];
+                    $_SESSION['apellidousuario'] = $existUser['apellidousuario'];
+                    $_SESSION['photo'] = $existUser['photo'];
                     header("Location: ../");
                 }
                 else
                 {
-                    echo 'Usuario Eliminado';
+                    $_SESSION['enableaccount'] = array($gId, 0);
+                    header("Location: ../");
                 }
             } 
             else 
             {
+                $gName = $account -> givenName;
+                $gLastName = $account -> familyName;
+                $gPhoto = $account -> picture;
+
                 $newUser = $conexion -> prepare("INSERT INTO usuario(idusuario, emailusuario, nombreusuario, apellidousuario, photo) VALUES(?, ?, ?, ?, ?)");
                 $newUser = $newUser -> execute(array($gId, $gMail, $gName, $gLastName, $gPhoto));
-                var_dump($account);
+                
                 if($newUser)
                 {
                     $_SESSION['idusuario'] = $gId;
-                    $_SESSION['email'] = $gMail;
                     $_SESSION['nombreusuario'] = $gName;
                     $_SESSION['apellidousuario'] = $gLastName;
                     $_SESSION['photo'] = $gPhoto;
@@ -135,7 +160,7 @@
                 }
                 else
                 {
-                    echo "Algo ha salido mal en el New User";
+                    echo "Algo ha salido mal";
                 }
             }
 
