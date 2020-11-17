@@ -37,8 +37,8 @@
     $sucursalSearch1 = $sucursalSearch1 -> fetchAll(PDO::FETCH_ASSOC);
 
     $sucursalSearch2 = $conexion -> prepare(
-        'SELECT c.idsucursal, c.idcategoriaproducto, c.descripcioncategoriaproducto, p.idproducto, p.nomproducto 
-         FROM productos AS p INNER JOIN categoriaproductos AS c ON p.idcategoriaproducto = c.idcategoriaproducto
+        'SELECT c.idsucursal, s.nomsucursal, c.idcategoriaproducto, c.descripcioncategoriaproducto, p.idproducto, p.nomproducto 
+         FROM productos AS p INNER JOIN categoriaproductos AS c ON p.idcategoriaproducto = c.idcategoriaproducto INNER JOIN sucursal AS s ON c.idsucursal = s.idsucursal
          WHERE p.nomproducto LIKE "%' . $_GET['view'] . '%" AND p.estado = 1');
     $sucursalSearch2 -> execute();
     $sucursalSearch2 = $sucursalSearch2 -> fetchAll(PDO::FETCH_ASSOC);
@@ -110,7 +110,7 @@
                     <h3 class="h3 fw-600">Productos</h3>
                         <div class="text-center m-auto">
                             <?php foreach ($sucursalSearch2 as $row) { ?>
-                                <p class="w-100 pt-1 fw-600 m-auto d-flex text-center">(<?php echo $row['descripcioncategoriaproducto']; ?>)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p><a class="text-dark text-decoration-none" href="../hacerpedido.php?view=<?php echo $row['idsucursal'] ?>"><?php echo $row['nomproducto'] ?></a>
+                                <p class="w-100 pt-1 fw-600 m-auto d-flex text-center">(<?php echo $row['nomsucursal']; ?>)(<?php echo $row['descripcioncategoriaproducto']; ?>)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p><a class="text-dark text-decoration-none" href="../hacerpedido.php?view=<?php echo $row['idsucursal'] ?>"><?php echo $row['nomproducto'] ?></a>
                             <?php } ?>
                         </div>
                 </div>
