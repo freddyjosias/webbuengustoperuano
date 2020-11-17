@@ -11,7 +11,7 @@
         foreach ($sucursalSearch as $key) 
         {
             ?>
-            <a class="dropdown-item" href="#"><?php echo $key['nomsucursal'] ?></a>
+            <a class="dropdown-item" href="nosotros.php?view=<?php echo $key['idsucursal'] ?>"><?php echo $key['nomsucursal'] ?></a>
             <?php
         }
     }

@@ -95,9 +95,6 @@
             </form>
 
             <div class="dropdown-menu" aria-labelledby="searchinput" id='resultsearch'>
-                <a class="dropdown-item" href="#">Action</a>
-                <a class="dropdown-item" href="#">Another action</a>
-                <a class="dropdown-item" href="#">Something else here</a>
             </div>
 
         </div>
