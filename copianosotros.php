@@ -115,7 +115,7 @@
             <nav class="nav-restaurant z-index-7 mt-2r">
                 <ul>
                     <li><a href="">Nosotros</a></li>
-                    <li><a href="comentarios.php?view=1">Comentarios</a></li>
+                    <li><a href="comentarios.php?view=4">Comentarios</a></li>
                 </ul>
             </nav>
         </div>

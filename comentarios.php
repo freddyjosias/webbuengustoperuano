@@ -132,57 +132,43 @@
 	</header>
 
     <main>
-        <div class="container-fluid panel-control mw-1920p p-0">
-            
-
-            <div class='container p-0 main-panel ml-auto mr-0 my-0 mw-f19-85 mw-f18-84 mw-f17-83 mw-f16-82 mw-f15-81 mw-f14-80 mw-100 z-index-auto'>
-
-                
-                
+         
                 <div class="row w-f14-80 w-90 m-auto contenedor-panel-admin">
                     <h1 class='h3 text-center mt-5 mb-3 font-weight-bold w-100 this-is-manager'>ENCARGADOS</h1>
 
                     <div class="col-12 form-add-manager">
                         
                         <form class='text-center w-100 mt-0' method='post'>
-                            <div class="form-group">
-                                <label for="exampleFormControlInput1" class='d-flex'>Ingrese el email del nuevo encargado:</label>
-                                <input type="email" name='emailaddmanager' class="form-control" id="exampleFormControlInput1" placeholder="name@example.com" value='<?php echo ($errorAlert == 1) ? $_POST['emailaddmanager'] : '' ?>' required>
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleFormControlSelect1" class='d-flex'>Escribir Texto:</label>
-                                <textarea type="text" name="descripcion" name='' required></textarea>
+                                <div class="form-group">
+                                    <label for="exampleFormControlInput1" class='d-flex'>Ingrese el email del nuevo encargado:</label>
+                                    <input type="email" name='emailaddmanager' class="form-control" id="exampleFormControlInput1" placeholder="name@example.com" value='<?php echo ($errorAlert == 1) ? $_POST['emailaddmanager'] : '' ?>' required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleFormControlSelect1" class='d-flex'>Escribir Texto:</label>
+                                    <textarea type="text" name="descripcion" name='' required></textarea>
 
-                                </select>
-                            </div>
+                                    </select>
+                                </div>
                             
-                            <div class='form-group d-flex'>
-                                <button type="button" class="cancel-add-manager btn btn-light ml-auto mt-3 mr-3">Cancelar</button>
-                                <button class='btn btn-primary mt-3 px-4 fw-600'>Añadir</button>
-                            </div>
-
+                                <div class='form-group d-flex'>
+                                    <button type="button" class="cancel-add-manager btn btn-light ml-auto mt-3 mr-3">Cancelar</button>
+                                    <button class='btn btn-primary mt-3 px-4 fw-600'>Añadir</button>
+                                </div>
                         </form>
-
                     </div>
 
-                    <div class="btn-color-princi ml-auto">
-                        <a class="buttom-add-manager btn btn-primary bottom fw-600">Agregar Encargado</a>
-                    </div>
+                        <div class="btn-color-princi ml-auto">
+                            <a class="buttom-add-manager btn btn-primary bottom fw-600">Agregar Encargado</a>
+                        </div>
 
-                    <table class="table mt-4">
-                    <thead class='thead-light fs-18'>
-                        <tr>
-                            <th scope="col" class='text-center'>Comentarios Realizados:</th>
-
-                        </tr>
-                    </thead>
-                    </table>
+                        <table class="table mt-4">
+                            <thead class='thead-light fs-18'>
+                                <tr>
+                                    <th scope="col" class='text-center'>Comentarios Realizados:</th>
+                                </tr>
+                            </thead>
+                        </table>
                 </div>
-                
-
-            </div>
-
-        </div>
     </main>
 
     
