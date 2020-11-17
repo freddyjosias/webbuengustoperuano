@@ -51,7 +51,7 @@
 
     }
 
-    $consultaUsuario = $conexion -> prepare('SELECT * FROM usuario WHERE idusuario = ?');
+    $consultaUsuario = $conexion -> prepare('SELECT emailusuario, nombreusuario, apellidousuario, dniusuario, photo, direccionusuario, referenciausuario, LENGTH(AES_DECRYPT(contrasena, "BuenGustoPeruano")) as password FROM usuario WHERE idusuario = ?');
     $consultaUsuario -> execute(array($_SESSION['idusuario']));
     $consultaUsuario = $consultaUsuario -> fetch(PDO::FETCH_ASSOC);
 
@@ -95,6 +95,40 @@
                 <div class="row w-f14-80 w-90 m-auto">
 
                     <h1 class='h3 text-center mt-5 mb-3 font-weight-bold w-100 this-is-my-dates'>MIS DATOS PERSONALES</h1>
+
+                    
+                    <table class="table table-my-account d-flex w-75 m-auto">
+                        <thead class="thead-light d-block w-50">
+                            <tr class='d-block'>
+                                <th scope="col" class='d-block table-my-account-border table-my-account-border-top px-4 ls-13'>CORREO ELECTRÓNICO</th>
+                                <th scope="col" class='d-block table-my-account-border px-4   ls-13'>CONTRASEÑA</th>
+                                <th scope="col" class='d-block table-my-account-border px-4 ls-13'>NOMBRES</th>
+                                <th scope="col" class='d-block table-my-account-border px-4 ls-13'>APELLIDOS</th>
+                                <th scope="col" class='d-block table-my-account-border px-4 ls-13'>DNI</th>
+                                <th scope="col" class='d-block table-my-account-border px-4 ls-13'>DIRECCIÓN</th>
+                                <th scope="col" class='d-block table-my-account-border px-4 ls-13'>REFERENCIA</th>
+                                <th scope="col" class='d-block table-my-account-border px-4 ls-13'>TELÉFONO</th>
+                                <th scope="col" class='d-block table-my-account-border px-4 ls-13'>FOTO DE PERFIL</th>
+                            </tr>
+                        </thead>
+                        <tbody class=' w-50'>
+                            <tr class='d-block'>
+                                <td scope="row" class='d-block table-my-account-border table-my-account-border-top table-my-account-border-right px-4 ls-13'><?php echo $consultaUsuario['emailusuario'] ?></td>
+
+                                <td scope="row" class='d-block table-my-account-border table-my-account-border-right px-4 ls-13'>
+                                    <?php 
+                                        for ($i = 0; $i < $consultaUsuario['password']; $i++) { 
+                                            echo '*';
+                                        }
+                                    ?>
+                                </td>
+
+                                <td scope="row" class='d-block table-my-account-border table-my-account-border-right px-4 ls-13'><?php echo $consultaUsuario['nombreusuario'] ?></td>
+                                <td scope="row" class='d-block table-my-account-border table-my-account-border-right px-4 ls-13'><?php echo $consultaUsuario['apellidousuario'] ?></td>
+                                <td scope="row" class='d-block table-my-account-border table-my-account-border-right px-4 ls-13'><?php echo $consultaUsuario['dniusuario'] ?></td>
+                            </tr>
+                        </tbody>
+                    </table>
 
                     <form class='w-100 fs-18' method="post">
 

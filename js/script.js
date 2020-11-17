@@ -348,6 +348,31 @@ $(function() {
         showMenuPanel()
     })
 
+    // BUSCADOR
+
+    $('#searchinput').keyup(function () 
+    {
+        var formData = new FormData(document.getElementById('formsearch'));
+        formData.append('as', 'n');
+        
+        $.ajax({
+            url: 'buscador/searchajax.php',
+            dataType: "html",
+            data: formData,
+            type: 'post',
+            cache: false,
+            contentType: false,
+            processData: false,
+            beforeSend: function () {
+                
+            },
+            success: function(output) {
+                $('#resultsearch').html(output);
+                $('#resultsearch').css('display', 'block')
+            }
+        });    
+    })
+
 });
 
 if (window.innerWidth < 1400) 

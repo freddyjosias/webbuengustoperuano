@@ -88,8 +88,18 @@
             </div>
         </div>
 
-        <div class=" mt-4 mb-4 contenedor-general">
-            <input class="form-control" type="text" placeholder="Search" aria-label="Search">
+        <div class="contenedor-general dropdown mt-5">
+
+            <form action="" method="post" id='formsearch'>
+                <input class="form-control dropdown-toggle" type="text" id="searchinput" name='searchinput' placeholder="Search" aria-label="Search" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            </form>
+
+            <div class="dropdown-menu" aria-labelledby="searchinput" id='resultsearch'>
+                <a class="dropdown-item" href="#">Action</a>
+                <a class="dropdown-item" href="#">Another action</a>
+                <a class="dropdown-item" href="#">Something else here</a>
+            </div>
+
         </div>
 
         <section class="box-usuario">
@@ -124,6 +134,8 @@
         </footer>
 
     <script src="js/jquery-3.5.1.min.js"></script>
+    <script src="bootstrap/js/popper.min.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
     <script src="js/bootstrap.add.js"></script>
     <script src="sweetalert/sweetalert210.js"></script>
     <script src="js/script.js"></script>
