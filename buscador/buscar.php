@@ -24,9 +24,24 @@
 
     }
 
-    $sucursalSearch = $conexion -> prepare('SELECT * FROM sucursal WHERE nomsucursal LIKE "%' . $_GET['view'] . '%" AND estado = 1');
+    $sucursalSearch = $conexion -> prepare('SELECT idsucursal, nomsucursal FROM sucursal WHERE nomsucursal LIKE "%' . $_GET['view'] . '%" AND estado = 1');
     $sucursalSearch -> execute();
     $sucursalSearch = $sucursalSearch -> fetchAll(PDO::FETCH_ASSOC);
+
+    $sucursalSearch1 = $conexion -> prepare(
+        'SELECT c.idsucursal, s.nomsucursal, c.idcategoriaproducto, c.descripcioncategoriaproducto 
+         FROM categoriaproductos AS c INNER JOIN sucursal AS s ON c.idsucursal = s.idsucursal
+         WHERE c.descripcioncategoriaproducto 
+         LIKE "%' . $_GET['view'] . '%" AND c.estado = 1 AND s.estado = 1');
+    $sucursalSearch1 -> execute();
+    $sucursalSearch1 = $sucursalSearch1 -> fetchAll(PDO::FETCH_ASSOC);
+
+    $sucursalSearch2 = $conexion -> prepare(
+        'SELECT c.idsucursal, c.idcategoriaproducto, p.idproducto, p.nomproducto 
+         FROM productos AS p INNER JOIN categoriaproductos AS c ON p.idcategoriaproducto = c.idcategoriaproducto
+         WHERE p.nomproducto LIKE "%' . $_GET['view'] . '%" AND p.estado = 1');
+    $sucursalSearch2 -> execute();
+    $sucursalSearch2 = $sucursalSearch2 -> fetchAll(PDO::FETCH_ASSOC);
 
 ?>
 
@@ -73,44 +88,31 @@
 
     </header>
 
-    <div class="slider contenedor-general">
-        <div class="slider-img efecto">
-            <img src="../img/img1.jpg">
-        </div>
-        <div class="slider-img efecto">
-            <img src="../img/img2.jpg">
-        </div>
-        <div class="slider-img efecto">
-            <img src="../img/img3.jpg">
-        </div>
-        <div class="slider-img efecto"> 
-            <img src="../img/img4.jpg">
-        </div>
-        <div class="direcciones">
-            <a href="#" class="atras">&#10094</a>
-            <a href="#" class="adelante">&#10095</a>
-        </div>
-    </div>
-
     <section class="box-usuario">
-        <div class="contenedor-general view-restaurants mb-4">
-            <h1 class='text-center'>RESTAURANTES</h1>
-            <?php $contadorRestaurantes = 0;
-            foreach($sucursalSearch as $row) {
-                if ($contadorRestaurantes % 2 == 0) { ?>
-                    <div class="presentacion-restaurantes">
-                <?php } ?>
-                    <a href="../hacerpedido.php?view=<?php echo $row['idsucursal']; ?>">
-                        <div>
-                            <h2><?php echo $row['nomsucursal']; ?>:</h2>
-                            <img src="../<?php echo $row['imgbienvenida']; ?>">
-                        </div>
-                    </a>
-                <?php $contadorRestaurantes++;
-                if ($contadorRestaurantes % 2 == 0) {?>
+        <div class="contenedor-general view-restaurants mb-4 text-center">
+            <h1 class='text-center h1'>RESULTADOS DE LA BUSQUEDA</h1>
+            <div class="w-100 d-flex m-auto">
+                <div class="w-100">
+                    <h3 class="h3 fw-600">Restaurantes</h3>
+                        <?php foreach ($sucursalSearch as $row) { ?>
+                            <a class="dropdown-item" href="../nosotros.php?view=<?php echo $row['idsucursal'] ?>"><?php echo $row['nomsucursal'] ?></a>
+                        <?php } ?>
                 </div>
-            <?php }
-            } ?>
+                <div class="w-100">
+                    <h3 class="h3 fw-600">Categorias</h3>
+                        <div class="text-center m-auto">
+                            <?php foreach ($sucursalSearch1 as $row) { ?>
+                                <p class="w-75 pt-1 fw-600 m-auto d-flex text-center">(<?php echo $row['nomsucursal']; ?>)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="text-dark text-decoration-none" href="../hacerpedido.php?view=<?php echo $row['idsucursal'] ?>"><?php echo $row['descripcioncategoriaproducto'] ?></a></p>
+                            <?php } ?>
+                        </div>
+                </div>
+                <div class="w-100">
+                    <h3 class="h3 fw-600">Productos</h3>
+                        <?php foreach ($sucursalSearch2 as $row) { ?>
+                            <a class="dropdown-item" href="../hacerpedido.php?view=<?php echo $row['idsucursal'] ?>"><?php echo $row['nomproducto'] ?></a>
+                        <?php } ?>
+                </div>
+            </div>
         </div>
     </section>
 
