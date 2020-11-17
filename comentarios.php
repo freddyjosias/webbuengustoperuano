@@ -134,17 +134,16 @@
     <main>
          
                 <div class="row w-f14-80 w-90 m-auto contenedor-panel-admin">
-                    <h1 class='h3 text-center mt-5 mb-3 font-weight-bold w-100 this-is-manager'>ENCARGADOS</h1>
+                    <h1 class='h3 text-center mt-5 mb-3 font-weight-bold w-100 this-is-manager'>COMENTARIOS</h1>
 
                     <div class="col-12 form-add-manager">
                         
                         <form class='text-center w-100 mt-0' method='post'>
                                 <div class="form-group">
-                                    <label for="exampleFormControlInput1" class='d-flex'>Ingrese el email del nuevo encargado:</label>
-                                    <input type="email" name='emailaddmanager' class="form-control" id="exampleFormControlInput1" placeholder="name@example.com" value='<?php echo ($errorAlert == 1) ? $_POST['emailaddmanager'] : '' ?>' required>
+                                    <label for="exampleFormControlInput1" class='d-flex'>Escribe un comentario:</label>
                                 </div>
                                 <div class="form-group">
-                                    <label for="exampleFormControlTextarea1">Example textarea</label>
+                                    <label for="exampleFormControlTextarea1"></label>
                                     <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
                                 </div>
 
