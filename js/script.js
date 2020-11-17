@@ -6,146 +6,131 @@ $(function() {
     let indice = 1;
 
     if ($('.slider-img').length > 0) {
-        
+
         muestraSlider(indice);
 
-        $('.atras').click(function(){
+        $('.atras').click(function() {
             avanzaSlider(-1);
         });
-    
-        $('.adelante').click(function(){
+
+        $('.adelante').click(function() {
             avanzaSlider(1);
         });
-    
-        function avanzaSlider(n){
-            muestraSlider(indice+=n);
+
+        function avanzaSlider(n) {
+            muestraSlider(indice += n);
         }
-    
-        function posicionSlider(n){
-            muestraSlider(indice=n);
+
+        function posicionSlider(n) {
+            muestraSlider(indice = n);
         }
-    
-        setInterval(function tiempo(){
-            muestraSlider(indice+=1)
+
+        setInterval(function tiempo() {
+            muestraSlider(indice += 1)
         }, 3000);
-    
-        function muestraSlider(n){
+
+        function muestraSlider(n) {
             let i;
-    
+
             let slider = document.getElementsByClassName('slider-img');
-    
-            if(n > slider.length){
+
+            if (n > slider.length) {
                 indice = 1;
-            } 
-            if (n < 1){
+            }
+            if (n < 1) {
                 indice = slider.length;
             }
-            for(i=0; i < slider.length; i++){
+            for (i = 0; i < slider.length; i++) {
                 slider[i].style.display = 'none';
             }
-    
-            slider[indice-1].style.display = 'block';
+
+            slider[indice - 1].style.display = 'block';
         }
 
     }
 
-    
+
 
     // ir arriba
 
-    $('.function-go-up').click(function()
-    {
-        $('body, html').animate(
-        {
+    $('.function-go-up').click(function() {
+        $('body, html').animate({
             scrollTop: '0px'
         }, 500);
 
     });
 
-    $(window).scroll(function(){
+    $(window).scroll(function() {
 
-        if($(this).scrollTop() > 40 )
-        {
+        if ($(this).scrollTop() > 40) {
             $('.ir-arriba').slideDown(500);
-        } 
-        else 
-        {
+        } else {
             $('.ir-arriba').slideUp(500);
         }
 
-        
+
     });
 
     //Menu
     var marignWelcomePage = 0;
-    
-    if ($('.bienvenida-page').length > 0) {    
+
+    if ($('.bienvenida-page').length > 0) {
         marignWelcomePage = $('.bienvenida-page').css('margin-top');
     }
 
     var heightNavRestaurant;
-    
-    if ($('.nav-restaurant').height() <= 0) 
-    {
+
+    if ($('.nav-restaurant').height() <= 0) {
         heightNavRestaurant = $('.navbar-restaurant').height();
-    } 
-    else 
-    {
+    } else {
         heightNavRestaurant = $('.nav-restaurant').height();
     }
 
     var altura = $('.header-restaurante').height();
-    
-    function fixedMenu(){
-        
-        $(window).on('scroll', function(){
+
+    function fixedMenu() {
+
+        $(window).on('scroll', function() {
 
             if ($(window).width() < 992) {
 
                 $('.logo-icono').css('top', -1 * $(window).scrollTop());
-                
-            } else 
-            {
+
+            } else {
 
                 $('.logo-icono').css('top', '1px');
 
             }
 
-            if ( $(window).scrollTop() > altura )
-            {
+            if ($(window).scrollTop() > altura) {
 
                 $('.header-restaurante nav').addClass('menu-fixed');
 
-                if ($('.bienvenida-page').length > 0) { 
+                if ($('.bienvenida-page').length > 0) {
                     console.log(marignWelcomePage);
                     $('.bienvenida-page').css('margin-top', parseInt(marignWelcomePage) + parseInt(heightNavRestaurant))
 
                 } else if ($('.carta').length > 0) {
 
-                    $('.carta').css('margin-top',heightNavRestaurant)
+                    $('.carta').css('margin-top', heightNavRestaurant)
 
                 }
 
 
-            }
-            else 
-            {
+            } else {
 
                 $('.header-restaurante nav').removeClass('menu-fixed');
-                
-                if ($('.bienvenida-page').length > 0) {    
+
+                if ($('.bienvenida-page').length > 0) {
                     $('.bienvenida-page').css('margin-top', 32);
                     marignWelcomePage = $('.bienvenida-page').css('margin-top');
-                } else if($('.carta').length > 0) {
+                } else if ($('.carta').length > 0) {
                     $('.carta').css('margin-top', 0);
                 }
 
-                if ($('.nav-restaurant').height() <= 0) 
-                {
+                if ($('.nav-restaurant').height() <= 0) {
                     heightNavRestaurant = $('.navbar-restaurant').height();
-                } 
-                else 
-                {
+                } else {
                     heightNavRestaurant = $('.nav-restaurant').height();
                 }
 
@@ -154,35 +139,34 @@ $(function() {
             }
 
         });
-    
+
     }
 
     fixedMenu();
 
-    $(window).resize(function () {
-        
+    $(window).resize(function() {
+
         fixedMenu();
 
     });
-    
-    $('.opciones-categoria option').click(function () {
-    })
 
-    if (window.history.replaceState) { 
+    $('.opciones-categoria option').click(function() {})
+
+    if (window.history.replaceState) {
         window.history.replaceState(null, null, window.location.href);
     }
 
     var urlMenu = window.location.pathname;
     var urlMenu = urlMenu.replace('/webbuengustoperuano/', '');
-    var objectMenu ;
+    var objectMenu;
 
     if (urlMenu == 'hacerpedido.php') {
         objectMenu = $('.op1');
-    } else if( urlMenu == 'bienvenida.php') {
+    } else if (urlMenu == 'bienvenida.php') {
         objectMenu = $('.op0');
-    } else if( urlMenu == 'nosotros.php') {
+    } else if (urlMenu == 'nosotros.php') {
         objectMenu = $('.op2');
-    } else if( urlMenu == 'carrito.php') {
+    } else if (urlMenu == 'carrito.php') {
         objectMenu = $('.op3');
     }
 
@@ -194,24 +178,24 @@ $(function() {
 
     // ADD MANAGER
 
-    $('.buttom-add-manager').click(function () {
+    $('.buttom-add-manager').click(function() {
         $('.form-add-manager').slideDown();
         $(this).hide();
     })
 
-    $('.cancel-add-manager').click(function () {
+    $('.cancel-add-manager').click(function() {
         $('.form-add-manager').slideUp();
         $('.buttom-add-manager').show();
     })
 
     //ADD ADMIN
 
-    $('.button-add-admin').click(function () {
+    $('.button-add-admin').click(function() {
         $('.form-add-admin').slideDown();
         $(this).hide();
     })
 
-    $('.cancel-add-admin').click(function () {
+    $('.cancel-add-admin').click(function() {
         $('.form-add-admin').slideUp();
         $('.button-add-admin').show();
     })
@@ -267,7 +251,7 @@ $(function() {
             'background-color': '#969696',
             'border': '1px solid white'
         })
-    } 
+    }
 
     //MENU USUARIO
 
@@ -276,13 +260,11 @@ $(function() {
             'background-color': '#969696',
             'border': '1px solid white'
         })
-    } 
+    }
 
     var countMenuPanel = 0;
-    $('.button-show-menu-panel').click(function () 
-    {
-        if (countMenuPanel == 0) 
-        {
+    $('.button-show-menu-panel').click(function() {
+        if (countMenuPanel == 0) {
             $('.container-menu-panel').css({
                 'transform': 'translate(0rem)',
                 'transition': 'transform .3s linear'
@@ -295,9 +277,7 @@ $(function() {
             setTimeout(() => {
                 countMenuPanel = 1;
             }, 500);
-        } 
-        else if (countMenuPanel == 1) 
-        {
+        } else if (countMenuPanel == 1) {
             $('.container-menu-panel').css({
                 'transform': 'translate(-18rem)',
                 'transition': 'all .3s linear'
@@ -311,13 +291,11 @@ $(function() {
                 countMenuPanel = 0;
             }, 500);
         }
-         
+
     })
 
-    function showMenuPanel() 
-    {
-        if (window.innerWidth < 1400) 
-        {
+    function showMenuPanel() {
+        if (window.innerWidth < 1400) {
             $('.container-menu-panel').css({
                 'transform': 'translate(-18rem)',
                 'transition': 'all .0s linear'
@@ -327,9 +305,7 @@ $(function() {
                 'transition': 'transform .0s linear'
             });
             countMenuPanel = 0;
-        } 
-        else 
-        {
+        } else {
             $('.container-menu-panel').css({
                 'transform': 'translate(0rem)',
                 'transition': 'transform .0s linear'
@@ -343,18 +319,16 @@ $(function() {
 
     showMenuPanel();
 
-    $(window).resize(function () 
-    {
+    $(window).resize(function() {
         showMenuPanel()
     })
 
     // BUSCADOR
 
-    $('#searchinput').keyup(function () 
-    {
+    $('#searchinput').keyup(function() {
         var formData = new FormData(document.getElementById('formsearch'));
         formData.append('as', 'n');
-        
+
         $.ajax({
             url: 'buscador/searchajax.php',
             dataType: "html",
@@ -363,24 +337,23 @@ $(function() {
             cache: false,
             contentType: false,
             processData: false,
-            beforeSend: function () {
-                
+            beforeSend: function() {
+
             },
             success: function(output) {
                 $('#resultsearch').html(output);
                 $('#resultsearch').css('display', 'block')
             }
-        });    
+        });
     })
 
 });
 
-if (window.innerWidth < 1400) 
-{
+if (window.innerWidth < 1400) {
     $('.container-menu-panel').css({
         'transform': 'translate(-18rem)'
     });
-} 
+}
 
 $('.form-add-manager').hide();
 $('.form-add-admin').hide();
