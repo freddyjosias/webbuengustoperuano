@@ -47,22 +47,18 @@
             $resultUser -> execute(array($mail));
             $resultUser = $resultUser -> fetch(PDO::FETCH_ASSOC);
 
-            var_dump($resultUser); 
-            
-            die;
-            
             if ($resultUser) 
             {
                 if ($resultUser['estado'] == 1) 
                 {
-                    if (strlen($resultUser['contrasena']) < 1) 
+                    if (strlen($resultUser['contrasena']) > 1) 
                     {
                         if ($password == $resultUser['contrasena']) 
                         {
-                            $_SESSION['idusuario'] = $existUser['idusuario'];
-                            $_SESSION['nombreusuario'] = $existUser['nombreusuario'];
-                            $_SESSION['apellidousuario'] = $existUser['apellidousuario'];
-                            $_SESSION['photo'] = $existUser['photo'];
+                            $_SESSION['idusuario'] = $resultUser['idusuario'];
+                            $_SESSION['nombreusuario'] = $resultUser['nombreusuario'];
+                            $_SESSION['apellidousuario'] = $resultUser['apellidousuario'];
+                            $_SESSION['photo'] = $resultUser['photo'];
                             header("Location: ../");
                         }
                         else

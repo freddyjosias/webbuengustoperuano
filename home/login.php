@@ -138,7 +138,7 @@
                     
                 <?php
             }
-            else if ($_SESSION['errorlogin'] = 1048) 
+            else if ($_SESSION['errorlogin'] == 1048) 
             {
                 unset($_SESSION['errorlogin']);
                 ?>
@@ -156,7 +156,7 @@
                     
                 <?php
             }
-            else if ($_SESSION['errorlogin'] = 1060) 
+            else if ($_SESSION['errorlogin'] == 1060) 
             {
                 unset($_SESSION['errorlogin']);
                 ?>
