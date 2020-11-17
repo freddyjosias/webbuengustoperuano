@@ -118,7 +118,39 @@
                 <div>© 2020 El Buen Gusto Peruano SAC. Todos los derechos reservados</div>
             </div>
         </footer>
+
     <script src="js/jquery-3.5.1.min.js"></script>
+    <script src="js/bootstrap.add.js"></script>
+    <script src="sweetalert/sweetalert210.js"></script>
     <script src="js/script.js"></script>
+
+    <?php
+        if (isset($_SESSION['newuser']))
+        {
+            unset($_SESSION['newuser']);
+            ?>
+            <script>
+
+                Swal.fire
+                ({
+                    icon: 'success',
+                    html: '<h3 class="fw-600 ">Bienvenido al Buen Gusto Peruano</h3> <h3>¿Desea establecer una contraseña y actualizar sus datos?</h3>',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Si, actualicemos!',
+                    cancelButtonText: 'No'
+                }).then((result) => {
+                    if (result.isConfirmed) 
+                    {
+                        location.href ="cuenta/micuenta.php?editar=info";
+                    }
+                })
+
+            </script>
+            <?php
+        }
+    ?>
+
 </body>
 </html>

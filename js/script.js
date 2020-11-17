@@ -331,7 +331,12 @@ $(function() {
         else 
         {
             $('.container-menu-panel').css({
-                'transform': 'translate(0rem)'
+                'transform': 'translate(0rem)',
+                'transition': 'transform .0s linear'
+            });
+            $('.container-button-menu').css({
+                'transform': 'translate(0rem)',
+                'transition': 'transform .0s linear'
             });
         }
     }

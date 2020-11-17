@@ -156,6 +156,7 @@
                     $_SESSION['nombreusuario'] = $gName;
                     $_SESSION['apellidousuario'] = $gLastName;
                     $_SESSION['photo'] = $gPhoto;
+                    $_SESSION['newuser'] = true;
                     header("Location: ../");
                 }
                 else
