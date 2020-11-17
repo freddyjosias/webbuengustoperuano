@@ -347,6 +347,19 @@ $(function() {
         });
     })
 
+    $('body').click(function (target) 
+    {
+        if ($('#searchinput') == target) 
+        {
+            return false;
+        } 
+        else
+        {
+            $('#resultsearch').css('display', 'none')
+        }
+        
+    })
+
 });
 
 if (window.innerWidth < 1400) {

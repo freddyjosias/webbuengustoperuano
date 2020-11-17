@@ -95,7 +95,7 @@
         <div class="contenedor-general dropdown mt-5">
 
             <form action="" method="post" id='formsearch'>
-                <input class="form-control dropdown-toggle" type="text" id="searchinput" name='searchinput' placeholder="Search" aria-label="Search" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <input autocomplete="off" class="form-control dropdown-toggle" type="text" id="searchinput" name='searchinput' placeholder="Search" aria-label="Search" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             </form>
 
             <div class="dropdown-menu" aria-labelledby="searchinput" id='resultsearch'>
