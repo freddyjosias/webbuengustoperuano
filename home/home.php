@@ -79,7 +79,7 @@
             <div class="slider-img efecto">
                 <img src="img/img3.jpg">
             </div>
-            <div class="slider-img efecto">
+            <div class="slider-img efecto"> 
                 <img src="img/img4.jpg">
             </div>
             <div class="direcciones">
