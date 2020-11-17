@@ -1,30 +1,3 @@
-<?php
-
-    if (!isset($_SESSION['idusuario'])) 
-    {
-        header('Location: ../');
-    } 
-    else 
-    {
-        $queryProfile = $conexion -> prepare("SELECT id_profile FROM detail_usuario_profile WHERE state = 1 AND idusuario = ? AND id_profile = 3");
-        $queryProfile -> execute(array($_SESSION['idusuario']));
-        $queryProfile = $queryProfile -> fetch(PDO::FETCH_ASSOC);
-
-        if (isset($queryProfile['id_profile'])) 
-        {
-            $profileAdmin = true;
-        } 
-        else
-        {
-            $profileAdmin = false;
-        }
-
-    }
-
-    $consultaRestaurantes = 'SELECT idsucursal, nomsucursal, imgbienvenida FROM sucursal WHERE estado = 1';
-
-?>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -69,32 +42,9 @@
 
         </header>
 
-        <div class="slider contenedor-general">
-            <div class="slider-img efecto">
-                <img src="img/img1.jpg">
-            </div>
-            <div class="slider-img efecto">
-                <img src="img/img2.jpg">
-            </div>
-            <div class="slider-img efecto">
-                <img src="img/img3.jpg">
-            </div>
-            <div class="slider-img efecto">
-                <img src="img/img4.jpg">
-            </div>
-            <div class="direcciones">
-                <a href="#" class="atras">&#10094</a>
-                <a href="#" class="adelante">&#10095</a>
-            </div>
-        </div>
-
-        <div class=" mt-4 mb-4 contenedor-general">
-            <input class="form-control" type="text" placeholder="Search" aria-label="Search">
-        </div>
-
         <section class="box-usuario">
-            <div class="contenedor-general view-restaurants mb-4">
-                <h1 class='text-center'>RESTAURANTES</h1>
+            <div class="contenedor-general view-restaurants mb-4 mt-5">
+                <h1 class='text-center'>RESULTADOS</h1>
                 <?php $contadorRestaurantes = 0;
                 $resultados = $conexion -> prepare($consultaRestaurantes);
                 $resultados -> execute();
@@ -122,39 +72,27 @@
                 <div>© 2020 El Buen Gusto Peruano SAC. Todos los derechos reservados</div>
             </div>
         </footer>
+        <div class="function-go-up ir-arriba">
+            <i class="fas fa-angle-up"></i>
+        </div>
+        <div class="submenu-bottom container-fluid position-fixed bottom-0 d-block d-lg-none border border-light border-bottom-0 border-right-0 border-left-0">
+            <div class="row text-center h-100">
+                <div class="col-6 fs-22 h-100 d-flex border-right">
+                    <a href="index.php" class='text-white h-100 w-100 pt-1'><i class="fas fa-home"></i></a>
+                </div>
+                <div class="col-6 text-white fs-35">
+                    <div class="function-go-up go-up h-100 d-flex top-0 justify-content-center w-100" role='button'>
+                        <i class="fas fa-angle-up"></i>
+                    </div>
+                </div>
+            </div>
+
+        </div>
 
     <script src="js/jquery-3.5.1.min.js"></script>
     <script src="js/bootstrap.add.js"></script>
     <script src="sweetalert/sweetalert210.js"></script>
     <script src="js/script.js"></script>
-
-    <?php
-        if (isset($_SESSION['newuser']))
-        {
-            unset($_SESSION['newuser']);
-            ?>
-            <script>
-
-                Swal.fire
-                ({
-                    icon: 'success',
-                    html: '<h3 class="fw-600 ">Bienvenido al Buen Gusto Peruano</h3> <h3>¿Desea establecer una contraseña y actualizar sus datos?</h3>',
-                    showCancelButton: true,
-                    confirmButtonColor: '#3085d6',
-                    cancelButtonColor: '#d33',
-                    confirmButtonText: 'Si, actualicemos!',
-                    cancelButtonText: 'No'
-                }).then((result) => {
-                    if (result.isConfirmed) 
-                    {
-                        location.href ="cuenta/micuenta.php?editar=info";
-                    }
-                })
-
-            </script>
-            <?php
-        }
-    ?>
 
 </body>
 </html>
