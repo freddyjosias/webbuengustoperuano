@@ -43,7 +43,7 @@
             $mail = $_POST['useremail'];
             $password = $_POST['userpassword'];
 
-            $resultUser = $conexion -> prepare('SELECT idusuario, nombreusuario, apellidousuario, photo, estado, contrasena FROM usuario WHERE emailusuario = ?');
+            $resultUser = $conexion -> prepare('SELECT idusuario, nombreusuario, apellidousuario, photo, estado,  AES_DECRYPT(contrasena, "BuenGustoPeruano") as password FROM usuario WHERE emailusuario = ?');
             $resultUser -> execute(array($mail));
             $resultUser = $resultUser -> fetch(PDO::FETCH_ASSOC);
 
@@ -51,9 +51,9 @@
             {
                 if ($resultUser['estado'] == 1) 
                 {
-                    if (strlen($resultUser['contrasena']) > 1) 
+                    if (strlen($resultUser['password']) > 1) 
                     {
-                        if ($password == $resultUser['contrasena']) 
+                        if ($password == $resultUser['password']) 
                         {
                             $_SESSION['idusuario'] = $resultUser['idusuario'];
                             $_SESSION['nombreusuario'] = $resultUser['nombreusuario'];

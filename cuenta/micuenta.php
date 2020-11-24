@@ -25,7 +25,7 @@
         }
 
         if (isset($_POST['clave'])) {
-            $resultados4 = $conexion -> prepare('UPDATE usuario SET LENGTH(AES_DECRYPT(contrasena, "BuenGustoPeruano")) = ? WHERE idusuario = ?');
+            $resultados4 = $conexion -> prepare('UPDATE usuario SET contrasena = AES_ENCRYPT(?, "BuenGustoPeruano") WHERE idusuario = ?');
             $resultados4 -> execute(array($_POST['clave'], $_SESSION['idusuario']));
         }
 
@@ -51,7 +51,7 @@
 
     }
 
-    $consultaUsuario = $conexion -> prepare('SELECT emailusuario, nombreusuario, apellidousuario, dniusuario, photo, direccionusuario, referenciausuario, telefonousuario, LENGTH(AES_DECRYPT(contrasena, "BuenGustoPeruano")) as password FROM usuario WHERE idusuario = ?');
+    $consultaUsuario = $conexion -> prepare('SELECT emailusuario, nombreusuario, apellidousuario, dniusuario, photo, direccionusuario, referenciausuario, telefonousuario, AES_DECRYPT(contrasena, "BuenGustoPeruano") as password FROM usuario WHERE idusuario = ?');
     $consultaUsuario -> execute(array($_SESSION['idusuario']));
     $consultaUsuario = $consultaUsuario -> fetch(PDO::FETCH_ASSOC);
 
@@ -141,7 +141,7 @@
 
                                     <div class="form-group col-md-6">
                                         <label for="inputPassword4">Contraseña:</label>
-                                        <input type="password" class="form-control" id="inputPassword4" value="<?php echo $consultaUsuario['contrasena'] ?>" name="clave" required>
+                                        <input type="password" class="form-control" id="inputPassword4" value="<?php echo $consultaUsuario['password'] ?>" name="clave" required>
                                     </div>
 
                                 </div>
