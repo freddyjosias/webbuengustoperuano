@@ -21,7 +21,7 @@
         
         ?>
 
-        <div class="overflow-auto" style="max-width: 500px;max-height: 200px;">
+        <div class="overflow-auto" style="max-height: 200px;">
 
             <?php
 
