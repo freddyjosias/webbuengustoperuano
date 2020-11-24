@@ -122,7 +122,7 @@
                         </tbody>
                     </table>
 
-                    <form class='w-100 fs-18' method="post">
+                    <form class='w-100 fs-18 mt-5' method="post">
 
                         <div class="row">
 
