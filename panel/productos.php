@@ -99,7 +99,7 @@
                 <div class="row w-f14-80 w-90 m-auto contenido-listar">
                     <h1 class='h3 text-center mt-5 font-weight-bold w-100 this-is-products'>PRODUCTOS</h1>
                     <div class="direccion-a">
-                        <a class="btn btn-primary bottom" href="agregar.php?view=<?php echo $idRestaurante ?>">Agregar</a>
+                        <a class="btn btn-primary bottom" href="productos/agregar.php?view=<?php echo $idRestaurante ?>">Agregar</a>
                     </div>
                     <table class="table mt-4">
                         <thead class='thead-light'>
