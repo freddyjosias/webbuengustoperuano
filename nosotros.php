@@ -77,6 +77,25 @@
                   }
               }
 
+              $resultadosR = $conexion -> prepare('SELECT idsucursal, nomsucursal FROM sucursal WHERE estado = 1');
+              $resultadosR -> execute();
+              $resultadosR = $resultadosR -> fetchAll(PDO::FETCH_ASSOC);
+          
+              $resultadosEn = $conexion -> prepare('SELECT a.idusuario, u.nombreusuario, u.apellidousuario, s.nomsucursal, u.emailusuario, s.idsucursal FROM access as a INNER JOIN usuario as u ON a.idusuario = u.idusuario INNER JOIN detail_usuario_profile as m ON a.idusuario = m.idusuario INNER JOIN sucursal as s ON s.idsucursal = a.idsucursal WHERE a.state = 1 AND s.estado = 1 AND m.state = 1 AND m.id_profile = 2 AND u.estado = 1 ORDER BY s.nomsucursal, u.nombreusuario');
+              $resultadosEn -> execute();
+              $resultadosEn = $resultadosEn -> fetchAll(PDO::FETCH_ASSOC);
+
+              if (isset($_POST['comment'])) {
+
+              $crateComment = $conexion -> prepare('INSERT INTO sucursal_comment(idusuario, idsucursal, comment_description) VALUES (?, ?, ?)');
+              $crateComment -> execute(array($_SESSION['idusuario'], $_GET['view'], $_POST['comment']));
+
+              }
+
+              $resultadosC = $conexion -> prepare('SELECT * FROM sucursal_comment AS s INNER JOIN usuario AS u ON u.idusuario = s.idusuario WHERE s.comment_state = 1 AND s.idsucursal = ? AND u.estado = 1');
+              $resultadosC -> execute(array($_GET['view']));
+              $resultadosC = $resultadosC -> fetchAll(PDO::FETCH_ASSOC);
+
 ?>
 
 <!DOCTYPE html>
@@ -110,15 +129,6 @@
         </div>
         
         <?php require 'menu/menurestaurants.php'; ?>
-
-        <div class="container-fluid p-0 d-none d-md-block">
-            <nav class="nav-restaurant z-index-7 mt-2r">
-                <ul>
-                    <li><a href="">Acerca de nosotros</a></li>
-                    <li><a href="comentarios.php?view=<?php echo $idRestaurante ?>">Comentarios</a></li>
-                </ul>
-            </nav>
-        </div>
 
 	</header>
 
@@ -196,6 +206,49 @@
             <h3 class='mt-3 mb-4'>Nos Encontramos Aquí</h3>
             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d9428.608432958468!2d-76.36468223737711!3d-6.49107291844111!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x91ba0c062708ad1d%3A0x470eec16e5498700!2sPlaza%20de%20Armas%20de%20Tarapoto!5e0!3m2!1ses-419!2spe!4v1600025859915!5m2!1ses-419!2spe"  style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
         </div>	
+
+        <div class="btn-color-princi ml-auto text-center mt-5 mb-5">
+            <a class="buttom-add-manager btn btn-primary bottom fw-600">Cargar Comentarios</a>
+        </div>
+        <div class="col-12 form-add-manager">
+
+        <div class="btn-color-princi ml-auto text-center mt-5 mb-5">
+            <a class="cancel-add-manager btn btn-primary bottom fw-600">Ocultar Comentarios</a>
+        </div>
+                        
+                        <form class='text-center w-100 mt-0' method='post'>
+                                <div class="form-group">
+                                    <label for="exampleFormControlInput1" class='d-flex'>Escribe un comentario:</label>
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleFormControlTextarea1"></label>
+                                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="comment"></textarea>
+                                </div>
+
+                            
+                                <div class='form-group d-flex'>
+                                    <button class='btn btn-primary mt-3 px-4 fw-600'>Añadir</button>
+                                </div>
+                        </form>
+
+
+                        <table class="table mt-4">
+                            <thead class='thead-light fs-18'>
+                                <tr>
+                                    <th scope="col" class='text-center'>Comentarios Realizados:</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <?php foreach($resultadosC as $row) {?>
+                            <tbody>
+                                <tr>
+                                    <td><a href="cuenta/micuenta.php"><img src="<?php echo $row['photo'] ?>" class='border rounded-circle' alt=""></a></td>
+                                    <td><?php echo $row['comment_description'] ?></td>
+                                </tr>
+                            </tbody>
+                            <?php } ?>
+                        </table>
+            </div>
                     
     </main>
     
