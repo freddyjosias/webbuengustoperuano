@@ -89,32 +89,28 @@
     </header>
 
     <section class="box-usuario">
-        <div class="contenedor-general view-restaurants mb-4 text-center">
+        <div class="contenedor-general view-restaurants mb-4">
             <h1 class='text-center h1'>RESULTADOS DE LA BUSQUEDA</h1>
-            <div class="w-100 d-flex m-auto">
-                <div class="w-100">
+ 
+
                     <h3 class="h3 fw-600">Restaurantes</h3>
                         <?php foreach ($sucursalSearch as $row) { ?>
                             <a class="dropdown-item" href="../nosotros.php?view=<?php echo $row['idsucursal'] ?>"><?php echo $row['nomsucursal'] ?></a>
                         <?php } ?>
-                </div>
-                <div class="w-100">
+
+
                     <h3 class="h3 fw-600">Categorias</h3>
-                        <div class="text-center m-auto">
                             <?php foreach ($sucursalSearch1 as $row) { ?>
-                                <p class="w-75 pt-1 fw-600 m-auto d-flex text-center">(<?php echo $row['nomsucursal']; ?>)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="text-dark text-decoration-none" href="../hacerpedido.php?view=<?php echo $row['idsucursal'] ?>"><?php echo $row['descripcioncategoriaproducto'] ?></a></p>
+                                <p class="">(<?php echo $row['nomsucursal']; ?>)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="text-dark text-decoration-none" href="../hacerpedido.php?view=<?php echo $row['idsucursal'] ?>"><?php echo $row['descripcioncategoriaproducto'] ?></a></p>
                             <?php } ?>
-                        </div>
-                </div>
-                <div class="w-100">
+
+ 
                     <h3 class="h3 fw-600">Productos</h3>
-                        <div class="text-center m-auto">
                             <?php foreach ($sucursalSearch2 as $row) { ?>
-                                <p class="w-100 pt-1 fw-600 m-auto d-flex text-center">(<?php echo $row['nomsucursal']; ?>)(<?php echo $row['descripcioncategoriaproducto']; ?>)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p><a class="text-dark text-decoration-none" href="../hacerpedido.php?view=<?php echo $row['idsucursal'] ?>"><?php echo $row['nomproducto'] ?></a>
+                                <p class="">(<?php echo $row['nomsucursal']; ?>)(<?php echo $row['descripcioncategoriaproducto']; ?>)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p><a class="text-dark text-decoration-none" href="../hacerpedido.php?view=<?php echo $row['idsucursal'] ?>"><?php echo $row['nomproducto'] ?></a>
                             <?php } ?>
-                        </div>
-                </div>
-            </div>
+ 
+
         </div>
     </section>
 
