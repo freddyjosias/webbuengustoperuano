@@ -19,24 +19,35 @@
         $sucursalSearch2 -> execute();
         $sucursalSearch2 = $sucursalSearch2 -> fetchAll(PDO::FETCH_ASSOC);
         
-        foreach ($sucursalSearch as $key) 
-        {
-            ?>
-            <a class="dropdown-item" href="nosotros.php?view=<?php echo $key['idsucursal'] ?>"><?php echo $key['nomsucursal'] ?></a>
-            <?php
-        }
+        ?>
 
-        foreach ($sucursalSearch1 as $key) {
-            ?>
-            <a class="dropdown-item" href="hacerpedido.php?view=<?php echo $key['idsucursal'] ?>"><?php echo $key['descripcioncategoriaproducto'] ?></a>
-            <?php
-        }
+        <div class="overflow-auto" style="max-width: 500px;max-height: 200px;">
 
-        foreach ($sucursalSearch2 as $key) {
-            ?>
-            <a class="dropdown-item" href="hacerpedido.php?view=<?php echo $key['idsucursal'] ?>"><?php echo $key['nomproducto'] ?></a>
             <?php
-        }
+
+            foreach ($sucursalSearch as $key) 
+            {
+                ?>
+                <a class="dropdown-item" href="nosotros.php?view=<?php echo $key['idsucursal'] ?>"><?php echo $key['nomsucursal'] ?></a>
+                <?php
+            }
+
+            foreach ($sucursalSearch1 as $key) {
+                ?>
+                <a class="dropdown-item" href="hacerpedido.php?view=<?php echo $key['idsucursal'] ?>"><?php echo $key['descripcioncategoriaproducto'] ?></a>
+                <?php
+            }
+
+            foreach ($sucursalSearch2 as $key) {
+                ?>
+                <a class="dropdown-item" href="hacerpedido.php?view=<?php echo $key['idsucursal'] ?>"><?php echo $key['nomproducto'] ?></a>
+                <?php
+            }
+            ?>
+
+            </div>
+
+        <?php
     }
 
 ?>

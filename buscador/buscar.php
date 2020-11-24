@@ -92,24 +92,20 @@
         <div class="contenedor-general view-restaurants mb-4">
             <h1 class='text-center h1'>RESULTADOS DE LA BUSQUEDA</h1>
  
-
-                    <h3 class="h3 fw-600">Restaurantes</h3>
+                    <h3 class="h3 fw-700 text-uppercase mt-3 mb-3">Restaurantes</h3>
                         <?php foreach ($sucursalSearch as $row) { ?>
-                            <a class="dropdown-item" href="../nosotros.php?view=<?php echo $row['idsucursal'] ?>"><?php echo $row['nomsucursal'] ?></a>
+                            <a class="dropdown-item fw-600 mb-1" href="../nosotros.php?view=<?php echo $row['idsucursal'] ?>"><?php echo $row['nomsucursal'] ?></a>
                         <?php } ?>
 
+                    <h3 class="h3 fw-700 text-uppercase mt-3 mb-3">Categorias</h3>
+                        <?php foreach ($sucursalSearch1 as $row) { ?>
+                            <a class="fw-600 dropdown-item text-dark text-decoration-none mb-1" href="../hacerpedido.php?view=<?php echo $row['idsucursal'] ?>"><?php echo $row['descripcioncategoriaproducto'] ?> &nbsp;|&nbsp; <?php echo $row['nomsucursal']; ?></a>
+                        <?php } ?>
 
-                    <h3 class="h3 fw-600">Categorias</h3>
-                            <?php foreach ($sucursalSearch1 as $row) { ?>
-                                <p class="">(<?php echo $row['nomsucursal']; ?>)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="text-dark text-decoration-none" href="../hacerpedido.php?view=<?php echo $row['idsucursal'] ?>"><?php echo $row['descripcioncategoriaproducto'] ?></a></p>
-                            <?php } ?>
-
- 
-                    <h3 class="h3 fw-600">Productos</h3>
-                            <?php foreach ($sucursalSearch2 as $row) { ?>
-                                <p class="">(<?php echo $row['nomsucursal']; ?>)(<?php echo $row['descripcioncategoriaproducto']; ?>)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p><a class="text-dark text-decoration-none" href="../hacerpedido.php?view=<?php echo $row['idsucursal'] ?>"><?php echo $row['nomproducto'] ?></a>
-                            <?php } ?>
- 
+                    <h3 class="h3 fw-700 text-uppercase mt-3 mb-3">Productos</h3>
+                    <?php foreach ($sucursalSearch2 as $row) { ?>
+                        <a class="fw-600 dropdown-item text-dark text-decoration-none mb-1" href="../hacerpedido.php?view=<?php echo $row['idsucursal'] ?>"><?php echo $row['nomproducto'] ?> &nbsp;|&nbsp; <?php echo $row['descripcioncategoriaproducto'] ?> &nbsp;|&nbsp; <?php echo $row['nomsucursal']; ?></a>
+                    <?php } ?>
 
         </div>
     </section>
