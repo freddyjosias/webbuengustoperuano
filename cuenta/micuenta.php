@@ -25,7 +25,7 @@
         }
 
         if (isset($_POST['clave'])) {
-            $resultados4 = $conexion -> prepare('UPDATE usuario SET contrasena = ? WHERE idusuario = ?');
+            $resultados4 = $conexion -> prepare('UPDATE usuario SET LENGTH(AES_DECRYPT(contrasena, "BuenGustoPeruano")) = ? WHERE idusuario = ?');
             $resultados4 -> execute(array($_POST['clave'], $_SESSION['idusuario']));
         }
 
@@ -51,7 +51,7 @@
 
     }
 
-    $consultaUsuario = $conexion -> prepare('SELECT emailusuario, nombreusuario, apellidousuario, dniusuario, photo, direccionusuario, referenciausuario, LENGTH(AES_DECRYPT(contrasena, "BuenGustoPeruano")) as password FROM usuario WHERE idusuario = ?');
+    $consultaUsuario = $conexion -> prepare('SELECT emailusuario, nombreusuario, apellidousuario, dniusuario, photo, direccionusuario, referenciausuario, telefonousuario, LENGTH(AES_DECRYPT(contrasena, "BuenGustoPeruano")) as password FROM usuario WHERE idusuario = ?');
     $consultaUsuario -> execute(array($_SESSION['idusuario']));
     $consultaUsuario = $consultaUsuario -> fetch(PDO::FETCH_ASSOC);
 
@@ -101,31 +101,23 @@
                         <thead class="thead-light d-block w-50">
                             <tr class='d-block'>
                                 <th scope="col" class='d-block table-my-account-border table-my-account-border-top px-4 ls-13'>CORREO ELECTRÓNICO</th>
-                                <th scope="col" class='d-block table-my-account-border px-4   ls-13'>CONTRASEÑA</th>
                                 <th scope="col" class='d-block table-my-account-border px-4 ls-13'>NOMBRES</th>
                                 <th scope="col" class='d-block table-my-account-border px-4 ls-13'>APELLIDOS</th>
                                 <th scope="col" class='d-block table-my-account-border px-4 ls-13'>DNI</th>
                                 <th scope="col" class='d-block table-my-account-border px-4 ls-13'>DIRECCIÓN</th>
                                 <th scope="col" class='d-block table-my-account-border px-4 ls-13'>REFERENCIA</th>
                                 <th scope="col" class='d-block table-my-account-border px-4 ls-13'>TELÉFONO</th>
-                                <th scope="col" class='d-block table-my-account-border px-4 ls-13'>FOTO DE PERFIL</th>
                             </tr>
                         </thead>
                         <tbody class=' w-50'>
                             <tr class='d-block'>
-                                <td scope="row" class='d-block table-my-account-border table-my-account-border-top table-my-account-border-right px-4 ls-13'><?php echo $consultaUsuario['emailusuario'] ?></td>
-
-                                <td scope="row" class='d-block table-my-account-border table-my-account-border-right px-4 ls-13'>
-                                    <?php 
-                                        for ($i = 0; $i < $consultaUsuario['password']; $i++) { 
-                                            echo '*';
-                                        }
-                                    ?>
-                                </td>
-
-                                <td scope="row" class='d-block table-my-account-border table-my-account-border-right px-4 ls-13'><?php echo $consultaUsuario['nombreusuario'] ?></td>
-                                <td scope="row" class='d-block table-my-account-border table-my-account-border-right px-4 ls-13'><?php echo $consultaUsuario['apellidousuario'] ?></td>
-                                <td scope="row" class='d-block table-my-account-border table-my-account-border-right px-4 ls-13'><?php echo $consultaUsuario['dniusuario'] ?></td>
+                                <td scope="row" class='d-block table-my-account-border table-my-account-border-top table-my-account-border-right px-4 ls-13'><?php  if ($consultaUsuario['emailusuario'] == '') { $consultaUsuario['emailusuario'] = 'N/A'; } ?><?php echo $consultaUsuario['emailusuario'] ?></td>
+                                <td scope="row" class='d-block table-my-account-border table-my-account-border-right px-4 ls-13'><?php  if ($consultaUsuario['nombreusuario'] == '') { $consultaUsuario['nombreusuario'] = 'N/A'; } ?><?php echo $consultaUsuario['nombreusuario'] ?></td>
+                                <td scope="row" class='d-block table-my-account-border table-my-account-border-right px-4 ls-13'><?php  if ($consultaUsuario['apellidousuario'] == '') { $consultaUsuario['apellidousuario'] = 'N/A'; } ?><?php echo $consultaUsuario['apellidousuario'] ?></td>
+                                <td scope="row" class='d-block table-my-account-border table-my-account-border-right px-4 ls-13'><?php  if ($consultaUsuario['dniusuario'] == '') { $consultaUsuario['dniusuario'] = 'N/A'; } ?><?php echo $consultaUsuario['dniusuario'] ?></td>
+                                <td scope="row" class='d-block table-my-account-border table-my-account-border-right px-4 ls-13'><?php  if ($consultaUsuario['direccionusuario'] == '') { $consultaUsuario['direccionusuario'] = 'N/A'; } ?><?php echo $consultaUsuario['direccionusuario'] ?></td>
+                                <td scope="row" class='d-block table-my-account-border table-my-account-border-right px-4 ls-13'><?php  if ($consultaUsuario['referenciausuario'] == '') { $consultaUsuario['referenciausuario'] = 'N/A'; } ?><?php echo $consultaUsuario['referenciausuario'] ?></td>
+                                <td scope="row" class='d-block table-my-account-border table-my-account-border-right px-4 ls-13'><?php  if ($consultaUsuario['telefonousuario'] == '') { $consultaUsuario['telefonousuario'] = 'N/A'; } ?><?php echo $consultaUsuario['telefonousuario'] ?></td>
                             </tr>
                         </tbody>
                     </table>
