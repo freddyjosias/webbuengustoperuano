@@ -180,7 +180,7 @@
 
                             <div class="form-group col-md-5">
                                 <label for="inputAddress">Dirección:</label>
-                                <input type="text" class="form-control" id="inputAddress" placeholder="Av. Lima #1202" value="<?php echo $consultaUsuario['direccionusuario'] ?>" name="direccion">
+                                <input type="text" class="form-control" id="inputAddress" placeholder="Av. Lima #1202" value="<?php echo $consultaUsuario['direccionusuario'] ?>" name="direccion" required>
                             </div>
 
                             <div class="form-group col-md-5">
@@ -190,7 +190,7 @@
 
                             <div class="form-group col-md-2">
                                 <label for="inputAddress2">Teléfono:</label>
-                                <input type="text" class="form-control" id="inputAddress2" placeholder="987 654 321"  value="<?php echo $consultaUsuario['telefonousuario'] ?>" name="telefono">
+                                <input type="text" class="form-control" id="inputAddress2" placeholder="987 654 321"  value="<?php echo $consultaUsuario['telefonousuario'] ?>" name="telefono"required>
                             </div>
 
                         </div>
