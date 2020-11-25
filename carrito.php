@@ -49,6 +49,7 @@ $consultaVerificarRestaurante = 'SELECT * FROM sucursal WHERE idsucursal = ?';
         }
         
         $cont = 0;
+        $NproductoT = 0;
     
         $consultatipospedidos = $conexion -> prepare(
         "SELECT t.idtipospedido, t.descripciontipospedido, d.idsucursal 
@@ -174,11 +175,10 @@ $consultaVerificarRestaurante = 'SELECT * FROM sucursal WHERE idsucursal = ?';
                                                     <td><?php echo $producto['nomproducto'] ?></td>
                                                     <td><?php echo $producto['quantity'] ?></td>
                                                     <td>S/. <?php echo $producto['precio'] ?></td>
-                                                    <td>S/. <?php if($producto['quantity'] == 1) {
-                                                        echo $producto['precio']; ?>
-                                                        <?php } else {
+                                                    <td>S/.<?php 
                                                             $Nproducto = $producto['precio']*$producto['quantity'];  
-                                                            echo number_format($Nproducto, 2, '.', ' '); } ?>
+                                                            echo number_format($Nproducto, 2, '.', ' ');
+                                                            $NproductoT = $NproductoT + $Nproducto; ?>
                                                     </td>
                                                     <td class='text-center px-0 py-2'>
                                                     <a class="btn btn-danger" href="eliminarcarrito.php?id=<?php echo $producto['idproducto']; ?>&view=<?php echo $_GET['view'] ?>">
@@ -202,7 +202,8 @@ $consultaVerificarRestaurante = 'SELECT * FROM sucursal WHERE idsucursal = ?';
                                     <td style="visibility: hidden"></td>
                                     <td style="visibility: hidden"></td>
                                     <td style="visibility: hidden"></td>
-                                    <td>S/.</td>
+                                    <td>S/.<?php
+                                            echo number_format($NproductoT, 2, '.', ' '); ?></td>
                                     </tbody>
                                     <?php } ?>
                                 </table>
