@@ -141,6 +141,7 @@
                         <p>Stock: <input value="<?php echo $consultaProductoA['stock'] ?>" type="number" name="nuevostock" required></p>
                         
                         <button type="submit" class="btn btn-secondary bottom">Actualizar Producto</button>
+                        <a href="productos.php?view=<?php echo $idRestaurante ?>" class="btn btn-secondary bottom volver">Volver</a>
                     </form>
                 <?php } ?>   
 

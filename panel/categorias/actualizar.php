@@ -120,6 +120,7 @@
                     <p>Nuevo nombre: <input value="<?php echo $consultaCategoria['descripcioncategoriaproducto']; ?>" type="text" name = 'cat-actualizada'required></p>
                     
                     <input class="btn btn-secondary bottom" type="submit" value="Actualizar Categoria">
+                    <a href="categorias.php?view=<?php echo $idRestaurante ?>" class="btn btn-secondary bottom volver">Volver</a>
 
                 </form>
 
