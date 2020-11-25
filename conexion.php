@@ -3,13 +3,9 @@
     try {
         $conexion = new PDO(
 
-            // 'mysql:host=localhost;dbname=buengustoperuano;charset=UTF8',
-            // 'root',
-            // ''
-
-            'mysql:host=35.238.102.2;dbname=buengustoperuano;charset=UTF8',
-            'user',
-            'tuprima'
+            'mysql:host=localhost;dbname=buengustoperuano;charset=UTF8',
+            'root',
+            ''
             
         );
     } catch (Exception $e) {
