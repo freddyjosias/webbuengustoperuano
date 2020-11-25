@@ -107,7 +107,7 @@
 
                 <div class="row w-f14-80 w-90 m-auto contenido-listar">
 
-                        <h1 class='font-weight-bold mt-4'>Actualizar Bienvenida</h1>
+                        <h1 class='h3 text-center mt-5 font-weight-bold w-100 this-is-welcome-page'>Actualizar Bienvenida</h1>
 
                         <form action="" class='form-panel' method="post" enctype="multipart/form-data">
 
