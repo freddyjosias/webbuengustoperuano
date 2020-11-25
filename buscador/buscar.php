@@ -63,12 +63,13 @@
     <header class="header-inicio ">
 
         <div class="contenedor-general contenido-header-inicio row">
-
+        <a href="../index.php">
             <div class="contenedor-img col-6 m-0 px-0 py-3 h-4r d-flex">
                 <img src="../img/logo-icon-512-color.png" class="h-100">
                 <img src="../img/logo-text-1024-white.png" class="h-100 ml-3 d-none d-sm-block">
                 <img src="../img/logo-text-1024-white-min.png" class="h-100 ml-3 d-block d-sm-none">
             </div>
+        </a>
 
             <div class="cerrar-sesion text-right col-6 m-0 p-0 ">
                 <div class="container h-100 align-items-center d-flex p-0">
