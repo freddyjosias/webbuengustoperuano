@@ -26,7 +26,7 @@
                 </li>
 
                 <li>
-                    <a class='pl-5 this-is-products' href="productos.php?view=<?php echo $idRestaurante ?>"><i class="fas fa-columns"></i> &nbsp; PRODUCTOS</a>
+                    <a class='pl-5 this-is-products' href="productos/productos.php?view=<?php echo $idRestaurante ?>"><i class="fas fa-columns"></i> &nbsp; PRODUCTOS</a>
                 </li>
 
             </ul>

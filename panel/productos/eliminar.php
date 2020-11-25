@@ -65,7 +65,7 @@
   
 
             if ($resultados) {
-                header("Location: listar.php?view=".$_GET['view']);
+                header("Location: productos.php?view=".$_GET['view']);
             }
         }
 

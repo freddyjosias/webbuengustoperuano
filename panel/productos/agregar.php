@@ -45,9 +45,6 @@
     }
 
 
-    $consultaCategorias = $conexion -> prepare('SELECT idcategoriaproducto, idsucursal, descripcioncategoriaproducto FROM categoriaproductos WHERE idsucursal = ?');
-    $consultaCategorias -> execute(array($_GET['view']));
-    $consultaCategorias = $consultaCategorias -> fetchAll(PDO::FETCH_ASSOC);
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
@@ -55,7 +52,7 @@
         $agregarproducto -> execute(array($_POST['categoria'], $_POST['nuevo_producto'], floatval($_POST['precio']), $_POST['stock']));
 
         if ($agregarproducto) {
-            header("Location: listar.php?view=".$_GET['view']);
+            header("Location: productos.php?view=".$_GET['view']);
         }
 
     }
@@ -71,6 +68,9 @@
         }
     }
 
+    $consultaCategorias = $conexion -> prepare('SELECT idcategoriaproducto, idsucursal, descripcioncategoriaproducto FROM categoriaproductos WHERE idsucursal = ?');
+    $consultaCategorias -> execute(array($_GET['view']));
+    $consultaCategorias = $consultaCategorias -> fetchAll(PDO::FETCH_ASSOC);
 
 ?>
 

@@ -44,30 +44,15 @@
        }
    }
 
-    $consultaCategorias = $conexion -> prepare('SELECT idcategoriaproducto, idsucursal, descripcioncategoriaproducto FROM categoriaproductos WHERE idsucursal = ?');
-    $consultaCategorias -> execute(array($_GET['view']));
-    $consultaCategorias = $consultaCategorias -> fetchAll(PDO::FETCH_ASSOC);
     
-
-    if (isset($_GET['categoria'])) {
-        $consultaCategoria = $conexion -> prepare('SELECT * FROM categoriaproductos WHERE idcategoriaproducto = ?');
-        $consultaCategoria -> execute(array($_GET['categoria']));
-        $consultaCategoria = $consultaCategoria -> fetch(PDO::FETCH_ASSOC);
-    }
-
-    if (isset($_GET['id'])) {
-        $consultaProductoA = $conexion -> prepare('SELECT*FROM productos WHERE idproducto = ?');
-        $consultaProductoA -> execute(array($_GET['id']));
-        $consultaProductoA = $consultaProductoA -> fetch(PDO::FETCH_ASSOC);
-    }
 
     if($_SERVER['REQUEST_METHOD'] == 'POST') {
 
-        $resultados = $conexion -> prepare('UPDATE productos SET nomproducto = ?, precio = ?, stock = ? WHERE idproducto = ?');
-        $resultados -> execute(array($_POST['nuevonombre'],$_POST['nuevoprecio'],$_POST['nuevostock'], $_GET['id']));
+        $resultados = $conexion -> prepare('UPDATE productos SET nomproducto = ?, precio = ?, stock = ?, idcategoriaproducto = ? WHERE idproducto = ? AND estado = 1');
+        $resultados -> execute(array($_POST['nuevonombre'],$_POST['nuevoprecio'],$_POST['nuevostock'], $_POST['nuevacategoria'], $_GET['id']));
 
         if ($resultados) {
-            header("Location: listar.php?view=".$_GET['view']);
+            header("Location: productos.php?view=".$_GET['view']);
         }
 
     }
@@ -84,6 +69,18 @@
         }
     }
 
+    if (isset($_GET['categoria'])) {
+        $consultaCategoria = $conexion -> prepare('SELECT * FROM categoriaproductos WHERE idsucursal = ? AND estado = 1');
+        $consultaCategoria -> execute(array($_GET['view']));
+        $consultaCategoria = $consultaCategoria -> fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    if (isset($_GET['id'])) {
+        $consultaProductoA = $conexion -> prepare('SELECT*FROM productos WHERE idproducto = ? AND estado = 1');
+        $consultaProductoA -> execute(array($_GET['id']));
+        $consultaProductoA = $consultaProductoA -> fetch(PDO::FETCH_ASSOC);
+    }
+
 ?>
 
 
@@ -94,11 +91,14 @@
 	<link href="https://fonts.googleapis.com/css2?family=Dosis:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <title>Actualizar Producto</title>
     <link rel="shorcut icon" href="../../img/logo-icon-512-color.png">
+    <link rel="stylesheet" href="../../fontawesome/css/all.min.css">
     <link rel="stylesheet" href="../../css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="../../bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="../../css/bootstrap.add.css">
     <link rel="stylesheet" type="text/css" href="../../css/estilos.css">
     <link rel="stylesheet" type="text/css" href="../../css/responpanel.css">
     <link rel="stylesheet" type="text/css" href="../../css/formularios.css">
-    <link rel="stylesheet" type="text/css" href="../../bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="../../css/carrito.css">
 </head>
 <body>
 
@@ -107,44 +107,48 @@
 
         <?php require '../../menu/menupanel.php'; ?>
 
-        <div class='formulario-panel container p-0 main-panel m-0 mw-85 w-85'>
+        <div class='container p-0 main-panel ml-auto mr-0 my-0 mw-f19-85 mw-f18-84 mw-f17-83 mw-f16-82 mw-f15-81 mw-f14-80 mw-100 z-index-auto'>
+
+        <div class="line-top-panel row h-4r m-0 py-0 px-4 justify-content-between align-items-center">
+            <div class='container-button-menu text-white fw-700 fs-30  no-select'> 
+                <i class="fas fa-bars button-show-menu-panel d-f14-none d-inline" role="button"> &nbsp;</i>  
+                ENCARGADO
+            </div>
+        </div>
+
+        <div class="row w-f14-80 w-90 m-auto contenido-listar">
 
             <h1 class='h3 text-center mt-5 font-weight-bold w-100'>Actualizar Producto</h1>
-
-                <form action="" method="get"  class='form-panel'>
-                    <p>Categoria Escogida: 
-                        <?php echo $consultaCategoria['descripcioncategoriaproducto']; ?>
-                    </p>
-                </form>
-                
-                <?php if(isset($_GET['categoria']))   {    ?>       
-                <form  action="" method="get"  class='form-panel'>
-
-                    <input type="number" name="categoria" id="cate-edit-pro" value="<?php echo $_GET['categoria'] ?>">
-
-                    <p>Producto Elegido:  
-                        <?php echo $consultaProductoA['nomproducto']; ?>
-                    </p>
-                </form>
-
-                <?php }  ?>                     
+                   
                 <?php if(isset($_GET['categoria']) && isset($_GET['id'])) { ?>         
                     <form action="" class='form-panel' method = "post">
-                        <p>Nuevo nombre: <input value="<?php echo $consultaProductoA['nomproducto'] ?>" type="text" name="nuevonombre" required></p>  
-                        
-                        <p>Precio: <?php echo $consultaProductoA['precio'] ?></p>
-                        <p>Nuevo precio: <input value="<?php echo $consultaProductoA['precio'] ?>" type="number" name="nuevoprecio" step='0.01' required></p>
+                    <p>Categoría:
+                    <select  name="nuevacategoria">
+                    <?php foreach ($consultaCategoria as $row) { ?>
+                        <?php if($_GET['categoria'] == $row['idcategoriaproducto']) { ?>
+                        <option value="<?php echo $row['idcategoriaproducto'] ?>" selected><?php echo $row['descripcioncategoriaproducto'] ?></option>
+                        <?php } else { ?>
+                        <option value="<?php echo $row['idcategoriaproducto'] ?>" ><?php echo $row['descripcioncategoriaproducto'] ?></option>
+                        <?php }  ?>
+                    <?php }  ?>
+                    </select>
+                    </p>
 
-                        <p>Stock: <?php echo $consultaProductoA['stock'] ?></p>
-                        <p>Nuevo Stock: <input value="<?php echo $consultaProductoA['stock'] ?>" type="number" name="nuevostock" required></p>
+                        <p>Nombre: <input value="<?php echo $consultaProductoA['nomproducto'] ?>" type="text" name="nuevonombre" required></p>  
+                                               
+                        <p>Precio: <input value="<?php echo $consultaProductoA['precio'] ?>" type="number" name="nuevoprecio" step='0.01' required></p>
+
+                        <p>Stock: <input value="<?php echo $consultaProductoA['stock'] ?>" type="number" name="nuevostock" required></p>
                         
-                        <input class="btn btn-secondary bottom" type="submit" value="Actualizar Producto">
+                        <button type="submit" class="btn btn-secondary bottom">Actualizar Producto</button>
                     </form>
-                <?php } ?>     
+                <?php } ?>   
 
-            </div>
+        </div>  
 
         </div>
+
+    </div>
     </main>
     <script src="../js/jquery-3.5.1.min.js"></script>
     <script src="../js/script.js"></script>
