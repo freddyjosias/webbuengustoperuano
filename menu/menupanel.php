@@ -2,7 +2,7 @@
 
     <div class="row w-100 m-0 p-0 d-flex justify-content-center my-4">
 
-        <img class='w-50' src="../img/logo-icon-512-color.png" alt="">
+        <img class='w-50' src="../../img/logo-icon-512-color.png" alt="">
 
     </div>
 
@@ -10,15 +10,15 @@
             <ul class='fw-600 ls-13'>
 
                 <li>
-                    <a class='pl-5' href='../nosotros.php?view=<?php echo $idRestaurante ?>'><i class="fas fa-home"></i> &nbsp; IR AL RESTAURANTE</a>
+                    <a class='pl-5' href='../../nosotros.php?view=<?php echo $idRestaurante ?>'><i class="fas fa-home"></i> &nbsp; IR AL RESTAURANTE</a>
                 </li>
 
                 <li>
-                    <a class='pl-5 this-is-welcome-page' href="paginabienvenida.php?view=<?php echo $idRestaurante ?>"><i class="fas fa-columns"></i> &nbsp; PÁGINA BIENVENIDA</a>
+                    <a class='pl-5 this-is-welcome-page' href="../bienvenida/paginabienvenida.php?view=<?php echo $idRestaurante ?>"><i class="fas fa-columns"></i> &nbsp; PÁGINA BIENVENIDA</a>
                 </li>
 
                 <li>
-                    <a class='pl-5 this-is-about-us-page' href="paginanosotros.php?view=<?php echo $idRestaurante ?>"><i class="fas fa-columns"></i> &nbsp; PÁGINA NOSOTROS</a>
+                    <a class='pl-5 this-is-about-us-page' href="../nosotros/restaurante.php?view=<?php echo $idRestaurante ?>"><i class="fas fa-columns"></i> &nbsp; PÁGINA NOSOTROS</a>
                 </li>
 
                 <li>

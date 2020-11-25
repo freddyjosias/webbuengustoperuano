@@ -1,11 +1,11 @@
 <?php   
-    require '../conexion.php';
+    require '../../conexion.php';
 
     session_start();
 
     if (!isset($_SESSION['idusuario'])) 
     {
-        header('Location: ../index.php');
+        header('Location: ../../index.php');
     }
     else 
     {
@@ -25,7 +25,7 @@
     }
      
      if (!isset($_GET['view'])) {
-         header('Location: ../index.php');
+         header('Location: ../../index.php');
      } else {
         $consultaVerificarRestaurante = 'SELECT * FROM sucursal WHERE estado = 1';
 
@@ -98,7 +98,7 @@
 
         if($consultaManager == false)
         {
-            header('Location: ../index.php');
+            header('Location: ../../index.php');
         }
     }
 
@@ -110,13 +110,13 @@
 	<meta charset="utf-8">
 	<link href="https://fonts.googleapis.com/css2?family=Dosis:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <title>Bienvenida</title>
-    <link rel="shorcut icon" href="../img/logo-icon-512-color.png">
-    <link rel="stylesheet" href="../fontawesome/css/all.min.css">
-    <link rel="stylesheet" type="text/css" href="../bootstrap/css/bootstrap.css">
+    <link rel="shorcut icon" href="../../img/logo-icon-512-color.png">
+    <link rel="stylesheet" href="../../fontawesome/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="../../bootstrap/css/bootstrap.css">
     <link rel="stylesheet" href="../css/normalize.css">
-    <link rel="stylesheet" type="text/css" href="../css/bootstrap.add.css">
-    <link rel="stylesheet" type="text/css" href="../css/estilos.css">
-    <link rel="stylesheet" type="text/css" href="../css/formularios.css">
+    <link rel="stylesheet" type="text/css" href="../../css/bootstrap.add.css">
+    <link rel="stylesheet" type="text/css" href="../../css/estilos.css">
+    <link rel="stylesheet" type="text/css" href="../../css/formularios.css">
 
     </head>
 <body>
@@ -124,7 +124,7 @@
     <main>
         <div class="container-fluid panel-control mw-1920p p-0">
 
-            <?php require '../menu/menupanel.php'; ?>
+            <?php require '../../menu/menupanel.php'; ?>
 
             <div class='container p-0 main-panel ml-auto mr-0 my-0 mw-f19-85 mw-f18-84 mw-f17-83 mw-f16-82 mw-f15-81 mw-f14-80 mw-100 z-index-auto'>
 
@@ -148,7 +148,7 @@
                                     <tr>
                                         <td>  
                                             <div class='text-center mt-5 destacado-panel'>
-                                                <?php echo "<img class='h-25r border border-dark' src='../". $resultadosImg['imgbienvenida'] ."' >" ?>
+                                                <?php echo "<img class='h-25r border border-dark' src='../../". $resultadosImg['imgbienvenida'] ."' >" ?>
                                             </div>
                                         </td>
                                         <td class='text-center'><a href="actualizarimg.php?view=<?php echo $idRestaurante ?>"><i class="far fa-edit"></i></a></td>
@@ -179,7 +179,7 @@
                                     <tr>
                                         <td>
                                             <div class='text-center mt-5 banner-panel'>
-                                                <?php echo "<img class='h-24r border border-dark' src='../". $resultadosBanner['banner'] ."' >" ?>
+                                                <?php echo "<img class='h-24r border border-dark' src='../../". $resultadosBanner['banner'] ."' >" ?>
                                             </div>
                                         </td>
                                         <td class='text-center'><a href="actualizarbanner.php?view=<?php echo $idRestaurante ?>"><i class="far fa-edit"></i></a></td>
@@ -187,7 +187,7 @@
                                 </tbody>
                                 <thead class='thead-light'>
                                     <tr>                    
-                                        <th class="th" scope="col">Descripcion</th>
+                                        <th class="th" scope="col">Platos Destacados</th>
                                         <th class="th text-center" colspan="1"></th>
                                     </tr>
                                 </thead>
@@ -208,7 +208,7 @@
                             <tr>
                             <?php foreach($resultadosEn as $val) { ?>
                                 <th scope="row" class='text-center'>1</th>
-                                <td class="destacado-panel"><img src="../<?php echo $val['imgdestacado1'] ?>" alt=""></td>
+                                <td class="destacado-panel"><img src="../../<?php echo $val['imgdestacado1'] ?>" alt=""></td>
                                 <td class='text-center'><a href="actualizar4.php"><i class="far fa-edit"></i></a></td>
                                 <td><?php echo $val['platodestacado1'] ?></td>
                                 <td class='text-center'><a href="actualizar1.php"><i class="far fa-edit"></i></a></td>
@@ -217,7 +217,7 @@
                             <tr>
                             <?php foreach($resultadosEn as $val) { ?>
                                 <th scope="row" class='text-center'>2</th>
-                                <td class="destacado-panel"><img src="../<?php echo $val['imgdestacado2'] ?>" alt=""></td>
+                                <td class="destacado-panel"><img src="../../<?php echo $val['imgdestacado2'] ?>" alt=""></td>
                                 <td class='text-center'><a href="actualizar5.php"><i class="far fa-edit"></i></a></td>
                                 <td><?php echo $val['platodestacado2'] ?></td>
                                 <td class='text-center'><a href="actualizar2.php"><i class="far fa-edit"></i></a></td>                            
@@ -226,7 +226,7 @@
                             <tr>
                             <?php foreach($resultadosEn as $val) { ?>
                                 <th scope="row" class='text-center'>3</th>
-                                <td class="destacado-panel"><img src="../<?php echo $val['imgdestacado3'] ?>" alt=""></td>
+                                <td class="destacado-panel"><img src="../../<?php echo $val['imgdestacado3'] ?>" alt=""></td>
                                 <td class='text-center'><a href="actualizar6.php"><i class="far fa-edit"></i></a></td>
                                 <td><?php echo $val['platodestacado3'] ?></td>
                                 <td class='text-center'><a href="actualizar3.php"><i class="far fa-edit"></i></a></td>
@@ -248,10 +248,10 @@
         </div>
     </main>
 
-    <script src="../js/jquery-3.5.1.min.js"></script>
-    <script src="../js/bootstrap.add.js"></script>
-    <script src="../sweetalert/sweetalert210.js"></script>
-    <script src="../js/script.js"></script>
+    <script src="../../js/jquery-3.5.1.min.js"></script>
+    <script src="../../js/bootstrap.add.js"></script>
+    <script src="../../sweetalert/sweetalert210.js"></script>
+    <script src="../../js/script.js"></script>
 
 </body>
 </html>

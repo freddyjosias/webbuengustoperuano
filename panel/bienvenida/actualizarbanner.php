@@ -119,8 +119,7 @@
                             </div>
 
                             <input class="btn btn-secondary bottom mt-4" type="submit" value="Actualizar">
-                            <button class="btn btn-secondary bottom mt-4 volver"><a href="bienvenida.php?view=<?php echo $idRestaurante ?>">Volver</a></button>
-
+                            <a href="paginabienvenida.php?view=<?php echo $idRestaurante ?>" class="btn btn-secondary bottom volver mt-4">Volver</a>
                         </form>
                     </div>
 

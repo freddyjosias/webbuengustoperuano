@@ -1,12 +1,12 @@
 <?php
 
-    require '../conexion.php';
+    require '../../conexion.php';
     
     session_start();
 
     if (!isset($_SESSION['idusuario'])) 
     {
-        header('Location: ../index.php');
+        header('Location: ../../index.php');
     }
     else 
     {
@@ -26,7 +26,7 @@
     }
     
     if (!isset($_GET['view'])) {
-        header('Location: ../index.php');
+        header('Location: ../../index.php');
     } else {
        $consultaVerificarRestaurante = 'SELECT * FROM sucursal WHERE estado = 1';
 
@@ -184,7 +184,7 @@
 
         if($consultaManager == false)
         {
-            header('Location: ../index.php');
+            header('Location: ../../index.php');
         }
     }
 
@@ -196,14 +196,14 @@
     <meta charset="utf-8">
 	<link href="https://fonts.googleapis.com/css2?family=Dosis:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <title>Restaurante</title>
-    <link rel="shorcut icon" href="../img/logo-icon-512-color.png">
-    <link rel="stylesheet" href="../fontawesome/css/all.min.css">
-    <link rel="stylesheet" href="../css/normalize.css">
-    <link rel="stylesheet" type="text/css" href="../bootstrap/css/bootstrap.css">
-    <link rel="stylesheet" type="text/css" href="../css/bootstrap.add.css">
-    <link rel="stylesheet" type="text/css" href="../css/estilos.css">
-    <link rel="stylesheet" type="text/css" href="../css/formularios.css">
-    <link rel="stylesheet" type="text/css" href="../css/panel.css">
+    <link rel="shorcut icon" href="../../img/logo-icon-512-color.png">
+    <link rel="stylesheet" href="../../fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="../../css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="../../bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="../../css/bootstrap.add.css">
+    <link rel="stylesheet" type="text/css" href="../../css/estilos.css">
+    <link rel="stylesheet" type="text/css" href="../../css/formularios.css">
+    <link rel="stylesheet" type="text/css" href="../../css/panel.css">
 
 </head>
 <body>
@@ -211,7 +211,7 @@
     <main>
         <div class="container-fluid panel-control mw-1920p p-0">
 
-            <?php require '../menu/menupanel.php'; ?>
+            <?php require '../../menu/menupanel.php'; ?>
             
             <div class='container p-0 main-panel ml-auto mr-0 my-0 mw-f19-85 mw-f18-84 mw-f17-83 mw-f16-82 mw-f15-81 mw-f14-80 mw-100 z-index-auto'>
 
@@ -455,10 +455,10 @@
         </div>
     </main>
 
-    <script src="../js/jquery-3.5.1.min.js"></script>
-    <script src="../js/bootstrap.add.js"></script>
-    <script src="../sweetalert/sweetalert210.js"></script>
-    <script src="../js/script.js"></script>
+    <script src="../../js/jquery-3.5.1.min.js"></script>
+    <script src="../../js/bootstrap.add.js"></script>
+    <script src="../../sweetalert/sweetalert210.js"></script>
+    <script src="../../js/script.js"></script>
 
 </body>
 </html>
