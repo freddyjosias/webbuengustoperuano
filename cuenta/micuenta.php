@@ -196,7 +196,6 @@
                         </div>
 
                         <button type="submit" class="btn btn-primary fw-600">Guardar</button>
-                        <button href="" class="btn btn-light ml-2">Cancelar</button>
 
                     </form>
 
