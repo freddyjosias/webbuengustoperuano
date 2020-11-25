@@ -78,7 +78,7 @@
     <link rel="shorcut icon" href="../../img/logo-icon-512-color.png">
     <link rel="stylesheet" href="../../fontawesome/css/all.min.css">
     <link rel="stylesheet" type="text/css" href="../../bootstrap/css/bootstrap.css">
-    <link rel="stylesheet" href="../css/normalize.css">
+    <link rel="stylesheet" href="../../css/normalize.css">
     <link rel="stylesheet" type="text/css" href="../../css/bootstrap.add.css">
     <link rel="stylesheet" type="text/css" href="../../css/estilos.css">
     <link rel="stylesheet" type="text/css" href="../../css/formularios.css">

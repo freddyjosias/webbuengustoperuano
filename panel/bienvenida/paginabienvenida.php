@@ -113,7 +113,7 @@
     <link rel="shorcut icon" href="../../img/logo-icon-512-color.png">
     <link rel="stylesheet" href="../../fontawesome/css/all.min.css">
     <link rel="stylesheet" type="text/css" href="../../bootstrap/css/bootstrap.css">
-    <link rel="stylesheet" href="../css/normalize.css">
+    <link rel="stylesheet" href="../../css/normalize.css">
     <link rel="stylesheet" type="text/css" href="../../css/bootstrap.add.css">
     <link rel="stylesheet" type="text/css" href="../../css/estilos.css">
     <link rel="stylesheet" type="text/css" href="../../css/formularios.css">
@@ -209,27 +209,27 @@
                             <?php foreach($resultadosEn as $val) { ?>
                                 <th scope="row" class='text-center'>1</th>
                                 <td class="destacado-panel"><img src="../../<?php echo $val['imgdestacado1'] ?>" alt=""></td>
-                                <td class='text-center'><a href="actualizar4.php"><i class="far fa-edit"></i></a></td>
+                                <td class='text-center'><a href="actualizar4.php?view=<?php echo $idRestaurante ?>"><i class="far fa-edit"></i></a></td>
                                 <td><?php echo $val['platodestacado1'] ?></td>
-                                <td class='text-center'><a href="actualizar1.php"><i class="far fa-edit"></i></a></td>
+                                <td class='text-center'><a href="actualizar1.php?view=<?php echo $idRestaurante ?>"><i class="far fa-edit"></i></a></td>
                             <?php } ?>
                             </tr>
                             <tr>
                             <?php foreach($resultadosEn as $val) { ?>
                                 <th scope="row" class='text-center'>2</th>
                                 <td class="destacado-panel"><img src="../../<?php echo $val['imgdestacado2'] ?>" alt=""></td>
-                                <td class='text-center'><a href="actualizar5.php"><i class="far fa-edit"></i></a></td>
+                                <td class='text-center'><a href="actualizar5.php?view=<?php echo $idRestaurante ?>"><i class="far fa-edit"></i></a></td>
                                 <td><?php echo $val['platodestacado2'] ?></td>
-                                <td class='text-center'><a href="actualizar2.php"><i class="far fa-edit"></i></a></td>                            
+                                <td class='text-center'><a href="actualizar2.php?view=<?php echo $idRestaurante ?>"><i class="far fa-edit"></i></a></td>                            
                             <?php } ?>
                             </tr>
                             <tr>
                             <?php foreach($resultadosEn as $val) { ?>
                                 <th scope="row" class='text-center'>3</th>
                                 <td class="destacado-panel"><img src="../../<?php echo $val['imgdestacado3'] ?>" alt=""></td>
-                                <td class='text-center'><a href="actualizar6.php"><i class="far fa-edit"></i></a></td>
+                                <td class='text-center'><a href="actualizar6.php?view=<?php echo $idRestaurante ?>"><i class="far fa-edit"></i></a></td>
                                 <td><?php echo $val['platodestacado3'] ?></td>
-                                <td class='text-center'><a href="actualizar3.php"><i class="far fa-edit"></i></a></td>
+                                <td class='text-center'><a href="actualizar3.php?view=<?php echo $idRestaurante ?>"><i class="far fa-edit"></i></a></td>
                             <?php } ?>
                             </tr>
 
@@ -237,8 +237,8 @@
                     </table>
                 </div>
             
-                                </tbody>
-                        </table>
+                    </tbody>
+                    </table>
 
                 </div>
 
