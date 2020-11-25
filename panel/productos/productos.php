@@ -68,11 +68,12 @@
         $consultaManager -> execute(array($_SESSION['idusuario'], $_GET['view']));
         $consultaManager = $consultaManager -> fetch(PDO::FETCH_ASSOC);
 
-        if($consultaManager == false)
-        {
-            header('Location: ../index.php');
-        }
-    }
+          if($consultaManager == false){
+
+              $profileManager = false;
+              
+          }
+      }
 
     
 ?>
