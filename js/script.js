@@ -347,17 +347,13 @@ $(function() {
         });
     })
 
-    $('body').click(function (target) 
-    {
-        if ($('#searchinput') == target) 
-        {
+    $('body').click(function(target) {
+        if ($('#searchinput') == target) {
             return false;
-        } 
-        else
-        {
+        } else {
             $('#resultsearch').css('display', 'none')
         }
-        
+
     })
 
 });
