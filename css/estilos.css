@@ -1052,6 +1052,9 @@ body {
     color: #212F3D;
 }
 
+.box-search{
+    min-height: 100vh;
+}
 
 /*END USUARIO*/
 

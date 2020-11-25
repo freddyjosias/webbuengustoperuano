@@ -89,7 +89,7 @@
 
     </header>
 
-    <section class="box-usuario">
+    <section class="box-usuario box-search">
         <div class="contenedor-general view-restaurants mb-4">
             <h1 class='text-center h1'>RESULTADOS DE LA BUSQUEDA</h1>
  
