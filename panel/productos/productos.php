@@ -42,6 +42,13 @@
         }
     }
 
+    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+
+        $agregarproducto = $conexion -> prepare('INSERT INTO productos(idcategoriaproducto,nomproducto,precio,stock) VALUES (?,?,?,?)');
+        $agregarproducto -> execute(array($_POST['categoria'], $_POST['nuevo_producto'], floatval($_POST['precio']), $_POST['stock']));
+
+    }
+
     $consultaProductos = $conexion -> prepare(
         'SELECT p.idproducto, p.idcategoriaproducto, p.nomproducto, p.precio, p.stock, p.estado, c.idsucursal, c.descripcioncategoriaproducto, c.estado
          FROM productos AS p INNER JOIN categoriaproductos AS c ON p.idcategoriaproducto = c.idcategoriaproducto
@@ -49,6 +56,12 @@
     );
     $consultaProductos -> execute(array($_GET['view']));
     $consultaProductos = $consultaProductos -> fetchAll(PDO::FETCH_ASSOC);
+
+    $consultaCategorias = $conexion -> prepare(
+        'SELECT * FROM categoriaproductos WHERE idsucursal = ? AND estado = 1'
+    );
+    $consultaCategorias -> execute(array($_GET['view']));
+    $consultaCategorias = $consultaCategorias -> fetchAll(PDO::FETCH_ASSOC);
 
     if($profileManager == true)  {
         $consultaManager = $conexion -> prepare("SELECT access_id FROM access WHERE state = 1 AND idusuario = ? AND idsucursal = ?");
@@ -98,8 +111,33 @@
 
                 <div class="row w-f14-80 w-90 m-auto contenido-listar">
                     <h1 class='h3 text-center mt-5 font-weight-bold w-100 this-is-products'>PRODUCTOS</h1>
+
+                    <div class="col-12 form-add-manager">
+
+                    <form class='form-panel mt-5' method = "post">
+                    <p>Categoria: 
+                        <select name="categoria">            
+                            <?php foreach($consultaCategorias as $row) { ?>
+                                <option value="<?php echo $row['idcategoriaproducto'] ?>"> <?php echo $row['descripcioncategoriaproducto'] ?> </option>
+                            <?php } ?>
+                        </select>
+                    </p>
+
+                    <p>Nuevo Producto: <input type="text" name="nuevo_producto" required></p>  
+                    <p>Precio: <input type="number" name="precio" step='0.01' required></p>
+                    <p>Stock: <input type="number" name="stock" required></p>
+                    
+                    <div class='form-group d-flex'>
+                        <button type="button" class="cancel-add-manager btn btn-light ml-auto mt-3 mr-3">Cancelar</button>
+                        <button class='btn btn-primary mt-3 px-4 fw-600'>Añadir</button>
+                    </div>
+
+                </form>
+
+                    </div>
+
                     <div class="direccion-a">
-                        <a class="btn btn-primary bottom" href="agregar.php?view=<?php echo $idRestaurante ?>">Agregar</a>
+                        <a class="buttom-add-manager btn btn-primary bottom">Agregar</a>
                     </div>
                     <table class="table mt-4">
                         <thead class='thead-light'>

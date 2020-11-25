@@ -64,7 +64,7 @@
             $resultados -> execute(array($_GET['id']));
 
             if ($resultados) {
-                header("Location: listar.php?view=".$_GET['view']);
+                header("Location: categorias.php?view=".$_GET['view']);
             }
         }
 

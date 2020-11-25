@@ -22,11 +22,11 @@
                 </li>
 
                 <li>
-                    <a class='pl-5 this-is-categories' href="categorias.php?view=<?php echo $idRestaurante ?>"><i class="fas fa-columns"></i> &nbsp; CATEGORÍAS</a>
+                    <a class='pl-5 this-is-categories' href="../categorias/categorias.php?view=<?php echo $idRestaurante ?>"><i class="fas fa-columns"></i> &nbsp; CATEGORÍAS</a>
                 </li>
 
                 <li>
-                    <a class='pl-5 this-is-products' href="productos/productos.php?view=<?php echo $idRestaurante ?>"><i class="fas fa-columns"></i> &nbsp; PRODUCTOS</a>
+                    <a class='pl-5 this-is-products' href="../productos/productos.php?view=<?php echo $idRestaurante ?>"><i class="fas fa-columns"></i> &nbsp; PRODUCTOS</a>
                 </li>
 
             </ul>
