@@ -3,7 +3,7 @@
     try {
         $conexion = new PDO(
 
-            'mysql:host=34.123.150.176;dbname=buengustoperuano;charset=UTF8',
+            'mysql:host=34.72.102.16;dbname=buengustoperuano;charset=UTF8',
             'user',
             'tuprima'
             
