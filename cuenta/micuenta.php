@@ -198,23 +198,6 @@
                         <button type="submit" class="btn btn-primary fw-600">Guardar</button>
 
                     </form>
-
-
-                    <form action="" class='form-panel d-none' method = "post">
-
-                    <?php foreach($consultaUsuario as $row) { ?>
-                        <p>Nombres &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="nombre" value ="<?php echo $row['nombreusuario'] ?>"></p>
-                        <p>Apellidos &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="apellido" value ="<?php echo $row['apellidousuario'] ?>"></p>
-                        <p>Telefono &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="number" name="telefono" value ="<?php echo $row['telefonousuario'] ?>"></p>
-                        <p>Dirección &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="Text" name="direccion" value ="<?php echo $row['direccionusuario'] ?>"required></p>
-                        <p>DNI &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="number" name="dni" value ="<?php echo $row['dniusuario'] ?>"></p>    
-                    <?php } ?>
-                    
-                    <div class="botonguardar">
-                        <input class="mt-4" type="submit" value="Guardar">
-                        <button class="mt-4"><a href="index.php">Volver</a></button>
-                    </div>       
-                    </form>
                     
                 </div>
                 

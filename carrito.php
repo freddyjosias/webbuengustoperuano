@@ -250,10 +250,12 @@ $consultaVerificarRestaurante = 'SELECT * FROM sucursal WHERE idsucursal = ?';
                                         { ?>
                                             <h1 class='h2 text-left w-70 mb-4 mx-auto fw-600imp'>Restaurante: <?php echo $restaurants[1][$i] ?> <span class='h6'>(Total a pagar: S/. <?php echo $pricheRest[1][$i] ?> )</span></h1>
 
+                                            <input type="text" name='rest<?php echo $i ?>' class='d-none' value='<?php echo $restaurants[0][$i][0][0]['idsucursal'] ?>'>
+
                                             <div class="contenedor-pedidos">
                                                 <div class="btn-group-vertical direccion-tipos">
                                                     <p>Tipos de pedido:</p>
-                                                        <select class="carrtio-pedidopago" name="tipopedido<?php echo $i ?>">
+                                                        <select class="carrtio-pedidopago p-1 bg-info text-white" name="tipopedido<?php echo $i ?>">
                                                             <?php foreach ($restaurants[0][$i][0] as $tipopedido) { ?>
                                                                 <option value="<?php echo $tipopedido['idtipospedido'] ?>"><?php echo $tipopedido['descripciontipospedido'] ?></option>
                                                             <?php }  ?>
@@ -261,7 +263,7 @@ $consultaVerificarRestaurante = 'SELECT * FROM sucursal WHERE idsucursal = ?';
                                                 </div>
                                                 <div class="btn-group-vertical direccion-tipos">
                                                     <p>Forma de Pago:</p>
-                                                        <select class="carrtio-pedidopago" name="formapago<?php echo $i ?>">
+                                                        <select class="carrtio-pedidopago p-1 bg-info text-white" name="formapago<?php echo $i ?>">
                                                             <?php foreach ($restaurants[0][$i][1] as $formaspago) { ?>
                                                                 <option value="<?php echo $formaspago['idformaspago'] ?>"><?php echo $formaspago['descripcionformaspago'] ?></option>
                                                             <?php }  ?>
