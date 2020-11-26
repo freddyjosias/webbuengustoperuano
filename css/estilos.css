@@ -731,7 +731,6 @@ body {
 }
 
 .carrito .table thead tr th {
-    background: linear-gradient(180deg, var(--black2) 0%, var(--black1) 100%);
     padding: .5rem;
     font-size: 20px;
     font-weight: 500;

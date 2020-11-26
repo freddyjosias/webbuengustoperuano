@@ -67,12 +67,15 @@ $consultaVerificarRestaurante = 'SELECT * FROM sucursal WHERE idsucursal = ?';
         $consultaformaspago -> execute(array($_GET['view']));
         $consultaformaspago = $consultaformaspago -> fetchAll(PDO::FETCH_ASSOC);
 
-        $consultaCar = $conexion -> prepare('SELECT * FROM shop_car AS s INNER JOIN productos AS p ON s.idproducto = p.idproducto INNER JOIN categoriaproductos AS c ON c.idcategoriaproducto = p.idcategoriaproducto INNER JOIN sucursal AS r ON r.idsucursal = c.idsucursal WHERE s.idusuario = ? AND p.estado = 1 AND r.idsucursal = ?');
-        $consultaCar -> execute(array($_SESSION['idusuario'], $_GET['view']));
+        $consultaCar = $conexion -> prepare('SELECT p.idproducto, quantity, nomproducto, precio, nomsucursal, r.idsucursal FROM shop_car AS s INNER JOIN productos AS p ON s.idproducto = p.idproducto INNER JOIN categoriaproductos AS c ON c.idcategoriaproducto = p.idcategoriaproducto INNER JOIN sucursal AS r ON r.idsucursal = c.idsucursal WHERE s.idusuario = ? AND p.estado = 1 ORDER BY nomsucursal, nomproducto');
+        $consultaCar -> execute(array($_SESSION['idusuario']));
         $consultaCar = $consultaCar -> fetchAll(PDO::FETCH_ASSOC);
 
-        if ($consultaCar) {
+        if ($consultaCar) 
+        {
             $cont++;
+            $restaurants = array(0 => array(), 1 => array());
+            $countArrayRest = 0;
         }
 
         if (!isset($idRestaurante)) {
@@ -136,7 +139,7 @@ $consultaVerificarRestaurante = 'SELECT * FROM sucursal WHERE idsucursal = ?';
 
                 <div class="bgp">
 
-                    <h1 class='h2 text-uppercase  fw-600imp'> <?php echo $nombresucursal ?> - Carrito </h1>
+                    <h1 class='h2 text-uppercase  fw-600imp'> Carrito </h1>
 
                 </div>
 
@@ -149,15 +152,16 @@ $consultaVerificarRestaurante = 'SELECT * FROM sucursal WHERE idsucursal = ?';
                     <div class="carrito">
                         <form action="" method="post">
                                 <table class="table">
-                                    <thead>
+                                    <thead class="thead-light">
                                     <?php
                                     if($cont != 0){ ?>
                                         <tr>                   
-                                            <th>Producto</th>
-                                            <th>Cantidad</th>
-                                            <th>Precio Unit.</th>
-                                            <th>Precio Total</th>
-                                            <th>Más</th>
+                                            <th scope="col">Producto</th>
+                                            <th scope="col">Cantidad</th>
+                                            <th scope="col">Precio Unit.</th>
+                                            <th scope="col">Precio Total</th>
+                                            <th scope="col">Restaurante</th>
+                                            <th scope="col">Más</th>
                                         </tr>
                                     <?php } ?>
                                     </thead>
@@ -169,7 +173,24 @@ $consultaVerificarRestaurante = 'SELECT * FROM sucursal WHERE idsucursal = ?';
                                         <a href="hacerpedido.php?view=<?php echo $idRestaurante ?>"><button type="button" class="btn btn-primary mt-3 fw-600imp">Seguir Comprando</button></a>
                                     </tbody>
                                    <?php }  else{                                   
-                                    foreach($consultaCar as $producto) { ?>
+                                    foreach($consultaCar as $producto) 
+                                    {
+                                        if (isset($restaurants[0][0])) 
+                                        {
+                                            if ($restaurants[0][$countArrayRest - 1] != $producto['idsucursal']) 
+                                            {
+                                                $restaurants[0][$countArrayRest] = $producto['idsucursal'];
+                                                $restaurants[1][$countArrayRest] = $producto['nomsucursal'];
+                                                $countArrayRest++;
+                                            }
+                                        }
+                                        else
+                                        {
+                                            $restaurants[0][0] = $producto['idsucursal'];
+                                            $restaurants[1][0] = $producto['nomsucursal'];
+                                            $countArrayRest++;
+                                        }
+                                    ?>
                                         <tbody>
                                             <tr class="trcarrito">
                                                     <td><?php echo $producto['nomproducto'] ?></td>
@@ -180,10 +201,13 @@ $consultaVerificarRestaurante = 'SELECT * FROM sucursal WHERE idsucursal = ?';
                                                             echo number_format($Nproducto, 2, '.', ' ');
                                                             $NproductoT = $NproductoT + $Nproducto; ?>
                                                     </td>
+
+                                                    <td><?php echo $producto['nomsucursal'] ?></td>
+
                                                     <td class='text-center px-0 py-2'>
-                                                    <a class="btn btn-danger" href="eliminarcarrito.php?id=<?php echo $producto['idproducto']; ?>&view=<?php echo $_GET['view'] ?>">
-                                                        <i class="far fa-trash-alt "></i> &nbsp; Eliminar 
-                                                    </a>
+                                                        <a class="btn btn-danger" href="eliminarcarrito.php?id=<?php echo $producto['idproducto']; ?>&view=<?php echo $_GET['view'] ?>">
+                                                            <i class="far fa-trash-alt "></i> &nbsp; Eliminar 
+                                                        </a>
                                                     </td>
                                             </tr>
                                         </tbody>
@@ -209,6 +233,9 @@ $consultaVerificarRestaurante = 'SELECT * FROM sucursal WHERE idsucursal = ?';
                                 </table>
                                 <?php
                                 if($cont != 0){ ?>
+                                
+                                <h1 class='h2 text-left w-70 mb-4 mx-auto fw-600imp'>Restaurante: <?php echo $nombresucursal ?></h1>
+
                                 <div class="contenedor-pedidos">
                                     <div class="btn-group-vertical direccion-tipos">
                                         <p>Tipos de pedido:</p>
@@ -227,8 +254,12 @@ $consultaVerificarRestaurante = 'SELECT * FROM sucursal WHERE idsucursal = ?';
                                             </select>
                                     </div>
                                 </div>   
+                                
+                                <br>
+                                <br>
+
                                 <p>Pedido con la seguridad que nos caracteriza.</p>
-                                <button type="button" class="btn btn-outline-primary">Realiza Pedido</button>
+                                <button type="button" class="btn btn-primary">Realiza Pedido</button>
                                 <?php } ?>
                         </form>
                     </div> 
