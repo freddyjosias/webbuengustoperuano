@@ -50,22 +50,6 @@ $consultaVerificarRestaurante = 'SELECT * FROM sucursal WHERE idsucursal = ?';
         
         $cont = 0;
         $NproductoT = 0;
-    
-        $consultatipospedidos = $conexion -> prepare(
-        "SELECT t.idtipospedido, t.descripciontipospedido, d.idsucursal 
-         FROM tipospedido AS t INNER JOIN detalletipospedido AS d ON t.idtipospedido = d.idtipospedido 
-        WHERE d.idsucursal = ? AND d.disponibilidadtipospedido = 1"
-        );
-        $consultatipospedidos -> execute(array($_GET['view']));
-        $consultatipospedidos = $consultatipospedidos -> fetchAll(PDO::FETCH_ASSOC);
-
-        $consultaformaspago = $conexion -> prepare(
-        "SELECT f.idformaspago, f.descripcionformaspago, d.idsucursal 
-         FROM formaspago AS f INNER JOIN detalleformaspago AS d ON f.idformaspago = d.idformaspago 
-         WHERE d.idsucursal = ? AND d.disponibilidadformaspago = 1"
-        );
-        $consultaformaspago -> execute(array($_GET['view']));
-        $consultaformaspago = $consultaformaspago -> fetchAll(PDO::FETCH_ASSOC);
 
         $consultaCar = $conexion -> prepare('SELECT p.idproducto, quantity, nomproducto, precio, nomsucursal, r.idsucursal FROM shop_car AS s INNER JOIN productos AS p ON s.idproducto = p.idproducto INNER JOIN categoriaproductos AS c ON c.idcategoriaproducto = p.idcategoriaproducto INNER JOIN sucursal AS r ON r.idsucursal = c.idsucursal WHERE s.idusuario = ? AND p.estado = 1 ORDER BY nomsucursal, nomproducto');
         $consultaCar -> execute(array($_SESSION['idusuario']));
@@ -76,8 +60,51 @@ $consultaVerificarRestaurante = 'SELECT * FROM sucursal WHERE idsucursal = ?';
             $cont++;
             $restaurants = array(0 => array(), 1 => array());
             $countArrayRest = 0;
-        }
+            $pricheRest = array(0 => array(), 1 => array());
 
+            foreach($consultaCar as $producto)
+            {
+                if (isset($restaurants[0][0])) 
+                {
+                    if ($restaurants[0][$countArrayRest - 1] != $producto['idsucursal']) 
+                    {
+                        $restaurants[0][$countArrayRest] = $producto['idsucursal'];
+                        $restaurants[1][$countArrayRest] = $producto['nomsucursal'];
+                        $pricheRest[0][$countArrayRest] = $producto['idsucursal'];
+                        $pricheRest[1][$countArrayRest] = ($producto['precio'] * $producto['quantity']);
+                        $countArrayRest++;
+                    }
+                    else
+                    {
+                        $pricheRest[1][$countArrayRest - 1] =  ($producto['precio'] * $producto['quantity']) + $pricheRest[1][$countArrayRest - 1];
+                    }
+                }
+                else
+                {
+                    $restaurants[0][0] = $producto['idsucursal'];
+                    $restaurants[1][0] = $producto['nomsucursal'];
+                    $pricheRest[0][0] = $producto['idsucursal'];
+                    $pricheRest[1][0] =  ($producto['precio'] * $producto['quantity']);
+                    $countArrayRest++;
+                }
+            }
+
+            for($i = 0; $i < $countArrayRest; $i++) 
+            {
+                $consultatipospedidos = $conexion -> prepare("SELECT t.idtipospedido, t.descripciontipospedido, d.idsucursal FROM tipospedido AS t INNER JOIN detalletipospedido AS d ON t.idtipospedido = d.idtipospedido 
+                WHERE d.idsucursal = ? AND d.disponibilidadtipospedido = 1"
+                );
+                $consultatipospedidos -> execute(array($restaurants[0][$i]));
+                $consultatipospedidos = $consultatipospedidos -> fetchAll(PDO::FETCH_ASSOC);
+
+                $consultaformaspago = $conexion -> prepare("SELECT f.idformaspago, f.descripcionformaspago, d.idsucursal FROM formaspago AS f INNER JOIN detalleformaspago AS d ON f.idformaspago = d.idformaspago WHERE d.idsucursal = ? AND d.disponibilidadformaspago = 1");
+                $consultaformaspago -> execute(array($restaurants[0][$i]));
+                $consultaformaspago = $consultaformaspago -> fetchAll(PDO::FETCH_ASSOC);
+
+                $restaurants[0][$i] = array(0 => $consultatipospedidos, 1 => $consultaformaspago);
+            }
+        }
+        #var_dump($restaurants[0][0][0]); die;
         if (!isset($idRestaurante)) {
             header('Location: index.php');
         } else {
@@ -150,7 +177,6 @@ $consultaVerificarRestaurante = 'SELECT * FROM sucursal WHERE idsucursal = ?';
                 </div>
 
                     <div class="carrito">
-                        <form action="" method="post">
                                 <table class="table">
                                     <thead class="thead-light">
                                     <?php
@@ -174,23 +200,7 @@ $consultaVerificarRestaurante = 'SELECT * FROM sucursal WHERE idsucursal = ?';
                                     </tbody>
                                    <?php }  else{                                   
                                     foreach($consultaCar as $producto) 
-                                    {
-                                        if (isset($restaurants[0][0])) 
-                                        {
-                                            if ($restaurants[0][$countArrayRest - 1] != $producto['idsucursal']) 
-                                            {
-                                                $restaurants[0][$countArrayRest] = $producto['idsucursal'];
-                                                $restaurants[1][$countArrayRest] = $producto['nomsucursal'];
-                                                $countArrayRest++;
-                                            }
-                                        }
-                                        else
-                                        {
-                                            $restaurants[0][0] = $producto['idsucursal'];
-                                            $restaurants[1][0] = $producto['nomsucursal'];
-                                            $countArrayRest++;
-                                        }
-                                    ?>
+                                    { ?>
                                         <tbody>
                                             <tr class="trcarrito">
                                                     <td><?php echo $producto['nomproducto'] ?></td>
@@ -231,37 +241,46 @@ $consultaVerificarRestaurante = 'SELECT * FROM sucursal WHERE idsucursal = ?';
                                     </tbody>
                                     <?php } ?>
                                 </table>
-                                <?php
-                                if($cont != 0){ ?>
-                                
-                                <h1 class='h2 text-left w-70 mb-4 mx-auto fw-600imp'>Restaurante: <?php echo $nombresucursal ?></h1>
 
-                                <div class="contenedor-pedidos">
-                                    <div class="btn-group-vertical direccion-tipos">
-                                        <p>Tipos de pedido:</p>
-                                            <select class="carrtio-pedidopago" name="tipopedido">
-                                                <?php foreach ($consultatipospedidos as $tipopedido) { ?>
-                                                    <option value="<?php echo $tipopedido['idtipospedido'] ?>"><?php echo $tipopedido['descripciontipospedido'] ?></option>
-                                                <?php }  ?>
-                                            </select>
-                                    </div>
-                                    <div class="btn-group-vertical direccion-tipos">
-                                        <p>Forma de Pago:</p>
-                                            <select class="carrtio-pedidopago" name="formapago">
-                                                <?php foreach ($consultaformaspago as $formaspago) { ?>
-                                                    <option value="<?php echo $formaspago['idformaspago'] ?>"><?php echo $formaspago['descripcionformaspago'] ?></option>
-                                                <?php }  ?>
-                                            </select>
-                                    </div>
-                                </div>   
+                                <?php if($cont != 0){ ?>
                                 
-                                <br>
-                                <br>
+                                    <form action="pedido/continuarpedido.php" method='post'>
+                                    
+                                        <?php for($i = 0; $i < $countArrayRest; $i++) 
+                                        { ?>
+                                            <h1 class='h2 text-left w-70 mb-4 mx-auto fw-600imp'>Restaurante: <?php echo $restaurants[1][$i] ?> <span class='h6'>(Total a pagar: S/. <?php echo $pricheRest[1][$i] ?> )</span></h1>
 
-                                <p>Pedido con la seguridad que nos caracteriza.</p>
-                                <button type="button" class="btn btn-primary">Realiza Pedido</button>
+                                            <div class="contenedor-pedidos">
+                                                <div class="btn-group-vertical direccion-tipos">
+                                                    <p>Tipos de pedido:</p>
+                                                        <select class="carrtio-pedidopago" name="tipopedido<?php echo $i ?>">
+                                                            <?php foreach ($restaurants[0][$i][0] as $tipopedido) { ?>
+                                                                <option value="<?php echo $tipopedido['idtipospedido'] ?>"><?php echo $tipopedido['descripciontipospedido'] ?></option>
+                                                            <?php }  ?>
+                                                        </select>
+                                                </div>
+                                                <div class="btn-group-vertical direccion-tipos">
+                                                    <p>Forma de Pago:</p>
+                                                        <select class="carrtio-pedidopago" name="formapago<?php echo $i ?>">
+                                                            <?php foreach ($restaurants[0][$i][1] as $formaspago) { ?>
+                                                                <option value="<?php echo $formaspago['idformaspago'] ?>"><?php echo $formaspago['descripcionformaspago'] ?></option>
+                                                            <?php }  ?>
+                                                        </select>
+                                                </div>
+                                            </div>
+
+                                            <br>
+                                            <br>
+
+                                        <?php } ?>  
+                                        
+                                        <p>Pedido con la seguridad que nos caracteriza.</p>
+                                        <button type="submit" class="btn btn-primary">Continuar</button>
+
+                                    </form>
+
                                 <?php } ?>
-                        </form>
+                                
                     </div> 
                 </section>
         </main>
