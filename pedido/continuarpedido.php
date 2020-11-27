@@ -24,6 +24,8 @@
         $i++;
     }
 
+    $onlinePayment = 0;
+
     function resultRest($key)
     {
         $result = $GLOBALS['conexion'] -> prepare('SELECT nomsucursal, nomproducto, precio, quantity FROM sucursal INNER JOIN categoriaproductos ON categoriaproductos.idsucursal = sucursal.idsucursal INNER JOIN productos ON productos.idcategoriaproducto = categoriaproductos.idcategoriaproducto INNER JOIN shop_car ON shop_car.idproducto = productos.idproducto WHERE sucursal.estado = 1 AND productos.estado = 1 AND stock > 0 AND categoriaproductos.estado = 1 AND sucursal.idsucursal = ? AND idusuario = ? GROUP BY productos.idproducto');
@@ -94,7 +96,7 @@
 
     </header>
 
-    <div class="contenedor-general bg-white py-3 px-5">
+    <div class="contenedor-general bg-white py-3 px-5 my-4">
         
         <h1 class='text-center fw-700'><ins>DATOS DE LA COMPRA</ins></h1>
 
@@ -206,7 +208,21 @@
                         <tr class="trcarrito">
                             <td><?php echo $tipospedido[$restDetail[1][$countTableRest]] ?></td>
                             <td><?php echo $formaspago[$restDetail[2][$countTableRest]] ?></td>
-                            <td>S/. <?php echo number_format($NproductoT, 2, '.', ' '); ?></td>
+                            <td>S/. 
+                            <?php
+
+                                echo number_format($NproductoT, 2, '.', ' '); 
+
+                                if($restDetail[2][$countTableRest] == 2)
+                                {
+                                    $onlinePayment = $onlinePayment + $NproductoT;
+                                } 
+                                else if($restDetail[1][$countTableRest] == 3)
+                                {
+                                    $onlinePayment = $onlinePayment + ($NproductoT * 0.5);
+                                }
+                            
+                            ?></td>
                         </tr>
                     </tbody>
                 </table>
@@ -224,11 +240,17 @@
                                 case 1:
                                     echo "Delivery: Cuando finalice el pedido un repartidor del restaurante " . $restBlock[0]['nomsucursal'] . " ira a la dirección indicada anteriormente para hacerle entrega de su pedido.";
                                     break;
+
                                 case 2:
                                     echo "Recojo en local: Cuando finalice el pedido usted puede pasar por el local del restaurante " . $restBlock[0]['nomsucursal'] . " para recoger su pedido.";
                                     break;
+
                                 case 3:
-                                    echo "Reserva: Cuando finalice el pedido puede tomarse su tiempo e ir al restaurante " . $restBlock[0]['nomsucursal'] . " para degustar ahí su pedido.";
+                                    echo "Reserva: Cuando finalice el pedido puede tomarse su tiempo e ir al restaurante " . $restBlock[0]['nomsucursal'] . " para degustar ahí su pedido. 
+                                    <br>
+                                    *Para este tipo de pedido tiene que pagar el 50% del monto total de manera online antes de finalizar su pedido y el otro 50% según su forma de pago elegido, a excepción del pago online. 
+                                    <br>
+                                    *En caso que la forma de pago para este restaurante sea online, usted antes de finalizar su pedido, tiene que cancelar el 100% del monto total.";
                                     break;
                             }
 
@@ -248,13 +270,15 @@
                         switch ($restDetail[2][$countTableRest]) 
                         {
                             case 1:
-                                echo "Efectivo: Cuando el repartidor del restaurante " . $restBlock[0]['nomsucursal'] . " le entregue su pedido usted podra cancelar con efectivo.";
+                                echo "Efectivo: Cuando el repartidor del restaurante " . $restBlock[0]['nomsucursal'] . " le entregue su pedido usted podrá cancelar con efectivo.";
                                 break;
+
                             case 2:
-                                echo "Online: Antes de finalizar su pedido  " . $restBlock[0]['nomsucursal'] . " para recoger su pedido.";
+                                echo "Online: Antes de finalizar el pedido tiene que llenar los datos de su tarjeta en la parte inferior para procesar el pago del monto total con respecto a su pedido del restaurante " . $restBlock[0]['nomsucursal'] . ".";
                                 break;
+
                             case 3:
-                                echo "POS: Cuando finalice el pedido puede tomarse su tiempo e ir al restaurante " . $restBlock[0]['nomsucursal'] . " para degustar ahí su pedido.";
+                                echo "POS: Cuando el repartidor del restaurante " . $restBlock[0]['nomsucursal'] . " le entregue su pedido usted podrá cancelar con su tarjeta al repartidor.";
                                 break;
                         }
 
@@ -265,16 +289,86 @@
 
             <?php 
                 $countTableRest++;
-            } ?>
+            } 
+            
+            if($onlinePayment > 0)
+            {
+            ?>
 
-            <div class='text-center'>
+            <h5 class='bg-info p-2 text-white fw-600 mb-3 mt-4'>PAGO ONLINE:</h5>
+
+            <p>Antes de finalizar su pedido complete el pago de S/. <?php echo number_format($onlinePayment, 2, '.', ' ') ?> con su tarjeta.</p>
+
+            <div class="w-40 mx-auto mx-3">
+
+                <p class='h1 text-right'><i class="fab text-primary fa-cc-visa"></i> <i class="fab text-warning fa-cc-mastercard"></i></p>
+                
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Titular de la Tarjeta:</label>
+                    <input type="text" class="form-control" id="exampleInputEmail1" autocomplete="off" aria-describedby="emailHelp" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="exampleInputEmail2">Número de Tarjeta:</label>
+                    <input type="text" class="form-control" id="exampleInputEmail2" autocomplete="off" aria-describedby="emailHelp" required>
+                </div>
+
+                <div class="row">
+
+                    <div class="form-group col-6">
+
+                        <label for="exampleInputEmail3">Fecha de Expiración:</label>
+                        <input type="text" class="form-control" id="exampleInputEmail3" aria-describedby="emailHelp" placeholder='MM/AA' required autocomplete="off">
+
+                    </div>
+
+                    <div class="form-group col-6">
+
+                        <label for="exampleInputEmail4">CVV:</label>
+                        <input type="text" class="form-control" id="exampleInputEmail4" aria-describedby="emailHelp" required autocomplete="off">
+
+                    </div>
+
+                </div>
+
+            </div>
+            
+            <?php } ?>
+
+            <div class='text-center mb-4 mt-5'>
                 <button type='submit' class='btn btn-primary h5 fw-600'>COMPLETAR COMPRA</button>
             </div>
         
         </form>
 
+    </div>
 
+    <footer class="footer-inicio">
+        <div class='contenedor-general'>
+            <div>© 2020 Restaurante 1 SAC. Todos los derechos reservados</div>
+        </div>
+    </footer>
 
+    <div class="function-go-up ir-arriba">
+        <i class="fas fa-angle-up"></i>
+    </div>
+
+    <div class="submenu-bottom container-fluid position-fixed bottom-0 d-block d-lg-none border border-light border-bottom-0 border-right-0 border-left-0">
+
+        <div class="row text-center h-100">
+
+            <div class="col-6 fs-22 h-100 d-flex border-right">
+                <a href="index.php" class='text-white h-100 w-100 pt-1'><i class="fas fa-home"></i></a>
+            </div>
+
+            <div class="col-6 text-white fs-35">
+
+                <div class="function-go-up go-up h-100 d-flex top-0 justify-content-center w-100" role='button'>
+                    <i class="fas fa-angle-up"></i>
+                </div>
+
+            </div>
+        </div>
 
     </div>
 
