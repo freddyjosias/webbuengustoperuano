@@ -211,6 +211,58 @@
                     </tbody>
                 </table>
 
+                <div class="row alert alert-warning mx-0" role="alert">
+                    
+                    <div class="col-f7 fw-700 px-0 text-center">
+                        <i class="fas fa-exclamation-circle"></i> Atención: 
+                    </div>
+                    <div class="col-f43">
+                        <?php
+
+                            switch ($restDetail[1][$countTableRest]) 
+                            {
+                                case 1:
+                                    echo "Delivery: Cuando finalice el pedido un repartidor del restaurante " . $restBlock[0]['nomsucursal'] . " ira a la dirección indicada anteriormente para hacerle entrega de su pedido.";
+                                    break;
+                                case 2:
+                                    echo "Recojo en local: Cuando finalice el pedido usted puede pasar por el local del restaurante " . $restBlock[0]['nomsucursal'] . " para recoger su pedido.";
+                                    break;
+                                case 3:
+                                    echo "Reserva: Cuando finalice el pedido puede tomarse su tiempo e ir al restaurante " . $restBlock[0]['nomsucursal'] . " para degustar ahí su pedido.";
+                                    break;
+                            }
+
+                        ?>
+                    </div>
+
+                </div>
+                
+                <div class="row alert alert-warning mx-0" role="alert">
+                    
+                    <div class="col-f7 fw-700 px-0 text-center">
+                        <i class="fas fa-exclamation-circle"></i> Atención: 
+                    </div>
+                    <div class="col-f43">
+                    <?php
+
+                        switch ($restDetail[2][$countTableRest]) 
+                        {
+                            case 1:
+                                echo "Efectivo: Cuando el repartidor del restaurante " . $restBlock[0]['nomsucursal'] . " le entregue su pedido usted podra cancelar con efectivo.";
+                                break;
+                            case 2:
+                                echo "Online: Antes de finalizar su pedido  " . $restBlock[0]['nomsucursal'] . " para recoger su pedido.";
+                                break;
+                            case 3:
+                                echo "POS: Cuando finalice el pedido puede tomarse su tiempo e ir al restaurante " . $restBlock[0]['nomsucursal'] . " para degustar ahí su pedido.";
+                                break;
+                        }
+
+                        ?>
+                    </div>
+
+                </div>
+
             <?php 
                 $countTableRest++;
             } ?>
