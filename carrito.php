@@ -126,7 +126,7 @@ $consultaVerificarRestaurante = 'SELECT * FROM sucursal WHERE idsucursal = ?';
 <!DOCTYPE html>
 <html>
 <head>
-	<title>El Buen Gusto Peruano</title>
+	<title>Carrito | El Buen Gusto Peruano</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shorcut icon" href="img/logo-icon-512-color.png">
@@ -248,7 +248,7 @@ $consultaVerificarRestaurante = 'SELECT * FROM sucursal WHERE idsucursal = ?';
                                     
                                         <?php for($i = 0; $i < $countArrayRest; $i++) 
                                         { ?>
-                                            <h1 class='h2 text-left w-70 mb-4 mx-auto fw-600imp'>Restaurante: <?php echo $restaurants[1][$i] ?> <span class='h6'>(Total a pagar: S/. <?php echo $pricheRest[1][$i] ?> )</span></h1>
+                                            <h1 class='h2 text-left w-70 mb-4 mx-auto fw-600imp'>Restaurante: <?php echo $restaurants[1][$i] ?> <span class='h6'>(Total a pagar: S/. <?php echo number_format($pricheRest[1][$i], 2, '.', ' ')  ?> )</span></h1>
 
                                             <input type="text" name='rest<?php echo $i ?>' class='d-none' value='<?php echo $restaurants[0][$i][0][0]['idsucursal'] ?>'>
 
