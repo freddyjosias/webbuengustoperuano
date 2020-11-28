@@ -100,7 +100,7 @@
         
         <h1 class='text-center fw-700'><ins>DATOS DE LA COMPRA</ins></h1>
 
-        <form action="">
+        <form action="confirmado.php">
 
             <h5 class='bg-info p-2 text-white fw-600 mb-3'>DATOS PERSONALES:</h5>
 
@@ -305,12 +305,12 @@
                 
                 <div class="form-group">
                     <label for="exampleInputEmail1">Titular de la Tarjeta:</label>
-                    <input type="text" class="form-control" id="exampleInputEmail1" autocomplete="off" aria-describedby="emailHelp" required>
+                    <input type="text" class="form-control" id="exampleInputEmail1" autocomplete="off" aria-describedby="emailHelp" spellcheck="false" required>
                 </div>
 
                 <div class="form-group">
                     <label for="exampleInputEmail2">Número de Tarjeta:</label>
-                    <input type="text" class="form-control" id="exampleInputEmail2" autocomplete="off" aria-describedby="emailHelp" required>
+                    <input type="text" class="form-control" id="exampleInputEmail2" autocomplete="off" aria-describedby="emailHelp" spellcheck="false" required>
                 </div>
 
                 <div class="row">
@@ -318,14 +318,14 @@
                     <div class="form-group col-6">
 
                         <label for="exampleInputEmail3">Fecha de Expiración:</label>
-                        <input type="text" class="form-control" id="exampleInputEmail3" aria-describedby="emailHelp" placeholder='MM/AA' required autocomplete="off">
+                        <input type="text" class="form-control" id="exampleInputEmail3" aria-describedby="emailHelp" placeholder='MM/AA' required spellcheck="false" autocomplete="off">
 
                     </div>
 
                     <div class="form-group col-6">
 
                         <label for="exampleInputEmail4">CVV:</label>
-                        <input type="text" class="form-control" id="exampleInputEmail4" aria-describedby="emailHelp" required autocomplete="off">
+                        <input type="text" spellcheck="false" class="form-control" id="exampleInputEmail4" aria-describedby="emailHelp" required autocomplete="off">
 
                     </div>
 
