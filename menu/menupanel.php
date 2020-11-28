@@ -29,6 +29,10 @@
                     <a class='pl-5 this-is-products' href="../productos/productos.php?view=<?php echo $idRestaurante ?>"><i class="fas fa-columns"></i> &nbsp; PRODUCTOS</a>
                 </li>
 
+                <li>
+                    <a class='pl-5 this-is-products' href="../productos/productos.php?view=<?php echo $idRestaurante ?>"><i class="fas fa-columns"></i> &nbsp; PEDIDOS</a>
+                </li>
+
             </ul>
     </nav>
 </div>
