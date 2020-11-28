@@ -100,7 +100,7 @@
         
         <h1 class='text-center fw-700'><ins>DATOS DE LA COMPRA</ins></h1>
 
-        <form action="confirmado.php">
+        <form action="confirmado.php" method='post'>
 
             <h5 class='bg-info p-2 text-white fw-600 mb-3'>DATOS PERSONALES:</h5>
 

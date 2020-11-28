@@ -30,7 +30,7 @@
                 </li>
 
                 <li>
-                    <a class='pl-5 this-is-order' href="../productos/productos.php?view=<?php echo $idRestaurante ?>"><i class="fas fa-columns"></i> &nbsp; PEDIDOS</a>
+                    <a class='pl-5 this-is-order' href="../pedidos/pedidos.php?view=<?php echo $idRestaurante ?>"><i class="fas fa-columns"></i> &nbsp; PEDIDOS</a>
                 </li>
 
             </ul>

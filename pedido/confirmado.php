@@ -1,7 +1,7 @@
 <?php
     
     session_start();
-    #var_dump($_POST); die;
+    var_dump($_POST); die;
     #if (!isset($_SESSION['idusuario']) || !isset($_POST['rest0'])) 
     if (!isset($_SESSION['idusuario'])) 
     {

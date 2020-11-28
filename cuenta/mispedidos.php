@@ -52,8 +52,15 @@
 
                 <div class="row w-f14-80 w-90 m-auto">
 
-                    <h1 class='h3 text-center mt-5 mb-3 font-weight-bold w-100 this-is-my-dates'>MIS DATOS PERSONALES</h1>
+                    <h1 class='h3 text-center mt-5 mb-3 font-weight-bold w-100 this-is-my-orders'>MIS PEDIDOS</h1>
 
+                    <h5 class='bg-info p-2 text-white fw-600 mb-3 mt-4 w-100'>PEDIDOS NUEVOS:</h5> 
+
+                    <p class='w-100 text-center'>Usted no tiene pedidos nuevos</p>
+
+                    <h5 class='bg-info p-2 text-white fw-600 mb-3 mt-4 w-100'>PEDIDOS COMPLETADOS:</h5>
+
+                    <p class='w-100 text-center'>Usted no tiene pedidos completados</p>
                     
                     
                 </div>

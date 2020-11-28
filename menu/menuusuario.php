@@ -10,7 +10,7 @@
         <ul class='fw-600 ls-13'>
             <li><a class='pl-5' href="../index.php"><i class="fas fa-home"></i> &nbsp; IR AL INICIO</a></li>
             <li><a class='pl-5 this-is-my-dates' href="micuenta.php"><i class="fas fa-columns"></i> &nbsp; MIS DATOS</a></li>
-            <li><a class='pl-5 this-is-my-orders' href="micuenta.php"><i class="fas fa-columns"></i> &nbsp; MIS DATOS</a></li>
+            <li><a class='pl-5 this-is-my-orders' href="mispedidos.php"><i class="fas fa-columns"></i> &nbsp; MIS PEDIDOS</a></li>
         </ul>
     </nav>
 
