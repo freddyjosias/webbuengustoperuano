@@ -269,6 +269,13 @@ $(function() {
         })
     }
 
+    if ($('.this-is-my-orders').length > 1) {
+        $('.this-is-my-orders:first').css({
+            'background-color': '#969696',
+            'border': '1px solid white'
+        })
+    }
+
     var countMenuPanel = 0;
     $('.button-show-menu-panel').click(function() {
         if (countMenuPanel == 0) {
