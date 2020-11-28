@@ -345,7 +345,7 @@
 
     <footer class="footer-inicio">
         <div class='contenedor-general'>
-            <div>© 2020 Restaurante 1 SAC. Todos los derechos reservados</div>
+            <div>© 2020 Buen Gusto Peruano SAC. Todos los derechos reservados</div>
         </div>
     </footer>
 

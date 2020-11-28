@@ -253,6 +253,13 @@ $(function() {
         })
     }
 
+    if ($('.this-is-order').length > 1) {
+        $('.this-is-order:first').css({
+            'background-color': '#969696',
+            'border': '1px solid white'
+        })
+    }
+
     //MENU USUARIO
 
     if ($('.this-is-my-dates').length > 1) {

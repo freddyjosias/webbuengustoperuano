@@ -6,7 +6,7 @@
 
     if (!isset($_SESSION['idusuario'])) 
     {
-        header('Location: index.php');
+        header('Location: ../index.php');
     }
 
     // $consultaUsuario = $conexion -> prepare('SELECT emailusuario, nombreusuario, apellidousuario, dniusuario, photo, direccionusuario, referenciausuario, telefonousuario, AES_DECRYPT(contrasena, "BuenGustoPeruano") as password FROM usuario WHERE idusuario = ?');

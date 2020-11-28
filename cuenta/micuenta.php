@@ -6,7 +6,7 @@
 
     if (!isset($_SESSION['idusuario'])) 
     {
-        header('Location: index.php');
+        header('Location: ../index.php');
     }
 
     $errorAlert = 0;
@@ -195,7 +195,7 @@
 
                         </div>
 
-                        <button type="submit" class="btn btn-primary fw-600">Guardar</button>
+                        <button type="submit" class="btn btn-primary fw-600 mb-5">Guardar</button>
 
                     </form>
                     
