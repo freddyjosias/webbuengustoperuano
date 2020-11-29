@@ -20,7 +20,7 @@
     for($i = 0; $i < $countRest; $i++)
     {
 
-        if($restDetail[1][$i] == 2)
+        if($restDetail[1][$i] == 3)
         {
             $stateBuy = 2;
         } 
