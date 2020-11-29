@@ -20,11 +20,11 @@
     for($i = 0; $i < $countRest; $i++)
     {
 
-        if($restDetail[2][$i] == 2)
+        if($restDetail[1][$i] == 2)
         {
             $stateBuy = 2;
         } 
-        else if($restDetail[1][$i] == 3)
+        else if($restDetail[2][$i] == 3)
         {
             $stateBuy = 1;
         }
@@ -42,14 +42,14 @@
         $lastID -> execute();
         $lastID = $lastID -> fetch(PDO::FETCH_ASSOC);
 
-        $products = $conexion -> prepare('SELECT shop_car.idproducto, shop_car.quantity, stock FROM sucursal INNER JOIN categoriaproductos ON categoriaproductos.idsucursal = sucursal.idsucursal INNER JOIN productos ON productos.idcategoriaproducto = categoriaproductos.idcategoriaproducto INNER JOIN shop_car ON shop_car.idproducto = productos.idproducto WHERE sucursal.estado = 1 AND productos.estado = 1 AND stock > 0 AND categoriaproductos.estado = 1 AND sucursal.idsucursal = ? AND idusuario = ?');
+        $products = $conexion -> prepare('SELECT shop_car.idproducto, shop_car.quantity, stock, precio FROM sucursal INNER JOIN categoriaproductos ON categoriaproductos.idsucursal = sucursal.idsucursal INNER JOIN productos ON productos.idcategoriaproducto = categoriaproductos.idcategoriaproducto INNER JOIN shop_car ON shop_car.idproducto = productos.idproducto WHERE sucursal.estado = 1 AND productos.estado = 1 AND stock > 0 AND categoriaproductos.estado = 1 AND sucursal.idsucursal = ? AND idusuario = ?');
         $products -> execute(array($restDetail[0][$i], $_SESSION['idusuario']));
         $products = $products -> fetchAll(PDO::FETCH_ASSOC);
 
         foreach($products as $key)
         {
-            $createProdOrder = $conexion -> prepare("INSERT INTO detallepedido VALUES(?, ?, ?)");
-            $createProdOrder -> execute(array($lastID['last_insert_id'], $key['idproducto'], $key['quantity']));
+            $createProdOrder = $conexion -> prepare("INSERT INTO detallepedido VALUES(?, ?, ?, ?)");
+            $createProdOrder -> execute(array($lastID['last_insert_id'], $key['idproducto'], $key['quantity'], $key['precio']));
 
             if($key['quantity'] > $key['stock'])
             {

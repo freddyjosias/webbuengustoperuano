@@ -208,7 +208,7 @@
 }
 
 .fw-400 {
-    font-weight: 400;
+    font-weight: 400 !important;
 }
 
 .h-2r {
@@ -258,7 +258,22 @@
 
 .no-arrow-numer 
 { 
-    -moz-appearance:textfield; 
+    -moz-appearance:textfield;
+}
+
+.lh-15
+{
+    line-height: 1.5;
+}
+
+.lh-20
+{
+    line-height: 2.0;
+}
+
+.lh-25
+{
+    line-height: 2.5;
 }
 
 .ls-13 
