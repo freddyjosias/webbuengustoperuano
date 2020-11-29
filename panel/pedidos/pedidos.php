@@ -91,6 +91,11 @@
         {
             $orderFinish = false;
         }
+    } 
+    else
+    {
+        $orderNoFinish = false;
+        $orderFinish = false;
     }
 
     #var_dump($resultsOrders); die;
