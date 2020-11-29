@@ -1,8 +1,6 @@
 <?php 
 
     require 'conexion.php';
-    header('Cache-Control: no cache');
-    session_cache_limiter('private_no_expire');
     session_start();
 
     if (!isset($_SESSION['idusuario'])) {
