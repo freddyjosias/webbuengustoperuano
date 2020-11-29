@@ -37,6 +37,11 @@
             $orderFinish = false;
         }
     }
+    else
+    {
+        $orderNoFinish = false;
+        $orderFinish = false;
+    }
     
 
    #var_dump($resultsProd); die;
