@@ -8,7 +8,7 @@
     }
 
     $restDetail = $_SESSION['restdata'];
-    #unset($_SESSION['restdata']);
+    unset($_SESSION['restdata']);
     #var_dump( $restDetail);
     #var_dump($_POST); die;
 
@@ -24,7 +24,7 @@
         {
             $stateBuy = 2;
         } 
-        else if($restDetail[2][$i] == 3)
+        else if($restDetail[2][$i] == 2)
         {
             $stateBuy = 1;
         }
