@@ -63,9 +63,6 @@
                 $resultado2 -> execute(array($_SESSION['idusuario'], $_POST['addid'], $_POST['addquantity']));
                 $resultado2 = $resultado2 -> fetchAll(PDO::FETCH_ASSOC);
 
-                $resultado3 = $conexion -> prepare('UPDATE productos SET stock = stock - ? WHERE idproducto = ?');
-                $resultado3 -> execute(array($_POST['addquantity'],$_POST['addid']));
-
                 if ($resultadosAnadir) {
                     $errorAlert = 1;
                 }

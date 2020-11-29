@@ -6,10 +6,16 @@
             <li><a href="nosotros.php?view=<?php echo $idRestaurante ?>" class="op2 h-100">Nosotros</a></li>
                 <?php if ($profileManager == true) { ?>
                     <li><a href="panel/bienvenida/paginabienvenida.php?view=<?php echo $idRestaurante ?>" class='h-100'>Panel</a></li>
-                <?php } ?> 
+                <?php } 
+                
+                $numberCar = $conexion -> prepare('SELECT count(idproducto) as count FROM shop_car WHERE idusuario = ?');
+                $numberCar -> execute(array($_SESSION['idusuario']));
+                $numberCar = $numberCar -> fetch(PDO::FETCH_ASSOC);
+                
+                ?> 
             <li>
                 <a href="carrito.php?view=<?php echo $idRestaurante ?>" class='op3 h-100 align-items-center'>
-                    <i class="fas fa-shopping-cart"> </i>
+                    <i class="fas fa-shopping-cart"> </i> <span class="badge badge-secondary h1 ml-1 bg-white text-dark"><?php echo $numberCar['count'] ?></span>
                 </a>
             </li>
         </ul>

@@ -310,6 +310,36 @@
     max-width: 90%;
 }
 
+.mw-5r 
+{
+    max-width: 5rem;
+}
+
+.mw-4r 
+{
+    max-width: 4rem;
+}
+
+.mw-3r 
+{
+    max-width: 3rem;
+}
+
+.mw-2r 
+{
+    max-width: 2rem;
+}
+
+.mw-1r 
+{
+    max-width: 1rem;
+}
+
+.mw-10p 
+{
+    max-width: 10px;
+}
+
 .no-select{
     -moz-user-select: none; 
     -webkit-user-select: none;
@@ -343,6 +373,18 @@
 .rounded-right-15 {
     border-bottom-right-radius: 15px;
     border-top-right-radius: 15px;
+}
+
+.w-1r {
+    width: 1rem;
+}
+
+.w-2r {
+    width: 2rem;
+}
+
+.w-3r {
+    width: 3rem;
 }
 
 .w-5r {

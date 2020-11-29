@@ -23,6 +23,8 @@
         $restDetail[2][$i] = $_POST['formapago' . $i];
         $i++;
     }
+    
+    $_SESSION['restdata'] = $restDetail;
 
     $onlinePayment = 0;
 
@@ -113,6 +115,8 @@
                         <div class="form-group col-md-4">
                             <label for="inputEmail4">Correo electrónico:</label>
 
+                            <input type="email" class="form-control d-none" value="<?php echo $consultaUsuario['emailusuario'] ?>" name='email' required>
+
                             <fieldset disabled class='m-0 p-0'>
                                 <input type="email" id="disabledTextInput" class="form-control" value="<?php echo $consultaUsuario['emailusuario'] ?>" required>
                             </fieldset>
@@ -148,7 +152,7 @@
                 </div>
 
                 <div class="form-group col-md-2">
-                    <label for="inputAddress2">Teléfono:</label>
+                    <label for="inputAddress2">Celular:</label>
                     <input type="text" class="form-control" id="inputAddress2" placeholder="987 654 321"  value="<?php echo $consultaUsuario['telefonousuario'] ?>" name="telefono" required>
                 </div>
 
@@ -305,12 +309,12 @@
                 
                 <div class="form-group">
                     <label for="exampleInputEmail1">Titular de la Tarjeta:</label>
-                    <input type="text" class="form-control" id="exampleInputEmail1" autocomplete="off" aria-describedby="emailHelp" spellcheck="false" required>
+                    <input type="text" class="form-control" id="exampleInputEmail1" autocomplete="off" aria-describedby="emailHelp" spellcheck="false" name='cardholder' required>
                 </div>
 
                 <div class="form-group">
                     <label for="exampleInputEmail2">Número de Tarjeta:</label>
-                    <input type="text" class="form-control" id="exampleInputEmail2" autocomplete="off" aria-describedby="emailHelp" spellcheck="false" required>
+                    <input type="text" class="form-control" id="exampleInputEmail2" autocomplete="off" aria-describedby="emailHelp" spellcheck="false" name='cardnumber' required>
                 </div>
 
                 <div class="row">
@@ -318,14 +322,14 @@
                     <div class="form-group col-6">
 
                         <label for="exampleInputEmail3">Fecha de Expiración:</label>
-                        <input type="text" class="form-control" id="exampleInputEmail3" aria-describedby="emailHelp" placeholder='MM/AA' required spellcheck="false" autocomplete="off">
+                        <input type="text" class="form-control" id="exampleInputEmail3" aria-describedby="emailHelp" placeholder='MM/AA' required spellcheck="false" name='cardexpirationdate' autocomplete="off">
 
                     </div>
 
                     <div class="form-group col-6">
 
                         <label for="exampleInputEmail4">CVV:</label>
-                        <input type="text" spellcheck="false" class="form-control" id="exampleInputEmail4" aria-describedby="emailHelp" required autocomplete="off">
+                        <input type="text" spellcheck="false" class="form-control" id="exampleInputEmail4" aria-describedby="emailHelp" required name='cardcvv' autocomplete="off">
 
                     </div>
 
