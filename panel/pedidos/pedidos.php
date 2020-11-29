@@ -63,6 +63,10 @@
             header('Location: ../../index.php');
         }
     }
+    else
+    {
+        header('Location: ../../index.php');
+    }
      
     $resultsOrders = $conexion -> prepare('SELECT detallepedido.idproducto, detallepedido.quantity, finished, pedidos.idventa, nomsucursal, descripcionformaspago, descripciontipospedido FROM sucursal INNER JOIN categoriaproductos ON categoriaproductos.idsucursal = sucursal.idsucursal INNER JOIN productos ON productos.idcategoriaproducto = categoriaproductos.idcategoriaproducto INNER JOIN detallepedido ON detallepedido.idproducto = productos.idproducto INNER JOIN pedidos ON pedidos.idventa = detallepedido.idventa INNER JOIN formaspago ON formaspago.idformaspago = pedidos.idformaspago INNER JOIN tipospedido ON tipospedido.idtipospedido = pedidos.idtipospedido WHERE sucursal.idsucursal = ? GROUP BY idventa ORDER BY finished, pedidos_date DESC, pedidos_hour DESC');
     $resultsOrders -> execute(array($_GET['view']));
