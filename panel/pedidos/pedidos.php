@@ -70,7 +70,7 @@
 
     if(isset($resultsOrders[0]))
     {
-        $resultsProd = $conexion -> prepare('SELECT nomproducto, pedidos.idventa FROM sucursal INNER JOIN categoriaproductos ON categoriaproductos.idsucursal = sucursal.idsucursal INNER JOIN productos ON productos.idcategoriaproducto = categoriaproductos.idcategoriaproducto INNER JOIN detallepedido ON detallepedido.idproducto = productos.idproducto INNER JOIN pedidos ON pedidos.idventa = detallepedido.idventa WHERE sucursal.idsucursal = ? GROUP BY productos.idproducto ORDER BY finished, pedidos_date DESC, pedidos_hour DESC');
+        $resultsProd = $conexion -> prepare('SELECT nomproducto, pedidos.idventa FROM sucursal INNER JOIN categoriaproductos ON categoriaproductos.idsucursal = sucursal.idsucursal INNER JOIN productos ON productos.idcategoriaproducto = categoriaproductos.idcategoriaproducto INNER JOIN detallepedido ON detallepedido.idproducto = productos.idproducto INNER JOIN pedidos ON pedidos.idventa = detallepedido.idventa WHERE sucursal.idsucursal = ? GROUP BY productos.idproducto, pedidos.idventa ORDER BY finished, pedidos_date DESC, pedidos_hour DESC');
         $resultsProd -> execute(array($_GET['view']));
         $resultsProd = $resultsProd -> fetchAll(PDO::FETCH_ASSOC);
 
@@ -98,7 +98,7 @@
         $orderFinish = false;
     }
 
-    #var_dump($resultsOrders); die;
+    #var_dump($resultsProd); die;
 
 ?>
 
