@@ -182,7 +182,7 @@
                     { 
                     ?>
 
-                        <p class='w-100 text-center'>Usted no tiene pedidos completados</p>
+                        <p class='w-100 text-center'>Usted no tiene pedidos completados</p>         
 
                     <?php 
                     }
@@ -190,9 +190,83 @@
                     { 
                     ?>
 
+                        <table class="table">
+                        <thead class="thead-light">
+                            <tr>
+                                <th scope="col"  class='w-1r text-center'>N°</th>
+                                <th scope="col" class='w-auto'>Descripción</th>
+                                <th scope="col" class=''>Restaurante</th>
+                                <th scope="col" class='w-10r'>Más</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php
+                            #$k++;
+                            for($i; $i < $countOrders && $resultsOrders[$i]['finished'] == 1; $i++)
+                            {
+                            ?>
+                                <tr>
+                                
+                                    <th scope="row" class='w-1r text-center'><?php echo ($i + 1) ?></th>
+
+                                    <td class='w-auto'>
+                                    
+                                        <?php 
+                                            
+                                            echo 'Orden #' . $resultsOrders[$i]['idventa'] . ' - ';
+                                            
+                                            $countW = 0; 
+                                            while ($resultsProd[$k]['idventa'] == $resultsOrders[$i]['idventa']) 
+                                            {
+                                                $countW++;
+                                                if($countW == 4)
+                                                {
+                                                    echo 'etc.';
+                                                }
+                                                if($countW < 4)
+                                                {
+                                                    echo $resultsProd[$k]['nomproducto'];
+                                                }
+                                                $k++;
+
+                                                if(isset($resultsProd[$k]['idventa']))
+                                                {
+                                                    if($countW < 4)
+                                                    {
+                                                        if($resultsProd[$k]['idventa'] == $resultsOrders[$i]['idventa'])
+                                                        {
+                                                            echo ', ';
+                                                        }
+                                                        else
+                                                        {
+                                                            echo '.';
+                                                        }
+                                                    }
+                                                    
+                                                }
+                                                else
+                                                {
+                                                    break;
+                                                }
+                                            }
+                                        
+                                        ?>
+
+                                    </td>
+
+                                    <td class=''><?php echo $resultsOrders[$i]['nomsucursal'] ?></td>
+
+                                    <td class='py-2 w-10r'><a href="pedido.php?pedido=<?php echo $resultsOrders[$i]['idventa'] ?>" class='btn btn-primary my-0 py-1'>Ver Pedido</a></td>
+                                </tr>
+                            <?php
+                            }
+                            ?>
+                        </tbody>
+                        </table>
+
                     <?php 
                     }
-                    ?>                    
+                    ?>           
                     
                 </div>
                 

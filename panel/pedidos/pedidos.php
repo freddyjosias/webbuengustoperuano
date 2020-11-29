@@ -27,7 +27,7 @@
      if (!isset($_GET['view'])) {
          header('Location: ../../index.php');
      } else {
-        $consultaVerificarRestaurante = 'SELECT * FROM sucursal WHERE estado = 1';
+        $consultaVerificarRestaurante = 'SELECT idsucursal, nomsucursal FROM sucursal WHERE estado = 1';
 
         $idRestaurante;
         $nameRest;
@@ -36,11 +36,14 @@
         $resultados -> execute();
         $resultados = $resultados -> fetchAll(PDO::FETCH_ASSOC);
 
-        foreach($resultados as $row) {
-            if ($row['idsucursal'] ==  $_GET['view']) {
+        foreach($resultados as $row) 
+        {
+            if ($row['idsucursal'] ==  $_GET['view']) 
+            {
                 $idRestaurante = $row['idsucursal'];
                 $nameRest = $row['nomsucursal'];
-            break;
+                break;
+            }
         }
 
         if(!isset($idRestaurante))
@@ -61,11 +64,36 @@
         }
     }
      
-    $resultadosText = $conexion -> prepare('SELECT idventa FROM pedidos WHERE idsucursal = ?');
-    $resultadosText -> execute(array($_GET['view']));
-    $resultadosText = $resultadosText -> fetchAll(PDO::FETCH_ASSOC); 
+    $resultsOrders = $conexion -> prepare('SELECT detallepedido.idproducto, detallepedido.quantity, finished, pedidos.idventa, nomsucursal, descripcionformaspago, descripciontipospedido FROM sucursal INNER JOIN categoriaproductos ON categoriaproductos.idsucursal = sucursal.idsucursal INNER JOIN productos ON productos.idcategoriaproducto = categoriaproductos.idcategoriaproducto INNER JOIN detallepedido ON detallepedido.idproducto = productos.idproducto INNER JOIN pedidos ON pedidos.idventa = detallepedido.idventa INNER JOIN formaspago ON formaspago.idformaspago = pedidos.idformaspago INNER JOIN tipospedido ON tipospedido.idtipospedido = pedidos.idtipospedido WHERE sucursal.idsucursal = ? GROUP BY idventa ORDER BY finished, pedidos_date DESC, pedidos_hour DESC');
+    $resultsOrders -> execute(array($_GET['view']));
+    $resultsOrders = $resultsOrders -> fetchAll(PDO::FETCH_ASSOC);
 
+    if(isset($resultsOrders[0]))
+    {
+        $resultsProd = $conexion -> prepare('SELECT nomproducto, pedidos.idventa FROM sucursal INNER JOIN categoriaproductos ON categoriaproductos.idsucursal = sucursal.idsucursal INNER JOIN productos ON productos.idcategoriaproducto = categoriaproductos.idcategoriaproducto INNER JOIN detallepedido ON detallepedido.idproducto = productos.idproducto INNER JOIN pedidos ON pedidos.idventa = detallepedido.idventa WHERE sucursal.idsucursal = ? GROUP BY productos.idproducto ORDER BY finished, pedidos_date DESC, pedidos_hour DESC');
+        $resultsProd -> execute(array($_GET['view']));
+        $resultsProd = $resultsProd -> fetchAll(PDO::FETCH_ASSOC);
 
+        if($resultsOrders[0]['finished'] == 0)
+        {
+            $orderNoFinish = true;
+        }
+        else
+        {
+            $orderNoFinish = false;
+        }
+
+        if($resultsOrders[count($resultsOrders) - 1]['finished'] == 1)
+        {
+            $orderFinish = true;
+        }
+        else
+        {
+            $orderFinish = false;
+        }
+    }
+
+    #var_dump($resultsOrders); die;
 
 ?>
 
@@ -74,7 +102,7 @@
 <head>
 	<meta charset="utf-8">
 	<link href="https://fonts.googleapis.com/css2?family=Dosis:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <title>Bienvenida</title>
+    <title>Pedidos</title>
     <link rel="shorcut icon" href="../../img/logo-icon-512-color.png">
     <link rel="stylesheet" href="../../fontawesome/css/all.min.css">
     <link rel="stylesheet" type="text/css" href="../../bootstrap/css/bootstrap.css">
@@ -106,80 +134,199 @@
 
                 </div>
 
-                <div class="row w-f14-80 w-90 m-auto contenido-listar">
+                <div class="row w-f14-80 mw-80 m-auto contenido-listar">
                     
                     <h1 class='h3 text-center mt-5 font-weight-bold w-100 this-is-order'>PEDIDOS</h1>
 
                     <h5 class='bg-info p-2 text-white fw-600 mb-3 mt-4 w-100'>PEDIDOS SIN ENTREGAR:</h5> 
 
+                    
                     <?php 
-                    if($resultadosText) 
-                    { 
-                    ?>
-
-                    <table class="table">
-                    <thead class="thead-light">
-                        <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">First</th>
-                        <th scope="col">Last</th>
-                        <th scope="col">Handle</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                        <th scope="row">1</th>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
-                        </tr>
-                        <tr>
-                        <th scope="row">2</th>
-                        <td>Jacob</td>
-                        <td>Thornton</td>
-                        <td>@fat</td>
-                        </tr>
-                        <tr>
-                        <th scope="row">3</th>
-                        <td>Larry</td>
-                        <td>the Bird</td>
-                        <td>@twitter</td>
-                        </tr>
-                    </tbody>
-                    </table>
-
-                    <?php 
-                    } 
-                    else
+                    if(!$orderNoFinish) 
                     { 
                     ?>
 
                         <p class='w-100 text-center'>Usted no tiene pedidos sin entregar</p>
 
                     <?php 
-                    } 
+                    }
+                    else 
+                    { 
+                    ?>
+
+                        <table class="table">
+                        <thead class="thead-light">
+                            <tr>
+                                <th scope="col"  class='w-1r text-center'>N°</th>
+                                <th scope="col" class='w-auto'>Descripción</th>
+                                <th scope="col" class=''>Tipo de Pedido</th>
+                                <th scope="col" class=''>Formas de Pago</th>
+                                <th scope="col" class='w-10r'>Más</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php
+                            $k = 0;
+                            $countOrders = count($resultsOrders);
+                            for($i = 0; $i < $countOrders && $resultsOrders[$i]['finished'] == 0; $i++)
+                            {
+                            ?>
+                                <tr>
+                                
+                                    <th scope="row" class='w-1r text-center'><?php echo ($i + 1) ?></th>
+
+                                    <td class='w-auto'>
+                                    
+                                        <?php 
+                                            
+                                            echo 'Orden #' . $resultsOrders[$i]['idventa'] . ' - ';
+                                            
+                                            $countW = 0; 
+                                            while ($resultsProd[$k]['idventa'] == $resultsOrders[$i]['idventa']) 
+                                            {
+                                                $countW++;
+                                                if($countW == 4)
+                                                {
+                                                    echo 'etc.';
+                                                }
+                                                if($countW < 4)
+                                                {
+                                                    echo $resultsProd[$k]['nomproducto'];
+                                                }
+                                                $k++;
+
+                                                if($countW < 4)
+                                                {
+                                                    if(isset($resultsProd[$k]['idventa']))
+                                                    {
+                                                        if($resultsProd[$k]['idventa'] == $resultsOrders[$i]['idventa'])
+                                                        {
+                                                            echo ', ';
+                                                        }
+                                                        else
+                                                        {
+                                                            echo '.';
+                                                        }
+                                                    }
+                                                    else
+                                                    {
+                                                        echo '.';
+                                                        break;
+                                                    }
+                                                }
+                                            }
+                                        
+                                        ?>
+
+                                    </td>
+
+                                    <td class=''><?php echo $resultsOrders[$i]['descripciontipospedido'] ?></td>
+
+                                    <td class=''><?php echo $resultsOrders[$i]['descripcionformaspago'] ?></td>
+
+                                    <td class='py-2 w-10r'><a href="verpedido.php?view=<?php echo $_GET['view'] ?>&pedido=<?php echo $resultsOrders[$i]['idventa'] ?>" class='btn btn-primary my-0 py-1'>Ver Pedido</a></td>
+                                </tr>
+                            <?php
+                            }
+                            ?>
+                        </tbody>
+                        </table>
+
+                    <?php 
+                    }
                     ?>
 
                     <h5 class='bg-info p-2 text-white fw-600 mb-3 mt-4 w-100'>PEDIDOS ENTREGADOS:</h5>
 
                     <?php 
-                    if($resultadosText) 
+                    if(!$orderFinish) 
                     { 
                     ?>
 
-                        
+                        <p class='w-100 text-center'>Usted no tiene pedidos entregados</p>  
 
                     <?php 
-                    } 
-                    else
-                    {
+                    }
+                    else 
+                    { 
                     ?>
 
-                        <p class='w-100 text-center'>Usted no tiene pedidos entregados</p>      
+                        <table class="table">
+                        <thead class="thead-light">
+                            <tr>
+                                <th scope="col"  class='w-1r text-center'>N°</th>
+                                <th scope="col" class='w-auto'>Descripción</th>
+                                <th scope="col" class=''>Tipo de Pedido</th>
+                                <th scope="col" class=''>Formas de Pago</th>
+                                <th scope="col" class='w-10r'>Más</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php
+                            for($i; $i < $countOrders  && $resultsOrders[$i]['finished'] == 1; $i++)
+                            {
+                            ?>
+                                <tr>
+                                
+                                    <th scope="row" class='w-1r text-center'><?php echo ($i + 1) ?></th>
+
+                                    <td class='w-auto'>
+                                    
+                                        <?php 
+                                            
+                                            echo 'Orden #' . $resultsOrders[$i]['idventa'] . ' - ';
+                                            
+                                            $countW = 0; 
+                                            while ($resultsProd[$k]['idventa'] == $resultsOrders[$i]['idventa']) 
+                                            {
+                                                $countW++;
+                                                if($countW == 4)
+                                                {
+                                                    echo 'etc.';
+                                                }
+                                                if($countW < 4)
+                                                {
+                                                    echo $resultsProd[$k]['nomproducto'];
+                                                }
+                                                $k++;
+
+                                                if(isset($resultsProd[$k]['idventa']) && $countW < 4)
+                                                {
+                                                    if($resultsProd[$k]['idventa'] == $resultsOrders[$i]['idventa'])
+                                                    {
+                                                        echo ', ';
+                                                    }
+                                                    else
+                                                    {
+                                                        echo '.';
+                                                    }
+                                                }
+                                                else
+                                                {
+                                                    break;
+                                                }
+                                            }
+                                        
+                                        ?>
+
+                                    </td>
+
+                                    <td class=''><?php echo $resultsOrders[$i]['descripciontipospedido'] ?></td>
+
+                                    <td class=''><?php echo $resultsOrders[$i]['descripcionformaspago'] ?></td>
+
+                                    <td class='py-2 w-10r'><a href="verpedido.php?view=<?php echo $_GET['view'] ?>&pedido=<?php echo $resultsOrders[$i]['idventa'] ?>" class='btn btn-primary my-0 py-1'>Ver Pedido</a></td>
+                                </tr>
+                            <?php
+                            }
+                            ?>
+                        </tbody>
+                        </table>
 
                     <?php 
-                    } 
-                    ?>
+                    }
+                    ?>  
+
 
                 </div>
 
@@ -196,9 +343,3 @@
 
 </body>
 </html>
-
-<?php
-
-    }
-
-?>
