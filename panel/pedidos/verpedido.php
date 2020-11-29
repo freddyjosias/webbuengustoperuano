@@ -154,7 +154,7 @@
                                 
                                     <td><?php echo $llave['nomproducto'] ?></td>
                                     <td><?php echo $llave['quantity'] ?></td>
-                                    <td>S/. <?php echo $llave['price'] ?></td>
+                                    <td>S/. <?php echo number_format($llave['price'], 2, '.', ' '); ?></td>
                                     <td>S/.<?php 
                                             $Nproducto = $llave['price']*$llave['quantity'];  
                                             echo number_format($Nproducto, 2, '.', ' ');
@@ -192,7 +192,7 @@
                         <tbody>
 
                             <tr class='fw-400'>
-                                <td>S./ <?php echo $NproductoT ?></td>
+                                <td>S./ <?php echo number_format($NproductoT, 2, '.', ' '); ?></td>
                                 <th scope="row" class='fw-400'><?php echo $resultsOrder['descripciontipospedido'] ?></th>
                                 <th scope="row" class='fw-400'><?php echo $resultsOrder['descripcionformaspago'] ?></th>
                                 <td>
