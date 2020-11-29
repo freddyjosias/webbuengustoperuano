@@ -263,6 +263,12 @@
                         </thead>
                         <tbody>
                             <?php
+                            if(!isset($i))
+                            {
+                                $i = 0;
+                                $countOrders = count($resultsOrders);
+                                $k = 0;
+                            }
                             for($i; $i < $countOrders  && $resultsOrders[$i]['finished'] == 1; $i++)
                             {
                             ?>
@@ -290,16 +296,20 @@
                                                 }
                                                 $k++;
 
-                                                if(isset($resultsProd[$k]['idventa']) && $countW < 4)
+                                                if(isset($resultsProd[$k]['idventa']))
                                                 {
-                                                    if($resultsProd[$k]['idventa'] == $resultsOrders[$i]['idventa'])
+                                                    if($countW < 4)
                                                     {
-                                                        echo ', ';
+                                                        if($resultsProd[$k]['idventa'] == $resultsOrders[$i]['idventa'])
+                                                        {
+                                                            echo ', ';
+                                                        }
+                                                        else
+                                                        {
+                                                            echo '.';
+                                                        }
                                                     }
-                                                    else
-                                                    {
-                                                        echo '.';
-                                                    }
+                                                    
                                                 }
                                                 else
                                                 {
