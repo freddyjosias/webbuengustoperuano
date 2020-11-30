@@ -15,7 +15,7 @@
 
     if(isset($resultsOrders[0]))
     {
-        $resultsProd = $conexion -> prepare('SELECT nomproducto, pedidos.idventa FROM productos INNER JOIN detallepedido ON detallepedido.idproducto = productos.idproducto INNER JOIN pedidos ON pedidos.idventa = detallepedido.idventa WHERE idusuario = ? GROUP BY productos.idproducto ORDER BY finished, pedidos_date DESC, pedidos_hour DESC');
+        $resultsProd = $conexion -> prepare('SELECT nomproducto, pedidos.idventa FROM productos INNER JOIN detallepedido ON detallepedido.idproducto = productos.idproducto INNER JOIN pedidos ON pedidos.idventa = detallepedido.idventa WHERE idusuario = ? GROUP BY productos.idproducto, pedidos.idventa ORDER BY finished, pedidos_date DESC, pedidos_hour DESC');
         $resultsProd -> execute(array($_SESSION['idusuario']));
         $resultsProd = $resultsProd -> fetchAll(PDO::FETCH_ASSOC);
 
