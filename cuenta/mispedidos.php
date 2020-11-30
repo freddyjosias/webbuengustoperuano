@@ -180,6 +180,11 @@
                     }
                     ?>
 
+                    <div class='text-right w-100'>
+                        <p class='w-25 ml-auto fs-15'>Si tiene algún problema con sus pedidos contáctenos al siguiente correo: <span class='text-primary'>soporte@buengustoperuano.com</span></p>
+                        
+                    </div>
+
                     <h5 class='bg-info p-2 text-white fw-600 mb-3 mt-4 w-100'>PEDIDOS COMPLETADOS:</h5>
 
                     <?php 
@@ -206,7 +211,12 @@
                         </thead>
                         <tbody>
                             <?php
-                            #$k++;
+                            if(!isset($i))
+                            {
+                                $i = 0;
+                                $countOrders = count($resultsOrders);
+                                $k = 0;
+                            }
                             for($i; $i < $countOrders && $resultsOrders[$i]['finished'] == 1; $i++)
                             {
                             ?>
